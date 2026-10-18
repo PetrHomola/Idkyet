@@ -1,0 +1,533 @@
+<title>Evida ukázka</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a production clipboard — one delivery at a time, tabs along the top, serial numbers set in mono like stamped tags */
+:root {
+  --bg: #eef1f2;
+  --surface: #ffffff;
+  --sunk: #e3e8ea;
+  --ink: #16222b;
+  --muted: #5b6b75;
+  --line: #cfd8dc;
+  --accent: #1d5c78;
+  --accent-ink: #ffffff;
+  --ok: #217a4b;
+  --ok-bg: #e2f2e9;
+  --warn: #9a6200;
+  --warn-bg: #fbefd8;
+  --bad: #b3261e;
+  --bad-bg: #fbe3e1;
+  --paper: #fbfbf8;
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181d; --surface: #18222a; --sunk: #0d1317; --ink: #e4ebef; --muted: #93a4ae; --line: #2a3843;
+    --accent: #6fb3d2; --accent-ink: #0b1a22;
+    --ok: #6fcf98; --ok-bg: #173226; --warn: #f0b75a; --warn-bg: #3a2c12; --bad: #f28b82; --bad-bg: #3b1d1b;
+    --paper: #1d2730;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181d; --surface: #18222a; --sunk: #0d1317; --ink: #e4ebef; --muted: #93a4ae; --line: #2a3843;
+  --accent: #6fb3d2; --accent-ink: #0b1a22;
+  --ok: #6fcf98; --ok-bg: #173226; --warn: #f0b75a; --warn-bg: #3a2c12; --bad: #f28b82; --bad-bg: #3b1d1b;
+  --paper: #1d2730;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.45;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.wrap { max-width: 920px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.mono { font-family: var(--f-mono); font-size: 0.92em; letter-spacing: 0; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+
+/* header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; flex-direction: column; gap: 8px; padding-block: 10px 0; }
+.brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.brand h1 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; }
+.brand .tag { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warn); background: var(--warn-bg); padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+.brand .co { color: var(--muted); font-size: 0.9rem; }
+.tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button {
+  font: 600 0.95rem var(--f-body); color: var(--muted); background: none; border: 0; border-bottom: 3px solid transparent;
+  padding: 8px 12px 9px; cursor: pointer; white-space: nowrap;
+}
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+main .wrap { padding-block: 18px 40px; display: flex; flex-direction: column; gap: 16px; }
+.say { font-size: 0.92rem; color: var(--muted); border-left: 3px solid var(--accent); padding: 4px 0 4px 10px; }
+.say b { color: var(--ink); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.panel h3 { font-size: 1rem; font-weight: 700; }
+.eyebrow { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+/* delivery card */
+.delivery { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: flex-end; justify-content: space-between; }
+.delivery h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; }
+.delivery .meta { color: var(--muted); }
+.ready { display: flex; align-items: baseline; gap: 6px; font-family: var(--f-display); }
+.ready .n { font-size: 2.6rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.ready .of { font-size: 1.1rem; color: var(--muted); font-weight: 600; }
+.units { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; }
+.unit {
+  font: 600 0.72rem var(--f-mono); padding: 8px 0; text-align: center; border-radius: 4px; border: 1px solid transparent;
+  background: var(--ok-bg); color: var(--ok); cursor: pointer;
+}
+.unit.bad { background: var(--bad-bg); color: var(--bad); border-color: var(--bad); }
+.unit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 520px) { .units { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.row { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+.pill { font: 700 0.72rem var(--f-body); text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.ok { background: var(--ok-bg); color: var(--ok); }
+.pill.warn { background: var(--warn-bg); color: var(--warn); }
+.pill.bad { background: var(--bad-bg); color: var(--bad); }
+.pill.neutral { background: var(--sunk); color: var(--muted); }
+.link { color: var(--accent); background: none; border: 0; padding: 0; font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.countdown { display: flex; gap: 12px; align-items: center; background: var(--warn-bg); color: var(--ink); border-radius: 6px; padding: 10px 12px; }
+.countdown .d { font: 800 1.6rem var(--f-display); color: var(--warn); font-variant-numeric: tabular-nums; }
+
+/* unit story */
+.story-head { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.story-head h2 { font: 800 1.6rem var(--f-mono); letter-spacing: -0.02em; }
+.picker { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.picker label { color: var(--muted); font-size: 0.9rem; }
+select, input[type="search"] {
+  font: 600 1rem var(--f-mono); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;
+}
+select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.tree { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.tree li { display: grid; grid-template-columns: minmax(110px, 0.9fr) minmax(90px, 0.7fr) minmax(0, 1.6fr); gap: 8px; padding: 9px 0; border-top: 1px dashed var(--line); align-items: baseline; }
+.tree li:first-child { border-top: 0; }
+.tree .what { font-weight: 600; }
+.tree .src { color: var(--muted); font-size: 0.9rem; }
+@media (max-width: 520px) { .tree li { grid-template-columns: 1fr 1fr; } .tree .src { grid-column: 1 / -1; } }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+.timeline li { position: relative; }
+.timeline li::before { content: ""; position: absolute; left: -20px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.timeline li.bad::before { background: var(--bad); }
+.timeline .when { font: 600 0.8rem var(--f-mono); color: var(--muted); }
+.diff { font: 0.82rem/1.5 var(--f-mono); background: var(--sunk); border-radius: 6px; padding: 8px 10px; overflow-x: auto; white-space: pre; }
+.diff .minus { color: var(--bad); }
+.diff .plus { color: var(--ok); }
+
+/* delivery pack */
+.templates { display: flex; flex-wrap: wrap; gap: 8px; }
+.templates button { font: 600 0.92rem var(--f-body); border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+.templates button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.check li { display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: baseline; }
+.check .ic { font-weight: 800; }
+.check .ic.ok { color: var(--ok); }
+.check .ic.bad { color: var(--bad); }
+.doc { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 0 var(--line), 0 6px 18px -12px rgba(0,0,0,0.35); }
+.doc h4 { margin: 0; font: 800 1rem var(--f-display); text-transform: uppercase; letter-spacing: 0.06em; text-align: center; }
+.doc .small { font-size: 0.85rem; color: var(--muted); }
+.doc .sns { font: 0.8rem/1.6 var(--f-mono); column-width: 92px; column-gap: 12px; }
+.doc .sig { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 10px; font-size: 0.88rem; }
+.btn { font: 700 1rem var(--f-body); background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 6px; padding: 11px 16px; cursor: pointer; align-self: flex-start; }
+.btn.ghost { background: var(--surface); color: var(--accent); border: 1px solid var(--accent); }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.toast { font-weight: 600; color: var(--ok); min-height: 1.4em; }
+
+/* trace-back */
+.searchbar { display: flex; gap: 8px; flex-wrap: wrap; }
+.searchbar input { flex: 1 1 220px; min-width: 0; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chips button { font: 600 0.8rem var(--f-mono); border: 1px solid var(--line); background: var(--sunk); color: var(--ink); padding: 4px 8px; border-radius: 4px; cursor: pointer; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
+.stat { background: var(--sunk); border-radius: 6px; padding: 10px 12px; }
+.stat .v { font: 800 1.6rem var(--f-display); font-variant-numeric: tabular-nums; }
+.stat .k { font-size: 0.82rem; color: var(--muted); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+footer { color: var(--muted); font-size: 0.85rem; }
+@media (prefers-reduced-motion: no-preference) { .screen { animation: fade .18s ease-out; } @keyframes fade { from { opacity: .4 } to { opacity: 1 } } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <h1>Evida</h1>
+      <span class="tag">Ukázka · smyšlená data</span>
+      <span class="co">Vzorová firma: Skřivan Aero s.r.o., Brno · dron Skřivan Q4</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Obrazovky">
+      <button role="tab" id="t-prehled" data-screen="prehled" aria-selected="true">Přehled dodávky</button>
+      <button role="tab" id="t-kus" data-screen="kus" aria-selected="false">Příběh kusu</button>
+      <button role="tab" id="t-spis" data-screen="spis" aria-selected="false">Dodací spis</button>
+      <button role="tab" id="t-hledani" data-screen="hledani" aria-selected="false">Hledání zpět</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- 1. Přehled dodávky -->
+    <section class="screen" id="s-prehled" role="tabpanel" aria-labelledby="t-prehled">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p class="say"><b>Co říct:</b> „Majitel za deset vteřin vidí, jestli příští dodávka projde převzetím, a co ji blokuje.“</p>
+        <div class="panel">
+          <div class="delivery">
+            <div>
+              <div class="eyebrow">Příští dodávka · D-2026-11</div>
+              <h2>AČR · Skřivan Q4 · 20 ks</h2>
+              <div class="meta">Státní ověřování jakosti (SOJ) · konečná kontrola <b>čt 12. 11. 2026</b></div>
+            </div>
+            <div class="ready" aria-label="Připraveno 18 z 20 kusů"><span class="n">18</span><span class="of">/ 20 připraveno</span></div>
+          </div>
+          <div class="units" id="unitGrid"></div>
+          <div class="eyebrow">Klepněte na kus a uvidíte jeho celou historii</div>
+        </div>
+        <div class="grid2">
+          <div class="panel">
+            <h3>Co blokuje dodávku</h3>
+            <ul class="list">
+              <li class="row"><span class="pill bad">Neshoda</span><span><button class="link mono" data-unit="SKR-0152">SKR-0152</button> drhne motor. Po výměně motoru čeká na nový test.</span></li>
+              <li class="row"><span class="pill bad">Chybí</span><span><button class="link mono" data-unit="SKR-0160">SKR-0160</button> nemá log ze zkušební stanice.</span></li>
+              <li class="row"><span class="pill warn">Doklad</span><span>Chybí CoC dodavatele pro šarži GNSS <span class="mono">G-031</span>.</span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Termíny a upozornění</h3>
+            <div class="countdown"><span class="d">3</span><span>pracovní dny na <b>oznámení konečné kontroly</b> zástupci SOJ (do čt 29. 10.)</span></div>
+            <ul class="list">
+              <li class="row"><span class="pill warn">Expirace</span><span>Baterie šarže <span class="mono">L-2207</span> expirují 01/2027. Na skladě 6 ks.</span></li>
+              <li class="row"><span class="pill neutral">Info</span><span>Firmware ve všech 20 kusech: <span class="mono">4.5.1</span>, shoda se zlatou konfigurací 19 / 20.</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Poslední dodávky</h3>
+          <div class="tablebox">
+            <table>
+              <thead><tr><th>Dodávka</th><th>Zákazník</th><th>Kusů</th><th>Odesláno</th><th>Spis</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">D-2026-09</td><td>Zákazník B</td><td>16</td><td>18. 9. 2026</td><td><span class="pill ok">Kompletní</span></td></tr>
+                <tr><td class="mono">D-2026-07</td><td>Zákazník A</td><td>16</td><td>24. 7. 2026</td><td><span class="pill ok">Kompletní</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Příběh kusu -->
+    <section class="screen" id="s-kus" role="tabpanel" aria-labelledby="t-kus" hidden>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p class="say"><b>Co říct:</b> „Celý život jednoho sériového čísla na jedné stránce: z čeho je, co v něm běží, jak prošel zkouškami a kdo ho uvolnil.“</p>
+        <div class="panel">
+          <div class="story-head">
+            <h2 id="storySerial">SKR-0147</h2>
+            <span id="storyStatus"></span>
+            <div class="picker"><label for="unitPick">Jiný kus:</label><select id="unitPick"></select></div>
+          </div>
+          <div class="meta" id="storyMeta" style="color:var(--muted)"></div>
+        </div>
+        <div class="panel">
+          <h3>Z čeho je složený (kit <span class="mono" id="storyKit"></span>)</h3>
+          <ul class="tree" id="storyTree"></ul>
+        </div>
+        <div class="grid2">
+          <div class="panel">
+            <h3>Firmware a nastavení</h3>
+            <div id="storyFw"></div>
+          </div>
+          <div class="panel">
+            <h3>Historie</h3>
+            <ol class="timeline" id="storyTimeline"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Dodací spis -->
+    <section class="screen" id="s-spis" role="tabpanel" aria-labelledby="t-spis" hidden>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p class="say"><b>Co říct:</b> „Dnes skládáte dodací spis dvě až čtyři hodiny z Excelu a Wordu. Tady je to jedno kliknutí a systém hlídá, aby nic nechybělo.“</p>
+        <div class="panel">
+          <h3>Šablona odběratele</h3>
+          <div class="templates" id="templates">
+            <button aria-pressed="true" data-tpl="soj">AČR / SOJ</button>
+            <button aria-pressed="false" data-tpl="prime">Hlavní dodavatel</button>
+            <button aria-pressed="false" data-tpl="ua">Ukrajina: certifikát ke kusu</button>
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="panel">
+            <h3>Obsah spisu pro D-2026-11</h3>
+            <ul class="list check" id="packList"></ul>
+            <div class="btns">
+              <button class="btn" id="makePdf">Vytvořit PDF k podpisu</button>
+            </div>
+            <div class="toast" id="pdfToast" role="status" aria-live="polite"></div>
+          </div>
+          <div class="doc" aria-label="Náhled prohlášení o shodě">
+            <h4 id="docTitle">Prohlášení o shodě (CoC)</h4>
+            <div class="small">Dodavatel: Skřivan Aero s.r.o., Brno · Odběratel: AČR · Smlouva č. 2026/0417 (smyšlené)</div>
+            <div>Potvrzujeme, že níže uvedené kusy výrobku <b>Skřivan Q4</b> byly vyrobeny podle dokumentace rev. <span class="mono">C</span>, prošly výstupní kontrolou a zkušebním letem a odpovídají požadavkům smlouvy.</div>
+            <div class="eyebrow">Sériová čísla (20)</div>
+            <div class="sns" id="docSerials"></div>
+            <div class="small" id="docOrigin">Původ dílů: v kategoriích GNSS, navigace, řídicí deska, rádio a software nejsou díly z CN / RU / IR / KP. Podrobně v příloze 5.</div>
+            <div class="sig"><span>Uvolnila: Jana Malá, kvalita</span><span>Podpis: <span id="sigState">čeká</span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Hledání zpět -->
+    <section class="screen" id="s-hledani" role="tabpanel" aria-labelledby="t-hledani" hidden>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p class="say"><b>Co říct:</b> „Zákazník hlásí nafouknutou baterii. Kterých kusů se to týká? Odpověď je tady za pár vteřin, včetně kusů v opravě a na skladě.“</p>
+        <div class="panel">
+          <label class="eyebrow" for="q">Šarže, sériové číslo nebo verze firmwaru</label>
+          <div class="searchbar">
+            <input type="search" id="q" value="L-2291" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="chips" aria-label="Zkuste">
+            <button data-q="L-2291">L-2291 baterie</button>
+            <button data-q="M-88">M-88 motory</button>
+            <button data-q="G-031">G-031 GNSS</button>
+            <button data-q="4.5.0">firmware 4.5.0</button>
+            <button data-q="SKR-0133">SKR-0133</button>
+          </div>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="panel">
+          <div class="btns">
+            <button class="btn" id="holdBtn">Pozastavit kusy na skladě</button>
+            <button class="btn ghost" id="exportBtn">Seznam pro zákazníka</button>
+          </div>
+          <div class="toast" id="traceToast" role="status" aria-live="polite"></div>
+          <div class="tablebox">
+            <table>
+              <thead><tr><th>Kus</th><th>Stav</th><th>Dodávka</th><th>Zákazník</th><th>Firmware</th></tr></thead>
+              <tbody id="results"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Klikací ukázka produktu. Firma, lidé, zákazníci i data jsou smyšlené. Evida je pracovní název.</footer>
+  </div>
+</main>
+
+<script>
+(function () {
+  // ---------- smyšlená data ----------
+  const SUPPLIERS = {
+    motor: { name: 'Motory', sup: 'Distributor EU (smyšlený)', origin: 'Tchaj-wan', doc: 'faktura + CoC' },
+    esc: { name: 'ESC (regulátory)', sup: 'Výrobce CZ (smyšlený)', origin: 'Česko', doc: 'CoC' },
+    fc: { name: 'Řídicí deska', sup: 'Výrobce PL (smyšlený)', origin: 'Polsko', doc: 'CoC' },
+    gnss: { name: 'GNSS modul', sup: 'Výrobce CH (smyšlený)', origin: 'Švýcarsko', doc: 'faktura · bez štítku dodavatele' },
+    bat: { name: 'Baterie', sup: 'Distributor DE (smyšlený)', origin: 'Jižní Korea', doc: 'CoC + celní doklad' },
+    arms: { name: 'Tištěná ramena', sup: 'vlastní tisk (Prusa CORE One)', origin: 'Česko', doc: 'soubor sha256 7f3a…c91, filament PETG-CF šarže F-118' },
+  };
+  const units = [];
+  const pad = n => String(n).padStart(4, '0');
+  function add(n, o) { units.push(Object.assign({ sn: 'SKR-' + pad(n), kit: 'K-' + n }, o)); }
+  // D-2026-07: SKR-0101..0116
+  for (let n = 101; n <= 116; n++) add(n, { del: 'D-2026-07', cust: 'Zákazník A', state: 'Odesláno', fw: '4.4.2', lots: { motor: 'M-85', esc: 'E-401', fc: 'FC-0081', gnss: 'G-027', bat: n <= 114 ? 'L-2291' : 'L-2207', arms: 'P-0870' }, built: '7. 7. 2026', shipped: '24. 7. 2026' });
+  // D-2026-09: SKR-0117..0132
+  for (let n = 117; n <= 132; n++) add(n, { del: 'D-2026-09', cust: 'Zákazník B', state: 'Odesláno', fw: '4.5.0', lots: { motor: 'M-86', esc: 'E-405', fc: 'FC-0088', gnss: 'G-027', bat: n <= 128 ? 'L-2291' : 'L-2207', arms: 'P-0889' }, built: '2. 9. 2026', shipped: '18. 9. 2026' });
+  // vrácený kus v opravě
+  add(133, { del: 'D-2026-09', cust: 'Zákazník B', state: 'V opravě', fw: '4.5.2', lots: { motor: 'M-86', esc: 'E-405', fc: 'FC-0088', gnss: 'G-027', bat: 'L-2291', arms: 'P-0889' }, built: '2. 9. 2026', shipped: '18. 9. 2026', returned: '9. 10. 2026' });
+  // sklad
+  for (let n = 134; n <= 140; n++) add(n, { del: '—', cust: '—', state: 'Sklad', fw: '4.5.1', lots: { motor: 'M-88', esc: 'E-409', fc: 'FC-0093', gnss: 'G-031', bat: n <= 137 ? 'L-2291' : 'L-2295', arms: 'P-0905' }, built: '30. 9. 2026' });
+  // D-2026-11: SKR-0141..0160 (připravuje se)
+  for (let n = 141; n <= 160; n++) add(n, { del: 'D-2026-11', cust: 'AČR', state: 'Připraveno', fw: '4.5.1', lots: { motor: n === 152 ? 'M-90' : 'M-88', esc: 'E-409', fc: 'FC-0093', gnss: 'G-031', bat: (n >= 142 && n <= 147) ? 'L-2291' : 'L-2295', arms: 'P-0912' }, built: '14. 10. 2026' });
+  const bySn = Object.fromEntries(units.map(u => [u.sn, u]));
+  bySn['SKR-0152'].state = 'Neshoda';
+  bySn['SKR-0160'].state = 'Chybí log';
+  const current = units.filter(u => u.del === 'D-2026-11');
+
+  function pillFor(state) {
+    const cls = { 'Připraveno': 'ok', 'Odesláno': 'ok', 'Sklad': 'neutral', 'V opravě': 'warn', 'Neshoda': 'bad', 'Chybí log': 'bad', 'Pozastaveno': 'warn' }[state] || 'neutral';
+    return '<span class="pill ' + cls + '">' + state + '</span>';
+  }
+
+  // ---------- přepínání obrazovek ----------
+  const tabs = Array.from(document.querySelectorAll('.tabs button'));
+  function show(name) {
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.screen === name)));
+    document.querySelectorAll('.screen').forEach(s => { s.hidden = s.id !== 's-' + name; });
+    try { localStorage.setItem('evida-tab', name); } catch (e) {}
+    window.scrollTo({ top: 0 });
+  }
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.screen)));
+  const fromHash = (location.hash || '').replace('#', '');
+  let startTab = ['prehled', 'kus', 'spis', 'hledani'].includes(fromHash) ? fromHash : null;
+  if (!startTab) { try { startTab = localStorage.getItem('evida-tab'); } catch (e) {} }
+  if (startTab && document.getElementById('s-' + startTab)) show(startTab);
+
+  // ---------- 1. přehled ----------
+  const grid = document.getElementById('unitGrid');
+  grid.innerHTML = current.map(u => {
+    const bad = u.state !== 'Připraveno';
+    return '<button class="unit' + (bad ? ' bad' : '') + '" data-unit="' + u.sn + '" title="' + u.sn + ': ' + u.state + '">' + u.sn.slice(4) + '</button>';
+  }).join('');
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-unit]');
+    if (b) { renderStory(b.dataset.unit); show('kus'); }
+  });
+
+  // ---------- 2. příběh kusu ----------
+  const pick = document.getElementById('unitPick');
+  pick.innerHTML = units.map(u => '<option value="' + u.sn + '">' + u.sn + '</option>').join('');
+  pick.addEventListener('change', () => renderStory(pick.value));
+
+  function renderStory(sn) {
+    const u = bySn[sn]; if (!u) return;
+    pick.value = sn;
+    document.getElementById('storySerial').textContent = sn;
+    document.getElementById('storyStatus').innerHTML = pillFor(u.state);
+    document.getElementById('storyMeta').textContent = 'Skřivan Q4 · dokumentace rev. C · ' + (u.del !== '—' ? 'dodávka ' + u.del + (u.cust !== '—' ? ' · ' + u.cust : '') : 'na skladě');
+    document.getElementById('storyKit').textContent = u.kit;
+    document.getElementById('storyTree').innerHTML = Object.keys(SUPPLIERS).map(k => {
+      const s = SUPPLIERS[k];
+      return '<li><span class="what">' + s.name + '</span><span class="mono">' + u.lots[k] + '</span><span class="src">' + s.sup + ' · původ ' + s.origin + ' · ' + s.doc + '</span></li>';
+    }).join('');
+
+    let fw = '<ul class="list">' +
+      '<li class="row"><span class="pill neutral">Verze</span><span class="mono">Betaflight ' + u.fw + '</span></li>' +
+      '<li class="row"><span class="pill neutral">Deska</span><span class="mono">ID ' + (0x3a40 + parseInt(sn.slice(4), 10)).toString(16).toUpperCase() + '-STM32H7</span></li>';
+    if (sn === 'SKR-0147') {
+      fw += '<li class="row"><span class="pill ok">Opraveno</span><span>Nastavení se lišilo od zlaté konfigurace v jednom řádku. Technik opravil, systém zapsal novou verzi.</span></li></ul>' +
+        '<div class="diff"><span class="minus">- set failsafe_procedure = DROP</span>\n<span class="plus">+ set failsafe_procedure = GPS_RESCUE</span></div>';
+    } else if (sn === 'SKR-0133') {
+      fw += '<li class="row"><span class="pill warn">Oprava</span><span>Po vrácení nahrán firmware <span class="mono">4.5.2</span>, nastavení odpovídá zlaté konfiguraci.</span></li></ul>';
+    } else {
+      fw += '<li class="row"><span class="pill ok">Shoda</span><span>Nastavení odpovídá zlaté konfiguraci.</span></li></ul>';
+    }
+    document.getElementById('storyFw').innerHTML = fw;
+
+    const tl = [];
+    tl.push(['14:02', u.built, 'Montáž: kit ' + u.kit + ' naskenován, montoval Tomáš K.']);
+    if (u.state === 'Chybí log') {
+      tl.push(['15:40', u.built, 'Konec linky: firmware načten z desky. <b>Log ze zkušební stanice chybí.</b>', 'bad']);
+    } else {
+      tl.push(['15:40', u.built, 'Konec linky: firmware načten z desky, log zkušební stanice přiložen (OK).']);
+    }
+    if (u.state === 'Neshoda') {
+      tl.push(['16:15', u.built, '<b>Neshoda NC-0219:</b> drhne motor 3. Vyměněn za motor ze šarže M-90, čeká na nový test.', 'bad']);
+    } else if (u.state !== 'Chybí log') {
+      tl.push(['09:30', u.built, 'Zkušební let 6 min, bez výhrad. Zapsáno offline na letišti.']);
+      tl.push(['11:05', u.built, 'Uvolnila Jana M. (kvalita).']);
+    }
+    if (u.shipped) tl.push(['08:00', u.shipped, 'Odesláno v dodávce ' + u.del + ' (' + u.cust + ').']);
+    if (u.returned) tl.push(['10:20', u.returned, '<b>Vráceno:</b> zákazník hlásí nafouknutou baterii (šarže L-2291). Oprava probíhá.', 'bad']);
+    document.getElementById('storyTimeline').innerHTML = tl.map(r => '<li class="' + (r[3] || '') + '"><div class="when">' + r[1] + ' · ' + r[0] + '</div><div>' + r[2] + '</div></li>').join('');
+  }
+  renderStory('SKR-0147');
+
+  // ---------- 3. dodací spis ----------
+  const PACKS = {
+    soj: { title: 'Prohlášení o shodě (CoC)', items: [
+      ['ok', 'Prohlášení o shodě se seznamem 20 sériových čísel', ''],
+      ['bad', 'Protokoly zkoušek', '18 / 20'],
+      ['ok', 'Záznamy zkušebních letů', '20 / 20'],
+      ['ok', 'Balicí list', ''],
+      ['ok', 'Prohlášení o zbývající trvanlivosti baterií', ''],
+      ['ok', 'Prohlášení o původu dílů po kategoriích', ''],
+      ['bad', 'CoC dodavatelů k použitým šaržím', '5 / 6'],
+      ['ok', 'Oznámení konečné kontroly zástupci SOJ', 'termín 29. 10.'],
+    ]},
+    prime: { title: 'Certificate of Conformity', items: [
+      ['ok', 'CoC se seznamem sériových čísel (EN)', ''],
+      ['bad', 'Test reports', '18 / 20'],
+      ['ok', 'As-built list: šarže dílů ke každému kusu', ''],
+      ['ok', 'Component origin declaration', ''],
+      ['ok', 'Packing list', ''],
+    ]},
+    ua: { title: 'Сертифікат якості (на кожен виріб)', items: [
+      ['ok', 'Certifikát kvality ke každému kusu (UA)', '20 ks'],
+      ['bad', 'Výsledky zkoušek ke každému kusu', '18 / 20'],
+      ['ok', 'Seznam sériových čísel a verzí firmwaru', ''],
+      ['ok', 'Vývozní licence MPO', 'č. doplnit'],
+    ]},
+  };
+  let tpl = 'soj';
+  function renderPack() {
+    const p = PACKS[tpl];
+    document.getElementById('docTitle').textContent = p.title;
+    document.getElementById('packList').innerHTML = p.items.map(i =>
+      '<li><span class="ic ' + i[0] + '">' + (i[0] === 'ok' ? '✓' : '!') + '</span><span>' + i[1] + '</span><span class="mono" style="color:var(--muted)">' + i[2] + '</span></li>').join('');
+    document.getElementById('pdfToast').textContent = '';
+    document.getElementById('sigState').textContent = 'čeká';
+  }
+  document.querySelectorAll('#templates button').forEach(b => b.addEventListener('click', () => {
+    tpl = b.dataset.tpl;
+    document.querySelectorAll('#templates button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    renderPack();
+  }));
+  document.getElementById('docSerials').innerHTML = current.map(u => '<div>' + u.sn + '</div>').join('');
+  document.getElementById('makePdf').addEventListener('click', () => {
+    const missing = PACKS[tpl].items.filter(i => i[0] === 'bad').length;
+    document.getElementById('pdfToast').textContent = missing
+      ? 'Koncept vytvořen. Před podpisem doplňte ' + missing + ' ' + (missing === 1 ? 'položku' : 'položky') + ' označené vykřičníkem. (Ukázka, PDF se nevytváří.)'
+      : 'PDF připraveno k podpisu. (Ukázka, PDF se nevytváří.)';
+    document.getElementById('sigState').textContent = missing ? 'nelze, chybí doklady' : 'připraveno';
+  });
+  renderPack();
+
+  // ---------- 4. hledání zpět ----------
+  const q = document.getElementById('q');
+  let held = new Set();
+  function match(u, term) {
+    term = term.trim().toUpperCase();
+    if (!term) return false;
+    if (u.sn.toUpperCase() === term) return true;
+    if (u.fw === term || u.fw === term.replace(/^V/, '')) return true;
+    return Object.values(u.lots).some(l => l.toUpperCase() === term);
+  }
+  function renderTrace() {
+    const term = q.value;
+    const hits = units.filter(u => match(u, term));
+    const deliveries = new Set(hits.filter(u => u.del !== '—').map(u => u.del));
+    const customers = new Set(hits.filter(u => u.shipped).map(u => u.cust));
+    const stock = hits.filter(u => u.state === 'Sklad' || u.state === 'Pozastaveno');
+    const repair = hits.filter(u => u.state === 'V opravě');
+    const stat = (v, k) => '<div class="stat"><div class="v">' + v + '</div><div class="k">' + k + '</div></div>';
+    document.getElementById('stats').innerHTML =
+      stat(hits.length, 'kusů') + stat(deliveries.size, 'dodávek') + stat(customers.size, 'zákazníků (odesláno)') +
+      stat(repair.length, 'v opravě') + stat(stock.length, 'na skladě');
+    document.getElementById('results').innerHTML = hits.length ? hits.map(u =>
+      '<tr><td><button class="link mono" data-unit="' + u.sn + '">' + u.sn + '</button></td><td>' + pillFor(held.has(u.sn) ? 'Pozastaveno' : u.state) +
+      '</td><td class="mono">' + u.del + '</td><td>' + u.cust + '</td><td class="mono">' + u.fw + '</td></tr>').join('')
+      : '<tr><td colspan="5" style="color:var(--muted)">Nic nenalezeno. Zkuste šarži (L-2291, M-88, G-031), sériové číslo (SKR-0147) nebo verzi firmwaru (4.5.0).</td></tr>';
+    document.getElementById('traceToast').textContent = '';
+    return { hits, stock };
+  }
+  q.addEventListener('input', renderTrace);
+  document.querySelectorAll('.chips button').forEach(b => b.addEventListener('click', () => { q.value = b.dataset.q; renderTrace(); }));
+  document.getElementById('holdBtn').addEventListener('click', () => {
+    const r = units.filter(u => match(u, q.value) && u.state === 'Sklad');
+    r.forEach(u => { held.add(u.sn); u.state = 'Pozastaveno'; });
+    renderTrace();
+    document.getElementById('traceToast').textContent = r.length ? 'Pozastaveno ' + r.length + ' ks na skladě a založena neshoda (ukázka).' : 'Žádné kusy na skladě k pozastavení.';
+  });
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    const r = units.filter(u => match(u, q.value) && u.shipped);
+    document.getElementById('traceToast').textContent = 'Seznam pro zákazníky: ' + r.length + ' odeslaných kusů, rozdělený podle zákazníka (ukázka, soubor se nevytváří).';
+  });
+  renderTrace();
+})();
+</script>
