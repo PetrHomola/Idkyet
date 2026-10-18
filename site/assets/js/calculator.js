@@ -27,6 +27,9 @@ const PREVIEW_ROWS = 6;
 const LINE_PAGE = 300;
 const WARN_SHOWN = 12;
 const DECL_LANGS = ['cs', 'sk', 'en'];
+// Shown in the printed report and the footer. METHOD_DATE is filled in by the build from config.json (UPDATED).
+const APP_VERSION = '1.0.0';
+const METHOD_DATE = '{{UPDATED}}';
 const LANG_CODE = { cs: 'CZ', sk: 'SK', en: 'EN' };
 
 const BRAND = (document.documentElement.dataset.brand || '').trim();
@@ -57,6 +60,8 @@ const state = {
   lineLimit: LINE_PAGE,
   idIndex: new Map(),
   minSet: new Set(),
+  // what the result was calculated from, for the printed report: { name, hash, edited, origin? }
+  sourceInfo: null,
 };
 
 /* -------------------------------------------------------------------- helpers */
@@ -90,6 +95,19 @@ function addDays(iso, days) {
   if (!m) return '';
   const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3] + days));
   return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
+}
+
+// SHA-256 as hex, computed locally (Web Crypto). null where the browser does not offer it.
+async function sha256Hex(data) {
+  try {
+    const subtle = globalThis.crypto && globalThis.crypto.subtle;
+    if (!subtle) return null;
+    const buf = typeof data === 'string' ? new TextEncoder().encode(data) : data;
+    const digest = await subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
+  } catch {
+    return null;
+  }
 }
 
 function isIsoDate(v) {
@@ -253,6 +271,18 @@ function categoryLabel(id) {
   return c ? c[state.lang] || c.cs : id;
 }
 
+// Raw materials are excluded and in-house lines need no origin evidence, so they get a neutral
+// status of their own instead of "unknown" or "stated, not documented".
+function rowStatus(line) {
+  const ty = typeOf(line);
+  return ty === 'raw' ? 'raw' : ty === 'inhouse' ? 'inhouse' : statusOf(line);
+}
+
+function statusBadge(line) {
+  const st = rowStatus(line);
+  return `<span class="badge badge--${st}">${esc(t(`status.${st}`))}</span>`;
+}
+
 function isUndocumented(line) {
   return typeOf(line) === 'tier1' && statusOf(line) !== 'documented';
 }
@@ -321,6 +351,15 @@ function applyStatic() {
     if (href) el.setAttribute('href', href);
   }
   for (const b of $$('#lang-switch [data-setlang]')) b.setAttribute('aria-pressed', String(b.dataset.setlang === L));
+  const ver = $('#app-version');
+  if (ver) ver.textContent = t('footer.version', { version: APP_VERSION, method: METHOD_DATE });
+  updateBuyerHint();
+}
+
+// The supplier declaration prints the buyer's name; say so while the field is empty.
+function updateBuyerHint() {
+  const hint = $('#rq-buyer-hint');
+  if (hint) hint.hidden = Boolean(String(state.settings.buyer || '').trim());
 }
 
 /* ------------------------------------------------------------------- toasts */
@@ -496,12 +535,23 @@ function cleanRows(rows) {
     .filter((r) => r.some((c) => c.trim() !== ''));
 }
 
-function setSource(name, rawRows) {
+function trackSource(name, raw, extra) {
+  const info = { name, hash: null, edited: false, ...extra };
+  state.sourceInfo = info;
+  sha256Hex(raw).then((hash) => {
+    if (state.sourceInfo !== info) return;
+    info.hash = hash;
+    renderPrintHead(state.result);
+  });
+}
+
+function setSource(name, rawRows, raw) {
   const rows = cleanRows(rawRows);
   if (rows.length < 2) {
     setStatus($('#data-status'), () => esc(t('data.empty')), 'bad');
     return;
   }
+  trackSource(name, raw ?? '');
   const { index } = findHeader(rows);
   let mapping;
   try {
@@ -587,12 +637,13 @@ async function handleFile(file) {
           bestRows = rows;
         }
       }
-      setSource(name, bestRows);
+      setSource(name, bestRows, buf);
       return;
     }
     if (['csv', 'tsv', 'txt', ''].includes(ext) || /^text\//.test(file.type)) {
-      const text = decodeText(await file.arrayBuffer());
-      setSource(name, parseTable(text));
+      const buf = await file.arrayBuffer();
+      const text = decodeText(buf);
+      setSource(name, parseTable(text), buf);
       return;
     }
     setStatus(status, () => esc(t('data.unsupported')), 'bad');
@@ -614,7 +665,7 @@ async function loadSample() {
       if (!res.ok) throw new Error(String(res.status));
       text = decodeText(await res.arrayBuffer());
     }
-    setSource({ key: 'data.source.sample' }, parseTable(text));
+    setSource({ key: 'data.source.sample' }, parseTable(text), text);
   } catch {
     setStatus(status, () => esc(t('data.sampleError')), 'bad');
   }
@@ -626,7 +677,7 @@ function loadPasted() {
     $('#paste-area').focus();
     return;
   }
-  setSource({ key: 'data.source.paste' }, parseTable(text));
+  setSource({ key: 'data.source.paste' }, parseTable(text), text);
 }
 
 /* ------------------------------------------------------------ project JSON */
@@ -636,7 +687,9 @@ function projectObject() {
     format: 'cirus-origin-project',
     version: 1,
     savedAt: new Date().toISOString(),
-    source: state.source ? srcName(state.source.name) : null,
+    source: state.source ? srcName(state.source.name) : (state.sourceInfo?.origin?.name ?? null),
+    sourceSha256: state.source ? (state.sourceInfo?.hash ?? null) : (state.sourceInfo?.origin?.hash ?? null),
+    editedAfterImport: Boolean(state.sourceInfo?.edited || state.sourceInfo?.origin?.edited),
     implicitCurrency: state.implicitCurrency,
     settings: { ...state.settings, fx: { ...state.settings.fx }, risk: [...state.settings.risk] },
     lines: state.lines,
@@ -646,8 +699,10 @@ function projectObject() {
 async function loadProjectFile(file) {
   const status = $('#data-status');
   let data;
+  let raw = '';
   try {
-    data = JSON.parse(await file.text());
+    raw = await file.text();
+    data = JSON.parse(raw);
   } catch {
     data = null;
   }
@@ -674,6 +729,12 @@ async function loadProjectFile(file) {
   state.lines = data.lines.filter((l) => l && typeof l === 'object');
   state.errors = [];
   state.source = null;
+  trackSource(file.name || 'JSON', raw, {
+    project: true,
+    origin: typeof data.source === 'string' && data.source
+      ? { name: data.source, hash: typeof data.sourceSha256 === 'string' ? data.sourceSha256 : null, edited: data.editedAfterImport === true }
+      : null,
+  });
   state.implicitCurrency = data.implicitCurrency === true;
   reindex();
   ensureFxForLines();
@@ -814,6 +875,7 @@ function renderSettings() {
   $('#set-today').value = st.today;
   $('#set-risk').value = st.risk.join(', ');
   $('#rq-buyer').value = st.buyer;
+  updateBuyerHint();
   $('#rq-deadline').value = st.deadline;
   renderFx();
 }
@@ -955,7 +1017,7 @@ function barHtml(r, m, s) {
         <span class="bar__thr"></span><span class="bar__thr bar__thr--home" style="--thr:80%"></span>
       </div>
       <div class="bar-row__val">
-        <span class="bar-row__pct mono">${esc(fmtPct(shares.other))}</span> ${tag}
+        <span class="bar-row__pct">${esc(fmtPct(shares.other))}</span> ${tag}
         <small class="mono">${esc(t('canada.other'))} ${esc(fmtPct(shares.other))} · ${esc(t('canada.ca'))} ${esc(fmtPct(shares.ca))} · ${esc(t('canada.home'))} ${esc(fmtPct(shares.home))}</small>
       </div>
     </div>`;
@@ -965,11 +1027,11 @@ function barHtml(r, m, s) {
   const aria = t('bar.aria', { method: t(`method.${m}`), scenario: t(`scen.${s}`), ratio: fmtPct(ratio), thr: fmtPct0(thr), result: res });
   return `<div class="bar-row">
     ${label}
-    <div class="bar ${pass ? 'bar--pass' : 'bar--fail'}" role="img" aria-label="${esc(aria)}" data-key="${m}-${s}" style="--v:${width.toFixed(2)}%;--k:${(width / 100).toFixed(4)};--thr:${(thr * 100).toFixed(2)}%">
+    <div class="bar ${pass ? 'bar--pass' : 'bar--fail'}" role="img" aria-label="${esc(aria)}" data-key="${m}-${s}" style="--v:${width.toFixed(2)}%;--thr:${(thr * 100).toFixed(2)}%">
       <span class="bar__track"><span class="bar__fill"></span></span><span class="bar__thr"></span>
     </div>
     <div class="bar-row__val">
-      <span class="bar-row__pct mono">${esc(fmtPct(ratio))}</span> ${tag}
+      <span class="bar-row__pct">${esc(fmtPct(ratio))}</span> ${tag}
       <small class="mono">${esc(t('bar.of', { part: fmtMoney(num(sc.nonHome)), whole: fmtMoney(num(md?.denominator)) }))}</small>
     </div>
   </div>`;
@@ -1010,22 +1072,22 @@ function riskInfo(r) {
   return { count: lines.length, codes: Array.from(new Set(lines.map(effOrigin))).sort() };
 }
 
-// Presentation: after a re-render each scenario bar grows from its previous value (or from zero),
-// so a recompute reads as a change rather than a jump. CSS transitions do the motion and are
-// switched off for prefers-reduced-motion.
+// Presentation: after a re-render each scenario bar grows or shrinks from its previous value (or from
+// zero), so a recompute reads as a change rather than a jump. The fill is clipped, not scaled, so the
+// red part always starts exactly at the limit. CSS transitions do the motion (off for reduced motion).
 function animateBars(box, prev) {
   const moved = [];
   for (const bar of box.querySelectorAll('.bar[data-key]')) {
     const fill = bar.querySelector('.bar__fill');
-    const to = bar.style.getPropertyValue('--k');
+    const to = bar.style.getPropertyValue('--v');
     const from = prev.get(bar.dataset.key);
     if (!fill || from === to) continue;
-    fill.style.transform = `scaleX(${from || 0})`;
+    fill.style.clipPath = `inset(0 calc(100% - ${from || '0%'}) 0 0 round 999px)`;
     moved.push(fill);
   }
   if (!moved.length) return;
   void box.offsetWidth; // commit the start values before releasing them
-  for (const fill of moved) fill.style.transform = '';
+  for (const fill of moved) fill.style.clipPath = '';
 }
 
 function renderVerdict(r) {
@@ -1035,7 +1097,7 @@ function renderVerdict(r) {
     delete box.dataset.st;
     return;
   }
-  const prevBars = new Map(Array.from(box.querySelectorAll('.bar[data-key]'), (b) => [b.dataset.key, b.style.getPropertyValue('--k')]));
+  const prevBars = new Map(Array.from(box.querySelectorAll('.bar[data-key]'), (b) => [b.dataset.key, b.style.getPropertyValue('--v')]));
   const prevSt = box.dataset.st;
   const v = r.verdict || {};
   const st = overallVerdict(r);
@@ -1082,7 +1144,7 @@ function renderHeadroom(r) {
     const pct = den > 0 ? Math.abs(amount) / den : NaN;
     return `<div class="hr hr--${plus ? 'plus' : 'minus'}">
       <p class="hr__scen">${esc(t(`scen.${s}`))}</p>
-      <p class="hr__amount mono">${plus ? '+' : '−'}${esc(fmtMoney(Math.abs(amount)))}</p>
+      <p class="hr__amount">${plus ? '+' : '\u2212'}${esc(fmtMoney(Math.abs(amount)))}</p>
       <p class="hr__text">${esc(t(plus ? 'hr.plus' : 'hr.minus', { amount: fmtMoney(Math.abs(amount)) }))}</p>
       <p class="hint">${esc(t('hr.method', { m: x.method || 'a', pct: fmtPct(pct) }))}</p>
     </div>`;
@@ -1095,7 +1157,6 @@ function linesTableHtml(ids, { caption }) {
   const rows = lines.map((l, i) => {
     const c = costOf(l);
     if (Number.isFinite(c)) sum += c;
-    const st = statusOf(l);
     return `<tr>
       <td class="num muted">${i + 1}</td>
       <td class="pn">${esc(l.partNo || '')}</td>
@@ -1103,7 +1164,7 @@ function linesTableHtml(ids, { caption }) {
       <td class="sup">${esc(l.supplier || '')}</td>
       <td class="nowrap">${ccHtml(effOrigin(l), false)}</td>
       <td class="num mono">${esc(fmtNum(c))}</td>
-      <td><span class="badge badge--${st}">${esc(t(`status.${st}`))}</span></td>
+      <td>${statusBadge(l)}</td>
     </tr>`;
   }).join('');
   return `<div class="table-scroll"><table class="tbl">
@@ -1171,29 +1232,41 @@ function categoryRows(r) {
   });
 }
 
-function categoryTotals(rows) {
-  const sum = (k) => rows.reduce((a, x) => a + (Number.isFinite(x[k]) ? x[k] : 0), 0);
-  const total = sum('total');
-  const nonHome = sum('nonHome');
-  return { label: t('cat.total'), total, nonHome, undoc: sum('undoc'), share: total > 0 ? nonHome / total : NaN, contrib: sum('contrib') };
-}
-
 function categoryMethod(r) {
   // calc-core computes the category contributions with the method that is more favourable in the expected case.
   return r?.verdict?.expected?.method || 'a';
 }
 
-function renderCategories(r) {
+// The table the Commission template asks for, consistent with the method it states: under method (b)
+// the in-house sub-assemblies are a row of their own (they only enlarge the denominator), and the
+// share in the Total row is the non-EU cost over that method's denominator, so it equals the sum of
+// the contributions and the ratio shown in the verdict.
+function categoryTable(r) {
   const rows = categoryRows(r);
-  $('#cat-hint').textContent = t('cat.hint', { m: categoryMethod(r) });
+  const m = categoryMethod(r);
+  const inhouse = num(r?.totals?.inhouse);
+  const extra = m === 'b' && methodUsed(r, 'b') && inhouse > 0
+    ? [{ id: 'inhouse', label: t('cat.inhouse'), note: t('cat.inhouseNote'), total: inhouse, nonHome: NaN, undoc: NaN, share: NaN, contrib: NaN }]
+    : [];
+  const sum = (list, k) => list.reduce((a, x) => a + (Number.isFinite(x[k]) ? x[k] : 0), 0);
+  const total = sum(rows, 'total') + sum(extra, 'total');
+  const nonHome = sum(rows, 'nonHome');
+  const den = num(methodData(r, m)?.denominator);
+  const base = den > 0 ? den : total;
+  const tot = { label: t('cat.total'), total, nonHome, undoc: sum(rows, 'undoc'), share: base > 0 ? nonHome / base : NaN, contrib: sum(rows, 'contrib') };
+  return { rows, extra, tot, m };
+}
+
+function renderCategories(r) {
+  const { rows, extra, tot, m } = categoryTable(r);
+  $('#cat-hint').textContent = t('cat.hint', { m });
   const box = $('#categories');
   if (!rows.length) {
     box.innerHTML = '';
     return;
   }
-  const tot = categoryTotals(rows);
-  const tr = (x, isTotal) => `<tr${isTotal ? ' class="is-total"' : ''}>
-    <th scope="row">${esc(x.label)}</th>
+  const tr = (x, isTotal) => `<tr${isTotal ? ' class="is-total"' : x.id === 'inhouse' ? ' class="is-inhouse"' : ''}>
+    <th scope="row">${esc(x.label)}${x.note ? `<small class="cat-note">${esc(x.note)}</small>` : ''}</th>
     <td class="num mono">${esc(fmtNum(x.total))}</td>
     <td class="num mono">${esc(fmtNum(x.nonHome))}</td>
     <td class="num mono">${esc(fmtNum(x.undoc))}</td>
@@ -1210,17 +1283,17 @@ function renderCategories(r) {
       <th scope="col" class="num">${esc(t('cat.col.share'))}</th>
       <th scope="col" class="num">${esc(t('cat.col.contrib'))}</th>
     </tr></thead>
-    <tbody>${rows.map((x) => tr(x, false)).join('')}</tbody>
+    <tbody>${[...rows, ...extra].map((x) => tr(x, false)).join('')}</tbody>
     <tfoot>${tr(tot, true)}</tfoot>
   </table></div>`;
 }
 
 function categoriesTsv() {
-  const rows = categoryRows(state.result);
+  const { rows, extra, tot } = categoryTable(state.result);
   const cur = state.settings.currency;
   const out = [[t('cat.col.cat'), `${t('cat.col.total')} (${cur})`, `${t('cat.col.nonHome')} (${cur})`, `${t('cat.col.undoc')} (${cur})`, t('cat.col.share'), t('cat.col.contrib')]];
-  for (const x of [...rows, categoryTotals(rows)]) {
-    out.push([x.label, plainNum(x.total, 0), plainNum(x.nonHome, 0), plainNum(x.undoc, 0), plainPct(x.share), plainPct(x.contrib)]);
+  for (const x of [...rows, ...extra, tot]) {
+    out.push([x.note ? `${x.label} (${x.note})` : x.label, plainNum(x.total, 0), plainNum(x.nonHome, 0), plainNum(x.undoc, 0), plainPct(x.share), plainPct(x.contrib)]);
   }
   return out.map((r) => r.map((c) => String(c).replace(/[\t\r\n]+/g, ' ')).join('\t')).join('\r\n');
 }
@@ -1276,7 +1349,7 @@ function renderEvidence(r) {
     const share = ev.total > 0 ? b.cost / ev.total : NaN;
     return `<div class="ev ev--${s}">
       <p class="ev__label"><span class="badge badge--${s}">${esc(t(`ev.${s}`))}</span></p>
-      <p class="ev__count mono">${esc(tp('rows', b.count))}</p>
+      <p class="ev__count">${esc(tp('rows', b.count))}</p>
       <p class="ev__cost mono">${esc(fmtMoney(b.cost))}</p>
       <p class="hint">${esc(t('ev.share', { pct: fmtPct(share) }))}</p>
       <span class="ev__bar" aria-hidden="true" style="--v:${Number.isFinite(share) ? (share * 100).toFixed(2) : 0}%"></span>
@@ -1387,14 +1460,14 @@ function filteredLines() {
 
 function renderLinesHead() {
   const cols = [
-    ['col.no', 'num'], ['col.part', ''], ['col.desc', ''], ['col.supplier', ''], ['col.type', ''], ['col.category', ''],
+    ['col.no', 'num'], ['col.part', ''], ['col.desc', ''], ['col.supplier', ''], ['col.category', ''],
     ['col.cost', 'num'], ['col.origin', ''], ['col.evidence', ''], ['col.valid', ''], ['col.expected', ''], ['col.status', ''],
   ];
   $('#ln-head').innerHTML = `<tr>${cols.map(([k, cls]) => `<th scope="col"${cls ? ` class="${cls}"` : ''}>${esc(t(k, { cur: state.settings.currency }))}</th>`).join('')}</tr>`;
 }
 
 function lineRowHtml(l, idx) {
-  const st = statusOf(l);
+  const st = rowStatus(l);
   const ref = lineRef(l) || String(idx + 1);
   const evOpts = EVIDENCE.map((e) => `<option value="${e}"${l.evidence === e ? ' selected' : ''}>${esc(t(`evidence.${e}`))}</option>`).join('');
   const evSel = EVIDENCE.includes(l.evidence) ? evOpts : `<option value="" selected></option>${evOpts}`;
@@ -1404,14 +1477,13 @@ function lineRowHtml(l, idx) {
     <th scope="row" class="pn">${esc(l.partNo || '')}</th>
     <td class="wrap">${esc(l.description || '')}</td>
     <td class="sup">${esc(l.supplier || '')}</td>
-    <td class="nowrap">${esc(t(`type.${typeOf(l)}`))}</td>
     <td>${esc(l.category ? categoryLabel(l.category) : '–')}</td>
     <td class="num mono" data-cell="cost">${esc(fmtNum(costOf(l)))}</td>
     <td><input type="text" class="in in--cc mono" data-f="origin" value="${esc(l.origin || '')}" list="dl-cc" maxlength="40" autocomplete="off" spellcheck="false" aria-label="${esc(t('ln.originLabel', { ref }))}"><span class="print-val mono">${esc(l.origin || '')}</span></td>
     <td><select class="in in--ev" data-f="evidence" aria-label="${esc(t('ln.evidenceLabel', { ref }))}">${evSel}</select><span class="print-val">${esc(EVIDENCE.includes(l.evidence) ? t(`evidence.${l.evidence}`) : '')}</span></td>
     <td><input type="date" class="in in--date" data-f="validUntil" value="${esc(isIsoDate(l.validUntil) ? l.validUntil : '')}" aria-label="${esc(t('ln.validLabel', { ref }))}"><span class="print-val">${esc(isIsoDate(l.validUntil) ? fmtDate(l.validUntil) : '')}</span></td>
     <td class="mono muted" title="${esc(cname(exp))}">${esc(exp || '–')}</td>
-    <td data-cell="status"><span class="badge badge--${st}">${esc(t(`status.${st}`))}</span></td>
+    <td data-cell="status">${statusBadge(l)}</td>
   </tr>`;
 }
 
@@ -1435,10 +1507,9 @@ function updateLineRows() {
   for (const tr of $$('#ln-body tr[data-idx]')) {
     const l = state.lines[+tr.dataset.idx];
     if (!l) continue;
-    const st = statusOf(l);
-    tr.className = `st-${st}`;
+    tr.className = `st-${rowStatus(l)}`;
     const cell = tr.querySelector('[data-cell="status"]');
-    if (cell) cell.innerHTML = `<span class="badge badge--${st}">${esc(t(`status.${st}`))}</span>`;
+    if (cell) cell.innerHTML = statusBadge(l);
   }
 }
 
@@ -1485,6 +1556,7 @@ function applyLineEdit(input, final) {
   } else {
     return;
   }
+  if (state.sourceInfo) state.sourceInfo.edited = true;
   const pv = input.parentElement && input.parentElement.querySelector('.print-val');
   if (pv) {
     pv.textContent = f === 'origin' ? (line.origin || '')
@@ -1549,11 +1621,24 @@ function renderPrintHead(r) {
     .filter(([c, v]) => c !== state.settings.currency && Number.isFinite(v))
     .map(([c, v]) => `${c} ${plainNum(v, 4)}`).join(', ');
   const st = r ? overallVerdict(r) : 'fail';
+  const info = state.sourceInfo;
+  const hash = (h) => (h ? `<span class="print-head__hash">${esc(h)}</span>` : esc(t('print.noHash')));
+  let input = '';
+  if (info) {
+    input = `<p class="print-head__meta">${esc(t(info.project ? 'print.project' : 'print.input', { source: srcName(info.name) }))} · SHA-256 ${hash(info.hash)}</p>`;
+    if (info.origin) input += `<p class="print-head__meta">${esc(t('print.origin', { source: info.origin.name }))} · SHA-256 ${hash(info.origin.hash)}</p>`;
+    if (info.edited || info.origin?.edited) input += `<p class="print-head__meta">${esc(t('print.edited'))}</p>`;
+  }
+  const sign = (key) => `<div><span class="print-head__k">${esc(t(key))}</span><span class="print-head__line"></span><small>${esc(t('print.signHint'))}</small></div>`;
   $('#print-head').innerHTML = `
     <p class="print-head__brand">${esc(BRAND)}</p>
     <p class="print-head__title">${esc(t('print.title'))}</p>
+    <p class="print-head__meta">${esc(t('print.version', { version: APP_VERSION, method: METHOD_DATE }))} · ${esc(t('print.created', { date: fmtDate(todayIso()) }))}</p>
     <p class="print-head__meta">${esc(t('print.settings', { pack: packLabel(packOf(state.settings.pack)), cur: state.settings.currency, date: fmtDate(state.settings.today), fx: fx || '–' }))}</p>
-    <p class="print-head__meta">${esc(t('print.created', { date: fmtDate(todayIso()) }))} · ${esc(t(`verdict.${st}`))} · ${esc(tp('rows', state.lines.length))}</p>`;
+    <p class="print-head__meta">${esc(t('print.risk', { codes: state.settings.risk.length ? state.settings.risk.join(', ') : '–' }))}</p>
+    ${input}
+    <p class="print-head__meta">${esc(t(`verdict.${st}`))} · ${esc(tp('rows', state.lines.length))}</p>
+    <div class="print-head__sign">${sign('print.prepared')}${sign('print.checked')}</div>`;
 }
 
 /* ------------------------------------------------------------------- export */
@@ -1571,7 +1656,7 @@ function linesExportRows() {
     return [l.id ?? '', l.partNo ?? '', l.description ?? '', l.supplier ?? '', l.supplierCountry ?? '', l.category ?? '', typeOf(l),
       Number.isFinite(l.qty) ? l.qty : (l.qty ?? ''), Number.isFinite(l.unitCost) ? l.unitCost : (l.unitCost ?? ''), l.currency ?? '',
       Number.isFinite(c) ? Math.round(c * 100) / 100 : '', l.origin ?? '', l.expectedOrigin ?? '', l.evidence ?? '', l.validUntil ?? '',
-      t(`status.${statusOf(l)}`), state.minSet.has(String(l.id)) ? t('ex.yes') : t('ex.no'), l.note ?? ''];
+      t(`status.${rowStatus(l)}`), state.minSet.has(String(l.id)) ? t('ex.yes') : t('ex.no'), l.note ?? ''];
   });
   return [head, ...rows];
 }
@@ -1629,7 +1714,7 @@ function round2(n) {
 
 function idsTable(ids) {
   const head = [t('col.part'), t('col.desc'), t('col.supplier'), t('col.effOrigin'), t('col.cost', { cur: state.settings.currency }), t('col.status')];
-  const rows = (ids || []).map((id) => lineById(id)).filter(Boolean).map((l) => [l.partNo ?? '', l.description ?? '', l.supplier ?? '', effOrigin(l) ?? '', round2(costOf(l)), t(`status.${statusOf(l)}`)]);
+  const rows = (ids || []).map((id) => lineById(id)).filter(Boolean).map((l) => [l.partNo ?? '', l.description ?? '', l.supplier ?? '', effOrigin(l) ?? '', round2(costOf(l)), t(`status.${rowStatus(l)}`)]);
   return [head, ...rows];
 }
 
@@ -1668,11 +1753,13 @@ async function exportXlsx() {
   const add = (rows, key) => XLSX.utils.book_append_sheet(wb, sheetFromRows(XLSX, rows), t(key).slice(0, 31));
   add(summaryRows(r), 'ex.sheet.summary');
   add(linesExportRows(), 'ex.sheet.lines');
-  const cats = categoryRows(r);
+  const cat = categoryTable(r);
   const cur = state.settings.currency;
   add([
     [t('cat.col.cat'), `${t('cat.col.total')} (${cur})`, `${t('cat.col.nonHome')} (${cur})`, `${t('cat.col.undoc')} (${cur})`, t('cat.col.share'), t('cat.col.contrib')],
-    ...[...cats, categoryTotals(cats)].map((x) => [x.label, round2(x.total), round2(x.nonHome), round2(x.undoc), { pct: x.share }, { pct: x.contrib }]),
+    ...[...cat.rows, ...cat.extra, cat.tot].map((x) => [x.note ? `${x.label} (${x.note})` : x.label, round2(x.total), round2(x.nonHome), round2(x.undoc), { pct: x.share }, { pct: x.contrib }]),
+    [],
+    [t('cat.hint', { m: cat.m })],
   ], 'ex.sheet.categories');
   const ms = r?.minimumSet;
   const msRows = idsTable(ms?.lineIds);
@@ -1880,7 +1967,10 @@ function bindEvents() {
     const ok = await copyText(categoriesTsv());
     if (ok) toast(t('cat.copied'));
   });
-  $('#rq-buyer').addEventListener('input', (e) => { state.settings.buyer = e.target.value; });
+  $('#rq-buyer').addEventListener('input', (e) => {
+    state.settings.buyer = e.target.value;
+    updateBuyerHint();
+  });
   $('#rq-deadline').addEventListener('change', (e) => { state.settings.deadline = isIsoDate(e.target.value) ? e.target.value : ''; });
   $('#requests').addEventListener('click', (e) => {
     const b = e.target.closest('button[data-act]');

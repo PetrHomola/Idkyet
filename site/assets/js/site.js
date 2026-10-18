@@ -4,12 +4,14 @@
    class "js" to <html>; only then does site.css hide .reveal elements until they scroll into view.
 
    - scroll reveal (.reveal -> .is-in), light stagger for elements that appear together
-   - Commission example: bars fill and percentages count up once ([data-meters], [data-count])
+   - Commission example: bars fill and percentages count up once ([data-meters], [data-count]);
+     the figure gets .is-done when the count has finished, and only then shows its verdict pills
    - sticky header state (.topbar.is-scrolled) and the mobile menu (.menu-btn)
    - FAQ: smooth open/close fallback for browsers without interpolate-size
    - table of contents highlight on document pages
    - contact form: prepares a mailto: message, nothing is sent to a server
-   - print button on the offer sheet, two-letter initials for founder avatars */
+   - print button on the offer sheet
+   - SHA-256 of the offline calculator on request ([data-hash-src]), computed locally in the browser */
 (function () {
   'use strict';
 
@@ -49,16 +51,18 @@
     });
   }
 
+  var COUNT_MS = 900;
+
   // `after` is the reveal delay of the figure, so the count starts once the figure is fading in.
-  function runCount(t, after) {
-    var duration = 900;
+  function runCount(t, after, done) {
     var start = null;
     function frame(now) {
       if (start === null) start = now + t.delay + (after || 0);
-      var p = Math.min(1, Math.max(0, (now - start) / duration));
+      var p = Math.min(1, Math.max(0, (now - start) / COUNT_MS));
       var eased = 1 - Math.pow(1 - p, 4);
       t.el.textContent = p >= 1 ? t.final : formatNumber(t.to * eased, t.decimals);
       if (p < 1) window.requestAnimationFrame(frame);
+      else if (done) done();
     }
     window.requestAnimationFrame(frame);
   }
@@ -71,7 +75,13 @@
     var targets = pendingCounts.get(el);
     if (targets) {
       pendingCounts.delete(el);
-      targets.forEach(function (t) { runCount(t, delay); });
+      var left = targets.length;
+      var finish = function () {
+        left -= 1;
+        if (left <= 0) el.classList.add('is-done');
+      };
+      if (!left) el.classList.add('is-done');
+      targets.forEach(function (t) { runCount(t, delay, finish); });
     }
   }
 
@@ -90,6 +100,7 @@
 
     if (!animate) {
       items.forEach(function (el) { el.classList.add('is-in'); });
+      $$('[data-meters]').forEach(function (fig) { fig.classList.add('is-in', 'is-done'); });
       root.classList.add('reveal-armed');
       return;
     }
@@ -102,7 +113,7 @@
       shown.forEach(function (el, i) {
         // Light stagger; an element can fix its own delay (the hero figure must not wait for the text column).
         var fixed = el.getAttribute('data-reveal-delay');
-        var delay = fixed !== null ? parseFloat(fixed) || 0 : Math.min(i, 5) * 80;
+        var delay = fixed !== null ? parseFloat(fixed) || 0 : Math.min(i, 3) * 80;
         if (delay > 0) el.style.setProperty('--reveal-delay', delay + 'ms');
         el.classList.add('is-in');
         io.unobserve(el);
@@ -278,14 +289,39 @@
     if (btn) btn.addEventListener('click', function () { window.print(); });
   }
 
-  // "Petr Novák" -> "PN"; placeholder text in [brackets] is ignored.
-  function initAvatars() {
-    $$('.avatar__i').forEach(function (el) {
-      var words = el.textContent.replace(/\[[^\]]*\]?/g, ' ').split(/\s+/).filter(function (w) { return /^\p{L}/u.test(w); });
-      if (!words.length) return;
-      var initials = (words[0][0] + (words.length > 1 ? words[words.length - 1][0] : '')).toUpperCase();
-      el.textContent = initials;
-      el.classList.add('is-set');
+  // SHA-256 of a published file (the offline calculator), computed here in the browser on request,
+  // so IT can compare it with the hash of the copy they downloaded.
+  var HASH_TEXT = {
+    cs: { busy: 'Počítám…', fail: 'Otisk se nepodařilo spočítat. Spočítejte ho ze staženého souboru příkazem níže.' },
+    en: { busy: 'Calculating…', fail: 'The hash could not be calculated. Compute it from the downloaded file with the command below.' },
+  };
+  function initHash() {
+    var subtle = window.crypto && window.crypto.subtle;
+    if (!subtle || !window.fetch) return;
+    $$('[data-hash-src]').forEach(function (box) {
+      var btn = box.querySelector('.hash__btn');
+      var out = box.querySelector('.hash__v');
+      if (!btn || !out) return;
+      btn.hidden = false;
+      btn.addEventListener('click', function () {
+        var label = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = HASH_TEXT[lang].busy;
+        fetch(box.getAttribute('data-hash-src'), { cache: 'no-store' })
+          .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.arrayBuffer(); })
+          .then(function (buf) { return subtle.digest('SHA-256', buf); })
+          .then(function (d) {
+            out.textContent = Array.prototype.map.call(new Uint8Array(d), function (b) { return (b < 16 ? '0' : '') + b.toString(16); }).join('');
+            out.hidden = false;
+            btn.hidden = true;
+          })
+          .catch(function () {
+            out.textContent = HASH_TEXT[lang].fail;
+            out.hidden = false;
+            btn.disabled = false;
+            btn.textContent = label;
+          });
+      });
     });
   }
 
@@ -300,7 +336,7 @@
     safe(initToc);
     safe(initContactForm);
     safe(initPrint);
-    safe(initAvatars);
+    safe(initHash);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

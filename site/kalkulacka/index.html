@@ -7,6 +7,11 @@
   <meta name="description" content="Spočítejte podíl komponent s původem mimo EU podle pravidla 35 % (SAFE, EDIP). Běží ve vašem prohlížeči, data se nikam neodesílají.">
   <meta name="color-scheme" content="light dark">
   <meta name="referrer" content="no-referrer">
+  <!-- What this page may load or contact, checked by the browser. connect-src 'self': the page can open network
+       connections (fetch, XHR, WebSocket) only to this site, so the data you load cannot be sent elsewhere.
+       The only external script allowed is SheetJS 0.18.5 from cdnjs, loaded with an SRI hash and only for XLSX.
+       Inline and data: scripts are allowed because the single-file offline version is built from this page. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' data: https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cstyle%3E.b%7Bfill:%230f3d73%7D.c%7Bfill:none%3Bstroke:%23fff%7D%40media (prefers-color-scheme:dark)%7B.b%7Bfill:%238fb6ef%7D.c%7Bstroke:%2308111d%7D%7D%3C/style%3E%3Crect class='b' width='32' height='32' rx='8'/%3E%3Cpath class='c' d='M21.5 11.05A7.4 7.4 0 1 0 21.5 20.95' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <!-- Progressive enhancement: the reveal styles in app.css apply only under html.js. -->
   <script>document.documentElement.classList.add('js');</script>
@@ -211,7 +216,8 @@
                   <div class="rq-settings no-print">
                     <div class="field">
                       <label for="rq-buyer" data-i18n="rq.buyer">Vaše firma (odběratel)</label>
-                      <input type="text" id="rq-buyer" autocomplete="organization" data-i18n-attr="placeholder:rq.buyerPlaceholder">
+                      <input type="text" id="rq-buyer" autocomplete="organization" aria-describedby="rq-buyer-hint" data-i18n-attr="placeholder:rq.buyerPlaceholder">
+                      <p class="hint hint--warn" id="rq-buyer-hint" data-i18n="rq.buyerEmpty">Vyplňte, jinak zůstane pole Odběratel v prohlášení prázdné.</p>
                     </div>
                     <div class="field">
                       <label for="rq-deadline" data-i18n="rq.deadline">Termín odpovědi</label>
@@ -287,7 +293,7 @@
         <span aria-hidden="true">·</span>
         <a href="../ochrana-dat.html" data-href-cs="../ochrana-dat.html" data-href-en="../en/data-protection.html" data-i18n="footer.privacy">Ochrana dat</a>
       </p>
-      <p class="foot__legal">© {{YEAR}} {{COMPANY}}</p>
+      <p class="foot__legal">© {{YEAR}} {{COMPANY}} · <span id="app-version"></span></p>
     </div>
   </footer>
 

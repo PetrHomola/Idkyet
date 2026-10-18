@@ -246,7 +246,7 @@ export function declarationHtml({ lang = 'cs', supplier = '', supplierCountry = 
   .meta div:nth-last-child(-n+2) { border-bottom: 0; }
   .meta span { display: block; font: 500 7pt/1.5 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
   .meta b { font-weight: 600; }
-  p.intro { margin: 0 0 10px; text-align: justify; }
+  p.intro { margin: 0 0 10px; text-align: left; }
   table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
   thead { display: table-header-group; }
   th, td { border: 1px solid var(--line); padding: 4px 6px; vertical-align: top; text-align: left; }

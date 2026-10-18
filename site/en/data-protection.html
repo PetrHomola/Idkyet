@@ -17,6 +17,8 @@
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -38,6 +40,7 @@
         <a href="methodology.html">Methodology</a>
         <a href="index.html#about">About us</a>
         <a href="index.html#contact">Contact</a>
+        <a class="btn topnav__cta" href="../kalkulacka/index.html?lang=en">Calculate for free</a>
       </nav>
       <div class="topbar__end">
         <a class="lang" href="../ochrana-dat.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
@@ -64,6 +67,7 @@
           <li><a href="#summary">In short</a></li>
           <li><a href="#calculator">The calculator runs on your side</a></li>
           <li><a href="#what-we-take">What we take and never take</a></li>
+          <li><a href="#handover">How to send us data</a></li>
           <li><a href="#where">Where the data lives</a></li>
           <li><a href="#ai">AI tools</a></li>
           <li><a href="#nda">NDA and ownership</a></li>
@@ -91,13 +95,13 @@
           <p>The calculation happens directly in your browser. The bill of materials you paste or upload is not sent anywhere and we never see it. You can save the project as a JSON file on your computer and load it again later. The browser only remembers your language choice.</p>
           <p>What the calculator loads from the internet:</p>
           <ul>
-            <li>the page itself and fonts from Google Fonts,</li>
+            <li>the page itself, including its fonts, all from this site,</li>
             <li>the SheetJS library from cdnjs.cloudflare.com, and only when you upload or export an XLSX file.</li>
           </ul>
-          <p>None of these requests carries your data.</p>
-          <div class="callout callout--ok">
+          <p>None of these requests carries your data. You can verify this rather than take our word for it: the calculator page sets a Content-Security-Policy in its head that lets the browser open network connections (<code>connect-src</code>) only to this site. The only external script the page may load is SheetJS 0.18.5 from cdnjs, with an integrity check (SRI).</p>
+          <div class="callout">
             <p class="callout__t">Offline version</p>
-            <p>The whole calculator in a single HTML file, with SheetJS built in and no fonts from the internet. It also works on a computer with no connection, for example on an isolated network. <a href="../cirus-origin-kalkulacka-offline.html" download>Download the offline version</a></p>
+            <p>The whole calculator in a single HTML file, with SheetJS and the fonts built in. Once opened it makes no network requests, and it works on a computer with no connection, for example on an isolated network. <a href="../cirus-origin-kalkulacka-offline.html" download>Download the offline version</a> · <a href="index.html#for-it">version and SHA-256 hash for your IT</a></p>
           </div>
         </section>
 
@@ -121,35 +125,48 @@
           <ul class="crosslist">
             <li>drawings,</li>
             <li>specifications and technical documentation,</li>
-            <li>classified information,</li>
+            <li>classified information (Czech Act No.&nbsp;412/2005&nbsp;Coll. on the protection of classified information),</li>
             <li>ITAR-controlled data.</li>
           </ul>
           <p>If we receive anything like this by mistake, we will not use it, we will delete it and let you know.</p>
         </section>
 
-        <section class="reveal" id="where" aria-labelledby="h-4">
-          <h2 id="h-4"><span class="no">04</span>Where the data lives</h2>
+        <section class="reveal" id="handover" aria-labelledby="h-4">
+          <h2 id="h-4"><span class="no">04</span>How to send us data</h2>
+          <p>Please do not send the purchasing data extract as a plain email attachment. Use one of these routes:</p>
+          <ul>
+            <li><strong>Encrypted archive:</strong> ZIP or 7z with AES-256 encryption. Send us the password through a different channel, for example by phone.</li>
+            <li><strong>Your own storage:</strong> you share a folder in your company storage with us, limited to named people and for a limited time.</li>
+            <li><strong>On your premises:</strong> the data never leaves your company; we work on your devices (the On-site support service).</li>
+          </ul>
+          <p>You can replace part numbers with pseudonyms before sending and keep the key yourself.</p>
+          <h3>What we put in the NDA</h3>
+          <p>We sign your NDA and are happy to write the specific terms into it or into the contract: where the data will be stored, who will have access to it, how long we will keep it and in what form we will confirm its deletion.</p>
+        </section>
+
+        <section class="reveal" id="where" aria-labelledby="h-5">
+          <h2 id="h-5"><span class="no">05</span>Where the data lives</h2>
           <p>We keep data in the EU. If you do not want it to leave your company, we work directly on your premises, on your devices (the On-site support service).</p>
           <p>Only summaries by category leave the calculation, exactly as the Commission asks for them in the “Procurement strategy” template. We do not pass on individual bill of materials lines. In a request for a declaration, a supplier sees only its own parts, never the whole bill of materials.</p>
         </section>
 
-        <section class="reveal" id="ai" aria-labelledby="h-5">
-          <h2 id="h-5"><span class="no">05</span>AI tools</h2>
+        <section class="reveal" id="ai" aria-labelledby="h-6">
+          <h2 id="h-6"><span class="no">06</span>AI tools</h2>
           <p>We do not use AI tools on your data without your written consent. The calculator uses no AI at all; it calculates according to the fixed rules described in the <a href="methodology.html">methodology</a>.</p>
         </section>
 
-        <section class="reveal" id="nda" aria-labelledby="h-6">
-          <h2 id="h-6"><span class="no">06</span>NDA and ownership</h2>
+        <section class="reveal" id="nda" aria-labelledby="h-7">
+          <h2 id="h-7"><span class="no">07</span>NDA and ownership</h2>
           <p>We sign your NDA; there is no need to negotiate ours. {{BRAND}} is run by {{COMPANY}}, a Czech company with no owners outside the EU.</p>
         </section>
 
-        <section class="reveal" id="deletion" aria-labelledby="h-7">
-          <h2 id="h-7"><span class="no">07</span>Deletion at the end</h2>
+        <section class="reveal" id="deletion" aria-labelledby="h-8">
+          <h2 id="h-8"><span class="no">08</span>Deletion at the end</h2>
           <p>When our work together ends, we delete your data and confirm the deletion to you. The deliverables we have handed over stay with you.</p>
         </section>
 
-        <section class="reveal" id="gdpr" aria-labelledby="h-8">
-          <h2 id="h-8"><span class="no">08</span>Contact data and GDPR</h2>
+        <section class="reveal" id="gdpr" aria-labelledby="h-9">
+          <h2 id="h-9"><span class="no">09</span>Contact data and GDPR</h2>
           <p>Bills of materials and purchasing data usually contain no personal data. We mainly process personal data when you contact us.</p>
           <dl class="scen">
             <div><dt>Controller</dt><dd>{{COMPANY}}, Company ID (IČO) <span class="mono">{{ICO}}</span>, {{ADDRESS}}. Contact: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</dd></div>
@@ -163,7 +180,7 @@
           <ul>
             <li>Uses no cookies and no analytics.</li>
             <li>The contact form sends nothing to a server; it only prepares an email in your mail program.</li>
-            <li>Fonts are loaded from Google Fonts, so Google sees your IP address.</li>
+            <li>The Geist and Geist Mono fonts (SIL Open Font License) are hosted on this site. Browsing the site loads nothing from third parties.</li>
             <li>The site runs on GitHub Pages. The hosting provider processes technical access logs, such as IP addresses.</li>
           </ul>
         </section>

@@ -17,6 +17,8 @@
   <meta property="og:locale" content="cs_CZ">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/site.css">
@@ -38,6 +40,7 @@
         <a href="metodika.html">Metodika</a>
         <a href="index.html#o-nas">O nás</a>
         <a href="index.html#kontakt">Kontakt</a>
+        <a class="btn topnav__cta" href="kalkulacka/index.html?lang=cs">Spočítat zdarma</a>
       </nav>
       <div class="topbar__end">
         <a class="lang" href="en/data-protection.html" hreflang="en" lang="en" aria-label="English version">EN</a>
@@ -64,6 +67,7 @@
           <li><a href="#kratce">Krátce</a></li>
           <li><a href="#kalkulacka">Kalkulačka běží u&nbsp;vás</a></li>
           <li><a href="#co-bereme">Co bereme a&nbsp;co nikdy</a></li>
+          <li><a href="#predani">Jak nám data předat</a></li>
           <li><a href="#kde">Kde data jsou</a></li>
           <li><a href="#ai">AI nástroje</a></li>
           <li><a href="#nda">NDA a&nbsp;vlastnictví</a></li>
@@ -91,13 +95,13 @@
           <p>Výpočet probíhá přímo ve vašem prohlížeči. Kusovník, který vložíte nebo nahrajete, se nikam neodesílá a&nbsp;my ho nevidíme. Projekt si můžete uložit jako soubor JSON do svého počítače a&nbsp;později ho znovu načíst. Prohlížeč si pamatuje jen zvolený jazyk.</p>
           <p>Co se při práci s&nbsp;kalkulačkou načítá z&nbsp;internetu:</p>
           <ul>
-            <li>samotná stránka a&nbsp;písma z&nbsp;Google Fonts,</li>
+            <li>samotná stránka včetně písem, vše z&nbsp;tohoto webu,</li>
             <li>knihovna SheetJS z&nbsp;cdnjs.cloudflare.com, a&nbsp;to jen když nahrajete nebo exportujete soubor XLSX.</li>
           </ul>
-          <p>S&nbsp;těmito požadavky se vaše data neposílají.</p>
-          <div class="callout callout--ok">
+          <p>S&nbsp;těmito požadavky se vaše data neposílají. Ověřit si to můžete i&nbsp;bez naší důvěry: stránka kalkulačky má v&nbsp;hlavičce Content-Security-Policy, která prohlížeči dovolí síťová spojení (<code>connect-src</code>) jen na tento web. Jediný externí skript, který stránka smí načíst, je SheetJS 0.18.5 z&nbsp;cdnjs s&nbsp;kontrolou otisku (SRI).</p>
+          <div class="callout">
             <p class="callout__t">Offline verze</p>
-            <p>Celá kalkulačka v&nbsp;jednom souboru HTML, se SheetJS uvnitř a&nbsp;bez písem z&nbsp;internetu. Funguje i&nbsp;na počítači bez připojení, například v&nbsp;oddělené síti. <a href="cirus-origin-kalkulacka-offline.html" download>Stáhnout offline verzi</a></p>
+            <p>Celá kalkulačka v&nbsp;jednom souboru HTML, se SheetJS a&nbsp;písmy uvnitř. Po otevření nedělá žádné síťové požadavky a&nbsp;funguje i&nbsp;na počítači bez připojení, například v&nbsp;oddělené síti. <a href="cirus-origin-kalkulacka-offline.html" download>Stáhnout offline verzi</a> · <a href="index.html#pro-it">verze a&nbsp;otisk SHA-256 pro vaše IT</a></p>
           </div>
         </section>
 
@@ -121,35 +125,48 @@
           <ul class="crosslist">
             <li>výkresy,</li>
             <li>specifikace a&nbsp;technickou dokumentaci,</li>
-            <li>utajované informace,</li>
+            <li>utajované informace (zákon č.&nbsp;412/2005&nbsp;Sb., o&nbsp;ochraně utajovaných informací),</li>
             <li>data podléhající ITAR.</li>
           </ul>
           <p>Pokud něco takového dostaneme omylem, nepoužijeme to, smažeme to a&nbsp;dáme vám vědět.</p>
         </section>
 
-        <section class="reveal" id="kde" aria-labelledby="h-4">
-          <h2 id="h-4"><span class="no">04</span>Kde data jsou</h2>
+        <section class="reveal" id="predani" aria-labelledby="h-4">
+          <h2 id="h-4"><span class="no">04</span>Jak nám data předat</h2>
+          <p>Výpis nákupních dat nám neposílejte jako běžnou přílohu e-mailu. Použijte jednu z&nbsp;těchto cest:</p>
+          <ul>
+            <li><strong>Zašifrovaný archiv:</strong> ZIP nebo 7z se šifrováním AES-256. Heslo nám sdělte jiným kanálem, například telefonem.</li>
+            <li><strong>Vaše úložiště:</strong> zpřístupníte nám složku ve svém firemním úložišti, s&nbsp;přístupem jen pro jmenované osoby a&nbsp;s&nbsp;omezenou platností.</li>
+            <li><strong>Práce u&nbsp;vás:</strong> data vůbec neopustí vaši firmu, pracujeme na vašich zařízeních (služba Posila u&nbsp;vás).</li>
+          </ul>
+          <p>Čísla dílů můžete před předáním nahradit pseudonymy a&nbsp;klíč si nechat u&nbsp;sebe.</p>
+          <h3>Co zapíšeme do NDA</h3>
+          <p>Podepíšeme vaši NDA a&nbsp;rádi do ní nebo do smlouvy zapíšeme konkrétní podmínky: kde budou data uložena, kdo k&nbsp;nim bude mít přístup, jak dlouho je budeme držet a&nbsp;jakou formou vám smazání potvrdíme.</p>
+        </section>
+
+        <section class="reveal" id="kde" aria-labelledby="h-5">
+          <h2 id="h-5"><span class="no">05</span>Kde data jsou</h2>
           <p>Data držíme v&nbsp;EU. Pokud je nechcete pustit ven z&nbsp;firmy, pracujeme přímo u&nbsp;vás, na vašich zařízeních (služba Posila u&nbsp;vás).</p>
           <p>Ven z&nbsp;výpočtu jdou jen souhrny po kategoriích, stejně jako je chce Komise v&nbsp;šabloně „Procurement strategy“. Jednotlivé řádky kusovníku nikam nepředáváme. Dodavatel v&nbsp;žádosti o&nbsp;prohlášení vidí jen své vlastní díly, nikdy celý kusovník.</p>
         </section>
 
-        <section class="reveal" id="ai" aria-labelledby="h-5">
-          <h2 id="h-5"><span class="no">05</span>AI nástroje</h2>
+        <section class="reveal" id="ai" aria-labelledby="h-6">
+          <h2 id="h-6"><span class="no">06</span>AI nástroje</h2>
           <p>AI nástroje nad vašimi daty nepoužíváme bez vašeho písemného souhlasu. Kalkulačka žádnou AI nepoužívá, počítá podle pevných pravidel popsaných v&nbsp;<a href="metodika.html">metodice</a>.</p>
         </section>
 
-        <section class="reveal" id="nda" aria-labelledby="h-6">
-          <h2 id="h-6"><span class="no">06</span>NDA a&nbsp;vlastnictví</h2>
+        <section class="reveal" id="nda" aria-labelledby="h-7">
+          <h2 id="h-7"><span class="no">07</span>NDA a&nbsp;vlastnictví</h2>
           <p>Podepíšeme vaši NDA, nemusíte vyjednávat naši. {{BRAND}} provozuje česká firma {{COMPANY}}, bez vlastníků mimo EU.</p>
         </section>
 
-        <section class="reveal" id="smazani" aria-labelledby="h-7">
-          <h2 id="h-7"><span class="no">07</span>Smazání po skončení</h2>
+        <section class="reveal" id="smazani" aria-labelledby="h-8">
+          <h2 id="h-8"><span class="no">08</span>Smazání po skončení</h2>
           <p>Po skončení spolupráce vaše data smažeme a&nbsp;smazání vám potvrdíme. Výstupy, které jsme vám předali, zůstávají u&nbsp;vás.</p>
         </section>
 
-        <section class="reveal" id="gdpr" aria-labelledby="h-8">
-          <h2 id="h-8"><span class="no">08</span>Kontaktní údaje a&nbsp;GDPR</h2>
+        <section class="reveal" id="gdpr" aria-labelledby="h-9">
+          <h2 id="h-9"><span class="no">09</span>Kontaktní údaje a&nbsp;GDPR</h2>
           <p>Kusovníky a&nbsp;nákupní data obvykle osobní údaje neobsahují. Osobní údaje zpracováváme hlavně tehdy, když nás kontaktujete.</p>
           <dl class="scen">
             <div><dt>Správce</dt><dd>{{COMPANY}}, IČO <span class="mono">{{ICO}}</span>, {{ADDRESS}}. Kontakt: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</dd></div>
@@ -163,7 +180,7 @@
           <ul>
             <li>Nepoužívá cookies ani analytické nástroje.</li>
             <li>Kontaktní formulář nic neodesílá na server, jen připraví e-mail ve vašem poštovním programu.</li>
-            <li>Písma se načítají z&nbsp;Google Fonts, Google přitom vidí vaši IP adresu.</li>
+            <li>Písma Geist a&nbsp;Geist Mono (licence SIL Open Font License) jsou uložená přímo na tomto webu. Při prohlížení webu se nic nenačítá od třetích stran.</li>
             <li>Web běží na GitHub Pages. Provozovatel hostingu zpracovává technické záznamy o&nbsp;přístupu, například IP adresu.</li>
           </ul>
         </section>

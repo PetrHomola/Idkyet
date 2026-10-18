@@ -17,6 +17,8 @@
   <meta property="og:locale" content="cs_CZ">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/site.css">
@@ -38,6 +40,7 @@
         <a href="metodika.html" aria-current="page">Metodika</a>
         <a href="index.html#o-nas">O nás</a>
         <a href="index.html#kontakt">Kontakt</a>
+        <a class="btn topnav__cta" href="kalkulacka/index.html?lang=cs">Spočítat zdarma</a>
       </nav>
       <div class="topbar__end">
         <a class="lang" href="en/methodology.html" hreflang="en" lang="en" aria-label="English version">EN</a>
@@ -53,7 +56,7 @@
         <p class="crumbs"><a href="index.html">{{BRAND}}</a><span aria-hidden="true">/</span>Metodika</p>
         <h1>Metodika výpočtu podílu komponent mimo EU</h1>
         <p class="lead">Jak počítáme pravidlo 35&nbsp;% pro SAFE, EDIP a&nbsp;související nástroje. Vycházíme z&nbsp;textu nařízení a&nbsp;z&nbsp;postupu, který Komise zveřejnila pro EDIP. Kde předpisy mlčí, říkáme to otevřeně a&nbsp;popisujeme, jak postupujeme.</p>
-        <p class="docmeta"><span>Poslední aktualizace <b>{{UPDATED}}</b></span><span>Pravidla: SAFE · EDIP · USI · půjčka pro Ukrajinu · EU–Kanada</span><span>Nejde o&nbsp;právní stanovisko</span></p>
+        <p class="docmeta"><span>Poslední aktualizace <b><span class="nowrap">{{UPDATED}}</span></b></span><span>Pravidla: SAFE · EDIP · USI · půjčka pro Ukrajinu · EU–Kanada</span><span>Nejde o&nbsp;právní stanovisko</span></p>
       </div>
     </header>
 
@@ -83,16 +86,16 @@
             <footer lang="cs">Nařízení Rady (EU) 2025/1106 (SAFE), čl. 16 odst. 10 <a href="#src-1">[1]</a></footer>
           </blockquote>
           <p>Navíc u&nbsp;SAFE platí, že žádný díl nesmí pocházet ze třetí země, která je v&nbsp;rozporu s&nbsp;bezpečnostními a&nbsp;obrannými zájmy EU. To je samostatná podmínka, nezávislá na 35&nbsp;%.</p>
-          <p>Recitál 19 SAFE uvádí, že Komise k&nbsp;výpočtu „could establish guidance“. <strong>Veřejná metodika pro SAFE k&nbsp;18. 10. 2026 neexistuje.</strong></p>
+          <p>Recitál 19 SAFE uvádí, že Komise k&nbsp;výpočtu „could establish guidance“. <strong>Veřejná metodika pro SAFE k&nbsp;18.&nbsp;10.&nbsp;2026 neexistuje.</strong></p>
           <h3>Stejné pravidlo v&nbsp;dalších předpisech</h3>
           <ul>
             <li><strong>EDIP</strong>, nařízení (EU) 2025/2643, čl. 10 odst. 3 a&nbsp;4: komponenty s&nbsp;původem <span lang="en">„outside the Union and associated countries“</span>, stejný práh 35&nbsp;%. Recitál 27: suroviny nejsou komponenty. <a href="#src-2">[2]</a></li>
             <li><strong>EDIP – nástroj pro Ukrajinu (USI)</strong>, čl. 27: <span lang="en">„outside the Union and Ukraine“</span>. <a href="#src-2">[2]</a></li>
             <li><strong>Půjčka pro Ukrajinu</strong>, nařízení (EU) 2026/467, čl. 13 odst. 4 písm. g): stejně jako SAFE (EU, státy EHP-ESVO, Ukrajina). <a href="#src-3">[3]</a></li>
-            <li><strong>Dohoda EU–Kanada o&nbsp;účasti v&nbsp;SAFE</strong>, čl. 5 odst. 8, platí od 1. 8. 2026: kanadské komponenty smí přesáhnout 35&nbsp;%; komponenty z&nbsp;EU, EHP-ESVO a&nbsp;Ukrajiny musí tvořit aspoň 20&nbsp;%; komponenty z&nbsp;ostatních třetích zemí nejvýš 35&nbsp;% a&nbsp;ne víc než podíl EU. <a href="#src-4">[4]</a></li>
+            <li><strong>Dohoda EU–Kanada o&nbsp;účasti v&nbsp;SAFE</strong>, čl. 5 odst. 8, platí od 1.&nbsp;8.&nbsp;2026: kanadské komponenty smí přesáhnout 35&nbsp;%; komponenty z&nbsp;EU, EHP-ESVO a&nbsp;Ukrajiny musí tvořit aspoň 20&nbsp;%; komponenty z&nbsp;ostatních třetích zemí nejvýš 35&nbsp;% a&nbsp;ne víc než podíl EU. <a href="#src-4">[4]</a></li>
           </ul>
-          <div class="callout callout--mark">
-            <p class="callout__t">Co hrozí</p>
+          <div class="callout">
+            <p class="callout__t">Co hrozí <span class="tag tag--bad">při nesplnění</span></p>
             <p>U&nbsp;SAFE pozastavení výplaty, u&nbsp;EDIP krácení nebo ukončení grantu. Za nepravdivé údaje vyloučení z&nbsp;peněz EU.</p>
           </div>
         </section>
@@ -100,7 +103,7 @@
         <!-- 2 -->
         <section class="reveal" id="metoda" aria-labelledby="h-2">
           <h2 id="h-2"><span class="no">02</span>Metoda EDIP krok za krokem</h2>
-          <p>Podrobný postup Komise zveřejnila ve výzvě EDF-EDIP-P-2026-LS-IRA (verze 1.2 z&nbsp;10. 6. 2026, str. 9–10) a&nbsp;ve výukových slajdech „Origin of Components“ (5/2026) <a href="#src-5">[5]</a> <a href="#src-6">[6]</a>. Podle něj počítáme EDIP a&nbsp;do vydání pokynů k&nbsp;SAFE i&nbsp;SAFE.</p>
+          <p>Podrobný postup Komise zveřejnila ve výzvě EDF-EDIP-P-2026-LS-IRA (verze 1.2 z&nbsp;10.&nbsp;6.&nbsp;2026, str. 9–10) a&nbsp;ve výukových slajdech „Origin of Components“ (5/2026) <a href="#src-5">[5]</a> <a href="#src-6">[6]</a>. Podle něj počítáme EDIP a&nbsp;také SAFE, dokud Komise nevydá pokyny k&nbsp;SAFE.</p>
 
           <h3>1. Co je komponenta</h3>
           <p>Látky, materiály (bez surovin), díly, sestavy nebo software zabudované do výrobku.</p>
@@ -312,14 +315,14 @@
           <ol class="sources">
             <li id="src-1"><span>Nařízení Rady (EU) 2025/1106 (SAFE), čl. 16 odst. 10 a&nbsp;recitál 19. <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/1106/oj/eng</a></span></li>
             <li id="src-2"><span>Nařízení (EU) 2025/2643 (EDIP), čl. 10 odst. 3 a&nbsp;4, čl. 27 a&nbsp;recitál 27. <a href="https://eur-lex.europa.eu/eli/reg/2025/2643/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/2643/oj/eng</a></span></li>
-            <li id="src-3"><span>Nařízení (EU) 2026/467 (půjčka pro Ukrajinu), čl. 13 odst. 4 písm. g).</span></li>
-            <li id="src-4"><span>Dohoda mezi EU a&nbsp;Kanadou o&nbsp;účasti Kanady v&nbsp;nástroji SAFE, čl. 5 odst. 8 (platí od 1. 8. 2026).</span></li>
-            <li id="src-5"><span>Evropská komise, výzva EDF-EDIP-P-2026-LS-IRA, verze 1.2 z&nbsp;10. 6. 2026, str. 9–10, a&nbsp;šablona „Procurement strategy“.</span></li>
-            <li id="src-6"><span>Evropská komise, výukové slajdy „Origin of Components“, 5/2026.</span></li>
+            <li id="src-3"><span>Nařízení (EU) 2026/467 (půjčka pro Ukrajinu), čl. 13 odst. 4 písm. g). <a href="https://eur-lex.europa.eu/eli/reg/2026/467/oj" rel="noopener">eur-lex.europa.eu/eli/reg/2026/467/oj</a></span></li>
+            <li id="src-4"><span>Dohoda mezi EU a&nbsp;Kanadou o&nbsp;účasti Kanady v&nbsp;nástroji SAFE, čl. 5 odst. 8 (platí od 1.&nbsp;8.&nbsp;2026). Text dohody zveřejnila kanadská vláda: <a href="https://www.international.gc.ca/world-monde/international_relations-relations_internationales/eu-ue/text-texte.aspx?lang=eng" rel="noopener">international.gc.ca</a></span></li>
+            <li id="src-5"><span>Evropská komise, výzva EDF-EDIP-P-2026-LS-IRA, verze 1.2 z&nbsp;10.&nbsp;6.&nbsp;2026, str. 9–10, a&nbsp;šablona „Procurement strategy“. <a href="https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/edf/wp-call/2026/call-fiche_edf-edip-p-2026-ls-ira_en.pdf" rel="noopener">ec.europa.eu/info/funding-tenders (PDF)</a></span></li>
+            <li id="src-6"><span>Evropská komise, výukové slajdy „Origin of Components“, 5/2026. <a href="https://defence-industry-space.ec.europa.eu/system/files/2026-05/EDIP%20Video%20Tutorials%20-%20Origin%20of%20Components.pdf" rel="noopener">defence-industry-space.ec.europa.eu (PDF)</a></span></li>
             <li id="src-7"><span>Nařízení (EU) č.&nbsp;952/2013 (celní kodex Unie), čl. 60. <a href="https://eur-lex.europa.eu/eli/reg/2013/952/oj" rel="noopener">eur-lex.europa.eu/eli/reg/2013/952/oj</a></span></li>
             <li id="src-8"><span>Evropský účetní dvůr, Review 01/2026, odst. 71. <a href="https://www.eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf" rel="noopener">eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf</a></span></li>
           </ol>
-          <p class="muted">Stav k&nbsp;{{UPDATED}}. Když se předpisy nebo pokyny Komise změní, metodiku aktualizujeme a&nbsp;změnu datujeme.</p>
+          <p class="muted">Stav k&nbsp;<span class="nowrap">{{UPDATED}}</span>. Když se předpisy nebo pokyny Komise změní, metodiku aktualizujeme a&nbsp;změnu datujeme.</p>
         </section>
       </article>
     </div>

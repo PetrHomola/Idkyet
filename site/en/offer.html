@@ -17,6 +17,8 @@
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
   <script src="../assets/js/site.js" defer></script>
@@ -43,7 +45,7 @@
           <h1 class="sheet__title" id="sheet-title">Proving component origin: offer and prices</h1>
           <p class="sheet__sub">The 35&nbsp;% rule for SAFE and EDIP · {{WEB}}</p>
         </div>
-        <p class="sheet__meta"><span>Prices excl. VAT</span><span>As of <b>{{UPDATED}}</b></span></p>
+        <p class="sheet__meta"><span>Prices excl. VAT</span><span>As of <b><span class="nowrap">{{UPDATED}}</span></b></span></p>
       </header>
 
       <div class="sheet__two">
@@ -110,7 +112,7 @@
           <h2 id="s-start">How to start</h2>
           <ol class="sheet__steps">
             <li><span>Download the template ({{WEB}}/sablony/cirus-origin-vstupni-sablona.xlsx) and fill in the purchasing data extract: part number or category, supplier, quantity, price, currency and country of origin if you know it. Part numbers can be pseudonyms.</span></li>
-            <li><span>Send the extract to {{EMAIL}}. If you wish, we sign your NDA first.</span></li>
+            <li><span>Send the extract as an encrypted archive (give us the password by phone), or share a folder in your own storage with us. If you wish, we sign your NDA first.</span></li>
             <li><span>We confirm scope, timing and price. A Quick Check is delivered within 10 working days.</span></li>
             <li><span>An indicative result right now, for free: the calculator at {{WEB}}/kalkulacka.</span></li>
           </ol>
@@ -120,6 +122,7 @@
           <ul class="checklist">
             <li>commercial data only: part or category, supplier, price, country of origin, evidence</li>
             <li>no drawings, specifications, classified information or ITAR-controlled data</li>
+            <li>hand-over as an encrypted archive, through your own storage, or work on your premises</li>
             <li>data in the EU or work on your premises; only summaries by category leave the calculation</li>
             <li>AI tools only with your written consent</li>
             <li>we sign your NDA; Czech company with no owners outside the EU</li>
@@ -129,11 +132,11 @@
       </div>
 
       <footer class="sheet__contact">
-        <div><b>Contact</b><span class="selectable">{{EMAIL}}</span><br>{{PHONE}}</div>
+        <div><b>Contact and intro call (30&nbsp;min)</b><span class="selectable">{{EMAIL}}</span><br>{{PHONE}}<br><span class="sheet__muted">Propose two time slots by email, or call us.</span></div>
         <div><b>Web</b>{{WEB}}<br>{{LINKEDIN}}</div>
-        <div><b>Operator</b>{{COMPANY}}, Company ID {{ICO}}<br>{{ADDRESS}}</div>
+        <div><b>Operator and invoicing</b>{{COMPANY}}, Company ID {{ICO}}<br>{{ADDRESS}}</div>
       </footer>
-      <p class="sheet__fine">Prices exclude VAT. This is not legal advice: the output is a calculation based on documents and supplier declarations, and disputed origin determinations are reviewed with a customs specialist. Methodology: {{WEB}}/en/methodology.html. Status as of {{UPDATED}}.</p>
+      <p class="sheet__fine">Prices exclude VAT. This is not legal advice: the output is a calculation based on documents and supplier declarations, and disputed origin determinations are reviewed with a customs specialist. Methodology: {{WEB}}/en/methodology.html. Status as of <span class="nowrap">{{UPDATED}}</span>.</p>
     </article>
   </main>
 

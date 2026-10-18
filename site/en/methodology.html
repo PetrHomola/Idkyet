@@ -17,6 +17,8 @@
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -38,6 +40,7 @@
         <a href="methodology.html" aria-current="page">Methodology</a>
         <a href="index.html#about">About us</a>
         <a href="index.html#contact">Contact</a>
+        <a class="btn topnav__cta" href="../kalkulacka/index.html?lang=en">Calculate for free</a>
       </nav>
       <div class="topbar__end">
         <a class="lang" href="../metodika.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
@@ -53,7 +56,7 @@
         <p class="crumbs"><a href="index.html">{{BRAND}}</a><span aria-hidden="true">/</span>Methodology</p>
         <h1>How we calculate the share of non-EU components</h1>
         <p class="lead">How we apply the 35&nbsp;% rule for SAFE, EDIP and related instruments. We work from the text of the regulations and from the method the Commission has published for EDIP. Where the rules are silent, we say so openly and describe what we do.</p>
-        <p class="docmeta"><span>Last updated <b>{{UPDATED}}</b></span><span>Rules: SAFE · EDIP · USI · Ukraine loan · EU–Canada</span><span>Not a legal opinion</span></p>
+        <p class="docmeta"><span>Last updated <b><span class="nowrap">{{UPDATED}}</span></b></span><span>Rules: SAFE · EDIP · USI · Ukraine loan · EU–Canada</span><span>Not a legal opinion</span></p>
       </div>
     </header>
 
@@ -91,8 +94,8 @@
             <li><strong>Ukraine loan</strong>, Regulation (EU) 2026/467, Article 13(4)(g): same as SAFE (EU, EEA EFTA states, Ukraine). <a href="#src-3">[3]</a></li>
             <li><strong>EU–Canada agreement on participation in SAFE</strong>, Article 5(8), applicable from 1 August 2026: Canadian components may exceed 35&nbsp;%; components from the EU, EEA EFTA states and Ukraine must make up at least 20&nbsp;%; components from other third countries no more than 35&nbsp;% and no more than the EU share. <a href="#src-4">[4]</a></li>
           </ul>
-          <div class="callout callout--mark">
-            <p class="callout__t">What is at stake</p>
+          <div class="callout">
+            <p class="callout__t">What is at stake <span class="tag tag--bad">if not met</span></p>
             <p>Under SAFE, suspension of payment; under EDIP, reduction or termination of the grant. False information can lead to exclusion from EU funding.</p>
           </div>
         </section>
@@ -312,14 +315,14 @@
           <ol class="sources">
             <li id="src-1"><span>Council Regulation (EU) 2025/1106 (SAFE), Article 16(10) and recital 19. <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/1106/oj/eng</a></span></li>
             <li id="src-2"><span>Regulation (EU) 2025/2643 (EDIP), Article 10(3) and (4), Article 27 and recital 27. <a href="https://eur-lex.europa.eu/eli/reg/2025/2643/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/2643/oj/eng</a></span></li>
-            <li id="src-3"><span>Regulation (EU) 2026/467 (Ukraine loan), Article 13(4)(g).</span></li>
-            <li id="src-4"><span>Agreement between the EU and Canada on the participation of Canada in SAFE, Article 5(8) (applicable from 1 August 2026).</span></li>
-            <li id="src-5"><span>European Commission, call EDF-EDIP-P-2026-LS-IRA, version 1.2 of 10 June 2026, pages 9–10, and the “Procurement strategy” template.</span></li>
-            <li id="src-6"><span>European Commission, training slides “Origin of Components”, 5/2026.</span></li>
+            <li id="src-3"><span>Regulation (EU) 2026/467 (Ukraine loan), Article 13(4)(g). <a href="https://eur-lex.europa.eu/eli/reg/2026/467/oj" rel="noopener">eur-lex.europa.eu/eli/reg/2026/467/oj</a></span></li>
+            <li id="src-4"><span>Agreement between the EU and Canada on the participation of Canada in SAFE, Article 5(8) (applicable from 1 August 2026). Text published by the Government of Canada: <a href="https://www.international.gc.ca/world-monde/international_relations-relations_internationales/eu-ue/text-texte.aspx?lang=eng" rel="noopener">international.gc.ca</a></span></li>
+            <li id="src-5"><span>European Commission, call EDF-EDIP-P-2026-LS-IRA, version 1.2 of 10 June 2026, pages 9–10, and the “Procurement strategy” template. <a href="https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/edf/wp-call/2026/call-fiche_edf-edip-p-2026-ls-ira_en.pdf" rel="noopener">ec.europa.eu/info/funding-tenders (PDF)</a></span></li>
+            <li id="src-6"><span>European Commission, training slides “Origin of Components”, 5/2026. <a href="https://defence-industry-space.ec.europa.eu/system/files/2026-05/EDIP%20Video%20Tutorials%20-%20Origin%20of%20Components.pdf" rel="noopener">defence-industry-space.ec.europa.eu (PDF)</a></span></li>
             <li id="src-7"><span>Regulation (EU) No&nbsp;952/2013 (Union Customs Code), Article 60. <a href="https://eur-lex.europa.eu/eli/reg/2013/952/oj" rel="noopener">eur-lex.europa.eu/eli/reg/2013/952/oj</a></span></li>
             <li id="src-8"><span>European Court of Auditors, Review 01/2026, paragraph 71. <a href="https://www.eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf" rel="noopener">eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf</a></span></li>
           </ol>
-          <p class="muted">Status as of {{UPDATED}}. When the regulations or Commission guidance change, we update this methodology and date the change.</p>
+          <p class="muted">Status as of <span class="nowrap">{{UPDATED}}</span>. When the regulations or Commission guidance change, we update this methodology and date the change.</p>
         </section>
       </article>
     </div>

@@ -18,6 +18,8 @@
   <meta property="og:locale:alternate" content="cs_CZ">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -39,6 +41,7 @@
         <a href="methodology.html">Methodology</a>
         <a href="#about">About us</a>
         <a href="#contact">Contact</a>
+        <a class="btn topnav__cta" href="../kalkulacka/index.html?lang=en">Calculate for free</a>
       </nav>
       <div class="topbar__end">
         <a class="lang" href="../index.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
@@ -53,33 +56,33 @@
     <section class="hero" aria-labelledby="h-hero">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="pill reveal"><span class="pill__k">SAFE · EDIP</span><span>The 35&nbsp;% rule<span class="pill__more"> for non-EU components</span></span></p>
-          <h1 id="h-hero" class="reveal">Prove you are <span class="hl">under&nbsp;35&nbsp;%</span>.</h1>
-          <p class="lead reveal">EU defence money comes with a condition: components originating outside the EU may make up no more than 35&nbsp;% of the component cost of the end product. <strong>We calculate your share using the Commission's method and collect the evidence to back it up</strong>: supplier declarations and customs documents.</p>
-          <div class="actions reveal">
+          <p class="pill"><span class="pill__k">SAFE · EDIP</span><span>The 35&nbsp;% rule<span class="pill__more"> for non-EU components</span></span></p>
+          <h1 id="h-hero">Prove you are <span class="hl">within 35&nbsp;%</span>.</h1>
+          <p class="lead">Funding from SAFE and EDIP is conditional on the origin of components: parts originating outside the EU may make up no more than 35&nbsp;% of the component cost of the end product. We calculate your share using the Commission's method and collect the evidence to back it up: supplier declarations and customs documents.</p>
+          <div class="actions">
             <a class="btn" href="../kalkulacka/index.html?lang=en">Calculate for free <span class="btn__arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--ghost" href="#offer">Offer</a>
+            <a class="btn btn--ghost" href="#offer">Pricing and offer</a>
           </div>
-          <p class="trust reveal"><svg class="trust__i" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2.5 4 4.8v4.6c0 3.7 2.6 6.7 6 8.1 3.4-1.4 6-4.4 6-8.1V4.8L10 2.5Z"/><path d="m7.4 10 1.8 1.8 3.5-3.6"/></svg><span>The calculator runs locally in your browser. Your data is not sent anywhere.</span></p>
+          <p class="trust"><svg class="trust__i" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2.5 4 4.8v4.6c0 3.7 2.6 6.7 6 8.1 3.4-1.4 6-4.4 6-8.1V4.8L10 2.5Z"/><path d="m7.4 10 1.8 1.8 3.5-3.6"/></svg><span>The calculator runs locally in your browser. Your data is not sent anywhere.</span></p>
         </div>
 
         <figure class="exhibit reveal" data-meters data-reveal-delay="120" aria-labelledby="ex-cap">
           <div class="exhibit__head">
             <p class="exhibit__title">Commission example</p>
-            <p class="exhibit__src">“Origin of Components”, 5/2026</p>
+            <p class="exhibit__src"><a href="methodology.html#src-6">Slides “Origin of Components”, 5/2026</a></p>
           </div>
           <div class="exhibit__body">
             <div class="xrow xrow--fail">
               <div class="xrow__top">
-                <p class="xrow__label"><span class="xrow__name">Method (a) <span class="tag tag--bad">fails</span></span><small>non-EU tier-1 parts / all tier-1 parts</small></p>
-                <p class="xrow__val"><span class="xrow__pct"><span data-count="43" data-decimals="1" data-delay="160">43.0</span>&nbsp;%</span><span class="xrow__calc">92 / 214</span></p>
+                <p class="xrow__label"><span class="xrow__name">Method (a) <span class="tag tag--bad">not compliant</span></span><small>non-EU tier-1 parts / all tier-1 parts</small></p>
+                <p class="xrow__val"><span class="xrow__pct"><span data-count="43" data-decimals="1" data-delay="160">43.0</span>&#8239;%</span><span class="xrow__calc">92 / 214</span></p>
               </div>
               <div class="meter" style="--v: 86%; --split: 81.4%" aria-hidden="true"><span class="meter__fill"></span><span class="meter__thr"></span></div>
             </div>
             <div class="xrow xrow--pass">
               <div class="xrow__top">
-                <p class="xrow__label"><span class="xrow__name">Method (b) <span class="tag tag--ok">passes</span></span><small>non-EU tier-1 parts / component cost</small></p>
-                <p class="xrow__val"><span class="xrow__pct"><span data-count="33.5" data-decimals="1" data-delay="280">33.5</span>&nbsp;%</span><span class="xrow__calc">92 / 275</span></p>
+                <p class="xrow__label"><span class="xrow__name">Method (b) <span class="tag tag--ok">compliant</span></span><small>non-EU tier-1 parts / component cost</small></p>
+                <p class="xrow__val"><span class="xrow__pct"><span data-count="33.5" data-decimals="1" data-delay="280">33.5</span>&#8239;%</span><span class="xrow__calc">92 / 275</span></p>
               </div>
               <div class="meter" style="--v: 66.9%" aria-hidden="true"><span class="meter__fill"></span><span class="meter__thr"></span></div>
             </div>
@@ -90,7 +93,7 @@
               <li><span class="sw sw--thr"></span>35&nbsp;% threshold</li>
             </ul>
           </div>
-          <figcaption class="exhibit__cap" id="ex-cap">Same product, two results. Method (b) also counts the manufacturing cost of in-house sub-assemblies in the denominator. Meeting one method is enough.</figcaption>
+          <figcaption class="exhibit__cap" id="ex-cap">Same product, two results. Method (b) also counts the manufacturing cost of in-house sub-assemblies in the denominator. Meeting one method is enough. The slides round to 43&nbsp;% and 34&nbsp;%; the exact results are 42.99&nbsp;% and 33.45&nbsp;%.</figcaption>
         </figure>
       </div>
     </section>
@@ -99,7 +102,7 @@
     <section class="sec sec--alt" id="why" aria-labelledby="h-why">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="eyebrow"><b>01</b>Why now</p>
+          <p class="eyebrow">Why now</p>
           <h2 id="h-why">The rule applies to money that is already flowing</h2>
           <p class="sec__intro">Both SAFE and EDIP make funding conditional on where components come from. If you cannot prove compliance, the payment is at risk.</p>
         </header>
@@ -125,32 +128,32 @@
           <div class="stat">
             <p class="stat__k">Czechia · SAFE</p>
             <p class="stat__v"><small>up to EUR</small> 2.06 <small>bn</small></p>
-            <p class="stat__n">Including Leopard 2A8 (EUR 802&nbsp;m), Tatra T-815 (EUR 319&nbsp;m) and the D11 motorway (EUR 939&nbsp;m).<span class="stat__src">Czech Ministry of Defence, 15 June 2026</span></p>
+            <p class="stat__n">Including Leopard 2A8 (EUR 802&nbsp;m), Tatra T-815 (EUR 319&nbsp;m) and the D11 motorway (EUR 939&nbsp;m).<span class="stat__src">Source: <a href="https://mocr.mo.gov.cz/informacni-servis/zpravodajstvi/vlada-schvalila-vyuziti-evropske-pujcky-safe-na-dostavbu-dalnice-d11--nakup-tanku-leopard-a-vozidel-tatra-264651/" rel="noopener">Czech Ministry of Defence, 15 June 2026</a></span></p>
           </div>
           <div class="stat">
             <p class="stat__k">First payment</p>
             <p class="stat__v"><small>EUR</small> 309 <small>m</small></p>
-            <p class="stat__n">Received on 6 October 2026. Payments are requested twice a year; Czechia applies in April and October.</p>
+            <p class="stat__n">Received on 6 October 2026. Payments are requested twice a year; Czechia applies in April and October.<span class="stat__src">Source: <a href="https://www.ceskenoviny.cz/zpravy/2883736" rel="noopener">ČTK news agency, 6 October 2026</a></span></p>
           </div>
           <div class="stat">
             <p class="stat__k">Slovakia · Poland</p>
-            <p class="stat__v"><small>EUR</small> 2.3 <small>/</small> 43.7 <small>bn</small></p>
-            <p class="stat__n">Slovakia about EUR 2.3&nbsp;bn from SAFE (including Tatra and CV90), Poland EUR 43.7&nbsp;bn.</p>
+            <p class="stat__v stat__v--pair"><span><abbr title="Slovakia">SK</abbr>2.3</span><span><abbr title="Poland">PL</abbr>43.7</span><small>EUR bn</small></p>
+            <p class="stat__n">Slovakia about EUR 2.3&nbsp;bn from SAFE (including Tatra and CV90), Poland EUR 43.7&nbsp;bn.<span class="stat__src">Source: <a href="https://defence-industry-space.ec.europa.eu/document/download/704924ae-3aa2-4bd3-9675-e9cf1e5dfb96_en?filename=communication-to-the-college.pdf" rel="noopener">European Commission, SAFE allocation, C(2025)&nbsp;6300</a></span></p>
           </div>
-          <div class="stat stat--mark">
+          <div class="stat">
             <p class="stat__k">EDIP deadline</p>
             <p class="stat__v">16 Feb 2027</p>
-            <p class="stat__n">Calls including key electronic components (EUR 122.25&nbsp;m), platforms (EUR 152.75&nbsp;m) and unmanned systems for Ukraine (EUR 80&nbsp;m). The “Procurement strategy” template asks for the share broken down into five component categories.</p>
+            <p class="stat__n">Calls including key electronic components (EUR 122.25&nbsp;m), platforms (EUR 152.75&nbsp;m) and unmanned systems for Ukraine (EUR 80&nbsp;m). The “Procurement strategy” template asks for the share broken down into five component categories.<span class="stat__src">Source: <a href="https://defence-industry-space.ec.europa.eu/document/download/9c5afd33-c35e-4381-9139-dd52b70ce143_en?filename=C_2026_2174_1_EN.pdf" rel="noopener">EDIP work programme C(2026)&nbsp;2174</a>, deadlines from the Funding &amp; Tenders portal</span></p>
           </div>
           <div class="stat">
             <p class="stat__k">How long</p>
-            <p class="stat__v">2030 <small>/</small> 2033</p>
-            <p class="stat__n">SAFE funds can be drawn until 31 December 2030; EDIP projects run until 31 December 2033 at the latest. Under EDIP the condition must hold for the entire duration of the action, so the validity of supplier declarations needs watching.</p>
+            <p class="stat__v stat__v--pair"><span><span class="stat__key">SAFE</span>2030</span><span><span class="stat__key">EDIP</span>2033</span></p>
+            <p class="stat__n">SAFE funds can be drawn until 31 December 2030; EDIP projects run until 31 December 2033 at the latest. Under EDIP the condition must hold for the entire duration of the action, so the validity of supplier declarations needs watching.<span class="stat__src">Source: <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">SAFE Regulation</a>, <a href="https://defence-industry-space.ec.europa.eu/document/download/9c5afd33-c35e-4381-9139-dd52b70ce143_en?filename=C_2026_2174_1_EN.pdf" rel="noopener">EDIP work programme</a></span></p>
           </div>
           <div class="stat">
             <p class="stat__k">SAFE method</p>
             <p class="stat__v stat__v--text">not yet</p>
-            <p class="stat__n">SAFE recital 19 says the Commission “could establish guidance”. As of 18 October 2026 none has been published. The Commission has published a detailed method for EDIP only.</p>
+            <p class="stat__n">SAFE recital 19 says the Commission “could establish guidance”. As of 18 October 2026 none has been published. The Commission has published a detailed method for EDIP only.<span class="stat__src">Source: <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">SAFE Regulation, recital 19</a></span></p>
           </div>
         </div>
       </div>
@@ -160,7 +163,7 @@
     <section class="sec" id="how" aria-labelledby="h-how">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="eyebrow"><b>02</b>How it works</p>
+          <p class="eyebrow">How it works</p>
           <h2 id="h-how">Three steps from bill of materials to evidence</h2>
           <p class="sec__intro">We do not need drawings or access to your systems. A purchasing data extract for the product is enough.</p>
         </header>
@@ -187,14 +190,31 @@
     <!-- 03 calculator -->
     <section class="sec sec--alt" id="calculator" aria-labelledby="h-calc">
       <div class="wrap">
+        <header class="sec__head reveal">
+          <p class="eyebrow">Free calculator</p>
+          <h2 id="h-calc">Do the numbers yourself. Now, for free.</h2>
+          <p class="sec__intro">Paste a bill of materials or purchase list from Excel. The calculator works out the share of non-EU components under methods (a) and (b) for SAFE, EDIP, the Ukraine loan and the EU–Canada agreement, and tells you which evidence is missing.</p>
+        </header>
         <div class="calc-panel reveal">
           <div class="calc-panel__copy">
-            <p class="eyebrow"><b>03</b>Free calculator</p>
-            <h2 id="h-calc">Do the numbers yourself. Now, for free.</h2>
-            <p class="lead">Paste a bill of materials or purchase list from Excel. The calculator works out the share of non-EU components under methods (a) and (b) for SAFE, EDIP, the Ukraine loan and the EU–Canada agreement, and tells you which evidence is missing.</p>
             <div class="actions">
               <a class="btn" href="../kalkulacka/index.html?lang=en">Open the calculator <span class="btn__arrow" aria-hidden="true">→</span></a>
               <a class="btn btn--ghost" href="../cirus-origin-kalkulacka-offline.html" download>Offline version (1 file)</a>
+            </div>
+            <div class="it-note" id="for-it">
+              <h3>For your IT</h3>
+              <ul>
+                <li>Offline calculator, version 1.0.0, methodology dated <span class="nowrap">{{UPDATED}}</span>. A single HTML file that makes no network requests once opened.</li>
+                <li>The interface code is in the file as readable text. SheetJS 0.18.5 is embedded in its official form, with a verified SHA-512 hash.</li>
+                <li>The online calculator sets a Content-Security-Policy in the page head: network connections (<code>connect-src</code>) only to this site; the only external script it may load is SheetJS 0.18.5 from cdnjs, with an integrity check.</li>
+                <li>Compute the SHA-256 of the downloaded file with
+                  <code class="cmd">certutil -hashfile cirus-origin-kalkulacka-offline.html SHA256 <small>(Windows)</small></code>
+                  <code class="cmd">shasum -a 256 cirus-origin-kalkulacka-offline.html <small>(macOS, Linux)</small></code></li>
+              </ul>
+              <div class="hash" data-hash-src="../cirus-origin-kalkulacka-offline.html">
+                <button type="button" class="hash__btn" hidden>Show SHA-256 of the published version</button>
+                <code class="hash__v" hidden></code>
+              </div>
             </div>
           </div>
           <ul class="checklist">
@@ -213,13 +233,12 @@
     <section class="sec" id="offer" aria-labelledby="h-offer">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="eyebrow"><b>04</b>Offer and prices</p>
-          <h2 id="h-offer">Fixed prices, clear scope</h2>
+          <p class="eyebrow">Offer and prices</p>
+          <h2 id="h-offer">Price and scope agreed upfront</h2>
           <p class="sec__intro">Start for free with the calculator, or with a Quick Check. Each step builds on the previous one.</p>
         </header>
 
         <div class="plan-free reveal">
-          <span class="plan__no">01</span>
           <div>
             <h3>Calculator</h3>
             <p>Runs in your browser; your data goes nowhere. A single-file offline version is available too.</p>
@@ -230,7 +249,7 @@
 
         <ol class="plans plans--3">
           <li class="plan plan--lead reveal">
-            <div class="plan__top"><span class="plan__no">02</span><span class="tag tag--ok">First step</span></div>
+            <div class="plan__top"><span class="tag tag--plain">First step</span></div>
             <h3>Quick Check</h3>
             <p class="plan__desc">Within 10 working days, up to 500 lines. You will know where you stand and what needs evidence.</p>
             <div class="plan__price">
@@ -246,7 +265,6 @@
             <p class="plan__foot">Deducted from the Evidence Pack if you order it within 60 days.</p>
           </li>
           <li class="plan reveal">
-            <div class="plan__top"><span class="plan__no">03</span></div>
             <h3>Evidence Pack</h3>
             <p class="plan__desc">4–6 weeks. An estimate becomes a documented calculation.</p>
             <div class="plan__price">
@@ -261,7 +279,6 @@
             </ul>
           </li>
           <li class="plan reveal">
-            <div class="plan__top"><span class="plan__no">04</span></div>
             <h3>Monitoring</h3>
             <p class="plan__desc">The condition has to hold over time. We watch it for you.</p>
             <div class="plan__price">
@@ -278,7 +295,6 @@
 
         <ul class="plans plans--2">
           <li class="plan plan--compact reveal">
-            <div class="plan__top"><span class="plan__no">05</span></div>
             <h3>Supplier service</h3>
             <p class="plan__desc">Received an origin questionnaire from your prime contractor? We determine the non-preferential origin of your parts, prepare the declaration and set up its renewal.</p>
             <div class="plan__price">
@@ -287,7 +303,6 @@
             </div>
           </li>
           <li class="plan plan--compact reveal">
-            <div class="plan__top"><span class="plan__no">06</span></div>
             <h3>On-site support</h3>
             <p class="plan__desc">We work on your premises under NDA, on your devices. Suitable when data must not leave your company.</p>
             <div class="plan__price">
@@ -311,7 +326,7 @@
     <section class="sec sec--alt" id="data" aria-labelledby="h-data">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="eyebrow"><b>05</b>Data protection</p>
+          <p class="eyebrow">Data protection</p>
           <h2 id="h-data">We take commercial data only. No technical documentation.</h2>
           <p class="sec__intro">For the calculation we only need to know what you buy, from whom, at what price and where it comes from.</p>
         </header>
@@ -331,7 +346,7 @@
             <ul class="crosslist">
               <li>drawings</li>
               <li>specifications and technical documentation</li>
-              <li>classified information</li>
+              <li>classified information (Czech Act No.&nbsp;412/2005&nbsp;Coll.)</li>
               <li>ITAR-controlled data</li>
             </ul>
           </div>
@@ -351,7 +366,7 @@
     <section class="sec" id="methodology" aria-labelledby="h-method">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="eyebrow"><b>06</b>Methodology</p>
+          <p class="eyebrow">Methodology</p>
           <h2 id="h-method">We follow the Commission's method and document every step</h2>
         </header>
         <div class="cols2">
@@ -384,7 +399,7 @@
     <section class="sec sec--alt" id="about" aria-labelledby="h-about">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="eyebrow"><b>07</b>About us</p>
+          <p class="eyebrow">About us</p>
           <h2 id="h-about">Data tools for compliance in the defence industry</h2>
         </header>
         <div class="about">
@@ -400,7 +415,6 @@
           <div class="people">
             <p class="label">Founders</p>
             <div class="card person reveal">
-              <span class="avatar" aria-hidden="true"><span class="avatar__i">{{FOUNDER_1}}</span></span>
               <div>
                 <h3>{{FOUNDER_1}}</h3>
                 <p class="person__role">{{FOUNDER_1_ROLE_EN}}</p>
@@ -408,7 +422,6 @@
               </div>
             </div>
             <div class="card person reveal">
-              <span class="avatar" aria-hidden="true"><span class="avatar__i">{{FOUNDER_2}}</span></span>
               <div>
                 <h3>{{FOUNDER_2}}</h3>
                 <p class="person__role">{{FOUNDER_2_ROLE_EN}}</p>
@@ -424,7 +437,7 @@
     <section class="sec" id="faq" aria-labelledby="h-faq">
       <div class="wrap faq-layout">
         <header class="sec__head reveal">
-          <p class="eyebrow"><b>08</b>Questions</p>
+          <p class="eyebrow">Questions</p>
           <h2 id="h-faq">Frequently asked questions</h2>
           <p class="sec__intro">Did not find your answer? <a href="#contact">Write to us</a> and we will answer for your specific product and programme.</p>
         </header>
@@ -508,14 +521,14 @@
       <div class="wrap contact">
         <div class="reveal">
           <header class="sec__head">
-            <p class="eyebrow"><b>09</b>Contact</p>
+            <p class="eyebrow">Contact</p>
             <h2 id="h-contact">Get in touch</h2>
             <p class="sec__intro">A few lines about the product and the programme are enough. We will come back with a proposed scope and timeline.</p>
           </header>
           <dl class="cardlist">
             <div>
               <dt>Email</dt>
-              <dd><span class="selectable">{{EMAIL}}</span><br><a href="mailto:{{EMAIL}}">Send an email</a></dd>
+              <dd><a class="mono" href="mailto:{{EMAIL}}">{{EMAIL}}</a></dd>
             </div>
             <div>
               <dt>Phone</dt>
@@ -530,6 +543,14 @@
               <dd><a href="offer.html">Offer and prices on 1–2 A4 pages</a></dd>
             </div>
           </dl>
+          <div class="call">
+            <h3>Intro call, 30 minutes</h3>
+            <p>We go through your product, programme and data and tell you what could be documented straight away. Propose two time slots by email, or call us.</p>
+            <div class="actions">
+              <a class="btn btn--sm" href="mailto:{{EMAIL}}?subject=Intro%20call%20(30%20min)&amp;body=Proposed%20time%20slots%3A%0D%0A1.%20%0D%0A2.%20%0D%0A%0D%0AProduct%20and%20programme%3A%20">Book an intro call (30&nbsp;min)</a>
+              <a class="btn btn--ghost btn--sm" href="tel:{{PHONE}}">Call</a>
+            </div>
+          </div>
         </div>
 
         <form class="form reveal" id="contact-form" data-to="{{EMAIL}}" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" novalidate>
