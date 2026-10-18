@@ -171,6 +171,10 @@ function parseWith(s, d) {
   let field = '';
   let inQ = false;
   let quoted = false;
+  // An opening quote that is never closed is read as a plain character:
+  // parsing goes back to it instead of swallowing the rest of the text.
+  let open = null;
+  const literal = new Set();
   const n = s.length;
   for (let i = 0; i < n; i++) {
     const ch = s[i];
@@ -181,13 +185,29 @@ function parseWith(s, d) {
           i++;
         } else {
           inQ = false;
+          open = null;
         }
       } else {
         field += ch;
       }
+      if (inQ && i === n - 1 && open) {
+        literal.add(open.i);
+        rows.length = open.rows;
+        row = open.row;
+        field = open.field;
+        quoted = false;
+        inQ = false;
+        i = open.i - 1;
+        open = null;
+      }
       continue;
     }
-    if (ch === '"' && !quoted && field.trim() === '') {
+    if (ch === '"' && !quoted && field.trim() === '' && !literal.has(i)) {
+      if (i === n - 1) {
+        field += ch;
+        continue;
+      }
+      open = { i, rows: rows.length, row: row.slice(), field };
       inQ = true;
       quoted = true;
       field = '';
@@ -219,7 +239,9 @@ function parseWith(s, d) {
 
 /**
  * Guesses the delimiter of a delimited text: tab, semicolon, comma or pipe.
- * Picks the candidate that yields the widest consistent table.
+ * Picks the candidate that yields the widest consistent table. The reference
+ * width is the first row with at least two cells, so a title line above the
+ * header ("Kusovník PM7") does not decide the delimiter.
  * @param {string} text
  * @returns {string}
  */
@@ -232,7 +254,8 @@ export function detectDelimiter(text) {
       .filter((r) => r.some((c) => c.trim() !== ''))
       .slice(0, 50);
     if (!rows.length) continue;
-    const w = rows[0].length;
+    const ref = rows.slice(0, 10).find((r) => r.length >= 2);
+    const w = ref ? ref.length : 0;
     if (w < 2) continue;
     const ok = rows.filter((r) => r.length <= w).length;
     const score = (w * ok) / rows.length;
@@ -333,8 +356,16 @@ export function parseNumber(value, decimal = null) {
   if (typeof value === 'boolean') return NaN;
   const raw = String(value).trim();
   if (!raw) return null;
+  // Scientific notation from spreadsheets: '1.5E+06', '2,5e3'.
+  const sci = /^([-+−]?\d+(?:[.,]\d+)?)\s*[eE]\s*([-+−]?\d{1,3})$/.exec(raw);
+  if (sci) {
+    const num = Number(`${sci[1].replace(',', '.').replace('−', '-')}e${sci[2].replace('−', '-')}`);
+    return Number.isFinite(num) ? num : NaN;
+  }
   let s = cleanNumberText(raw);
   if (!/\d/.test(s)) return /^[-–—]+$/.test(raw) ? null : NaN;
+  // Letters between digits ('12x5', '3 ks 2') make the value unreadable.
+  if (/\d\s*\p{L}+\s*\d/u.test(raw.replace(/[   ]/g, ' '))) return NaN;
   let neg = false;
   if (/^\(.*\)$/.test(s)) {
     neg = true;
@@ -350,16 +381,29 @@ export function parseNumber(value, decimal = null) {
   if (!/^[\d.,]+$/.test(s)) return NaN;
   const ci = s.lastIndexOf(',');
   const di = s.lastIndexOf('.');
+  // Thousands groups must have three digits: '1.234.567' yes, '31.3.2027' (a date) no.
+  const grouped = (intPart, sep) => intPart.split(sep).every((g, k) => (k === 0 ? /^\d{1,3}$/.test(g) : /^\d{3}$/.test(g)));
   let out;
   if (ci >= 0 && di >= 0) {
-    out = ci > di ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, '');
+    const [dec, th] = ci > di ? [',', '.'] : ['.', ','];
+    const at = Math.max(ci, di);
+    if (s.indexOf(dec) !== at || !grouped(s.slice(0, at), th)) return NaN;
+    out = `${s.slice(0, at).split(th).join('')}.${s.slice(at + 1)}`;
   } else if (ci >= 0) {
     const multiple = s.indexOf(',') !== ci;
-    const thousands = multiple || (decimal === '.' && s.length - ci - 1 === 3);
+    let thousands = multiple || (decimal === '.' && s.length - ci - 1 === 3);
+    if (thousands && !grouped(s, ',')) {
+      if (multiple) return NaN;
+      thousands = false;
+    }
     out = thousands ? s.replace(/,/g, '') : s.replace(',', '.');
   } else if (di >= 0) {
     const multiple = s.indexOf('.') !== di;
-    const thousands = multiple || (decimal === ',' && s.length - di - 1 === 3);
+    let thousands = multiple || (decimal === ',' && s.length - di - 1 === 3);
+    if (thousands && !grouped(s, '.')) {
+      if (multiple) return NaN;
+      thousands = false;
+    }
     out = thousands ? s.replace(/\./g, '') : s;
   } else {
     out = s;

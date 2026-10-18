@@ -67,7 +67,8 @@ const RAW_ALIASES = { 'ČR': 'CZ', 'Č.R.': 'CZ', 'ČSR': 'CZ' };
 const ALIASES = {
   GB: ['UK', 'U.K.', 'Great Britain', 'Britain', 'England', 'Scotland', 'Wales', 'Northern Ireland',
     'United Kingdom', 'United Kingdom of Great Britain and Northern Ireland', 'Velká Británie', 'Británie',
-    'Anglie', 'Skotsko', 'Severní Irsko', 'Spojené království', 'Veľká Británia', 'Anglicko',
+    'Anglie', 'Skotsko', 'Severní Irsko', 'Spojené království', 'Velká Británie a Severní Irsko',
+    'Spojené království Velké Británie a Severního Irska', 'Veľká Británia', 'Anglicko',
     'Spojené kráľovstvo', 'Großbritannien', 'Vereinigtes Königreich', 'Wielka Brytania', 'Anglia'],
   US: ['USA', 'U.S.A.', 'U.S.', 'United States', 'United States of America', 'America', 'Amerika',
     'Spojené státy', 'Spojené státy americké', 'Spojené štáty', 'Spojené štáty americké',
@@ -75,7 +76,8 @@ const ALIASES = {
   NL: ['Holandsko', 'Holland', 'Nizozemí', 'Nizozemsko', 'Netherlands', 'The Netherlands', 'Holandia', 'Niederlande'],
   CZ: ['Česko', 'Česká republika', 'Czechia', 'Czech Republic', 'Czech Rep.', 'Čechy', 'Tschechien',
     'Tschechische Republik', 'Czechy', 'Republika Czeska', 'Česká rep.'],
-  SK: ['Slovensko', 'Slovenská republika', 'Slovakia', 'Slovak Republic', 'Slowakei', 'Słowacja'],
+  SK: ['Slovensko', 'Slovenská republika', 'Slovenská rep.', 'Slovakia', 'Slovak Republic', 'Slovak Rep.',
+    'Slowakei', 'Słowacja'],
   KR: ['Korea', 'Jižní Korea', 'South Korea', 'Republic of Korea', 'Korea Republic', 'Korea, Republic of',
     'Korea (South)', 'Korejská republika', 'Južná Kórea', 'Kórea', 'Südkorea', 'Korea Południowa'],
   KP: ['Severní Korea', 'North Korea', 'KLDR', 'DPRK', 'Korea (North)',
@@ -249,22 +251,36 @@ export function normalizeCountry(input) {
   const k = nameKey(str);
   if (k && index.has(k)) return index.get(k);
 
-  // "DE - Německo", "DE: Germany", "Germany (DE)", "Německo [DEU]"
-  const lead = /^([A-Za-z]{2,3})\s*[-–—:|/,]\s*\S/.exec(str);
+  // "DE - Německo", "DE: Germany", "Germany (DE)", "Německo [DEU]".
+  // Two different countries ("DE/US", "CZ, SK", "Germany (US)") are ambiguous: null.
+  const lead = /^([A-Za-z]{2,3})\s*[-–—:|/,;+&]\s*(\S.*)$/.exec(str);
   if (lead) {
     const c = fromCode(lead[1]);
-    if (c) return c;
+    if (c) return agree(c, normalizeCountry(lead[2]));
+  }
+  const headMatch = /^(.+?)\s*[([]/.exec(str);
+  let headCode = null;
+  if (headMatch) {
+    const hk = nameKey(headMatch[1]);
+    if (hk && index.has(hk)) headCode = index.get(hk);
   }
   const trail = /[([]\s*([A-Za-z]{2,3})\s*[)\]]\s*$/.exec(str);
   if (trail) {
     const c = fromCode(trail[1]);
-    if (c) return c;
+    if (c) return agree(c, headCode);
   }
-  const head = /^(.+?)\s*[([]/.exec(str);
-  if (head) {
-    const hk = nameKey(head[1]);
-    if (hk && index.has(hk)) return index.get(hk);
-  }
+  return headCode;
+}
+
+/**
+ * Combines a code with a second reading of the same input ("DE - Německo").
+ * Returns the code when the second reading is empty or the same country, the member
+ * state when one of them is 'EU' and the other an EU member, otherwise null.
+ */
+function agree(code, other) {
+  if (!other || other === code) return code;
+  if (code === 'EU' && EU27.includes(other)) return other;
+  if (other === 'EU' && EU27.includes(code)) return code;
   return null;
 }
 
