@@ -950,8 +950,8 @@ function barHtml(r, m, s) {
     });
     return `<div class="bar-row">
       ${label}
-      <div class="bar bar--stack" role="img" aria-label="${esc(aria)}" style="--thr:${(thr * 100).toFixed(2)}%">
-        <span class="seg seg--other" style="width:${w(shares.other)}"></span><span class="seg seg--ca" style="width:${w(shares.ca)}"></span><span class="seg seg--home" style="width:${w(shares.home)}"></span>
+      <div class="bar bar--stack" role="img" aria-label="${esc(aria)}" data-key="${m}-${s}" style="--thr:${(thr * 100).toFixed(2)}%">
+        <span class="bar__track"><span class="seg seg--other" style="width:${w(shares.other)}"></span><span class="seg seg--ca" style="width:${w(shares.ca)}"></span><span class="seg seg--home" style="width:${w(shares.home)}"></span></span>
         <span class="bar__thr"></span><span class="bar__thr bar__thr--home" style="--thr:80%"></span>
       </div>
       <div class="bar-row__val">
@@ -965,8 +965,8 @@ function barHtml(r, m, s) {
   const aria = t('bar.aria', { method: t(`method.${m}`), scenario: t(`scen.${s}`), ratio: fmtPct(ratio), thr: fmtPct0(thr), result: res });
   return `<div class="bar-row">
     ${label}
-    <div class="bar ${pass ? 'bar--pass' : 'bar--fail'}" role="img" aria-label="${esc(aria)}" style="--v:${width.toFixed(2)}%;--thr:${(thr * 100).toFixed(2)}%">
-      <span class="bar__fill"></span><span class="bar__thr"></span>
+    <div class="bar ${pass ? 'bar--pass' : 'bar--fail'}" role="img" aria-label="${esc(aria)}" data-key="${m}-${s}" style="--v:${width.toFixed(2)}%;--k:${(width / 100).toFixed(4)};--thr:${(thr * 100).toFixed(2)}%">
+      <span class="bar__track"><span class="bar__fill"></span></span><span class="bar__thr"></span>
     </div>
     <div class="bar-row__val">
       <span class="bar-row__pct mono">${esc(fmtPct(ratio))}</span> ${tag}
@@ -1010,12 +1010,33 @@ function riskInfo(r) {
   return { count: lines.length, codes: Array.from(new Set(lines.map(effOrigin))).sort() };
 }
 
+// Presentation: after a re-render each scenario bar grows from its previous value (or from zero),
+// so a recompute reads as a change rather than a jump. CSS transitions do the motion and are
+// switched off for prefers-reduced-motion.
+function animateBars(box, prev) {
+  const moved = [];
+  for (const bar of box.querySelectorAll('.bar[data-key]')) {
+    const fill = bar.querySelector('.bar__fill');
+    const to = bar.style.getPropertyValue('--k');
+    const from = prev.get(bar.dataset.key);
+    if (!fill || from === to) continue;
+    fill.style.transform = `scaleX(${from || 0})`;
+    moved.push(fill);
+  }
+  if (!moved.length) return;
+  void box.offsetWidth; // commit the start values before releasing them
+  for (const fill of moved) fill.style.transform = '';
+}
+
 function renderVerdict(r) {
   const box = $('#verdict');
   if (!r) {
     box.innerHTML = '';
+    delete box.dataset.st;
     return;
   }
+  const prevBars = new Map(Array.from(box.querySelectorAll('.bar[data-key]'), (b) => [b.dataset.key, b.style.getPropertyValue('--k')]));
+  const prevSt = box.dataset.st;
   const v = r.verdict || {};
   const st = overallVerdict(r);
   const label = t(`verdict.${st}`);
@@ -1031,17 +1052,20 @@ function renderVerdict(r) {
   const riskHtml = risky.count
     ? `<p class="alert alert--bad">${esc(t('verdict.risk', { rows: tp('rows', risky.count), codes: risky.codes.join(', ') }))}</p>`
     : '';
+  // .stamp is kept as the hook of the e2e test; it renders as a status pill.
   box.innerHTML = `
-    <div class="verdict verdict--${st}">
-      <p class="stamp stamp--${st}"><span>${esc(label)}</span></p>
-      <div class="verdict__body">
-        <p class="verdict__lead">${esc(lead)}</p>
+    <div class="verdict verdict--${st}${prevSt && prevSt !== st ? ' is-changed' : ''}">
+      <div class="verdict__top">
+        <p class="stamp stamp--${st}"><span class="stamp__dot" aria-hidden="true"></span><span>${esc(label)}</span></p>
         <p class="verdict__meta mono">${esc(meta)}</p>
       </div>
+      <p class="verdict__lead">${esc(lead)}</p>
     </div>
     ${riskHtml}
     <div class="methods">${methodHtml(r, 'a')}${methodHtml(r, 'b')}</div>
     <p class="hint">${esc(t('verdict.homeNote'))} ${esc(t('verdict.disclaimer'))}</p>`;
+  box.dataset.st = st;
+  animateBars(box, prevBars);
 }
 
 function renderHeadroom(r) {
@@ -1491,7 +1515,7 @@ function renderWarnings(r) {
       if (l) ref = ` <a class="wr__ref mono" href="#ln-${idx}" data-goto="${idx}">${esc(t('wr.line', { ref: lineRef(l) || idx + 1 }))}</a>`;
     }
     const sev = w.severity === 'error' ? 'bad' : w.severity === 'info' ? 'info' : 'warn';
-    return `<li class="wr wr--${sev}">${esc(text)}${ref}</li>`;
+    return `<li class="wr wr--${sev}"><span class="pill pill--${sev}">${esc(t(`wr.sev.${sev}`))}</span><span class="wr__text">${esc(text)}${ref}</span></li>`;
   };
   const first = ws.slice(0, WARN_SHOWN).map(item).join('');
   const rest = ws.slice(WARN_SHOWN);

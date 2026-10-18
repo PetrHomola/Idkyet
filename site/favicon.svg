@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <style>
-    .p { fill: #ffffff; stroke: #c97a00; }
-    .t { fill: #142029; }
+    .bg { fill: #0f3d73; }
+    .c { fill: none; stroke: #ffffff; }
     @media (prefers-color-scheme: dark) {
-      .p { fill: #16212a; stroke: #f0b03c; }
-      .t { fill: #e6ecef; }
+      .bg { fill: #8fb6ef; }
+      .c { stroke: #08111d; }
     }
   </style>
-  <rect class="p" x="2.5" y="2.5" width="27" height="27" rx="4" stroke-width="3"/>
-  <text class="t" x="16" y="21" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" font-weight="700" text-anchor="middle">35</text>
+  <rect class="bg" width="32" height="32" rx="8"/>
+  <path class="c" d="M21.5 11.05A7.4 7.4 0 1 0 21.5 20.95" stroke-width="3" stroke-linecap="round"/>
 </svg>

@@ -19,14 +19,15 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
+  <script src="../assets/js/site.js" defer></script>
 </head>
-<body>
+<body class="sheet-page">
   <a class="skip-link" href="#offer">Skip to the offer</a>
 
   <div class="sheet-bar no-print">
     <div class="wrap sheet-bar__in">
       <a class="brand" href="index.html" aria-label="{{BRAND}} – back to the website">
-        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg><span class="brand__name">{{BRAND}}</span>
       </a>
       <p class="hint">To save as PDF: Print → Save as PDF, A4 paper.</p>
       <button type="button" class="btn btn--sm" id="print-btn">Print / PDF</button>
@@ -38,18 +39,18 @@
     <article class="sheet" aria-labelledby="sheet-title">
       <header class="sheet__head">
         <div>
-          <p class="sheet__brand"><span class="brand__mark" aria-hidden="true">35</span>{{BRAND}}</p>
+          <p class="sheet__brand"><svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg><span>{{BRAND}}</span></p>
           <h1 class="sheet__title" id="sheet-title">Proving component origin: offer and prices</h1>
           <p class="sheet__sub">The 35&nbsp;% rule for SAFE and EDIP · {{WEB}}</p>
         </div>
-        <span class="stamp sheet__stamp">Prices excl. VAT</span>
+        <p class="sheet__meta"><span>Prices excl. VAT</span><span>As of <b>{{UPDATED}}</b></span></p>
       </header>
 
       <div class="sheet__two">
         <section aria-labelledby="s-what">
           <h2 id="s-what">What it is about</h2>
           <p>Components originating outside the EU (for SAFE: outside the EU, EEA EFTA states and Ukraine) may make up no more than 35&nbsp;% of the component cost of the end product. This applies to SAFE (Regulation 2025/1106, Article 16(10)), EDIP (2025/2643, Article 10), the EDIP Ukraine Support Instrument and the Ukraine loan. If the condition is not met, SAFE payments can be suspended and EDIP grants reduced or terminated; false information can lead to exclusion from EU funding.</p>
-          <p style="margin-top: 2mm">We calculate your share using the Commission's method and collect the evidence to back it up: supplier declarations and customs documents.</p>
+          <p>We calculate your share using the Commission's method and collect the evidence to back it up: supplier declarations and customs documents.</p>
         </section>
         <section aria-labelledby="s-who">
           <h2 id="s-who">Who it is for</h2>
@@ -103,10 +104,6 @@
         </table>
       </section>
 
-      <div class="sheet__launch">
-        <span class="stamp">Launch offer</span>
-        <p>Quick Check at half price for our first two customers, in exchange for a reference.</p>
-      </div>
 
       <div class="sheet__two">
         <section aria-labelledby="s-start">
@@ -140,9 +137,5 @@
     </article>
   </main>
 
-  <script type="module">
-    const btn = document.getElementById('print-btn');
-    if (btn) btn.addEventListener('click', () => window.print());
-  </script>
 </body>
 </html>

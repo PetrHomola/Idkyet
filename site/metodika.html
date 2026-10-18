@@ -17,8 +17,10 @@
   <meta property="og:locale" content="cs_CZ">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
@@ -26,26 +28,33 @@
   <header class="topbar">
     <div class="wrap topbar__in">
       <a class="brand" href="index.html" aria-label="{{BRAND}} – úvod">
-        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span class="brand__name">{{BRAND}}</span>
       </a>
-      <nav class="topnav" aria-label="Hlavní navigace">
+      <nav class="topnav" id="topnav" aria-label="Hlavní navigace">
         <a href="index.html">Úvod</a>
         <a href="kalkulacka/index.html?lang=cs">Kalkulačka</a>
         <a href="index.html#nabidka">Ceník</a>
         <a href="metodika.html" aria-current="page">Metodika</a>
+        <a href="index.html#o-nas">O nás</a>
         <a href="index.html#kontakt">Kontakt</a>
       </nav>
-      <a class="btn btn--sm topbar__cta" href="kalkulacka/index.html?lang=cs">Spočítat zdarma</a>
-      <a class="lang" href="en/methodology.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <div class="topbar__end">
+        <a class="lang" href="en/methodology.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+        <a class="btn btn--sm topbar__cta" href="kalkulacka/index.html?lang=cs">Spočítat zdarma</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="topnav"><span class="menu-btn__i" aria-hidden="true"></span><span class="sr-only">Menu</span></button>
+      </div>
     </div>
   </header>
 
   <main id="obsah">
-    <header class="doc-hero wrap">
-      <p class="crumbs"><a href="index.html">{{BRAND}}</a> / Metodika</p>
-      <h1>Metodika výpočtu podílu komponent mimo EU</h1>
-      <p class="lead">Jak počítáme pravidlo 35&nbsp;% pro SAFE, EDIP a&nbsp;související nástroje. Vycházíme z&nbsp;textu nařízení a&nbsp;z&nbsp;postupu, který Komise zveřejnila pro EDIP. Kde předpisy mlčí, říkáme to otevřeně a&nbsp;popisujeme, jak postupujeme.</p>
-      <p class="docmeta"><span>Poslední aktualizace <b>{{UPDATED}}</b></span><span>Pravidla: SAFE · EDIP · USI · půjčka pro Ukrajinu · EU–Kanada</span><span>Nejde o&nbsp;právní stanovisko</span></p>
+    <header class="doc-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="index.html">{{BRAND}}</a><span aria-hidden="true">/</span>Metodika</p>
+        <h1>Metodika výpočtu podílu komponent mimo EU</h1>
+        <p class="lead">Jak počítáme pravidlo 35&nbsp;% pro SAFE, EDIP a&nbsp;související nástroje. Vycházíme z&nbsp;textu nařízení a&nbsp;z&nbsp;postupu, který Komise zveřejnila pro EDIP. Kde předpisy mlčí, říkáme to otevřeně a&nbsp;popisujeme, jak postupujeme.</p>
+        <p class="docmeta"><span>Poslední aktualizace <b>{{UPDATED}}</b></span><span>Pravidla: SAFE · EDIP · USI · půjčka pro Ukrajinu · EU–Kanada</span><span>Nejde o&nbsp;právní stanovisko</span></p>
+      </div>
     </header>
 
     <div class="wrap doc">
@@ -67,7 +76,7 @@
 
       <article class="prose">
         <!-- 1 -->
-        <section id="pravidlo" aria-labelledby="h-1">
+        <section class="reveal" id="pravidlo" aria-labelledby="h-1">
           <h2 id="h-1"><span class="no">01</span>Pravidlo v&nbsp;textu předpisů</h2>
           <blockquote class="rule-quote" lang="en" cite="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng">
             <p>The cost of components originating outside the Union, EEA EFTA States and Ukraine shall not be higher than 35&nbsp;% of the estimated cost of the components of the end product.</p>
@@ -89,7 +98,7 @@
         </section>
 
         <!-- 2 -->
-        <section id="metoda" aria-labelledby="h-2">
+        <section class="reveal" id="metoda" aria-labelledby="h-2">
           <h2 id="h-2"><span class="no">02</span>Metoda EDIP krok za krokem</h2>
           <p>Podrobný postup Komise zveřejnila ve výzvě EDF-EDIP-P-2026-LS-IRA (verze 1.2 z&nbsp;10. 6. 2026, str. 9–10) a&nbsp;ve výukových slajdech „Origin of Components“ (5/2026) <a href="#src-5">[5]</a> <a href="#src-6">[6]</a>. Podle něj počítáme EDIP a&nbsp;do vydání pokynů k&nbsp;SAFE i&nbsp;SAFE.</p>
 
@@ -122,7 +131,7 @@
         </section>
 
         <!-- 3 -->
-        <section id="priklad" aria-labelledby="h-3">
+        <section class="reveal" id="priklad" aria-labelledby="h-3">
           <h2 id="h-3"><span class="no">03</span>Příklad Komise</h2>
           <p>Slajdy Komise ukazují stejný výrobek spočítaný oběma metodami: 92&nbsp;/&nbsp;214&nbsp;=&nbsp;43&nbsp;% (metoda (a) nevyhoví) a&nbsp;92&nbsp;/&nbsp;275&nbsp;=&nbsp;34&nbsp;% (metoda (b) vyhoví). Přesně vychází 42,99&nbsp;% a&nbsp;33,45&nbsp;%. Rozdíl jmenovatelů, 275&nbsp;−&nbsp;214&nbsp;=&nbsp;61, jsou výrobní náklady podsestav z&nbsp;vlastní výroby.</p>
           <figure class="figure" aria-labelledby="fig-cap">
@@ -162,7 +171,7 @@
         </section>
 
         <!-- 4 -->
-        <section id="pravidla" aria-labelledby="h-4">
+        <section class="reveal" id="pravidla" aria-labelledby="h-4">
           <h2 id="h-4"><span class="no">04</span>Pravidla a&nbsp;domácí země</h2>
           <p>„Domácí“ jsou země, jejichž komponenty se do 35&nbsp;% nepočítají. Každý nástroj je vymezuje jinak, proto má kalkulačka pro každý vlastní sadu pravidel.</p>
           <div class="table-scroll">
@@ -203,7 +212,7 @@
         </section>
 
         <!-- 5 -->
-        <section id="scenare" aria-labelledby="h-5">
+        <section class="reveal" id="scenare" aria-labelledby="h-5">
           <h2 id="h-5"><span class="no">05</span>Stav doložení a&nbsp;scénáře</h2>
           <p>Každý řádek má jeden ze tří stavů. Z&nbsp;nich se skládají tři scénáře, takže výsledek nevidíte jako jedno číslo, ale jako rozpětí.</p>
           <dl class="scen">
@@ -230,7 +239,7 @@
         </section>
 
         <!-- 6 -->
-        <section id="minimalni-sada" aria-labelledby="h-6">
+        <section class="reveal" id="minimalni-sada" aria-labelledby="h-6">
           <h2 id="h-6"><span class="no">06</span>Minimální sada dokladů</h2>
           <p>Nemusíte obesílat všechny dodavatele. Hledáme nejmenší počet řádků, jejichž doložení stačí, aby vyhověl i&nbsp;nejhorší (auditní) scénář.</p>
           <ol>
@@ -243,7 +252,7 @@
         </section>
 
         <!-- 7 -->
-        <section id="kategorie" aria-labelledby="h-7">
+        <section class="reveal" id="kategorie" aria-labelledby="h-7">
           <h2 id="h-7"><span class="no">07</span>Pět kategorií komponent</h2>
           <p>Komise v&nbsp;šabloně „Procurement strategy“ chce rozpad podílu po pěti kategoriích komponent. Výstup proto třídíme stejně, řádky bez kategorie zvlášť.</p>
           <div class="table-scroll">
@@ -263,7 +272,7 @@
         </section>
 
         <!-- 8 -->
-        <section id="otevrene" aria-labelledby="h-8">
+        <section class="reveal" id="otevrene" aria-labelledby="h-8">
           <h2 id="h-8"><span class="no">08</span>Otevřené otázky a&nbsp;jak je řešíme</h2>
           <p>Některé věci předpisy ani zveřejněná metodika výslovně neřeší, nebo je třeba je posoudit u&nbsp;konkrétního výrobku. Tady je náš postup. Každou volbu zapíšeme do popisu postupu, aby byla dohledatelná.</p>
 
@@ -287,7 +296,7 @@
         </section>
 
         <!-- 9 -->
-        <section id="vystup" aria-labelledby="h-9">
+        <section class="reveal" id="vystup" aria-labelledby="h-9">
           <h2 id="h-9"><span class="no">09</span>Co výstup je a&nbsp;není</h2>
           <ul>
             <li>Výstup je <strong>výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů</strong> a&nbsp;popis postupu. {{BRAND}} nedává právní stanoviska.</li>
@@ -298,7 +307,7 @@
         </section>
 
         <!-- 10 -->
-        <section id="zdroje" aria-labelledby="h-10">
+        <section class="reveal" id="zdroje" aria-labelledby="h-10">
           <h2 id="h-10"><span class="no">10</span>Zdroje</h2>
           <ol class="sources">
             <li id="src-1"><span>Nařízení Rady (EU) 2025/1106 (SAFE), čl. 16 odst. 10 a&nbsp;recitál 19. <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/1106/oj/eng</a></span></li>
@@ -318,9 +327,9 @@
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <div>
-        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span></a>
-        <p class="muted" style="margin-top: var(--s3)">Výpočet a&nbsp;doložení původu komponent pro pravidlo 35&nbsp;% (SAFE, EDIP). Nejde o&nbsp;právní poradenství. Výstup je výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů.</p>
+      <div class="foot__about">
+        <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg><span class="brand__name">{{BRAND}}</span></a>
+        <p>Výpočet a&nbsp;doložení původu komponent pro pravidlo 35&nbsp;% (SAFE, EDIP). Nejde o&nbsp;právní poradenství. Výstup je výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů.</p>
       </div>
       <nav aria-label="Odkazy v patičce">
         <h2>Web</h2>

@@ -17,8 +17,10 @@
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
+  <script src="../assets/js/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -26,26 +28,33 @@
   <header class="topbar">
     <div class="wrap topbar__in">
       <a class="brand" href="index.html" aria-label="{{BRAND}} – home">
-        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span class="brand__name">{{BRAND}}</span>
       </a>
-      <nav class="topnav" aria-label="Main navigation">
+      <nav class="topnav" id="topnav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="../kalkulacka/index.html?lang=en">Calculator</a>
         <a href="index.html#offer">Pricing</a>
         <a href="methodology.html" aria-current="page">Methodology</a>
+        <a href="index.html#about">About us</a>
         <a href="index.html#contact">Contact</a>
       </nav>
-      <a class="btn btn--sm topbar__cta" href="../kalkulacka/index.html?lang=en">Calculate for free</a>
-      <a class="lang" href="../metodika.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
+      <div class="topbar__end">
+        <a class="lang" href="../metodika.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
+        <a class="btn btn--sm topbar__cta" href="../kalkulacka/index.html?lang=en">Calculate for free</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="topnav"><span class="menu-btn__i" aria-hidden="true"></span><span class="sr-only">Menu</span></button>
+      </div>
     </div>
   </header>
 
   <main id="content">
-    <header class="doc-hero wrap">
-      <p class="crumbs"><a href="index.html">{{BRAND}}</a> / Methodology</p>
-      <h1>How we calculate the share of non-EU components</h1>
-      <p class="lead">How we apply the 35&nbsp;% rule for SAFE, EDIP and related instruments. We work from the text of the regulations and from the method the Commission has published for EDIP. Where the rules are silent, we say so openly and describe what we do.</p>
-      <p class="docmeta"><span>Last updated <b>{{UPDATED}}</b></span><span>Rules: SAFE · EDIP · USI · Ukraine loan · EU–Canada</span><span>Not a legal opinion</span></p>
+    <header class="doc-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="index.html">{{BRAND}}</a><span aria-hidden="true">/</span>Methodology</p>
+        <h1>How we calculate the share of non-EU components</h1>
+        <p class="lead">How we apply the 35&nbsp;% rule for SAFE, EDIP and related instruments. We work from the text of the regulations and from the method the Commission has published for EDIP. Where the rules are silent, we say so openly and describe what we do.</p>
+        <p class="docmeta"><span>Last updated <b>{{UPDATED}}</b></span><span>Rules: SAFE · EDIP · USI · Ukraine loan · EU–Canada</span><span>Not a legal opinion</span></p>
+      </div>
     </header>
 
     <div class="wrap doc">
@@ -67,7 +76,7 @@
 
       <article class="prose">
         <!-- 1 -->
-        <section id="rule" aria-labelledby="h-1">
+        <section class="reveal" id="rule" aria-labelledby="h-1">
           <h2 id="h-1"><span class="no">01</span>The rule in the legal texts</h2>
           <blockquote class="rule-quote" cite="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng">
             <p>The cost of components originating outside the Union, EEA EFTA States and Ukraine shall not be higher than 35&nbsp;% of the estimated cost of the components of the end product.</p>
@@ -89,7 +98,7 @@
         </section>
 
         <!-- 2 -->
-        <section id="method" aria-labelledby="h-2">
+        <section class="reveal" id="method" aria-labelledby="h-2">
           <h2 id="h-2"><span class="no">02</span>The EDIP method step by step</h2>
           <p>The Commission has published a detailed method in call EDF-EDIP-P-2026-LS-IRA (version 1.2 of 10 June 2026, pages 9–10) and in the training slides “Origin of Components” (5/2026) <a href="#src-5">[5]</a> <a href="#src-6">[6]</a>. We use it for EDIP and, until there is SAFE guidance, for SAFE as well.</p>
 
@@ -122,7 +131,7 @@
         </section>
 
         <!-- 3 -->
-        <section id="example" aria-labelledby="h-3">
+        <section class="reveal" id="example" aria-labelledby="h-3">
           <h2 id="h-3"><span class="no">03</span>The Commission's example</h2>
           <p>The Commission's slides show the same product calculated both ways: 92&nbsp;/&nbsp;214&nbsp;=&nbsp;43&nbsp;% (method (a) fails) and 92&nbsp;/&nbsp;275&nbsp;=&nbsp;34&nbsp;% (method (b) passes). The exact figures are 42.99&nbsp;% and 33.45&nbsp;%. The difference between the denominators, 275&nbsp;−&nbsp;214&nbsp;=&nbsp;61, is the manufacturing cost of in-house sub-assemblies.</p>
           <figure class="figure" aria-labelledby="fig-cap">
@@ -162,7 +171,7 @@
         </section>
 
         <!-- 4 -->
-        <section id="rules" aria-labelledby="h-4">
+        <section class="reveal" id="rules" aria-labelledby="h-4">
           <h2 id="h-4"><span class="no">04</span>Rule packs and home countries</h2>
           <p>“Home” countries are those whose components do not count towards the 35&nbsp;%. Each instrument defines them differently, so the calculator has a separate rule pack for each.</p>
           <div class="table-scroll">
@@ -203,7 +212,7 @@
         </section>
 
         <!-- 5 -->
-        <section id="scenarios" aria-labelledby="h-5">
+        <section class="reveal" id="scenarios" aria-labelledby="h-5">
           <h2 id="h-5"><span class="no">05</span>Evidence status and scenarios</h2>
           <p>Every line has one of three statuses. These combine into three scenarios, so you see the result as a range rather than a single number.</p>
           <dl class="scen">
@@ -230,7 +239,7 @@
         </section>
 
         <!-- 6 -->
-        <section id="minimum-set" aria-labelledby="h-6">
+        <section class="reveal" id="minimum-set" aria-labelledby="h-6">
           <h2 id="h-6"><span class="no">06</span>Minimum evidence set</h2>
           <p>You do not need to chase every supplier. We look for the smallest number of lines whose documentation is enough for the worst (audit) case to pass as well.</p>
           <ol>
@@ -243,7 +252,7 @@
         </section>
 
         <!-- 7 -->
-        <section id="categories" aria-labelledby="h-7">
+        <section class="reveal" id="categories" aria-labelledby="h-7">
           <h2 id="h-7"><span class="no">07</span>Five component categories</h2>
           <p>In the “Procurement strategy” template the Commission asks for the share broken down into five component categories. We sort the output the same way, with uncategorised lines shown separately.</p>
           <div class="table-scroll">
@@ -263,7 +272,7 @@
         </section>
 
         <!-- 8 -->
-        <section id="open-questions" aria-labelledby="h-8">
+        <section class="reveal" id="open-questions" aria-labelledby="h-8">
           <h2 id="h-8"><span class="no">08</span>Open questions and how we handle them</h2>
           <p>Some points are not expressly settled by the regulations or the published method, or have to be assessed for the specific product. Here is what we do. Every choice is recorded in the description of the approach, so it can be traced.</p>
 
@@ -287,7 +296,7 @@
         </section>
 
         <!-- 9 -->
-        <section id="output" aria-labelledby="h-9">
+        <section class="reveal" id="output" aria-labelledby="h-9">
           <h2 id="h-9"><span class="no">09</span>What the output is and is not</h2>
           <ul>
             <li>The output is <strong>a calculation based on documents and supplier declarations</strong>, plus a description of the approach. {{BRAND}} does not give legal opinions.</li>
@@ -298,7 +307,7 @@
         </section>
 
         <!-- 10 -->
-        <section id="sources" aria-labelledby="h-10">
+        <section class="reveal" id="sources" aria-labelledby="h-10">
           <h2 id="h-10"><span class="no">10</span>Sources</h2>
           <ol class="sources">
             <li id="src-1"><span>Council Regulation (EU) 2025/1106 (SAFE), Article 16(10) and recital 19. <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/1106/oj/eng</a></span></li>
@@ -318,9 +327,9 @@
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <div>
-        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span></a>
-        <p class="muted" style="margin-top: var(--s3)">Calculation and documentation of component origin for the 35&nbsp;% rule (SAFE, EDIP). This is not legal advice. The output is a calculation based on documents and supplier declarations.</p>
+      <div class="foot__about">
+        <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg><span class="brand__name">{{BRAND}}</span></a>
+        <p>Calculation and documentation of component origin for the 35&nbsp;% rule (SAFE, EDIP). This is not legal advice. The output is a calculation based on documents and supplier declarations.</p>
       </div>
       <nav aria-label="Footer links">
         <h2>Site</h2>

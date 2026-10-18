@@ -17,8 +17,10 @@
   <meta property="og:locale" content="cs_CZ">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
@@ -26,26 +28,33 @@
   <header class="topbar">
     <div class="wrap topbar__in">
       <a class="brand" href="index.html" aria-label="{{BRAND}} – úvod">
-        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span class="brand__name">{{BRAND}}</span>
       </a>
-      <nav class="topnav" aria-label="Hlavní navigace">
+      <nav class="topnav" id="topnav" aria-label="Hlavní navigace">
         <a href="index.html">Úvod</a>
         <a href="kalkulacka/index.html?lang=cs">Kalkulačka</a>
         <a href="index.html#nabidka">Ceník</a>
         <a href="metodika.html">Metodika</a>
+        <a href="index.html#o-nas">O nás</a>
         <a href="index.html#kontakt">Kontakt</a>
       </nav>
-      <a class="btn btn--sm topbar__cta" href="kalkulacka/index.html?lang=cs">Spočítat zdarma</a>
-      <a class="lang" href="en/data-protection.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <div class="topbar__end">
+        <a class="lang" href="en/data-protection.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+        <a class="btn btn--sm topbar__cta" href="kalkulacka/index.html?lang=cs">Spočítat zdarma</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="topnav"><span class="menu-btn__i" aria-hidden="true"></span><span class="sr-only">Menu</span></button>
+      </div>
     </div>
   </header>
 
   <main id="obsah">
-    <header class="doc-hero wrap">
-      <p class="crumbs"><a href="index.html">{{BRAND}}</a> / Ochrana dat</p>
-      <h1>Jak zacházíme s&nbsp;daty</h1>
-      <p class="lead">Pro výpočet potřebujeme jen obchodní data: co kupujete, od koho, za kolik a&nbsp;odkud to pochází. Tady je přesně, co bereme, co nikdy, kde data jsou a&nbsp;co s&nbsp;nimi uděláme po skončení spolupráce.</p>
-      <p class="docmeta"><span>Kalkulačka: <b>data zůstávají u&nbsp;vás</b></span><span>Služby: <b>jen obchodní data</b></span><span>Data: <b>v&nbsp;EU, nebo u&nbsp;vás</b></span></p>
+    <header class="doc-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="index.html">{{BRAND}}</a><span aria-hidden="true">/</span>Ochrana dat</p>
+        <h1>Jak zacházíme s&nbsp;daty</h1>
+        <p class="lead">Pro výpočet potřebujeme jen obchodní data: co kupujete, od koho, za kolik a&nbsp;odkud to pochází. Tady je přesně, co bereme, co nikdy, kde data jsou a&nbsp;co s&nbsp;nimi uděláme po skončení spolupráce.</p>
+        <p class="docmeta"><span>Kalkulačka: <b>data zůstávají u&nbsp;vás</b></span><span>Služby: <b>jen obchodní data</b></span><span>Data: <b>v&nbsp;EU, nebo u&nbsp;vás</b></span></p>
+      </div>
     </header>
 
     <div class="wrap doc">
@@ -64,7 +73,7 @@
       </nav>
 
       <article class="prose">
-        <section id="kratce" aria-labelledby="h-1">
+        <section class="reveal" id="kratce" aria-labelledby="h-1">
           <h2 id="h-1"><span class="no">01</span>Krátce</h2>
           <ul class="checklist">
             <li>Kalkulačka běží ve vašem prohlížeči, data se nikam neodesílají. Offline verze funguje bez internetu.</li>
@@ -77,7 +86,7 @@
           </ul>
         </section>
 
-        <section id="kalkulacka" aria-labelledby="h-2">
+        <section class="reveal" id="kalkulacka" aria-labelledby="h-2">
           <h2 id="h-2"><span class="no">02</span>Kalkulačka běží u&nbsp;vás</h2>
           <p>Výpočet probíhá přímo ve vašem prohlížeči. Kusovník, který vložíte nebo nahrajete, se nikam neodesílá a&nbsp;my ho nevidíme. Projekt si můžete uložit jako soubor JSON do svého počítače a&nbsp;později ho znovu načíst. Prohlížeč si pamatuje jen zvolený jazyk.</p>
           <p>Co se při práci s&nbsp;kalkulačkou načítá z&nbsp;internetu:</p>
@@ -92,7 +101,7 @@
           </div>
         </section>
 
-        <section id="co-bereme" aria-labelledby="h-3">
+        <section class="reveal" id="co-bereme" aria-labelledby="h-3">
           <h2 id="h-3"><span class="no">03</span>Co bereme a&nbsp;co nikdy</h2>
           <p>Pro Rychlou kontrolu i&nbsp;Sadu dokladů stačí výpis nákupních dat k&nbsp;výrobku podle naší <a href="sablony/cirus-origin-vstupni-sablona.xlsx" download>šablony</a>. Čísla dílů můžete nahradit pseudonymy a&nbsp;klíč si nechat u&nbsp;sebe.</p>
           <div class="table-scroll">
@@ -118,28 +127,28 @@
           <p>Pokud něco takového dostaneme omylem, nepoužijeme to, smažeme to a&nbsp;dáme vám vědět.</p>
         </section>
 
-        <section id="kde" aria-labelledby="h-4">
+        <section class="reveal" id="kde" aria-labelledby="h-4">
           <h2 id="h-4"><span class="no">04</span>Kde data jsou</h2>
           <p>Data držíme v&nbsp;EU. Pokud je nechcete pustit ven z&nbsp;firmy, pracujeme přímo u&nbsp;vás, na vašich zařízeních (služba Posila u&nbsp;vás).</p>
           <p>Ven z&nbsp;výpočtu jdou jen souhrny po kategoriích, stejně jako je chce Komise v&nbsp;šabloně „Procurement strategy“. Jednotlivé řádky kusovníku nikam nepředáváme. Dodavatel v&nbsp;žádosti o&nbsp;prohlášení vidí jen své vlastní díly, nikdy celý kusovník.</p>
         </section>
 
-        <section id="ai" aria-labelledby="h-5">
+        <section class="reveal" id="ai" aria-labelledby="h-5">
           <h2 id="h-5"><span class="no">05</span>AI nástroje</h2>
           <p>AI nástroje nad vašimi daty nepoužíváme bez vašeho písemného souhlasu. Kalkulačka žádnou AI nepoužívá, počítá podle pevných pravidel popsaných v&nbsp;<a href="metodika.html">metodice</a>.</p>
         </section>
 
-        <section id="nda" aria-labelledby="h-6">
+        <section class="reveal" id="nda" aria-labelledby="h-6">
           <h2 id="h-6"><span class="no">06</span>NDA a&nbsp;vlastnictví</h2>
           <p>Podepíšeme vaši NDA, nemusíte vyjednávat naši. {{BRAND}} provozuje česká firma {{COMPANY}}, bez vlastníků mimo EU.</p>
         </section>
 
-        <section id="smazani" aria-labelledby="h-7">
+        <section class="reveal" id="smazani" aria-labelledby="h-7">
           <h2 id="h-7"><span class="no">07</span>Smazání po skončení</h2>
           <p>Po skončení spolupráce vaše data smažeme a&nbsp;smazání vám potvrdíme. Výstupy, které jsme vám předali, zůstávají u&nbsp;vás.</p>
         </section>
 
-        <section id="gdpr" aria-labelledby="h-8">
+        <section class="reveal" id="gdpr" aria-labelledby="h-8">
           <h2 id="h-8"><span class="no">08</span>Kontaktní údaje a&nbsp;GDPR</h2>
           <p>Kusovníky a&nbsp;nákupní data obvykle osobní údaje neobsahují. Osobní údaje zpracováváme hlavně tehdy, když nás kontaktujete.</p>
           <dl class="scen">
@@ -164,9 +173,9 @@
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <div>
-        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span></a>
-        <p class="muted" style="margin-top: var(--s3)">Výpočet a&nbsp;doložení původu komponent pro pravidlo 35&nbsp;% (SAFE, EDIP). Nejde o&nbsp;právní poradenství. Výstup je výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů.</p>
+      <div class="foot__about">
+        <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg><span class="brand__name">{{BRAND}}</span></a>
+        <p>Výpočet a&nbsp;doložení původu komponent pro pravidlo 35&nbsp;% (SAFE, EDIP). Nejde o&nbsp;právní poradenství. Výstup je výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů.</p>
       </div>
       <nav aria-label="Odkazy v patičce">
         <h2>Web</h2>

@@ -14,11 +14,12 @@ export const STRINGS = {
     'nav.web': 'Web',
     'nav.method': 'Metodika',
     'nav.offer': 'Nabídka',
+    'nav.steps': 'Kroky kalkulačky',
     'lang.label': 'Jazyk',
 
-    'hero.kicker': 'Kalkulačka · SAFE · EDIP · pravidlo 35 %',
-    'hero.title': 'Podíl komponent s původem mimo EU',
-    'hero.lead': 'Nahrajte kusovník nebo seznam nákupů. Kalkulačka spočítá podíl dílů s původem mimo EU podle obou metod Komise, ukáže nejhorší, očekávaný i nejlepší případ a řekne, které doklady chybějí.',
+    'hero.kicker': 'Kalkulačka · SAFE · EDIP · pravidlo 35 %',
+    'hero.title': 'Podíl komponent s\u00a0původem mimo EU',
+    'hero.lead': 'Nahrajte kusovník nebo seznam nákupů. Kalkulačka spočítá podíl dílů s\u00a0původem mimo EU podle obou metod Komise, ukáže nejhorší, očekávaný i\u00a0nejlepší případ a\u00a0řekne, které doklady chybějí.',
     'privacy': 'Data zůstávají ve vašem prohlížeči. Nic se neodesílá.',
     'privacy.link': 'Jak zacházíme s daty',
 
@@ -249,6 +250,9 @@ export const STRINGS = {
     'wr.none': 'Žádná varování.',
     'wr.more': 'Zobrazit dalších {n}',
     'wr.line': 'řádek {ref}',
+    'wr.sev.bad': 'Závažné',
+    'wr.sev.warn': 'Upozornění',
+    'wr.sev.info': 'Informace',
 
     'ex.title': 'Export a tisk',
     'ex.hint': 'Soubory se ukládají jen k vám do počítače.',
@@ -314,6 +318,7 @@ export const STRINGS = {
     'nav.web': 'Website',
     'nav.method': 'Methodology',
     'nav.offer': 'Offer',
+    'nav.steps': 'Calculator steps',
     'lang.label': 'Language',
 
     'hero.kicker': 'Calculator · SAFE · EDIP · 35 % rule',
@@ -549,6 +554,9 @@ export const STRINGS = {
     'wr.none': 'No warnings.',
     'wr.more': 'Show {n} more',
     'wr.line': 'line {ref}',
+    'wr.sev.bad': 'Critical',
+    'wr.sev.warn': 'Warning',
+    'wr.sev.info': 'Info',
 
     'ex.title': 'Export and print',
     'ex.hint': 'Files are saved only to your computer.',
