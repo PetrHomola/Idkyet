@@ -23,8 +23,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/brand/cirus-symbol-navy.png">
-  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/site.css">
@@ -56,21 +56,23 @@
   </header>
 
   <main id="obsah">
-    <!-- hero -->
+    <!-- hero: navy section with the mark drawn large; a photo can replace the <svg> in .hero__media (see README) -->
     <section class="hero" aria-labelledby="h-hero">
+      <div class="hero__media" aria-hidden="true">
+        <svg class="hero__mark" viewBox="0 0 96 96" focusable="false"><path d="M4 25L25 4L38.75 4L4 38.75Z"/><path d="M43.25 4L92 4L92 27L43 27L34 36L34 60L34.875 60.875L14.375 81.375L4 71L4 43.25Z"/><path d="M37.125 63.125L43 69L92 69L92 92L25 92L16.625 83.625Z"/></svg>
+      </div>
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="pill"><span class="pill__k">SAFE · EDIP</span><span>Původ dílů<span class="pill__more"> pro evropské peníze na obranu</span></span></p>
           <h1 id="h-hero">Spočítáme a&nbsp;doložíme, že váš výrobek splňuje <span class="hl">pravidlo 35&nbsp;%</span>.</h1>
           <p class="lead">Zakázky financované z&nbsp;evropských programů SAFE a&nbsp;EDIP mají podmínku: díly vyrobené mimo EU smějí tvořit nejvýš 35&nbsp;% nákladů na díly výrobku. Zjistíme, jak na tom jste, a&nbsp;od vašich dodavatelů získáme doklady, které to potvrdí.</p>
           <div class="actions">
-            <a class="btn" href="kalkulacka/index.html?lang=cs">Spočítat zdarma <span class="btn__arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--ghost" href="#kontakt">Domluvit hovor</a>
+            <a class="btn btn--light" href="kalkulacka/index.html?lang=cs">Spočítat zdarma <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="link-light" href="#kontakt">Domluvit hovor</a>
           </div>
-          <p class="trust"><svg class="trust__i" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2.5 4 4.8v4.6c0 3.7 2.6 6.7 6 8.1 3.4-1.4 6-4.4 6-8.1V4.8L10 2.5Z"/><path d="m7.4 10 1.8 1.8 3.5-3.6"/></svg><span>Kalkulačka běží jen ve vašem prohlížeči. Data nikam neodcházejí.</span></p>
+          <p class="trust">Kalkulačka běží jen ve vašem prohlížeči. Data nikam neodcházejí.</p>
         </div>
 
-        <figure class="exhibit reveal" data-meters data-reveal-delay="120" aria-labelledby="ex-cap">
+        <figure class="exhibit" aria-labelledby="ex-cap">
           <div class="exhibit__head">
             <p class="exhibit__title">Ukázka na smyšleném výrobku</p>
             <p class="exhibit__src">podíl dílů mimo EU</p>
@@ -79,14 +81,14 @@
             <div class="xrow xrow--fail">
               <div class="xrow__top">
                 <p class="xrow__label"><span class="xrow__name">Bez dokladů <span class="tag tag--bad">nesplňuje</span></span><small>díly s&nbsp;neověřeným původem se počítají jako díly mimo EU</small></p>
-                <p class="xrow__val"><span class="xrow__pct"><span data-count="48.5" data-decimals="1" data-delay="160">48,5</span>&#8239;%</span></p>
+                <p class="xrow__val"><span class="xrow__pct">48,5&#8239;%</span></p>
               </div>
               <div class="meter" style="--v: 97%; --split: 72.2%" aria-hidden="true"><span class="meter__fill"></span><span class="meter__thr"></span></div>
             </div>
             <div class="xrow xrow--pass">
               <div class="xrow__top">
                 <p class="xrow__label"><span class="xrow__name">Po doložení 5 dodavatelů <span class="tag tag--ok">splňuje</span></span><small>prohlášení potvrdí původ v&nbsp;EU u&nbsp;dílů, na kterých výsledek závisí</small></p>
-                <p class="xrow__val"><span class="xrow__pct"><span data-count="33.3" data-decimals="1" data-delay="280">33,3</span>&#8239;%</span></p>
+                <p class="xrow__val"><span class="xrow__pct">33,3&#8239;%</span></p>
               </div>
               <div class="meter" style="--v: 66.6%" aria-hidden="true"><span class="meter__fill"></span><span class="meter__thr"></span></div>
             </div>
@@ -98,38 +100,40 @@
     </section>
 
     <!-- for whom -->
-    <section class="sec sec--alt" id="pro-koho" aria-labelledby="h-kdo">
-      <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Pro koho</p>
+    <section class="sec" id="pro-koho" aria-labelledby="h-kdo">
+      <div class="wrap split">
+        <div>
           <h2 id="h-kdo">Komu pomáháme</h2>
-        </header>
-        <div class="datagrid">
-          <div class="card datacard reveal">
-            <h3>Výrobcům obranné techniky</h3>
-            <p>Dodáváte výrobek, který stát kupuje z&nbsp;půjčky SAFE, nebo žádáte o&nbsp;grant z&nbsp;programu EDIP. Podíl dílů mimo EU musíte spočítat a&nbsp;doložit, a&nbsp;to po celou dobu zakázky.</p>
-          </div>
-          <div class="card datacard reveal">
-            <h3>Dodavatelům dílů</h3>
-            <p>Odběratel po vás chce prohlášení o&nbsp;původu dílů, které mu dodáváte. Pomůžeme vám původ správně určit a&nbsp;prohlášení připravit.</p>
+          <div class="audience">
+            <div class="audience__item">
+              <h3>Výrobcům obranné techniky</h3>
+              <p>Dodáváte výrobek, který stát kupuje z&nbsp;půjčky SAFE, nebo žádáte o&nbsp;grant z&nbsp;programu EDIP. Podíl dílů mimo EU musíte spočítat a&nbsp;doložit, a&nbsp;to po celou dobu zakázky.</p>
+            </div>
+            <div class="audience__item">
+              <h3>Dodavatelům dílů</h3>
+              <p>Odběratel po vás chce prohlášení o&nbsp;původu dílů, které mu dodáváte. Pomůžeme vám původ správně určit a&nbsp;prohlášení připravit.</p>
+            </div>
           </div>
         </div>
+        <!-- illustration slot: a supplier declaration with an origin table; can be replaced by a photo (see README) -->
+        <figure class="photo photo--doc" aria-hidden="true">
+          <svg viewBox="0 0 560 420" focusable="false"><rect class="d-paper d-paper--back" x="196" y="34" width="300" height="344"/><path class="d-paper" d="M136 60H448V378L428 398H116V80Z"/><g class="d-mark" transform="translate(139 82) scale(0.3)"><path d="M4 25L25 4L38.75 4L4 38.75Z"/><path d="M43.25 4L92 4L92 27L43 27L34 36L34 60L34.875 60.875L14.375 81.375L4 71L4 43.25Z"/><path d="M37.125 63.125L43 69L92 69L92 92L25 92L16.625 83.625Z"/></g><rect class="d-ink" x="180" y="87" width="150" height="9"/><rect class="d-soft" x="180" y="103" width="104" height="6"/><rect class="d-soft" x="384" y="87" width="44" height="6"/><rect class="d-faint" x="396" y="99" width="32" height="6"/><rect class="d-head" x="140" y="132" width="288" height="22"/><rect class="d-head-t" x="148" y="140" width="46" height="5"/><rect class="d-head-t" x="262" y="140" width="30" height="5"/><rect class="d-head-t" x="314" y="140" width="40" height="5"/><rect class="d-head-t" x="396" y="140" width="22" height="5"/><rect class="d-soft" x="148" y="165" width="92" height="6"/><text class="d-code" x="262" y="173">CZ</text><rect class="d-faint" x="314" y="165" width="46" height="6"/><rect class="d-ok" x="402" y="163" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="182" y2="182"/><rect class="d-soft" x="148" y="193" width="74" height="6"/><text class="d-code" x="262" y="201">DE</text><rect class="d-faint" x="314" y="193" width="30" height="6"/><rect class="d-ok" x="402" y="191" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="210" y2="210"/><rect class="d-soft" x="148" y="221" width="100" height="6"/><text class="d-code" x="262" y="229">CZ</text><rect class="d-faint" x="314" y="221" width="52" height="6"/><rect class="d-ok" x="402" y="219" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="238" y2="238"/><rect class="d-soft" x="148" y="249" width="66" height="6"/><text class="d-code" x="262" y="257">SK</text><rect class="d-faint" x="314" y="249" width="24" height="6"/><rect class="d-ok" x="402" y="247" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="266" y2="266"/><rect class="d-soft" x="148" y="277" width="84" height="6"/><text class="d-code" x="262" y="285">US</text><rect class="d-faint" x="314" y="277" width="40" height="6"/><rect class="d-bad" x="402.75" y="275.75" width="8.5" height="8.5"/><line class="d-rule" x1="140" x2="428" y1="294" y2="294"/><rect class="d-soft" x="148" y="305" width="78" height="6"/><text class="d-code" x="262" y="313">PL</text><rect class="d-faint" x="314" y="305" width="34" height="6"/><rect class="d-ok" x="402" y="303" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="322" y2="322"/><rect class="d-ink" x="148" y="331" width="60" height="6"/><rect class="d-ink" x="314" y="331" width="40" height="6"/><path class="d-sign" d="M146 364c6-12 12-16 15-8s-3 13 5 6 10-13 13-4 5 7 12 0 13-9 19-2"/><line class="d-rule d-rule--strong" x1="140" x2="262" y1="374" y2="374"/><g transform="rotate(-8 372 356)"><path class="d-stamp" d="M326 330H428V372L418 382H316V340Z"/><path class="d-stamp d-stamp--in" d="M330 335H423V369L415 377H321V343Z"/><text class="d-stamp-t" x="372" y="363.5" text-anchor="middle">≤ 35 %</text></g></svg>
+        </figure>
       </div>
     </section>
 
     <!-- why now -->
-    <section class="sec" id="proc" aria-labelledby="h-proc">
+    <section class="sec sec--alt" id="proc" aria-labelledby="h-proc">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Proč teď</p>
+        <header class="sec__head sec__head--split">
           <h2 id="h-proc">Peníze už tečou a&nbsp;podmínka platí</h2>
           <p class="sec__intro">Kdo podmínku nedoloží, riskuje pozastavení výplaty nebo krácení grantu. Znění pravidla najdete v&nbsp;<a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">nařízení SAFE, čl. 16 odst. 10</a>.</p>
         </header>
-        <div class="stats reveal">
+        <div class="stats">
           <div class="stat">
             <p class="stat__k">Česko čerpá ze SAFE</p>
             <p class="stat__v"><small>až</small> 2,06 <small>mld. EUR</small></p>
-            <p class="stat__n">Mimo jiné na tanky Leopard 2A8 a&nbsp;vozidla Tatra T-815. O&nbsp;platby se žádá dvakrát ročně, v&nbsp;dubnu a&nbsp;v&nbsp;říjnu.<span class="stat__src">Zdroj: <a href="https://mocr.mo.gov.cz/informacni-servis/zpravodajstvi/vlada-schvalila-vyuziti-evropske-pujcky-safe-na-dostavbu-dalnice-d11--nakup-tanku-leopard-a-vozidel-tatra-264651/" rel="noopener">Ministerstvo obrany, 15.&nbsp;6.&nbsp;2026</a></span></p>
+            <p class="stat__n">Mimo jiné na tanky Leopard 2A8 a&nbsp;vozidla <span class="nowrap">Tatra T-815</span>. O&nbsp;platby se žádá dvakrát ročně, v&nbsp;dubnu a&nbsp;v&nbsp;říjnu.<span class="stat__src">Zdroj: <a href="https://mocr.mo.gov.cz/informacni-servis/zpravodajstvi/vlada-schvalila-vyuziti-evropske-pujcky-safe-na-dostavbu-dalnice-d11--nakup-tanku-leopard-a-vozidel-tatra-264651/" rel="noopener">Ministerstvo obrany, 15.&nbsp;6.&nbsp;2026</a></span></p>
           </div>
           <div class="stat">
             <p class="stat__k">Uzávěrka výzev EDIP</p>
@@ -146,24 +150,23 @@
     </section>
 
     <!-- how it works -->
-    <section class="sec sec--alt" id="postup" aria-labelledby="h-postup">
+    <section class="sec" id="postup" aria-labelledby="h-postup">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Jak to probíhá</p>
+        <header class="sec__head">
           <h2 id="h-postup">Od tabulky nákupů k&nbsp;hotovým dokladům</h2>
         </header>
         <ol class="steps">
-          <li class="reveal">
+          <li>
             <h3>Pošlete nám tabulku nákupů</h3>
             <p class="meta">Vy · stačí výpis z&nbsp;Excelu</p>
             <p>Seznam dílů k&nbsp;výrobku: dodavatel, cena a&nbsp;země původu, pokud ji znáte. Výkresy ani přístup do vašich systémů nepotřebujeme. <a href="sablony/cirus-origin-vstupni-sablona.xlsx" download>Šablona v&nbsp;Excelu</a></p>
           </li>
-          <li class="reveal">
+          <li>
             <h3>Zjistíte, jak na tom jste</h3>
             <p class="meta">Do 10 pracovních dnů</p>
             <p>Uvidíte, jestli výrobek limit splní bez dokladů i&nbsp;s&nbsp;nimi, kolik rezervy vám zbývá a&nbsp;od kterých dodavatelů potřebujete prohlášení.</p>
           </li>
-          <li class="reveal">
+          <li>
             <h3>Získáme doklady</h3>
             <p class="meta">4–6 týdnů, pak průběžně</p>
             <p>Oslovíme vaše dodavatele, získáme prohlášení o&nbsp;původu a&nbsp;doplníme celní doklady. Dostanete výpočet a&nbsp;složku dokladů připravenou na kontrolu.</p>
@@ -173,50 +176,49 @@
     </section>
 
     <!-- services and prices -->
-    <section class="sec" id="nabidka" aria-labelledby="h-nabidka">
+    <section class="sec sec--alt" id="nabidka" aria-labelledby="h-nabidka">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Služby a&nbsp;ceny</p>
+        <header class="sec__head sec__head--split">
           <h2 id="h-nabidka">Začněte Rychlou kontrolou</h2>
           <p class="sec__intro">Každý další krok na ni navazuje. Cenu a&nbsp;rozsah znáte předem.</p>
         </header>
 
         <ol class="plans plans--3">
-          <li class="plan plan--lead reveal">
+          <li class="plan plan--lead">
             <h3>Rychlá kontrola</h3>
             <p class="plan__desc">Za 10 pracovních dnů víte, kde jste a&nbsp;co je potřeba doložit.</p>
             <div class="plan__price">
               <p class="price nowrap">{{PRICE_QUICK}}</p>
               <p class="plan__note">Pro žadatele EDIP včetně návrhu přílohy o&nbsp;původu dílů: <span class="mono nowrap">{{PRICE_QUICK_EDIP}}</span></p>
             </div>
-            <ul class="checklist">
+            <ul class="list">
               <li>výsledek bez dokladů i&nbsp;s&nbsp;doklady</li>
               <li>seznam dodavatelů, od kterých potřebujete prohlášení</li>
               <li>rozpad podle kategorií dílů pro žádost EDIP</li>
             </ul>
             <p class="plan__foot">Cenu odečteme, pokud do 60 dnů objednáte Sadu dokladů.</p>
           </li>
-          <li class="plan reveal">
+          <li class="plan">
             <h3>Sada dokladů</h3>
             <p class="plan__desc">Za 4–6 týdnů máte výpočet podložený doklady.</p>
             <div class="plan__price">
               <p class="price nowrap"><span class="price__pre">od</span>{{PRICE_PACK}}</p>
               <p class="plan__note">do 500 položek a&nbsp;80 dodavatelů</p>
             </div>
-            <ul class="checklist">
+            <ul class="list">
               <li>oslovíme dodavatele a&nbsp;získáme prohlášení o&nbsp;původu</li>
               <li>doplníme původ dovezených dílů z&nbsp;celních dokladů</li>
               <li>konečný výpočet a&nbsp;složka dokladů pro kontrolu</li>
             </ul>
           </li>
-          <li class="plan reveal">
+          <li class="plan">
             <h3>Hlídání</h3>
             <p class="plan__desc">Podmínka musí platit po celou dobu zakázky.</p>
             <div class="plan__price">
               <p class="price nowrap">{{PRICE_MONITOR}}</p>
               <p class="plan__note">měsíčně za výrobek</p>
             </div>
-            <ul class="checklist">
+            <ul class="list">
               <li>obnovujeme prohlášení, kterým končí platnost</li>
               <li>přepočítáme výsledek při změně dodavatele</li>
               <li>připravíme podklady k&nbsp;žádostem o&nbsp;platbu</li>
@@ -225,7 +227,7 @@
         </ol>
 
         <ul class="plans plans--2">
-          <li class="plan plan--compact reveal">
+          <li class="plan plan--compact">
             <h3>Pro dodavatele</h3>
             <p class="plan__desc">Dostali jste od odběratele dotazník o&nbsp;původu dílů? Určíme původ, připravíme prohlášení a&nbsp;ohlídáme jeho obnovu.</p>
             <div class="plan__price">
@@ -233,7 +235,7 @@
               <p class="plan__note">podle počtu dílů</p>
             </div>
           </li>
-          <li class="plan plan--compact reveal">
+          <li class="plan plan--compact">
             <h3>Posila u vás</h3>
             <p class="plan__desc">Pracujeme přímo u&nbsp;vás, na vašich počítačích a&nbsp;pod vaší NDA. Pro případy, kdy data nesmějí opustit firmu.</p>
             <div class="plan__price">
@@ -243,62 +245,56 @@
           </li>
         </ul>
 
-        <div class="price-foot reveal">
+        <div class="price-foot">
           <p><strong>Ceny jsou bez DPH.</strong> Rozsah a&nbsp;termín vám před začátkem potvrdíme písemně.</p>
           <div class="actions">
-            <a class="btn btn--ghost btn--sm" href="nabidka.html">Nabídka v&nbsp;PDF</a>
-            <a class="btn btn--sm" href="#kontakt">Domluvit hovor</a>
+            <a class="link-arrow" href="nabidka.html">Nabídka v&nbsp;PDF</a>
+            <a class="btn" href="#kontakt">Domluvit hovor</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- calculator -->
-    <section class="sec sec--alt" id="kalkulacka" aria-labelledby="h-kalk">
-      <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Kalkulačka zdarma</p>
+    <section class="band" id="kalkulacka" aria-labelledby="h-kalk">
+      <div class="wrap calc-panel">
+        <div class="calc-panel__copy">
           <h2 id="h-kalk">Vyzkoušejte si výpočet sami</h2>
           <p class="sec__intro">Vložte seznam dílů z&nbsp;Excelu a&nbsp;hned uvidíte, jak na tom výrobek je a&nbsp;které doklady chybějí. Nebo si otevřete ukázku.</p>
-        </header>
-        <div class="calc-panel reveal">
-          <div class="calc-panel__copy">
-            <div class="actions">
-              <a class="btn" href="kalkulacka/index.html?lang=cs">Otevřít kalkulačku <span class="btn__arrow" aria-hidden="true">→</span></a>
-              <a class="btn btn--ghost" href="cirus-origin-kalkulacka-offline.html" download>Stáhnout offline verzi</a>
-            </div>
-            <p class="facts-foot">Kalkulačka běží jen ve vašem prohlížeči a&nbsp;data nikam neposílá. Offline verze je jeden soubor, který funguje i&nbsp;bez internetu. <a href="ochrana-dat.html#pro-it">Informace pro vaše IT</a></p>
+          <div class="actions">
+            <a class="btn btn--light" href="kalkulacka/index.html?lang=cs">Otevřít kalkulačku <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="link-light" href="cirus-origin-kalkulacka-offline.html" download>Stáhnout offline verzi</a>
           </div>
-          <ul class="checklist">
-            <li>výsledek bez dokladů i&nbsp;s&nbsp;doklady</li>
-            <li>dodavatelé, na kterých výsledek závisí</li>
-            <li>vzor prohlášení pro dodavatele česky, slovensky a&nbsp;anglicky</li>
-            <li>SAFE, EDIP a&nbsp;další programy se stejným pravidlem</li>
-          </ul>
+          <p class="facts-foot">Kalkulačka běží jen ve vašem prohlížeči a&nbsp;data nikam neposílá. Offline verze je jeden soubor, který funguje i&nbsp;bez internetu. <a href="ochrana-dat.html#pro-it">Informace pro vaše IT</a></p>
         </div>
+        <ul class="list list--band">
+          <li>výsledek bez dokladů i&nbsp;s&nbsp;doklady</li>
+          <li>dodavatelé, na kterých výsledek závisí</li>
+          <li>vzor prohlášení pro dodavatele česky, slovensky a&nbsp;anglicky</li>
+          <li>SAFE, EDIP a&nbsp;další programy se stejným pravidlem</li>
+        </ul>
       </div>
     </section>
 
     <!-- data -->
     <section class="sec" id="data" aria-labelledby="h-data">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Bezpečnost dat</p>
+        <header class="sec__head sec__head--split">
           <h2 id="h-data">Stačí nám obchodní údaje</h2>
           <p class="sec__intro">Pro výpočet potřebujeme vědět, co kupujete, od koho, za kolik a&nbsp;odkud to pochází. Nic víc.</p>
         </header>
         <div class="datagrid">
-          <div class="card datacard reveal">
+          <div class="datacard">
             <h3>Pracujeme jen s</h3>
-            <ul class="checklist">
+            <ul class="list">
               <li>označením dílu (může být vaše vlastní, bez skutečných čísel)</li>
               <li>dodavatelem a&nbsp;cenou</li>
               <li>zemí původu a&nbsp;dokladem o&nbsp;původu</li>
             </ul>
           </div>
-          <div class="card datacard reveal">
+          <div class="datacard">
             <h3>Nikdy nebereme</h3>
-            <ul class="crosslist">
+            <ul class="list list--no">
               <li>výkresy a&nbsp;technickou dokumentaci</li>
               <li>utajované informace</li>
               <li>data podléhající americkým předpisům ITAR</li>
@@ -306,38 +302,33 @@
           </div>
         </div>
         <ul class="pledges">
-          <li class="reveal"><b>Žádný cloud ani AI</b><span>Data držíme jen na šifrovaných discích našich počítačů. Do cloudových ani AI služeb je nenahráváme.</span></li>
-          <li class="reveal"><b>Smazání do 30 dnů</b><span>Po předání výsledku data smažeme a&nbsp;smazání vám potvrdíme e-mailem.</span></li>
-          <li class="reveal"><b>Vaše NDA</b><span>Podepíšeme vaši smlouvu o&nbsp;mlčenlivosti. <a class="link-arrow" href="ochrana-dat.html">Podrobnosti o&nbsp;ochraně dat</a></span></li>
+          <li><b>Žádný cloud ani AI</b><span>Data držíme jen na šifrovaných discích našich počítačů. Do cloudových ani AI služeb je nenahráváme.</span></li>
+          <li><b>Smazání do 30 dnů</b><span>Po předání výsledku data smažeme a&nbsp;smazání vám potvrdíme e-mailem.</span></li>
+          <li><b>Vaše NDA</b><span>Podepíšeme vaši smlouvu o&nbsp;mlčenlivosti. <a class="link-arrow" href="ochrana-dat.html">Podrobnosti o&nbsp;ochraně dat</a></span></li>
         </ul>
       </div>
     </section>
 
     <!-- about -->
     <section class="sec sec--alt" id="o-nas" aria-labelledby="h-onas">
-      <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">O nás</p>
+      <div class="wrap about">
+        <div class="about__text">
           <h2 id="h-onas">Kdo za tím stojí</h2>
-        </header>
-        <div class="about">
-          <div class="about__text reveal">
-            <p>{{BRAND}} je služba české firmy CIRUS Technologies. Stavíme datové nástroje, které firmám v&nbsp;obranném průmyslu šetří práci s&nbsp;dokládáním původu dílů.</p>
-            <p>Počítáme podle postupu, který zveřejnila Evropská komise, a&nbsp;každý krok zdokumentujeme. Sporné případy určení původu řešíme s&nbsp;celním specialistou. Právní stanoviska nedáváme.</p>
-          </div>
-          <div class="people">
-            <p class="label">Zakladatelé</p>
-            <div class="card person reveal">
-              <div>
-                <h3>{{FOUNDER_1}}</h3>
-              </div>
-            </div>
-            <div class="card person reveal">
-              <div>
-                <h3>{{FOUNDER_2}}</h3>
-              </div>
-            </div>
-          </div>
+          <p>{{BRAND}} je služba české firmy CIRUS Technologies. Stavíme datové nástroje, které firmám v&nbsp;obranném průmyslu šetří práci s&nbsp;dokládáním původu dílů.</p>
+          <p>Počítáme podle postupu, který zveřejnila Evropská komise, a&nbsp;každý krok zdokumentujeme. Sporné případy určení původu řešíme s&nbsp;celním specialistou. Právní stanoviska nedáváme.</p>
+        </div>
+        <div class="people">
+          <p class="label">Zakladatelé</p>
+          <ul class="people__list">
+            <li class="person">
+              <figure class="photo portrait"><img src="assets/img/petr.jpg" width="900" height="900" loading="lazy" decoding="async" alt="{{FOUNDER_1}}"></figure>
+              <p class="person__name">{{FOUNDER_1}}</p>
+            </li>
+            <li class="person">
+              <figure class="photo portrait"><img src="assets/img/ben.jpg" width="900" height="900" loading="lazy" decoding="async" alt="{{FOUNDER_2}}"></figure>
+              <p class="person__name">{{FOUNDER_2}}</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -345,12 +336,11 @@
     <!-- FAQ -->
     <section class="sec" id="otazky" aria-labelledby="h-faq">
       <div class="wrap faq-layout">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Otázky</p>
+        <header class="sec__head">
           <h2 id="h-faq">Časté otázky</h2>
           <p class="sec__intro">Nenašli jste odpověď? <a href="#kontakt">Napište nám</a>. Podrobný postup výpočtu je v&nbsp;<a href="metodika.html">metodice</a>.</p>
         </header>
-        <div class="faq reveal">
+        <div class="faq">
           <details>
             <summary>Týká se to i&nbsp;nás?</summary>
             <div class="faq__a">
@@ -401,9 +391,8 @@
     <!-- contact -->
     <section class="sec sec--alt" id="kontakt" aria-labelledby="h-kontakt">
       <div class="wrap contact">
-        <div class="reveal">
+        <div>
           <header class="sec__head">
-            <p class="eyebrow">Kontakt</p>
             <h2 id="h-kontakt">Domluvme si krátký hovor</h2>
             <p class="sec__intro">Za 30 minut projdeme váš výrobek a&nbsp;řekneme vám, co je potřeba doložit. Napište nám, nebo rovnou zavolejte.</p>
           </header>
@@ -423,7 +412,7 @@
           </dl>
         </div>
 
-        <form class="form reveal" id="contact-form" data-to="{{EMAIL}}" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" novalidate>
+        <form class="form" id="contact-form" data-to="{{EMAIL}}" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" novalidate>
           <div class="form__pair">
             <div class="field">
               <label for="cf-name">Jméno</label>
@@ -510,3 +499,4 @@
   </footer>
 </body>
 </html>
+

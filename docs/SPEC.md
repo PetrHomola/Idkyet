@@ -39,7 +39,7 @@ package.json                skripty: build, test, e2e, serve
 README.md                   jak upravit, sestavit, otestovat a nasadit
 ```
 
-Žádný framework, žádný bundler. Čisté HTML, CSS a ES moduly. Jediná externí knihovna: SheetJS (xlsx 0.18.5) z `https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js`, načítaná líně jen při importu/exportu XLSX. Fonty Geist a Geist Mono jsou uložené na webu (`site/assets/fonts/`, licence OFL), žádné požadavky na Google. Offline verze kalkulačky (`dist/cirus-origin-kalkulacka-offline.html`) je jeden soubor, vše vložené, s vloženými fonty a se SheetJS vloženým přímo.
+Žádný framework, žádný bundler. Čisté HTML, CSS a ES moduly. Jediná externí knihovna: SheetJS (xlsx 0.18.5) z `https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js`, načítaná líně jen při importu/exportu XLSX. Fonty Archivo, IBM Plex Sans a IBM Plex Mono jsou uložené na webu (`site/assets/fonts/`, licence OFL), žádné požadavky na Google. Offline verze kalkulačky (`dist/cirus-origin-kalkulacka-offline.html`) je jeden soubor, vše vložené, s vloženými fonty a se SheetJS vloženým přímo.
 
 ## 2. Placeholdery (z config.json)
 
@@ -51,7 +51,7 @@ Ceny jsou také v config.json (`prices.*`), v HTML jako `{{PRICE_QUICK}}`, `{{PR
 
 `site/assets/css/tokens.css` je hotový: barvy (světlý i tmavý režim), fonty, typografická škála, mezery, poloměry. Všechny styly berou barvy jen z tokenů. Každá stránka linkuje `tokens.css` a pak `site.css` nebo `app.css`.
 
-Charakter: celní a úřední dokument, který je moderní a přehledný. Motiv „razítka“ a hraniční čáry 35 % (barva `--mark`). Čísla a kódy zemí v mono fontu. Žádné emoji, žádné gradientové hero, žádné stockové fotky. Responzivní od 360 px, boční okraj `max(16px, env(safe-area-inset-*))`, nic nepřetéká do strany.
+Charakter: zavedená středoevropská B2B firma, identita odvozená z loga CIRUS: navy `#0F3D73`, téměř černá, bílá a světle šedé plochy, zkosení 45° písmene C na tlačítkách, rámech a panelech, tenké linky místo karet. Nadpisy Archivo, text IBM Plex Sans, čísla a kódy v tabulkách IBM Plex Mono. Motiv „razítka“ a hraniční čáry 35 % (barva `--mark`). Žádné odznaky typu pilulka, žádné animace při scrollování, žádné skleněné záhlaví. Žádné emoji, žádné gradientové hero, žádné stockové fotky. Responzivní od 360 px, boční okraj `max(16px, env(safe-area-inset-*))`, nic nepřetéká do strany.
 
 ## 4. Fakta, která smí web a podklady používat
 

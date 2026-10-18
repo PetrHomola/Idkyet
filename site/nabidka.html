@@ -22,8 +22,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/brand/cirus-symbol-navy.png">
-  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="assets/js/site.js" defer></script>
@@ -61,7 +61,7 @@
         </section>
         <section aria-labelledby="s-who">
           <h2 id="s-who">Pro koho</h2>
-          <ul class="checklist">
+          <ul class="list">
             <li>výrobci obranné techniky, kteří dodávají do zakázek ze SAFE nebo žádají o&nbsp;grant z&nbsp;EDIP (uzávěrka výzev 16.&nbsp;2.&nbsp;2027)</li>
             <li>dodavatelé dílů, po kterých odběratel chce prohlášení o&nbsp;původu</li>
           </ul>
@@ -72,36 +72,30 @@
         <h2 id="s-offer">Služby a&nbsp;ceny</h2>
         <table class="offers">
           <thead>
-            <tr><th scope="col"><span class="sr-only">Číslo</span></th><th scope="col">Služba a&nbsp;co dostanete</th><th scope="col" class="o-price">Cena</th></tr>
+            <tr><th scope="col">Služba a&nbsp;co dostanete</th><th scope="col" class="o-price">Cena</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td>01</td>
               <td><span class="o-name">Kalkulačka</span>Vložíte seznam dílů a&nbsp;hned uvidíte, jak na tom výrobek je a&nbsp;které doklady chybějí. Běží jen ve vašem prohlížeči a&nbsp;data nikam neposílá.<span class="o-term">{{WEB}}/kalkulacka</span></td>
               <td class="o-price">zdarma</td>
             </tr>
             <tr>
-              <td>02</td>
               <td><span class="o-name">Rychlá kontrola</span>Víte, kde jste a&nbsp;co je potřeba doložit: výsledek bez dokladů i&nbsp;s&nbsp;doklady, seznam dodavatelů, od kterých potřebujete prohlášení, a&nbsp;rozpad podle kategorií dílů pro žádost EDIP. Cenu odečteme, pokud do 60 dnů objednáte Sadu dokladů.<span class="o-term">do 10 pracovních dnů · do 500 položek</span></td>
               <td class="o-price">{{PRICE_QUICK}}<small>pro žadatele EDIP včetně návrhu přílohy o&nbsp;původu dílů: {{PRICE_QUICK_EDIP}}</small></td>
             </tr>
             <tr>
-              <td>03</td>
               <td><span class="o-name">Sada dokladů</span>Výpočet podložený doklady. Oslovíme dodavatele a&nbsp;získáme prohlášení o&nbsp;původu, doplníme původ dovezených dílů z&nbsp;celních dokladů a&nbsp;předáme konečný výpočet se složkou dokladů pro kontrolu.<span class="o-term">4–6 týdnů · do 500 položek a&nbsp;80 dodavatelů</span></td>
               <td class="o-price">od {{PRICE_PACK}}<small>+ {{PRICE_PACK_EXTRA}} za každých dalších 250 položek</small></td>
             </tr>
             <tr>
-              <td>04</td>
               <td><span class="o-name">Hlídání</span>Podmínka musí platit po celou dobu zakázky. Obnovujeme prohlášení, kterým končí platnost, přepočítáme výsledek při změně dodavatele a&nbsp;připravíme podklady k&nbsp;žádostem o&nbsp;platbu.<span class="o-term">průběžně po dobu zakázky</span></td>
               <td class="o-price">{{PRICE_MONITOR}}<small>měsíčně za výrobek</small></td>
             </tr>
             <tr>
-              <td>05</td>
               <td><span class="o-name">Pro dodavatele</span>Dostali jste od odběratele dotazník o&nbsp;původu dílů? Určíme původ, připravíme prohlášení a&nbsp;ohlídáme jeho obnovu.</td>
               <td class="o-price">{{PRICE_SUPPLIER}}<small>podle počtu dílů</small></td>
             </tr>
             <tr>
-              <td>06</td>
               <td><span class="o-name">Posila u&nbsp;vás</span>Pracujeme přímo u&nbsp;vás, na vašich počítačích a&nbsp;pod vaší NDA. Pro případy, kdy data nesmějí opustit firmu.</td>
               <td class="o-price">{{PRICE_DAY}}<small>za den</small></td>
             </tr>
@@ -120,7 +114,7 @@
         </section>
         <section aria-labelledby="s-data">
           <h2 id="s-data">Vaše data</h2>
-          <ul class="checklist">
+          <ul class="list">
             <li>pracujeme jen s&nbsp;obchodními údaji: označení dílu, dodavatel, cena, země původu a&nbsp;doklad o&nbsp;původu</li>
             <li>nikdy nebereme výkresy, technickou dokumentaci, utajované informace ani data ITAR</li>
             <li>data držíme jen na šifrovaných discích našich počítačů, do cloudových ani AI služeb je nenahráváme</li>

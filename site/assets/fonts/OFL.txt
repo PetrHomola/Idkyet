@@ -1,4 +1,15 @@
-Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font)
+Fonts in this folder, all licensed under the SIL Open Font License, Version 1.1:
+
+archivo-latin.woff2, archivo-latin-ext.woff2 (Archivo, variable weight)
+Copyright 2016 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
+
+ibm-plex-sans-latin.woff2, ibm-plex-sans-latin-ext.woff2 (IBM Plex Sans, variable weight)
+ibm-plex-mono-400-latin.woff2, ibm-plex-mono-400-latin-ext.woff2,
+ibm-plex-mono-500-latin.woff2, ibm-plex-mono-500-latin-ext.woff2 (IBM Plex Mono)
+Copyright (c) 2017 IBM Corp. with Reserved Font Name "Plex" (https://github.com/IBM/plex)
+
+The files are the Latin and Latin Extended subsets served by Google Fonts (WOFF2),
+stored here unchanged so that no request goes to a third party.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:

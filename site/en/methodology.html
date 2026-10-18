@@ -22,8 +22,8 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/brand/cirus-symbol-navy.png">
-  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -84,8 +84,8 @@
 
       <article class="prose">
         <!-- 1 -->
-        <section class="reveal" id="in-brief" aria-labelledby="h-1">
-          <h2 id="h-1"><span class="no">01</span>In brief</h2>
+        <section id="in-brief" aria-labelledby="h-1">
+          <h2 id="h-1"><span class="no">1</span>In brief</h2>
           <p>The 35&nbsp;% rule says: parts made outside the EU may make up at most 35&nbsp;% of the cost of the product's parts. This is how we calculate it:</p>
           <ol>
             <li>We take the parts you buy directly for the product, and their prices.</li>
@@ -97,8 +97,8 @@
         </section>
 
         <!-- 2 -->
-        <section class="reveal" id="rule" aria-labelledby="h-2">
-          <h2 id="h-2"><span class="no">02</span>Wording of the rule</h2>
+        <section id="rule" aria-labelledby="h-2">
+          <h2 id="h-2"><span class="no">2</span>Wording of the rule</h2>
           <blockquote class="rule-quote" cite="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng">
             <p>The cost of components originating outside the Union, EEA EFTA States and Ukraine shall not be higher than 35&nbsp;% of the estimated cost of the components of the end product.</p>
             <footer>Council Regulation (EU) 2025/1106 (SAFE), Article 16(10) <a href="#src-1">[1]</a></footer>
@@ -119,8 +119,8 @@
         </section>
 
         <!-- 3 -->
-        <section class="reveal" id="method" aria-labelledby="h-3">
-          <h2 id="h-3"><span class="no">03</span>How we calculate</h2>
+        <section id="method" aria-labelledby="h-3">
+          <h2 id="h-3"><span class="no">3</span>How we calculate</h2>
           <p>The Commission published the detailed method for EDIP in call EDF-EDIP-P-2026-LS-IRA (version 1.2 of 10 June 2026, pages 9–10) and in the training slides “Origin of Components” (5/2026) <a href="#src-5">[5]</a> <a href="#src-6">[6]</a>. We use it for EDIP, and for SAFE until the Commission issues SAFE guidance.</p>
 
           <h3>1. What a part is</h3>
@@ -153,8 +153,8 @@
         </section>
 
         <!-- 4 -->
-        <section class="reveal" id="example" aria-labelledby="h-4">
-          <h2 id="h-4"><span class="no">04</span>The Commission's example</h2>
+        <section id="example" aria-labelledby="h-4">
+          <h2 id="h-4"><span class="no">4</span>The Commission's example</h2>
           <p>The Commission's slides calculate one product with both methods <a href="#src-6">[6]</a>. Purchased non-EU parts cost 92, all purchased parts 214 and in-house sub-assemblies 61. Method (a) gives 92&nbsp;/&nbsp;214&nbsp;=&nbsp;43&nbsp;% and fails. Method (b) gives 92&nbsp;/&nbsp;275&nbsp;=&nbsp;34&nbsp;% and passes. The slides round; the exact results are 42.99&nbsp;% and 33.45&nbsp;%.</p>
           <figure class="figure" aria-labelledby="fig-cap">
             <div class="xrow xrow--fail">
@@ -193,8 +193,8 @@
         </section>
 
         <!-- 5 -->
-        <section class="reveal" id="rules" aria-labelledby="h-5">
-          <h2 id="h-5"><span class="no">05</span>Rules and home countries</h2>
+        <section id="rules" aria-labelledby="h-5">
+          <h2 id="h-5"><span class="no">5</span>Rules and home countries</h2>
           <p>Home countries are those whose parts do not count towards the 35&nbsp;% limit. Each programme defines them a little differently. So the calculator has a separate rule for each programme.</p>
           <div class="table-scroll">
             <table class="tbl tbl--packs">
@@ -234,8 +234,8 @@
         </section>
 
         <!-- 6 -->
-        <section class="reveal" id="scenarios" aria-labelledby="h-6">
-          <h2 id="h-6"><span class="no">06</span>Documents and scenarios</h2>
+        <section id="scenarios" aria-labelledby="h-6">
+          <h2 id="h-6"><span class="no">6</span>Documents and scenarios</h2>
           <p>Without supporting records the condition is hard to verify. The European Court of Auditors points this out too <a href="#src-8">[8]</a>. So for each item we distinguish three states:</p>
           <dl class="scen">
             <div><dt>Documented</dt><dd>The country of origin is filled in and the evidence is a customs document, a supplier declaration or a purchase contract. The declaration has not yet expired.</dd></div>
@@ -262,8 +262,8 @@
         </section>
 
         <!-- 7 -->
-        <section class="reveal" id="minimum-set" aria-labelledby="h-7">
-          <h2 id="h-7"><span class="no">07</span>Minimum evidence set</h2>
+        <section id="minimum-set" aria-labelledby="h-7">
+          <h2 id="h-7"><span class="no">7</span>Minimum evidence set</h2>
           <p>You do not have to chase every supplier. We look for the smallest number of items whose documentation is enough for even the worst scenario to pass.</p>
           <ol>
             <li>We take the undocumented items where we expect home origin. Only for these is it worth chasing a document.</li>
@@ -275,8 +275,8 @@
         </section>
 
         <!-- 8 -->
-        <section class="reveal" id="categories" aria-labelledby="h-8">
-          <h2 id="h-8"><span class="no">08</span>Five part categories</h2>
+        <section id="categories" aria-labelledby="h-8">
+          <h2 id="h-8"><span class="no">8</span>Five part categories</h2>
           <p>The Commission's “Procurement strategy” template, which is part of the EDIP application, asks for the share broken down into five categories. We sort the output the same way. Items without a category are listed separately.</p>
           <ul>
             <li>Structural and mechanical</li>
@@ -290,8 +290,8 @@
         </section>
 
         <!-- 9 -->
-        <section class="reveal" id="open-questions" aria-labelledby="h-9">
-          <h2 id="h-9"><span class="no">09</span>Open questions</h2>
+        <section id="open-questions" aria-labelledby="h-9">
+          <h2 id="h-9"><span class="no">9</span>Open questions</h2>
           <p>Some things are not expressly covered by the regulations or by the Commission's method. Here is what we do. We record every choice in the description of the approach, so it can be traced.</p>
 
           <h3>SAFE has no method of its own yet</h3>
@@ -314,7 +314,7 @@
         </section>
 
         <!-- 10 -->
-        <section class="reveal" id="output" aria-labelledby="h-10">
+        <section id="output" aria-labelledby="h-10">
           <h2 id="h-10"><span class="no">10</span>What the output is and is not</h2>
           <ul>
             <li>The output is <strong>a calculation based on documents and supplier declarations</strong>, together with a description of the approach. We do not give legal opinions.</li>
@@ -325,7 +325,7 @@
         </section>
 
         <!-- 11 -->
-        <section class="reveal" id="sources" aria-labelledby="h-11">
+        <section id="sources" aria-labelledby="h-11">
           <h2 id="h-11"><span class="no">11</span>Sources</h2>
           <ol class="sources">
             <li id="src-1"><span>Council Regulation (EU) 2025/1106 (SAFE), Article 16(10) and recital 19. <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/1106/oj/eng</a></span></li>

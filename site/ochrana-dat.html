@@ -22,8 +22,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/brand/cirus-symbol-navy.png">
-  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/site.css">
@@ -78,8 +78,8 @@
       </nav>
 
       <article class="prose">
-        <section class="reveal" id="kalkulacka" aria-labelledby="h-1">
-          <h2 id="h-1"><span class="no">01</span>Kalkulačka běží u&nbsp;vás</h2>
+        <section id="kalkulacka" aria-labelledby="h-1">
+          <h2 id="h-1"><span class="no">1</span>Kalkulačka běží u&nbsp;vás</h2>
           <p>Kalkulačka počítá přímo ve vašem prohlížeči. Seznam dílů, který do ní vložíte, nikam neodchází a&nbsp;my ho nevidíme. Projekt si můžete uložit jako soubor do svého počítače. Prohlížeč si pamatuje jen zvolený jazyk.</p>
           <p>Z&nbsp;internetu se načítá jen samotná stránka s&nbsp;písmy, a&nbsp;to z&nbsp;tohoto webu. Když nahrajete nebo exportujete soubor Excel, stáhne se ještě knihovna SheetJS z&nbsp;cdnjs.cloudflare.com. Ani s&nbsp;jedním z&nbsp;těchto požadavků vaše data neodcházejí.</p>
           <p>Kalkulačka nepoužívá AI. Počítá podle pevných pravidel, která popisuje <a href="metodika.html">metodika</a>.</p>
@@ -89,8 +89,8 @@
           </div>
         </section>
 
-        <section class="reveal" id="co-bereme" aria-labelledby="h-2">
-          <h2 id="h-2"><span class="no">02</span>Co od vás potřebujeme</h2>
+        <section id="co-bereme" aria-labelledby="h-2">
+          <h2 id="h-2"><span class="no">2</span>Co od vás potřebujeme</h2>
           <p>Pro Rychlou kontrolu i&nbsp;Sadu dokladů stačí seznam nakupovaných dílů k&nbsp;výrobku. Nejsnáz ho připravíte v&nbsp;naší <a href="sablony/cirus-origin-vstupni-sablona.xlsx" download>šabloně v&nbsp;Excelu</a>.</p>
           <div class="table-scroll">
             <table class="tbl">
@@ -105,7 +105,7 @@
             </table>
           </div>
           <h3>Nikdy nebereme</h3>
-          <ul class="crosslist">
+          <ul class="list list--no">
             <li>výkresy a&nbsp;technickou dokumentaci</li>
             <li>utajované informace podle zákona č.&nbsp;412/2005&nbsp;Sb.</li>
             <li>data podléhající americkým předpisům ITAR</li>
@@ -113,8 +113,8 @@
           <p>Když nám něco takového přijde omylem, nepoužijeme to, smažeme to a&nbsp;dáme vám vědět.</p>
         </section>
 
-        <section class="reveal" id="predani" aria-labelledby="h-3">
-          <h2 id="h-3"><span class="no">03</span>Jak nám data předat</h2>
+        <section id="predani" aria-labelledby="h-3">
+          <h2 id="h-3"><span class="no">3</span>Jak nám data předat</h2>
           <p>Seznam dílů nám neposílejte jako běžnou přílohu e-mailu. Vyberte si jednu z&nbsp;těchto cest:</p>
           <ul>
             <li><strong>Šifrovaný archiv.</strong> ZIP nebo 7z se šifrováním AES-256. Heslo nám sdělte telefonem.</li>
@@ -123,8 +123,8 @@
           </ul>
         </section>
 
-        <section class="reveal" id="ulozeni" aria-labelledby="h-4">
-          <h2 id="h-4"><span class="no">04</span>Kde data jsou a&nbsp;kdy je smažeme</h2>
+        <section id="ulozeni" aria-labelledby="h-4">
+          <h2 id="h-4"><span class="no">4</span>Kde data jsou a&nbsp;kdy je smažeme</h2>
           <dl class="scen">
             <div><dt>Kde</dt><dd>Jen na šifrovaných discích našich pracovních počítačů. Do cloudových ani AI služeb data nenahráváme.</dd></div>
             <div><dt>Kdo k&nbsp;nim má přístup</dt><dd>Jen {{FOUNDER_1}} a&nbsp;{{FOUNDER_2}}.</dd></div>
@@ -134,8 +134,8 @@
           </dl>
         </section>
 
-        <section class="reveal" id="pro-it" aria-labelledby="h-5">
-          <h2 id="h-5"><span class="no">05</span>Pro vaše IT</h2>
+        <section id="pro-it" aria-labelledby="h-5">
+          <h2 id="h-5"><span class="no">5</span>Pro vaše IT</h2>
           <p>Technické podrobnosti pro správce sítě a&nbsp;bezpečnost. Všechno si můžete ověřit sami.</p>
           <ul>
             <li><strong>Offline verze</strong> je jeden soubor HTML. Po otevření nedělá žádné síťové požadavky.</li>
@@ -153,8 +153,8 @@
           <div class="hash" data-hash-src="cirus-origin-kalkulacka-offline.html"><button type="button" class="hash__btn" hidden>Zobrazit SHA-256 zveřejněné verze</button><code class="hash__v" hidden></code></div>
         </section>
 
-        <section class="reveal" id="gdpr" aria-labelledby="h-6">
-          <h2 id="h-6"><span class="no">06</span>Kontaktní údaje a&nbsp;GDPR</h2>
+        <section id="gdpr" aria-labelledby="h-6">
+          <h2 id="h-6"><span class="no">6</span>Kontaktní údaje a&nbsp;GDPR</h2>
           <p>Seznamy dílů a&nbsp;nákupní data osobní údaje obvykle neobsahují. Osobní údaje zpracováváme hlavně tehdy, když nás kontaktujete.</p>
           <dl class="scen">
             <div><dt>Správce</dt><dd>{{COMPANY}}, IČO <span class="mono">{{ICO}}</span>, {{ADDRESS}}. Kontakt: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</dd></div>
@@ -168,7 +168,7 @@
           <ul>
             <li>Nepoužívá cookies ani analytické nástroje.</li>
             <li>Kontaktní formulář nic neodesílá na server. Jen připraví e-mail ve vašem poštovním programu.</li>
-            <li>Písma Geist a&nbsp;Geist Mono (licence SIL Open Font License) jsou uložená přímo na tomto webu. Při prohlížení se nic nenačítá od třetích stran.</li>
+            <li>Písma Archivo, IBM Plex Sans a&nbsp;IBM Plex Mono (licence SIL Open Font License) jsou uložená přímo na tomto webu. Při prohlížení se nic nenačítá od třetích stran.</li>
             <li>Web běží na GitHub Pages. Provozovatel hostingu zpracovává technické záznamy o&nbsp;přístupu, například IP adresu.</li>
           </ul>
         </section>

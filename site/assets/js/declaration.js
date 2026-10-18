@@ -227,7 +227,7 @@ export function declarationHtml({ lang = 'cs', supplier = '', supplierCountry = 
 <title>${esc(t.docTitle)}${sup ? ` – ${esc(sup)}` : ''}</title>
 <style>
   @page { size: A4; margin: 16mm 14mm 18mm; }
-  :root { color-scheme: light; --ink: #0b1220; --muted: #5b6472; --line: #cfd4da; --soft: #f4f5f7; --accent: #0f3d73; --sans: "Geist", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+  :root { color-scheme: light; --ink: #0b1220; --muted: #5b6472; --line: #cfd4da; --soft: #f4f5f7; --accent: #0f3d73; --sans: "IBM Plex Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body { margin: 0; background: var(--soft); color: var(--ink); font: 10.5pt/1.45 var(--sans); -webkit-font-smoothing: antialiased; }

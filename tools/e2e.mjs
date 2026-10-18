@@ -9,7 +9,8 @@
 // the sample, shows a verdict and tables and switches language, and survives the customer flows
 // (paste from Excel, column mapping, rule packs, inline edits, filter, exports, project round trip,
 // copy fallback, print CSS, contrast in light and dark mode); the offline file works from
-// file:// without any network request; the templates are present and readable by calc-core.
+// file:// without any network request; the templates are present and readable by calc-core;
+// the founders' portraits on the landing pages load.
 // Exit code 1 when any check fails.
 
 import { createRequire } from 'node:module';
@@ -301,6 +302,39 @@ async function testPages(browser, base) {
     }
     assert(!broken.length, `nefunkční: ${[...new Set(broken)].slice(0, 8).join('; ')}${broken.length > 8 ? ` … (+${broken.length - 8})` : ''}`);
   });
+}
+
+// Founders' portraits in "O nás" / "About us": both files load (lazy images are scrolled into view first).
+const PORTRAITS = ['petr.jpg', 'ben.jpg'];
+async function testPortraits(browser, base) {
+  for (const pg of PAGES.filter((p) => /\/index\.html$/.test(p.path) && !p.path.includes('kalkulacka'))) {
+    await check(`${pg.name}: fotky zakladatelů se načtou`, async () => {
+      const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      await ctx.route('**/*', (route) => (/^https?:\/\/127\.0\.0\.1[:/]/.test(route.request().url()) ? route.continue() : route.abort()));
+      const page = await ctx.newPage();
+      page.setDefaultTimeout(TIMEOUT);
+      const failed = [];
+      page.on('response', (r) => { if (r.status() >= 400) failed.push(`${r.status()} ${r.url()}`); });
+      try {
+        await page.goto(base + pg.path, { waitUntil: 'load' });
+        const out = [];
+        for (const file of PORTRAITS) {
+          const img = page.locator(`img[src$="assets/img/${file}"]`).first();
+          assert(await img.count(), `chybí <img> ${file}`);
+          await img.scrollIntoViewIfNeeded();
+          await page.waitForFunction((el) => el.complete && el.naturalWidth > 0, await img.elementHandle(), { timeout: TIMEOUT })
+            .catch(() => { throw new Error(`${file} se nenačetla (naturalWidth 0)`); });
+          const alt = ((await img.getAttribute('alt')) || '').trim();
+          assert(alt, `${file} nemá alt`);
+          out.push(`${file} (${alt})`);
+        }
+        assert(!failed.length, `chybné odpovědi: ${failed.slice(0, 3).join(', ')}`);
+        return out.join(', ');
+      } finally {
+        await ctx.close();
+      }
+    });
+  }
 }
 
 async function testCalculator(browser, base) {
@@ -773,6 +807,7 @@ async function main() {
     browser = await launch(pw.chromium);
     record('PASS', 'prohlížeč', `Chromium ${browser.version()}`);
     await testPages(browser, url);
+    await testPortraits(browser, url);
     await testCalculator(browser, url);
     await testCalculatorFlows(browser, url);
     await testOffline(browser);

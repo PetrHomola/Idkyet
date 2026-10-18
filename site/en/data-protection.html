@@ -22,8 +22,8 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/brand/cirus-symbol-navy.png">
-  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -78,8 +78,8 @@
       </nav>
 
       <article class="prose">
-        <section class="reveal" id="calculator" aria-labelledby="h-1">
-          <h2 id="h-1"><span class="no">01</span>The calculator runs on your side</h2>
+        <section id="calculator" aria-labelledby="h-1">
+          <h2 id="h-1"><span class="no">1</span>The calculator runs on your side</h2>
           <p>The calculator works directly in your browser. The list of parts you put into it goes nowhere, and we never see it. You can save the project as a file on your computer. The browser only remembers your language choice.</p>
           <p>The only things loaded from the internet are the page itself and its fonts, both from this site. When you upload or export an Excel file, the SheetJS library is also loaded from cdnjs.cloudflare.com. None of these requests carries your data.</p>
           <p>The calculator uses no AI. It calculates according to fixed rules described in the <a href="methodology.html">methodology</a>.</p>
@@ -89,8 +89,8 @@
           </div>
         </section>
 
-        <section class="reveal" id="what-we-take" aria-labelledby="h-2">
-          <h2 id="h-2"><span class="no">02</span>What we need from you</h2>
+        <section id="what-we-take" aria-labelledby="h-2">
+          <h2 id="h-2"><span class="no">2</span>What we need from you</h2>
           <p>For a Quick Check or an Evidence Pack, a list of the purchased parts for the product is enough. The easiest way to prepare it is our <a href="../sablony/cirus-origin-vstupni-sablona.xlsx" download>Excel template</a>.</p>
           <div class="table-scroll">
             <table class="tbl">
@@ -105,7 +105,7 @@
             </table>
           </div>
           <h3>We never take</h3>
-          <ul class="crosslist">
+          <ul class="list list--no">
             <li>drawings and technical documentation</li>
             <li>classified information under Czech Act No.&nbsp;412/2005&nbsp;Coll.</li>
             <li>data subject to the US ITAR regulations</li>
@@ -113,8 +113,8 @@
           <p>If we receive anything like this by mistake, we will not use it, we will delete it and let you know.</p>
         </section>
 
-        <section class="reveal" id="handover" aria-labelledby="h-3">
-          <h2 id="h-3"><span class="no">03</span>How to send us data</h2>
+        <section id="handover" aria-labelledby="h-3">
+          <h2 id="h-3"><span class="no">3</span>How to send us data</h2>
           <p>Please do not send the parts list as a plain email attachment. Choose one of these routes:</p>
           <ul>
             <li><strong>Encrypted archive.</strong> ZIP or 7z with AES-256 encryption. Give us the password by phone.</li>
@@ -123,8 +123,8 @@
           </ul>
         </section>
 
-        <section class="reveal" id="storage" aria-labelledby="h-4">
-          <h2 id="h-4"><span class="no">04</span>Where the data is and when we delete it</h2>
+        <section id="storage" aria-labelledby="h-4">
+          <h2 id="h-4"><span class="no">4</span>Where the data is and when we delete it</h2>
           <dl class="scen">
             <div><dt>Where</dt><dd>Only on the encrypted disks of our work computers. We never upload the data to cloud or AI services.</dd></div>
             <div><dt>Who has access</dt><dd>Only {{FOUNDER_1}} and {{FOUNDER_2}}.</dd></div>
@@ -134,8 +134,8 @@
           </dl>
         </section>
 
-        <section class="reveal" id="for-it" aria-labelledby="h-5">
-          <h2 id="h-5"><span class="no">05</span>For your IT</h2>
+        <section id="for-it" aria-labelledby="h-5">
+          <h2 id="h-5"><span class="no">5</span>For your IT</h2>
           <p>Technical details for network and security administrators. You can verify all of it yourself.</p>
           <ul>
             <li><strong>The offline version</strong> is a single HTML file. Once opened, it makes no network requests.</li>
@@ -153,8 +153,8 @@
           <div class="hash" data-hash-src="../cirus-origin-kalkulacka-offline.html"><button type="button" class="hash__btn" hidden>Show SHA-256 of the published version</button><code class="hash__v" hidden></code></div>
         </section>
 
-        <section class="reveal" id="gdpr" aria-labelledby="h-6">
-          <h2 id="h-6"><span class="no">06</span>Contact data and GDPR</h2>
+        <section id="gdpr" aria-labelledby="h-6">
+          <h2 id="h-6"><span class="no">6</span>Contact data and GDPR</h2>
           <p>Parts lists and purchasing data usually contain no personal data. We mainly process personal data when you contact us.</p>
           <dl class="scen">
             <div><dt>Controller</dt><dd>{{COMPANY}}, Company ID (IČO) <span class="mono">{{ICO}}</span>, {{ADDRESS}}. Contact: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</dd></div>
@@ -168,7 +168,7 @@
           <ul>
             <li>Uses no cookies and no analytics.</li>
             <li>The contact form sends nothing to a server. It only prepares an email in your mail program.</li>
-            <li>The Geist and Geist Mono fonts (SIL Open Font License) are hosted on this site. Browsing loads nothing from third parties.</li>
+            <li>The Archivo, IBM Plex Sans and IBM Plex Mono fonts (SIL Open Font License) are hosted on this site. Browsing loads nothing from third parties.</li>
             <li>The site runs on GitHub Pages. The hosting provider processes technical access logs, such as IP addresses.</li>
           </ul>
         </section>

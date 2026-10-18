@@ -26,6 +26,8 @@ site/                         zdroj webu, statické soubory bez backendu
   en/                         anglická verze (index, methodology, data-protection, offer)
   kalkulacka/index.html       kalkulačka (přepínač CZ/EN)
   assets/css/                 tokens.css (designové tokeny), site.css, app.css
+  assets/fonts/               Archivo, IBM Plex Sans, IBM Plex Mono (WOFF2, licence v OFL.txt)
+  assets/img/                 fotky (zakladatelé: petr.jpg, ben.jpg)
   assets/js/                  calc-core.js, countries.js, declaration.js, i18n.js, calculator.js
   assets/sample/              smyšlený ukázkový kusovník
   sablony/                    šablony ke stažení (generuje tools/make-templates.py)
@@ -41,7 +43,29 @@ docs/SPEC.md                  specifikace produktu a webu
 .github/workflows/pages.yml   nasazení na GitHub Pages
 ```
 
-Bez frameworku a bez bundleru: čisté HTML, CSS a ES moduly. Jediná externí knihovna je SheetJS 0.18.5 z cdnjs, kterou kalkulačka načte až ve chvíli, kdy uživatel nahraje nebo exportuje XLSX. Fonty Geist a Geist Mono (licence SIL OFL) jsou uložené přímo na webu v `site/assets/fonts/`, takže nic nejde k Googlu ani jiné třetí straně. Offline verze je má vložené.
+Bez frameworku a bez bundleru: čisté HTML, CSS a ES moduly. Jediná externí knihovna je SheetJS 0.18.5 z cdnjs, kterou kalkulačka načte až ve chvíli, kdy uživatel nahraje nebo exportuje XLSX. Fonty Archivo (nadpisy), IBM Plex Sans (text) a IBM Plex Mono (čísla a kódy v tabulkách), licence SIL OFL, jsou uložené přímo na webu v `site/assets/fonts/` (podmnožiny latin a latin-ext), takže nic nejde k Googlu ani jiné třetí straně. Offline verze je má vložené (build vloží všechny `url()` z `tokens.css` jako `data:`).
+
+## Vzhled a fotky
+
+Identita vychází z loga CIRUS: navy `#0F3D73`, téměř černá `#0B1220`, bílá a světle šedé plochy. Podpisovým tvarem je zkosení 45° písmene C: tlačítka, rámy obrázků, panely a navy sekce mají zkosený levý horní a pravý dolní roh (`clip-path`, velikost v proměnné `--c`, tokeny `--cut`, `--cut-sm`, `--cut-lg`). Kulaté rohy mají jen formulářová pole (2 px). Strukturu nesou tenké linky, ne karty se stíny. Žádné animace při scrollování; jediný pohyb je jednorázové naplnění pruhů v ukázce v hero (a ne při `prefers-reduced-motion`). Barvy berou styly jen z tokenů, tmavý režim funguje přes stejné názvy tokenů.
+
+### Obrazové sloty
+
+Fotky patří do `site/assets/img/` (build je zkopíruje do `dist/`). Formát JPG, šířka aspoň dvojnásobek zobrazené velikosti, EXIF odstraněný. Rámeček je komponenta `.photo` v `site.css`: zkosené rohy, obrázek vyplní rám (`object-fit: cover`), poměr stran nastavíte proměnnou `--ratio`.
+
+```html
+<figure class="photo" style="--ratio: 4 / 3">
+  <img src="assets/img/vyroba.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="Popis fotky">
+</figure>
+```
+
+Sloty na stránkách (`site/index.html` a `site/en/index.html`, u anglické verze s `../` na začátku cesty):
+
+| slot | kde | co tam je teď | jak vyměnit |
+|---|---|---|---|
+| hero | `.hero__media` v úvodní navy sekci | značka C kreslená velká do pozadí (SVG) | `<svg class="hero__mark">` nahraďte `<img src="assets/img/hero.jpg" alt="">`; CSS fotku zobrazí v navy duotónu, aby bílý text měl kontrast. Fotka aspoň 2400 × 1200 px. |
+| Pro koho / For whom | `<figure class="photo photo--doc">` vedle textu | ilustrace prohlášení dodavatele s tabulkou původu a razítkem (inline SVG) | `<svg>` uvnitř figure nahraďte `<img>`, odstraňte `aria-hidden="true"` z `<figure>` a doplňte `alt`. Poměr 4 : 3. |
+| O nás / About us | `.people__list`, dvě `figure.photo.portrait` | portréty `petr.jpg` a `ben.jpg`, 900 × 900 px, čtvercové | soubor přepište stejným jménem; `alt` je jméno z `{{FOUNDER_1}}` / `{{FOUNDER_2}}`. `npm run e2e` ověřuje, že se obě fotky načtou. |
 
 ## config.json: firemní údaje a ceny
 

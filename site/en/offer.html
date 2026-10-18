@@ -22,8 +22,8 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/brand/cirus-symbol-navy.png">
-  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
   <script src="../assets/js/site.js" defer></script>
@@ -61,7 +61,7 @@
         </section>
         <section aria-labelledby="s-who">
           <h2 id="s-who">Who it is for</h2>
-          <ul class="checklist">
+          <ul class="list">
             <li>defence manufacturers who supply SAFE-funded contracts or apply for an EDIP grant (calls close 16&nbsp;February&nbsp;2027)</li>
             <li>parts suppliers whose customer wants a declaration of origin</li>
           </ul>
@@ -72,36 +72,30 @@
         <h2 id="s-offer">Services and prices</h2>
         <table class="offers">
           <thead>
-            <tr><th scope="col"><span class="sr-only">Number</span></th><th scope="col">Service and what you get</th><th scope="col" class="o-price">Price</th></tr>
+            <tr><th scope="col">Service and what you get</th><th scope="col" class="o-price">Price</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td>01</td>
               <td><span class="o-name">Calculator</span>Paste a list of parts and see straight away where the product stands and which documents are missing. It runs only in your browser and sends no data.<span class="o-term">{{WEB}}/kalkulacka</span></td>
               <td class="o-price">free</td>
             </tr>
             <tr>
-              <td>02</td>
               <td><span class="o-name">Quick Check</span>You know where you stand and what needs to be documented: the result without documents and with them, a list of suppliers you need declarations from, and a breakdown by part category for the EDIP application. We deduct the price if you order the Evidence Pack within 60 days.<span class="o-term">within 10 working days · up to 500 items</span></td>
               <td class="o-price">{{PRICE_QUICK}}<small>for EDIP applicants, including a draft annex on the origin of parts: {{PRICE_QUICK_EDIP}}</small></td>
             </tr>
             <tr>
-              <td>03</td>
               <td><span class="o-name">Evidence Pack</span>A calculation backed by documents. We contact suppliers and obtain declarations of origin, add the origin of imported parts from customs documents and hand over the final calculation with a file of documents for audits.<span class="o-term">4–6 weeks · up to 500 items and 80 suppliers</span></td>
               <td class="o-price">from {{PRICE_PACK}}<small>+ {{PRICE_PACK_EXTRA}} for every further 250 items</small></td>
             </tr>
             <tr>
-              <td>04</td>
               <td><span class="o-name">Monitoring</span>The condition must hold for the whole duration of the contract. We renew declarations that are about to expire, recalculate the result when a supplier changes and prepare the documents for payment requests.<span class="o-term">ongoing for the duration of the contract</span></td>
               <td class="o-price">{{PRICE_MONITOR}}<small>per product per month</small></td>
             </tr>
             <tr>
-              <td>05</td>
               <td><span class="o-name">Supplier service</span>Received an origin questionnaire from your customer? We determine the origin, prepare the declaration and keep track of its renewal.</td>
               <td class="o-price">{{PRICE_SUPPLIER}}<small>depending on the number of parts</small></td>
             </tr>
             <tr>
-              <td>06</td>
               <td><span class="o-name">On-site support</span>We work at your site, on your computers and under your NDA. For cases where data must not leave the company.</td>
               <td class="o-price">{{PRICE_DAY}}<small>per day</small></td>
             </tr>
@@ -120,7 +114,7 @@
         </section>
         <section aria-labelledby="s-data">
           <h2 id="s-data">Your data</h2>
-          <ul class="checklist">
+          <ul class="list">
             <li>we work only with business data: part designation, supplier, price, country of origin and evidence of origin</li>
             <li>we never take drawings, technical documentation, classified information or ITAR data</li>
             <li>we keep data only on the encrypted disks of our computers and never upload it to cloud or AI services</li>

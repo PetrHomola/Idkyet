@@ -23,8 +23,8 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/brand/cirus-symbol-navy.png">
-  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -56,21 +56,23 @@
   </header>
 
   <main id="content">
-    <!-- hero -->
+    <!-- hero: navy section with the mark drawn large; a photo can replace the <svg> in .hero__media (see README) -->
     <section class="hero" aria-labelledby="h-hero">
+      <div class="hero__media" aria-hidden="true">
+        <svg class="hero__mark" viewBox="0 0 96 96" focusable="false"><path d="M4 25L25 4L38.75 4L4 38.75Z"/><path d="M43.25 4L92 4L92 27L43 27L34 36L34 60L34.875 60.875L14.375 81.375L4 71L4 43.25Z"/><path d="M37.125 63.125L43 69L92 69L92 92L25 92L16.625 83.625Z"/></svg>
+      </div>
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="pill"><span class="pill__k">SAFE · EDIP</span><span>Origin of parts<span class="pill__more"> for EU defence funding</span></span></p>
           <h1 id="h-hero">We calculate and prove that your product meets the <span class="hl">35&nbsp;% rule</span>.</h1>
           <p class="lead">Contracts funded by the EU programmes SAFE and EDIP come with a condition: parts made outside the EU may make up at most 35&nbsp;% of the cost of the product's parts. We find out where you stand and get the documents from your suppliers to prove it.</p>
           <div class="actions">
-            <a class="btn" href="../kalkulacka/index.html?lang=en">Calculate for free <span class="btn__arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--ghost" href="#contact">Book a call</a>
+            <a class="btn btn--light" href="../kalkulacka/index.html?lang=en">Calculate for free <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="link-light" href="#contact">Book a call</a>
           </div>
-          <p class="trust"><svg class="trust__i" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2.5 4 4.8v4.6c0 3.7 2.6 6.7 6 8.1 3.4-1.4 6-4.4 6-8.1V4.8L10 2.5Z"/><path d="m7.4 10 1.8 1.8 3.5-3.6"/></svg><span>The calculator runs only in your browser. Your data goes nowhere.</span></p>
+          <p class="trust">The calculator runs only in your browser. Your data goes nowhere.</p>
         </div>
 
-        <figure class="exhibit reveal" data-meters data-reveal-delay="120" aria-labelledby="ex-cap">
+        <figure class="exhibit" aria-labelledby="ex-cap">
           <div class="exhibit__head">
             <p class="exhibit__title">Example with a fictitious product</p>
             <p class="exhibit__src">share of non-EU parts</p>
@@ -79,14 +81,14 @@
             <div class="xrow xrow--fail">
               <div class="xrow__top">
                 <p class="xrow__label"><span class="xrow__name">Without documents <span class="tag tag--bad">not compliant</span></span><small>parts of unverified origin count as non-EU parts</small></p>
-                <p class="xrow__val"><span class="xrow__pct"><span data-count="48.5" data-decimals="1" data-delay="160">48.5</span>&#8239;%</span></p>
+                <p class="xrow__val"><span class="xrow__pct">48.5&#8239;%</span></p>
               </div>
               <div class="meter" style="--v: 97%; --split: 72.2%" aria-hidden="true"><span class="meter__fill"></span><span class="meter__thr"></span></div>
             </div>
             <div class="xrow xrow--pass">
               <div class="xrow__top">
                 <p class="xrow__label"><span class="xrow__name">With documents from 5 suppliers <span class="tag tag--ok">compliant</span></span><small>declarations confirm EU origin for the parts the result depends on</small></p>
-                <p class="xrow__val"><span class="xrow__pct"><span data-count="33.3" data-decimals="1" data-delay="280">33.3</span>&#8239;%</span></p>
+                <p class="xrow__val"><span class="xrow__pct">33.3&#8239;%</span></p>
               </div>
               <div class="meter" style="--v: 66.6%" aria-hidden="true"><span class="meter__fill"></span><span class="meter__thr"></span></div>
             </div>
@@ -98,38 +100,40 @@
     </section>
 
     <!-- for whom -->
-    <section class="sec sec--alt" id="for-whom" aria-labelledby="h-who">
-      <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">For whom</p>
+    <section class="sec" id="for-whom" aria-labelledby="h-who">
+      <div class="wrap split">
+        <div>
           <h2 id="h-who">Who we help</h2>
-        </header>
-        <div class="datagrid">
-          <div class="card datacard reveal">
-            <h3>Defence manufacturers</h3>
-            <p>You supply a product that a government buys with a SAFE loan, or you are applying for an EDIP grant. You have to calculate and document the share of non-EU parts, and keep it documented for the whole contract.</p>
-          </div>
-          <div class="card datacard reveal">
-            <h3>Parts suppliers</h3>
-            <p>Your customer wants a declaration of origin for the parts you supply. We help you determine the origin correctly and prepare the declaration.</p>
+          <div class="audience">
+            <div class="audience__item">
+              <h3>Defence manufacturers</h3>
+              <p>You supply a product that a government buys with a SAFE loan, or you are applying for an EDIP grant. You have to calculate and document the share of non-EU parts, and keep it documented for the whole contract.</p>
+            </div>
+            <div class="audience__item">
+              <h3>Parts suppliers</h3>
+              <p>Your customer wants a declaration of origin for the parts you supply. We help you determine the origin correctly and prepare the declaration.</p>
+            </div>
           </div>
         </div>
+        <!-- illustration slot: a supplier declaration with an origin table; can be replaced by a photo (see README) -->
+        <figure class="photo photo--doc" aria-hidden="true">
+          <svg viewBox="0 0 560 420" focusable="false"><rect class="d-paper d-paper--back" x="196" y="34" width="300" height="344"/><path class="d-paper" d="M136 60H448V378L428 398H116V80Z"/><g class="d-mark" transform="translate(139 82) scale(0.3)"><path d="M4 25L25 4L38.75 4L4 38.75Z"/><path d="M43.25 4L92 4L92 27L43 27L34 36L34 60L34.875 60.875L14.375 81.375L4 71L4 43.25Z"/><path d="M37.125 63.125L43 69L92 69L92 92L25 92L16.625 83.625Z"/></g><rect class="d-ink" x="180" y="87" width="150" height="9"/><rect class="d-soft" x="180" y="103" width="104" height="6"/><rect class="d-soft" x="384" y="87" width="44" height="6"/><rect class="d-faint" x="396" y="99" width="32" height="6"/><rect class="d-head" x="140" y="132" width="288" height="22"/><rect class="d-head-t" x="148" y="140" width="46" height="5"/><rect class="d-head-t" x="262" y="140" width="30" height="5"/><rect class="d-head-t" x="314" y="140" width="40" height="5"/><rect class="d-head-t" x="396" y="140" width="22" height="5"/><rect class="d-soft" x="148" y="165" width="92" height="6"/><text class="d-code" x="262" y="173">CZ</text><rect class="d-faint" x="314" y="165" width="46" height="6"/><rect class="d-ok" x="402" y="163" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="182" y2="182"/><rect class="d-soft" x="148" y="193" width="74" height="6"/><text class="d-code" x="262" y="201">DE</text><rect class="d-faint" x="314" y="193" width="30" height="6"/><rect class="d-ok" x="402" y="191" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="210" y2="210"/><rect class="d-soft" x="148" y="221" width="100" height="6"/><text class="d-code" x="262" y="229">CZ</text><rect class="d-faint" x="314" y="221" width="52" height="6"/><rect class="d-ok" x="402" y="219" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="238" y2="238"/><rect class="d-soft" x="148" y="249" width="66" height="6"/><text class="d-code" x="262" y="257">SK</text><rect class="d-faint" x="314" y="249" width="24" height="6"/><rect class="d-ok" x="402" y="247" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="266" y2="266"/><rect class="d-soft" x="148" y="277" width="84" height="6"/><text class="d-code" x="262" y="285">US</text><rect class="d-faint" x="314" y="277" width="40" height="6"/><rect class="d-bad" x="402.75" y="275.75" width="8.5" height="8.5"/><line class="d-rule" x1="140" x2="428" y1="294" y2="294"/><rect class="d-soft" x="148" y="305" width="78" height="6"/><text class="d-code" x="262" y="313">PL</text><rect class="d-faint" x="314" y="305" width="34" height="6"/><rect class="d-ok" x="402" y="303" width="10" height="10"/><line class="d-rule" x1="140" x2="428" y1="322" y2="322"/><rect class="d-ink" x="148" y="331" width="60" height="6"/><rect class="d-ink" x="314" y="331" width="40" height="6"/><path class="d-sign" d="M146 364c6-12 12-16 15-8s-3 13 5 6 10-13 13-4 5 7 12 0 13-9 19-2"/><line class="d-rule d-rule--strong" x1="140" x2="262" y1="374" y2="374"/><g transform="rotate(-8 372 356)"><path class="d-stamp" d="M326 330H428V372L418 382H316V340Z"/><path class="d-stamp d-stamp--in" d="M330 335H423V369L415 377H321V343Z"/><text class="d-stamp-t" x="372" y="363.5" text-anchor="middle">≤ 35 %</text></g></svg>
+        </figure>
       </div>
     </section>
 
     <!-- why now -->
-    <section class="sec" id="why" aria-labelledby="h-why">
+    <section class="sec sec--alt" id="why" aria-labelledby="h-why">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Why now</p>
+        <header class="sec__head sec__head--split">
           <h2 id="h-why">The money is flowing and the condition applies</h2>
           <p class="sec__intro">If you cannot prove it, you risk a suspended payment or a reduced grant. The wording of the rule is in the <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">SAFE Regulation, Article 16(10)</a>.</p>
         </header>
-        <div class="stats reveal">
+        <div class="stats">
           <div class="stat">
             <p class="stat__k">Czechia's SAFE funding</p>
             <p class="stat__v"><small>up to EUR</small> 2.06 <small>bn</small></p>
-            <p class="stat__n">Among other things for Leopard 2A8 tanks and Tatra T-815 vehicles. Payments are requested twice a year, in April and October.<span class="stat__src">Source: <a href="https://mocr.mo.gov.cz/informacni-servis/zpravodajstvi/vlada-schvalila-vyuziti-evropske-pujcky-safe-na-dostavbu-dalnice-d11--nakup-tanku-leopard-a-vozidel-tatra-264651/" rel="noopener">Czech Ministry of Defence, 15&nbsp;June&nbsp;2026</a></span></p>
+            <p class="stat__n">Among other things for Leopard 2A8 tanks and <span class="nowrap">Tatra T-815</span> vehicles. Payments are requested twice a year, in April and October.<span class="stat__src">Source: <a href="https://mocr.mo.gov.cz/informacni-servis/zpravodajstvi/vlada-schvalila-vyuziti-evropske-pujcky-safe-na-dostavbu-dalnice-d11--nakup-tanku-leopard-a-vozidel-tatra-264651/" rel="noopener">Czech Ministry of Defence, 15&nbsp;June&nbsp;2026</a></span></p>
           </div>
           <div class="stat">
             <p class="stat__k">EDIP call deadline</p>
@@ -146,24 +150,23 @@
     </section>
 
     <!-- how it works -->
-    <section class="sec sec--alt" id="how" aria-labelledby="h-how">
+    <section class="sec" id="how" aria-labelledby="h-how">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">How it works</p>
+        <header class="sec__head">
           <h2 id="h-how">From a purchase list to finished documents</h2>
         </header>
         <ol class="steps">
-          <li class="reveal">
+          <li>
             <h3>Send us your purchase list</h3>
             <p class="meta">You · an Excel export is enough</p>
             <p>The list of parts for the product: supplier, price and country of origin, if you know it. We need no drawings and no access to your systems. <a href="../sablony/cirus-origin-vstupni-sablona.xlsx" download>Excel template</a></p>
           </li>
-          <li class="reveal">
+          <li>
             <h3>Find out where you stand</h3>
             <p class="meta">Within 10 working days</p>
             <p>You will see whether the product meets the limit without documents and with them, how much headroom you have left and which suppliers you need declarations from.</p>
           </li>
-          <li class="reveal">
+          <li>
             <h3>We get the documents</h3>
             <p class="meta">4–6 weeks, then ongoing</p>
             <p>We contact your suppliers, obtain declarations of origin and add customs documents. You get the calculation and a file of documents ready for an audit.</p>
@@ -173,50 +176,49 @@
     </section>
 
     <!-- services and prices -->
-    <section class="sec" id="offer" aria-labelledby="h-offer">
+    <section class="sec sec--alt" id="offer" aria-labelledby="h-offer">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Services and prices</p>
+        <header class="sec__head sec__head--split">
           <h2 id="h-offer">Start with a Quick Check</h2>
           <p class="sec__intro">Every further step builds on it. You know the price and scope in advance.</p>
         </header>
 
         <ol class="plans plans--3">
-          <li class="plan plan--lead reveal">
+          <li class="plan plan--lead">
             <h3>Quick Check</h3>
             <p class="plan__desc">In 10 working days you know where you stand and what needs to be documented.</p>
             <div class="plan__price">
               <p class="price nowrap">{{PRICE_QUICK}}</p>
               <p class="plan__note">For EDIP applicants, including a draft annex on the origin of parts: <span class="mono nowrap">{{PRICE_QUICK_EDIP}}</span></p>
             </div>
-            <ul class="checklist">
+            <ul class="list">
               <li>the result without documents and with them</li>
               <li>a list of suppliers you need declarations from</li>
               <li>a breakdown by part category for the EDIP application</li>
             </ul>
             <p class="plan__foot">We deduct the price if you order the Evidence Pack within 60 days.</p>
           </li>
-          <li class="plan reveal">
+          <li class="plan">
             <h3>Evidence Pack</h3>
             <p class="plan__desc">In 4–6 weeks you have a calculation backed by documents.</p>
             <div class="plan__price">
               <p class="price nowrap"><span class="price__pre">from</span>{{PRICE_PACK}}</p>
               <p class="plan__note">up to 500 items and 80 suppliers</p>
             </div>
-            <ul class="checklist">
+            <ul class="list">
               <li>we contact suppliers and obtain declarations of origin</li>
               <li>we add the origin of imported parts from customs documents</li>
               <li>the final calculation and a file of documents for audits</li>
             </ul>
           </li>
-          <li class="plan reveal">
+          <li class="plan">
             <h3>Monitoring</h3>
             <p class="plan__desc">The condition must hold for the whole duration of the contract.</p>
             <div class="plan__price">
               <p class="price nowrap">{{PRICE_MONITOR}}</p>
               <p class="plan__note">per product per month</p>
             </div>
-            <ul class="checklist">
+            <ul class="list">
               <li>we renew declarations that are about to expire</li>
               <li>we recalculate the result when a supplier changes</li>
               <li>we prepare the documents for payment requests</li>
@@ -225,7 +227,7 @@
         </ol>
 
         <ul class="plans plans--2">
-          <li class="plan plan--compact reveal">
+          <li class="plan plan--compact">
             <h3>Supplier service</h3>
             <p class="plan__desc">Received an origin questionnaire from your customer? We determine the origin, prepare the declaration and keep track of its renewal.</p>
             <div class="plan__price">
@@ -233,7 +235,7 @@
               <p class="plan__note">depending on the number of parts</p>
             </div>
           </li>
-          <li class="plan plan--compact reveal">
+          <li class="plan plan--compact">
             <h3>On-site support</h3>
             <p class="plan__desc">We work at your site, on your computers and under your NDA. For cases where data must not leave the company.</p>
             <div class="plan__price">
@@ -243,62 +245,56 @@
           </li>
         </ul>
 
-        <div class="price-foot reveal">
+        <div class="price-foot">
           <p><strong>Prices exclude VAT.</strong> We confirm the scope and timing in writing before we start.</p>
           <div class="actions">
-            <a class="btn btn--ghost btn--sm" href="offer.html">Offer as PDF</a>
-            <a class="btn btn--sm" href="#contact">Book a call</a>
+            <a class="link-arrow" href="offer.html">Offer as PDF</a>
+            <a class="btn" href="#contact">Book a call</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- calculator -->
-    <section class="sec sec--alt" id="calculator" aria-labelledby="h-calc">
-      <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Free calculator</p>
+    <section class="band" id="calculator" aria-labelledby="h-calc">
+      <div class="wrap calc-panel">
+        <div class="calc-panel__copy">
           <h2 id="h-calc">Try the calculation yourself</h2>
           <p class="sec__intro">Paste a list of parts from Excel and see straight away where the product stands and which documents are missing. Or open the example.</p>
-        </header>
-        <div class="calc-panel reveal">
-          <div class="calc-panel__copy">
-            <div class="actions">
-              <a class="btn" href="../kalkulacka/index.html?lang=en">Open the calculator <span class="btn__arrow" aria-hidden="true">→</span></a>
-              <a class="btn btn--ghost" href="../cirus-origin-kalkulacka-offline.html" download>Download the offline version</a>
-            </div>
-            <p class="facts-foot">The calculator runs only in your browser and sends no data. The offline version is a single file that works without internet. <a href="data-protection.html#for-it">Information for your IT</a></p>
+          <div class="actions">
+            <a class="btn btn--light" href="../kalkulacka/index.html?lang=en">Open the calculator <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="link-light" href="../cirus-origin-kalkulacka-offline.html" download>Download the offline version</a>
           </div>
-          <ul class="checklist">
-            <li>the result without documents and with them</li>
-            <li>the suppliers the result depends on</li>
-            <li>a declaration template for suppliers in Czech, Slovak and English</li>
-            <li>SAFE, EDIP and other programmes with the same rule</li>
-          </ul>
+          <p class="facts-foot">The calculator runs only in your browser and sends no data. The offline version is a single file that works without internet. <a href="data-protection.html#for-it">Information for your IT</a></p>
         </div>
+        <ul class="list list--band">
+          <li>the result without documents and with them</li>
+          <li>the suppliers the result depends on</li>
+          <li>a declaration template for suppliers in Czech, Slovak and English</li>
+          <li>SAFE, EDIP and other programmes with the same rule</li>
+        </ul>
       </div>
     </section>
 
     <!-- data -->
     <section class="sec" id="data" aria-labelledby="h-data">
       <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Data security</p>
+        <header class="sec__head sec__head--split">
           <h2 id="h-data">Business data is all we need</h2>
           <p class="sec__intro">For the calculation we need to know what you buy, from whom, at what price and where it comes from. Nothing more.</p>
         </header>
         <div class="datagrid">
-          <div class="card datacard reveal">
+          <div class="datacard">
             <h3>We work only with</h3>
-            <ul class="checklist">
+            <ul class="list">
               <li>the part designation (it can be your own code, not the real part number)</li>
               <li>the supplier and the price</li>
               <li>the country of origin and the evidence of origin</li>
             </ul>
           </div>
-          <div class="card datacard reveal">
+          <div class="datacard">
             <h3>We never take</h3>
-            <ul class="crosslist">
+            <ul class="list list--no">
               <li>drawings and technical documentation</li>
               <li>classified information</li>
               <li>data subject to the US ITAR regulations</li>
@@ -306,38 +302,33 @@
           </div>
         </div>
         <ul class="pledges">
-          <li class="reveal"><b>No cloud, no AI</b><span>We keep data only on the encrypted disks of our computers. We never upload it to cloud or AI services.</span></li>
-          <li class="reveal"><b>Deleted within 30 days</b><span>After we deliver the result, we delete the data and confirm the deletion by email.</span></li>
-          <li class="reveal"><b>Your NDA</b><span>We sign your non-disclosure agreement. <a class="link-arrow" href="data-protection.html">Data protection in detail</a></span></li>
+          <li><b>No cloud, no AI</b><span>We keep data only on the encrypted disks of our computers. We never upload it to cloud or AI services.</span></li>
+          <li><b>Deleted within 30 days</b><span>After we deliver the result, we delete the data and confirm the deletion by email.</span></li>
+          <li><b>Your NDA</b><span>We sign your non-disclosure agreement. <a class="link-arrow" href="data-protection.html">Data protection in detail</a></span></li>
         </ul>
       </div>
     </section>
 
     <!-- about -->
     <section class="sec sec--alt" id="about" aria-labelledby="h-about">
-      <div class="wrap">
-        <header class="sec__head reveal">
-          <p class="eyebrow">About us</p>
+      <div class="wrap about">
+        <div class="about__text">
           <h2 id="h-about">Who is behind it</h2>
-        </header>
-        <div class="about">
-          <div class="about__text reveal">
-            <p>{{BRAND}} is a service of the Czech company CIRUS Technologies. We build data tools that save defence companies work when they need to document the origin of parts.</p>
-            <p>We calculate using the method published by the European Commission and document every step. Disputed origin cases are resolved with a customs specialist. We do not give legal opinions.</p>
-          </div>
-          <div class="people">
-            <p class="label">Founders</p>
-            <div class="card person reveal">
-              <div>
-                <h3>{{FOUNDER_1}}</h3>
-              </div>
-            </div>
-            <div class="card person reveal">
-              <div>
-                <h3>{{FOUNDER_2}}</h3>
-              </div>
-            </div>
-          </div>
+          <p>{{BRAND}} is a service of the Czech company CIRUS Technologies. We build data tools that save defence companies work when they need to document the origin of parts.</p>
+          <p>We calculate using the method published by the European Commission and document every step. Disputed origin cases are resolved with a customs specialist. We do not give legal opinions.</p>
+        </div>
+        <div class="people">
+          <p class="label">Founders</p>
+          <ul class="people__list">
+            <li class="person">
+              <figure class="photo portrait"><img src="../assets/img/petr.jpg" width="900" height="900" loading="lazy" decoding="async" alt="{{FOUNDER_1}}"></figure>
+              <p class="person__name">{{FOUNDER_1}}</p>
+            </li>
+            <li class="person">
+              <figure class="photo portrait"><img src="../assets/img/ben.jpg" width="900" height="900" loading="lazy" decoding="async" alt="{{FOUNDER_2}}"></figure>
+              <p class="person__name">{{FOUNDER_2}}</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -345,12 +336,11 @@
     <!-- FAQ -->
     <section class="sec" id="faq" aria-labelledby="h-faq">
       <div class="wrap faq-layout">
-        <header class="sec__head reveal">
-          <p class="eyebrow">Questions</p>
+        <header class="sec__head">
           <h2 id="h-faq">Frequently asked questions</h2>
           <p class="sec__intro">Did not find your answer? <a href="#contact">Write to us</a>. The detailed calculation method is in the <a href="methodology.html">methodology</a>.</p>
         </header>
-        <div class="faq reveal">
+        <div class="faq">
           <details>
             <summary>Does this apply to us?</summary>
             <div class="faq__a">
@@ -401,9 +391,8 @@
     <!-- contact -->
     <section class="sec sec--alt" id="contact" aria-labelledby="h-contact">
       <div class="wrap contact">
-        <div class="reveal">
+        <div>
           <header class="sec__head">
-            <p class="eyebrow">Contact</p>
             <h2 id="h-contact">Let's have a short call</h2>
             <p class="sec__intro">In 30 minutes we go through your product and tell you what needs to be documented. Write to us, or just call.</p>
           </header>
@@ -423,7 +412,7 @@
           </dl>
         </div>
 
-        <form class="form reveal" id="contact-form" data-to="{{EMAIL}}" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" novalidate>
+        <form class="form" id="contact-form" data-to="{{EMAIL}}" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" novalidate>
           <div class="form__pair">
             <div class="field">
               <label for="cf-name">Name</label>
@@ -510,3 +499,4 @@
   </footer>
 </body>
 </html>
+

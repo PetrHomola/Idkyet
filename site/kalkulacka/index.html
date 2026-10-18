@@ -13,8 +13,7 @@
        Inline and data: scripts are allowed because the single-file offline version is built from this page. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' data: https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Cstyle%3Eg%7Bfill:#0F3D73%7D%40media (prefers-color-scheme:dark)%7Bg%7Bfill:#ffffff%7D%7D%3C/style%3E%3Cg transform=%22scale(0.16666666666666666)%22%3E%3Cpath d=%22M4.0000 25.0000L25.0000 4.0000L36.7500 4.0000L4.0000 36.7500Z%22/%3E%3Cpath d=%22M45.2500 4.0000L92.0000 4.0000L92.0000 27.0000L43.0000 27.0000L34.0000 36.0000L34.0000 60.0000L33.8750 59.8750L13.3750 80.3750L4.0000 71.0000L4.0000 45.2500Z%22/%3E%3Cpath d=%22M38.1250 64.1250L43.0000 69.0000L92.0000 69.0000L92.0000 92.0000L25.0000 92.0000L17.6250 84.6250Z%22/%3E%3C/g%3E%3C/svg%3E">
-  <!-- Progressive enhancement: the reveal styles in app.css apply only under html.js. -->
-  <script>document.documentElement.classList.add('js');</script>
+    <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/app.css">
   <script type="module" src="../assets/js/calculator.js"></script>
@@ -43,7 +42,7 @@
     <div class="print-head" id="print-head"></div>
 
     <section class="hero" aria-labelledby="h-title">
-      <div class="wrap hero__in reveal">
+      <div class="wrap hero__in">
         <p class="kicker" data-i18n="hero.kicker">Kalkulačka · SAFE · EDIP · pravidlo&nbsp;35&nbsp;%</p>
         <h1 id="h-title" data-i18n="hero.title">Podíl dílů s&nbsp;původem mimo EU</h1>
         <p class="lead" data-i18n="hero.lead">Vložte seznam dílů z&nbsp;Excelu nebo nahrajte soubor. Kalkulačka spočítá podíl dílů s&nbsp;původem mimo EU podle obou metod Komise, ukáže nejhorší, očekávaný i&nbsp;nejlepší případ a&nbsp;řekne, které doklady chybějí.</p>
@@ -60,10 +59,10 @@
 
         <nav class="rail no-print" aria-label="Kroky kalkulačky" data-i18n-attr="aria-label:nav.steps">
           <ol class="rail__list">
-            <li><a class="rail__step" href="#sec-data"><span class="rail__no" aria-hidden="true">01</span><span data-i18n="s1.title">Data</span></a></li>
-            <li><a class="rail__step" href="#sec-settings"><span class="rail__no" aria-hidden="true">02</span><span data-i18n="s2.title">Nastavení</span></a></li>
+            <li><a class="rail__step" href="#sec-data"><span class="rail__no" aria-hidden="true">1</span><span data-i18n="s1.title">Data</span></a></li>
+            <li><a class="rail__step" href="#sec-settings"><span class="rail__no" aria-hidden="true">2</span><span data-i18n="s2.title">Nastavení</span></a></li>
             <li>
-              <a class="rail__step" href="#sec-results"><span class="rail__no" aria-hidden="true">03</span><span data-i18n="s3.title">Výsledek</span></a>
+              <a class="rail__step" href="#sec-results"><span class="rail__no" aria-hidden="true">3</span><span data-i18n="s3.title">Výsledek</span></a>
               <ol class="rail__sub">
                 <li><a href="#h-verdict" data-i18n="verdict.title">Verdikt</a></li>
                 <li><a href="#h-headroom" data-i18n="hr.title">Rezerva do limitu</a></li>
@@ -75,16 +74,16 @@
                 <li><a href="#h-warn" data-i18n="wr.title">Varování</a></li>
               </ol>
             </li>
-            <li><a class="rail__step" href="#sec-export"><span class="rail__no" aria-hidden="true">04</span><span data-i18n="ex.title">Export a tisk</span></a></li>
+            <li><a class="rail__step" href="#sec-export"><span class="rail__no" aria-hidden="true">4</span><span data-i18n="ex.title">Export a tisk</span></a></li>
           </ol>
         </nav>
 
         <div class="stack">
 
           <!-- 1. Data -->
-          <section class="box reveal" id="sec-data" aria-labelledby="h-data">
+          <section class="box" id="sec-data" aria-labelledby="h-data">
             <header class="box__head">
-              <span class="box__no" aria-hidden="true">01</span>
+              <span class="box__no" aria-hidden="true">1</span>
               <h2 id="h-data" data-i18n="s1.title">Data</h2>
             </header>
             <div class="box__body">
@@ -123,9 +122,9 @@
           </section>
 
           <!-- 2. Settings -->
-          <section class="box reveal" id="sec-settings" aria-labelledby="h-settings">
+          <section class="box" id="sec-settings" aria-labelledby="h-settings">
             <header class="box__head">
-              <span class="box__no" aria-hidden="true">02</span>
+              <span class="box__no" aria-hidden="true">2</span>
               <h2 id="h-settings" data-i18n="s2.title">Nastavení</h2>
             </header>
             <div class="box__body settings">
@@ -167,9 +166,9 @@
           </section>
 
           <!-- 3. Result -->
-          <section class="box box--results reveal" id="sec-results" aria-labelledby="h-results" tabindex="-1">
+          <section class="box box--results" id="sec-results" aria-labelledby="h-results" tabindex="-1">
             <header class="box__head">
-              <span class="box__no" aria-hidden="true">03</span>
+              <span class="box__no" aria-hidden="true">3</span>
               <h2 id="h-results" data-i18n="s3.title">Výsledek</h2>
             </header>
             <div class="box__body">
@@ -181,22 +180,22 @@
               <div id="results" hidden>
                 <div id="calc-error" class="alert alert--bad" role="alert" hidden></div>
 
-                <section class="panel panel--verdict reveal" aria-labelledby="h-verdict">
+                <section class="panel panel--verdict" aria-labelledby="h-verdict">
                   <h3 id="h-verdict" class="panel__title" data-i18n="verdict.title">Verdikt</h3>
                   <div id="verdict" data-testid="verdict"></div>
                 </section>
 
-                <section class="panel reveal" aria-labelledby="h-headroom">
+                <section class="panel" aria-labelledby="h-headroom">
                   <h3 id="h-headroom" class="panel__title" data-i18n="hr.title">Rezerva do limitu</h3>
                   <div id="headroom"></div>
                 </section>
 
-                <section class="panel reveal" aria-labelledby="h-minset">
+                <section class="panel" aria-labelledby="h-minset">
                   <h3 id="h-minset" class="panel__title" data-i18n="ms.title">Minimální sada dokladů</h3>
                   <div id="minset" data-testid="min-set-table"></div>
                 </section>
 
-                <section class="panel reveal" aria-labelledby="h-cat">
+                <section class="panel" aria-labelledby="h-cat">
                   <div class="panel__head">
                     <h3 id="h-cat" class="panel__title" data-i18n="cat.title">Rozpad po kategoriích</h3>
                     <button type="button" class="btn btn--ghost btn--sm no-print" id="btn-copy-cat" data-i18n="cat.copy">Kopírovat jako tabulku</button>
@@ -205,12 +204,12 @@
                   <div id="categories" data-testid="category-table"></div>
                 </section>
 
-                <section class="panel reveal" aria-labelledby="h-ev">
+                <section class="panel" aria-labelledby="h-ev">
                   <h3 id="h-ev" class="panel__title" data-i18n="ev.title">Stav dokladů</h3>
                   <div id="evidence"></div>
                 </section>
 
-                <section class="panel reveal" aria-labelledby="h-rq">
+                <section class="panel" aria-labelledby="h-rq">
                   <h3 id="h-rq" class="panel__title" data-i18n="rq.title">Žádosti dodavatelům</h3>
                   <p class="hint" data-i18n="rq.hint">Dodavatelé, od kterých chybí doklad o&nbsp;původu. Začněte prioritními: jejich díly patří do minimální sady dokladů.</p>
                   <div class="rq-settings no-print">
@@ -227,7 +226,7 @@
                   <div id="requests" data-testid="supplier-requests"></div>
                 </section>
 
-                <section class="panel panel--lines reveal" aria-labelledby="h-lines">
+                <section class="panel panel--lines" aria-labelledby="h-lines">
                   <h3 id="h-lines" class="panel__title" data-i18n="ln.title">Řádky</h3>
                   <p class="hint no-print" data-i18n="ln.hint">Zemi původu, doklad a&nbsp;platnost můžete upravit přímo v&nbsp;tabulce. Výsledek se hned přepočítá. Úpravy se nikam neukládají, proto před zavřením stránky uložte projekt.</p>
                   <div class="ln-tools no-print">
@@ -246,7 +245,7 @@
                   <datalist id="dl-cc"></datalist>
                 </section>
 
-                <section class="panel reveal" aria-labelledby="h-warn">
+                <section class="panel" aria-labelledby="h-warn">
                   <h3 id="h-warn" class="panel__title" data-i18n="wr.title">Varování</h3>
                   <div id="warnings"></div>
                 </section>
@@ -255,9 +254,9 @@
           </section>
 
           <!-- 4. Export -->
-          <section class="box no-print reveal" id="sec-export" aria-labelledby="h-export">
+          <section class="box no-print" id="sec-export" aria-labelledby="h-export">
             <header class="box__head">
-              <span class="box__no" aria-hidden="true">04</span>
+              <span class="box__no" aria-hidden="true">4</span>
               <h2 id="h-export" data-i18n="ex.title">Export a tisk</h2>
             </header>
             <div class="box__body">
@@ -273,7 +272,7 @@
             </div>
           </section>
 
-          <aside class="cta no-print reveal" aria-labelledby="h-cta">
+          <aside class="cta no-print" aria-labelledby="h-cta">
             <div class="cta__text">
               <h2 id="h-cta" data-i18n="cta.title">Chcete to doložit?</h2>
               <p data-i18n="cta.text">Rychlá kontrola: za 10 pracovních dnů víte, kde jste a&nbsp;co je potřeba doložit. Výsledek bez dokladů i&nbsp;s&nbsp;doklady, seznam dodavatelů, od kterých potřebujete prohlášení, a&nbsp;rozpad podle kategorií dílů pro žádost EDIP.</p>
@@ -309,12 +308,10 @@
   <noscript><p class="noscript wrap">Kalkulačka potřebuje zapnutý JavaScript. Data se ani tak nikam neodesílají.</p></noscript>
 
   <script>
-  /* Presentation only, independent of the calculator: header state after scrolling, scroll reveal
-     of sections and the current step in the side navigation. Content is fully visible without it. */
+  /* Presentation only, independent of the calculator: the current step in the side navigation. */
   (function () {
     'use strict';
     var root = document.documentElement;
-    var bar = document.querySelector('.topbar');
     var steps = [].slice.call(document.querySelectorAll('.rail__step'));
     var subs = [].slice.call(document.querySelectorAll('.rail__sub a'));
     var byHref = function (a) { return document.getElementById(a.getAttribute('href').slice(1)); };
@@ -337,9 +334,8 @@
     var queued = false;
     function update() {
       queued = false;
-      var y = window.scrollY || root.scrollTop || 0;
-      if (bar) bar.classList.toggle('is-scrolled', y > 8);
       if (!steps.length || !steps[0].offsetParent) return;
+      var y = window.scrollY || root.scrollTop || 0;
       var line = window.innerHeight * 0.35;
       var atEnd = window.innerHeight + y >= root.scrollHeight - 4;
       var step = atEnd ? steps[steps.length - 1] : current(steps, line) || steps[0];
@@ -352,22 +348,6 @@
     window.addEventListener('scroll', queue, { passive: true });
     window.addEventListener('resize', queue, { passive: true });
     update();
-
-    var items = [].slice.call(document.querySelectorAll('.reveal'));
-    var show = function (el) { el.classList.add('is-in'); };
-    window.addEventListener('beforeprint', function () { items.forEach(show); });
-    if (!('IntersectionObserver' in window)) { items.forEach(show); return; }
-    var io = new IntersectionObserver(function (entries) {
-      var n = 0;
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.style.setProperty('--reveal-delay', Math.min(n, 4) * 70 + 'ms');
-        n += 1;
-        show(e.target);
-        io.unobserve(e.target);
-      });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
-    items.forEach(function (el) { io.observe(el); });
   })();
   </script>
 </body>
