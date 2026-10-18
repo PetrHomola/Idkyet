@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" data-brand="{{BRAND}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>How we handle data | {{BRAND}}</title>
+  <meta name="description" content="The calculator runs in your browser. For our services we take commercial data only: no drawings, classified information or ITAR-controlled data. Data in the EU, your NDA, deletion at the end.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://{{WEB}}/en/data-protection.html">
+  <link rel="alternate" hreflang="cs" href="https://{{WEB}}/ochrana-dat.html">
+  <link rel="alternate" hreflang="en" href="https://{{WEB}}/en/data-protection.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:title" content="How we handle data | {{BRAND}}">
+  <meta property="og:description" content="Commercial data only, no technical documentation. The calculator runs on your side, data stays in the EU, we sign your NDA and delete the data at the end.">
+  <meta property="og:url" content="https://{{WEB}}/en/data-protection.html">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__in">
+      <a class="brand" href="index.html" aria-label="{{BRAND}} – home">
+        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+      </a>
+      <nav class="topnav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="../kalkulacka/index.html?lang=en">Calculator</a>
+        <a href="index.html#offer">Pricing</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <a class="btn btn--sm topbar__cta" href="../kalkulacka/index.html?lang=en">Calculate for free</a>
+      <a class="lang" href="../ochrana-dat.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <header class="doc-hero wrap">
+      <p class="crumbs"><a href="index.html">{{BRAND}}</a> / Data protection</p>
+      <h1>How we handle data</h1>
+      <p class="lead">For the calculation we only need commercial data: what you buy, from whom, at what price and where it comes from. Here is exactly what we take, what we never take, where the data lives and what happens to it when our work together ends.</p>
+      <p class="docmeta"><span>Calculator: <b>data stays with you</b></span><span>Services: <b>commercial data only</b></span><span>Data: <b>in the EU, or on your premises</b></span></p>
+    </header>
+
+    <div class="wrap doc">
+      <nav class="toc" aria-labelledby="toc-h">
+        <h2 id="toc-h">Contents</h2>
+        <ol>
+          <li><a href="#summary">In short</a></li>
+          <li><a href="#calculator">The calculator runs on your side</a></li>
+          <li><a href="#what-we-take">What we take and never take</a></li>
+          <li><a href="#where">Where the data lives</a></li>
+          <li><a href="#ai">AI tools</a></li>
+          <li><a href="#nda">NDA and ownership</a></li>
+          <li><a href="#deletion">Deletion at the end</a></li>
+          <li><a href="#gdpr">Contact data and GDPR</a></li>
+        </ol>
+      </nav>
+
+      <article class="prose">
+        <section id="summary" aria-labelledby="h-1">
+          <h2 id="h-1"><span class="no">01</span>In short</h2>
+          <ul class="checklist">
+            <li>The calculator runs in your browser; your data is not sent anywhere. The offline version works without internet.</li>
+            <li>For our services we work only with commercial data: part number or category, supplier, price, country of origin, evidence.</li>
+            <li>We do not take drawings, specifications, technical documentation, classified information or ITAR-controlled data.</li>
+            <li>We keep data in the EU or work directly on your premises. Only summaries by category leave the calculation, exactly as the Commission asks for them.</li>
+            <li>We do not use AI tools on your data without your written consent.</li>
+            <li>We sign your NDA. We are a Czech company with no owners outside the EU.</li>
+            <li>When our work together ends, we delete your data and confirm the deletion.</li>
+          </ul>
+        </section>
+
+        <section id="calculator" aria-labelledby="h-2">
+          <h2 id="h-2"><span class="no">02</span>The calculator runs on your side</h2>
+          <p>The calculation happens directly in your browser. The bill of materials you paste or upload is not sent anywhere and we never see it. You can save the project as a JSON file on your computer and load it again later. The browser only remembers your language choice.</p>
+          <p>What the calculator loads from the internet:</p>
+          <ul>
+            <li>the page itself and fonts from Google Fonts,</li>
+            <li>the SheetJS library from cdnjs.cloudflare.com, and only when you upload or export an XLSX file.</li>
+          </ul>
+          <p>None of these requests carries your data.</p>
+          <div class="callout callout--ok">
+            <p class="callout__t">Offline version</p>
+            <p>The whole calculator in a single HTML file, with SheetJS built in and no fonts from the internet. It also works on a computer with no connection, for example on an isolated network. <a href="../pod35-kalkulacka-offline.html" download>Download the offline version</a></p>
+          </div>
+        </section>
+
+        <section id="what-we-take" aria-labelledby="h-3">
+          <h2 id="h-3"><span class="no">03</span>What we take and never take</h2>
+          <p>For a Quick check or an Evidence pack, a “green extract” is enough: a table of purchasing data for the product, following our <a href="../sablony/pod35-vstupni-sablona.xlsx" download>template</a>. You can replace part numbers with pseudonyms and keep the key yourself.</p>
+          <div class="table-scroll">
+            <table class="tbl">
+              <thead><tr><th scope="col">Data</th><th scope="col">What it is for</th></tr></thead>
+              <tbody>
+                <tr><td>Part number or category</td><td>Telling lines apart. Can be a pseudonym.</td></tr>
+                <tr><td>Description (optional)</td><td>Orientation and category assignment. A generic one is enough, e.g. “cable harness”.</td></tr>
+                <tr><td>Supplier and its country</td><td>Who to ask for a declaration; estimating origin.</td></tr>
+                <tr><td>Quantity and unit price, currency</td><td>Line cost, excluding transport, duty and VAT.</td></tr>
+                <tr><td>Country of origin and evidence</td><td>The calculation and the evidence status.</td></tr>
+                <tr><td>Component category</td><td>The five-category breakdown for the Commission.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>We never take</h3>
+          <ul class="crosslist">
+            <li>drawings,</li>
+            <li>specifications and technical documentation,</li>
+            <li>classified information,</li>
+            <li>ITAR-controlled data.</li>
+          </ul>
+          <p>If we receive anything like this by mistake, we will not use it, we will delete it and let you know.</p>
+        </section>
+
+        <section id="where" aria-labelledby="h-4">
+          <h2 id="h-4"><span class="no">04</span>Where the data lives</h2>
+          <p>We keep data in the EU. If you do not want it to leave your company, we work directly on your premises, on your devices (the On-site support service).</p>
+          <p>Only summaries by category leave the calculation, exactly as the Commission asks for them in the “Procurement strategy” template. We do not pass on individual bill of materials lines. In a request for a declaration, a supplier sees only its own parts, never the whole bill of materials.</p>
+        </section>
+
+        <section id="ai" aria-labelledby="h-5">
+          <h2 id="h-5"><span class="no">05</span>AI tools</h2>
+          <p>We do not use AI tools on your data without your written consent. The calculator uses no AI at all; it calculates according to the fixed rules described in the <a href="methodology.html">methodology</a>.</p>
+        </section>
+
+        <section id="nda" aria-labelledby="h-6">
+          <h2 id="h-6"><span class="no">06</span>NDA and ownership</h2>
+          <p>We sign your NDA; there is no need to negotiate ours. {{BRAND}} is run by {{COMPANY}}, a Czech company with no owners outside the EU.</p>
+        </section>
+
+        <section id="deletion" aria-labelledby="h-7">
+          <h2 id="h-7"><span class="no">07</span>Deletion at the end</h2>
+          <p>When our work together ends, we delete your data and confirm the deletion to you. The deliverables we have handed over stay with you.</p>
+        </section>
+
+        <section id="gdpr" aria-labelledby="h-8">
+          <h2 id="h-8"><span class="no">08</span>Contact data and GDPR</h2>
+          <p>Bills of materials and purchasing data usually contain no personal data. We mainly process personal data when you contact us.</p>
+          <dl class="scen">
+            <div><dt>Controller</dt><dd>{{COMPANY}}, Company ID (IČO) <span class="mono">{{ICO}}</span>, {{ADDRESS}}. Contact: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</dd></div>
+            <div><dt>What data</dt><dd>Name, company, work email, phone number and message content that you send us yourself.</dd></div>
+            <div><dt>Why</dt><dd>To answer your enquiry and negotiate a contract (Article 6(1)(b) GDPR), and to keep in touch with you as a business contact (legitimate interest, Article 6(1)(f) GDPR).</dd></div>
+            <div><dt>How long</dt><dd>For the duration of negotiations and cooperation. If no cooperation follows, we delete the data once we no longer need it, or earlier at your request. Accounting and contract records are kept for the period required by law.</dd></div>
+            <div><dt>Who sees it</dt><dd>We do not sell it or pass it on for marketing. Only the service providers we strictly need to operate (email, hosting) have access to it.</dd></div>
+            <div><dt>Your rights</dt><dd>You have the right to access, rectification, erasure, restriction of processing and data portability, and the right to object. Just write to <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>. You can lodge a complaint with the Czech Office for Personal Data Protection (ÚOOÚ).</dd></div>
+          </dl>
+          <h3>This website</h3>
+          <ul>
+            <li>Uses no cookies and no analytics.</li>
+            <li>The contact form sends nothing to a server; it only prepares an email in your mail program.</li>
+            <li>Fonts are loaded from Google Fonts, so Google sees your IP address.</li>
+            <li>The site runs on GitHub Pages. The hosting provider processes technical access logs, such as IP addresses.</li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <div>
+        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span></a>
+        <p class="muted" style="margin-top: var(--s3)">Calculation and documentation of component origin for the 35&nbsp;% rule (SAFE, EDIP). This is not legal advice. The output is a calculation based on documents and supplier declarations.</p>
+      </div>
+      <nav aria-label="Footer links">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="../kalkulacka/index.html?lang=en">Calculator</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="data-protection.html">Data protection</a></li>
+          <li><a href="offer.html">Printable offer</a></li>
+          <li><a href="../ochrana-dat.html" hreflang="cs" lang="cs">Česky</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Operator</h2>
+        <address>
+          <span>{{COMPANY}}</span>
+          <span>Company ID (IČO) <span class="mono">{{ICO}}</span></span>
+          <span>{{ADDRESS}}</span>
+          <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+          <a href="tel:{{PHONE}}">{{PHONE}}</a>
+        </address>
+      </div>
+      <p class="foot__legal"><span>© {{YEAR}} {{COMPANY}}</span><span>This is not legal advice.</span></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="cs" data-brand="{{BRAND}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{BRAND}} – doložení původu dílů (pravidlo 35 %)</title>
+  <meta name="description" content="Spočítáme a doložíme, že komponenty s původem mimo EU tvoří nejvýš 35 % nákladů na komponenty výrobku (SAFE, EDIP). Kalkulačka zdarma, Rychlá kontrola, sada dokladů od dodavatelů.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://{{WEB}}/">
+  <link rel="alternate" hreflang="cs" href="https://{{WEB}}/">
+  <link rel="alternate" hreflang="en" href="https://{{WEB}}/en/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:title" content="{{BRAND}} – doložení původu dílů (pravidlo 35 %)">
+  <meta property="og:description" content="Komponenty s původem mimo EU smí tvořit nejvýš 35 % nákladů na komponenty (SAFE, EDIP). Spočítáme váš podíl podle metodiky Komise a posbíráme doklady, které ho podloží.">
+  <meta property="og:url" content="https://{{WEB}}/">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__in">
+      <a class="brand" href="index.html" aria-label="{{BRAND}} – úvod">
+        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+      </a>
+      <nav class="topnav" aria-label="Hlavní navigace">
+        <a href="#postup">Jak to funguje</a>
+        <a href="kalkulacka/index.html?lang=cs">Kalkulačka</a>
+        <a href="#nabidka">Ceník</a>
+        <a href="metodika.html">Metodika</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a class="btn btn--sm topbar__cta" href="kalkulacka/index.html?lang=cs">Spočítat zdarma</a>
+      <a class="lang" href="en/index.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+    </div>
+  </header>
+
+  <main id="obsah">
+    <!-- hero -->
+    <section class="hero" aria-labelledby="h-hero">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="formstrip"><span>SAFE 2025/1106</span><span>EDIP 2025/2643</span><span>Pravidlo 35&nbsp;%</span></p>
+          <h1 id="h-hero">Doložte, že jste <span class="hl">pod&nbsp;35&nbsp;%</span>.</h1>
+          <p class="lead">Evropské peníze na obranu mají podmínku: komponenty s&nbsp;původem mimo EU smí tvořit nejvýš 35&nbsp;% nákladů na komponenty výrobku. <strong>Spočítáme váš podíl podle metodiky Komise a&nbsp;posbíráme doklady, které ho podloží</strong>: prohlášení dodavatelů a&nbsp;celní doklady.</p>
+          <div class="actions">
+            <a class="btn" href="kalkulacka/index.html?lang=cs">Spočítat zdarma v&nbsp;kalkulačce <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#nabidka">Nabídka a ceny</a>
+          </div>
+          <p class="local-note"><span class="seal" aria-hidden="true"></span><span>Kalkulačka běží ve vašem prohlížeči. Data se nikam neodesílají.</span></p>
+        </div>
+
+        <figure class="exhibit" aria-labelledby="ex-cap">
+          <div class="exhibit__head"><span>Příklad Komise</span><span>„Origin of Components“, 5/2026</span></div>
+          <div class="exhibit__body">
+            <div class="xrow xrow--fail">
+              <div class="xrow__top">
+                <p class="xrow__label"><b>Metoda (a)</b><small>tier-1 díly mimo EU / všechny tier-1 díly</small></p>
+                <p class="xrow__val"><span class="xrow__calc">92 / 214</span><span class="xrow__pct">43,0&nbsp;%</span></p>
+              </div>
+              <svg class="xbar" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <rect class="xbar__track" x="0" y="0" width="100" height="10" vector-effect="non-scaling-stroke"/>
+                <rect class="xbar__fill" x="0" y="0" width="86" height="10"/>
+                <line class="xbar__thr" x1="70" y1="-3" x2="70" y2="13" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <p><span class="tag tag--bad">nevyhoví</span></p>
+            </div>
+            <div class="xrow xrow--pass">
+              <div class="xrow__top">
+                <p class="xrow__label"><b>Metoda (b)</b><small>tier-1 díly mimo EU / náklady na komponenty</small></p>
+                <p class="xrow__val"><span class="xrow__calc">92 / 275</span><span class="xrow__pct">33,5&nbsp;%</span></p>
+              </div>
+              <svg class="xbar" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <rect class="xbar__track" x="0" y="0" width="100" height="10" vector-effect="non-scaling-stroke"/>
+                <rect class="xbar__fill" x="0" y="0" width="66.9" height="10"/>
+                <line class="xbar__thr" x1="70" y1="-3" x2="70" y2="13" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <p><span class="tag tag--ok">vyhoví</span></p>
+            </div>
+            <div class="xscale" style="--thr: 70%" aria-hidden="true"><span class="xscale__0">0&nbsp;%</span><span class="xscale__thr">35&nbsp;%</span><span class="xscale__max">50&nbsp;%</span></div>
+          </div>
+          <figcaption class="exhibit__cap"><span id="ex-cap">Stejný výrobek, dva výsledky. Metoda (b) počítá do jmenovatele i&nbsp;výrobní náklady podsestav z&nbsp;vlastní výroby. Stačí splnit jednu z&nbsp;metod.</span><span class="stamp exhibit__stamp" aria-hidden="true">Pod 35&nbsp;%</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 01 why now -->
+    <section class="sec" id="proc" aria-labelledby="h-proc">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>01</b>Proč teď</p>
+          <h2 id="h-proc">Pravidlo platí pro peníze, které už tečou</h2>
+          <p class="sec__intro">Nařízení SAFE i&nbsp;EDIP podmiňují financování původem komponent. Kdo podmínku nedoloží, riskuje výplatu.</p>
+        </header>
+
+        <div class="cols2">
+          <div>
+            <blockquote class="rule-quote" lang="en" cite="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng">
+              <p>The cost of components originating outside the Union, EEA EFTA States and Ukraine shall not be higher than 35&nbsp;% of the estimated cost of the components of the end product.</p>
+              <footer lang="cs">Nařízení Rady (EU) 2025/1106 (SAFE), čl. 16 odst. 10 · <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">EUR-Lex</a></footer>
+            </blockquote>
+            <p class="facts-foot">Stejné pravidlo má EDIP (nařízení (EU) 2025/2643, čl. 10 odst. 3 a&nbsp;4) pro komponenty s&nbsp;původem mimo Unii a&nbsp;přidružené země. Navíc u&nbsp;SAFE nesmí žádný díl pocházet ze třetí země, která je v&nbsp;rozporu s&nbsp;bezpečnostními a&nbsp;obrannými zájmy EU.</p>
+          </div>
+          <div>
+            <blockquote class="rule-quote rule-quote--plain" lang="en" cite="https://www.eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf">
+              <p>Limited information on underlying costs can also create practical challenges for verifying and confirming compliance with certain EU preference clauses.</p>
+              <footer lang="cs">Evropský účetní dvůr, Review 01/2026, odst. 71 · <a href="https://www.eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf" rel="noopener">PDF</a></footer>
+            </blockquote>
+            <p class="facts-foot"><strong>Co hrozí:</strong> u&nbsp;SAFE pozastavení výplaty, u&nbsp;EDIP krácení nebo ukončení grantu. Za nepravdivé údaje vyloučení z&nbsp;peněz EU.</p>
+          </div>
+        </div>
+
+        <div class="ledger" style="margin-top: var(--s6)">
+          <div class="ledger__row">
+            <p class="ledger__key">Česko · SAFE</p>
+            <p class="ledger__val">2,06 <small>mld. EUR</small></p>
+            <p class="ledger__note">Mimo jiné Leopard 2A8 za 802&nbsp;mil. EUR, Tatra T-815 za 319&nbsp;mil. EUR a&nbsp;dálnice D11 za 939&nbsp;mil. EUR.<span class="src">Ministerstvo obrany, 15. 6. 2026</span></p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">První platba</p>
+            <p class="ledger__val">309 <small>mil. EUR</small></p>
+            <p class="ledger__note">Přišla 6. 10. 2026. O&nbsp;platby se žádá dvakrát ročně, Česko v&nbsp;dubnu a&nbsp;v&nbsp;říjnu.</p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">Slovensko · Polsko</p>
+            <p class="ledger__val">2,3 <small>/</small> 43,7 <small>mld. EUR</small></p>
+            <p class="ledger__note">Slovensko asi 2,3&nbsp;mld. EUR ze SAFE (mimo jiné Tatra a&nbsp;CV90), Polsko 43,7&nbsp;mld. EUR.</p>
+          </div>
+          <div class="ledger__row ledger__row--mark">
+            <p class="ledger__key">Uzávěrka EDIP</p>
+            <p class="ledger__val">16. 2. 2027</p>
+            <p class="ledger__note">Výzvy mimo jiné na klíčové elektronické komponenty (122,25&nbsp;mil. EUR), platformy (152,75&nbsp;mil. EUR) a&nbsp;bezpilotní systémy pro Ukrajinu (80&nbsp;mil. EUR). Šablona „Procurement strategy“ chce rozpad podílu po pěti kategoriích komponent.</p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">Jak dlouho</p>
+            <p class="ledger__val">2030 <small>/</small> 2033</p>
+            <p class="ledger__note">Čerpání SAFE do 31. 12. 2030, projekty EDIP nejpozději do 31. 12. 2033. U&nbsp;EDIP musí podmínka platit po celou dobu projektu, prohlášení dodavatelů je tedy potřeba obnovovat.</p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">Metodika SAFE</p>
+            <p class="ledger__val">zatím není</p>
+            <p class="ledger__note">Recitál 19 SAFE říká, že Komise „could establish guidance“. K&nbsp;18. 10. 2026 veřejná metodika neexistuje. Podrobný postup Komise zveřejnila jen pro EDIP.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 how it works -->
+    <section class="sec" id="postup" aria-labelledby="h-postup">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>02</b>Jak to funguje</p>
+          <h2 id="h-postup">Tři kroky od kusovníku k&nbsp;dokladům</h2>
+          <p class="sec__intro">Nepotřebujeme výkresy ani přístup do vašich systémů. Stačí výpis nákupních dat k&nbsp;výrobku.</p>
+        </header>
+        <ol class="steps">
+          <li>
+            <h3>Zelený výpis</h3>
+            <p class="meta">Vy · podle naší šablony</p>
+            <p>Vyexportujete nákupní data k&nbsp;výrobku: číslo nebo kategorii dílu, dodavatele, cenu a&nbsp;zemi původu, pokud ji znáte. Čísla dílů můžete nahradit pseudonymy. <a href="sablony/pod35-vstupni-sablona.xlsx" download>Šablona XLSX</a></p>
+          </li>
+          <li>
+            <h3>Výpočet a rozpětí</h3>
+            <p class="meta">Do 10 pracovních dnů</p>
+            <p>Spočítáme podíl podle obou metod Komise jako rozpětí: nejhorší, očekávaný a&nbsp;nejlepší případ. Uvidíte rezervu do 35&nbsp;%, řádky, které rozhodují, a&nbsp;nejmenší sadu dokladů, která stačí.</p>
+          </li>
+          <li>
+            <h3>Doklady a hlídání</h3>
+            <p class="meta">4–6 týdnů, pak průběžně</p>
+            <p>Oslovíme dodavatele s&nbsp;žádostí o&nbsp;prohlášení o&nbsp;původu (česky, slovensky, anglicky), doplníme původ dovezených dílů z&nbsp;celních dokladů a&nbsp;předáme přehled připravený na audit. Pak hlídáme platnost prohlášení a&nbsp;změny.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 03 calculator -->
+    <section class="sec" id="kalkulacka" aria-labelledby="h-kalk">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>03</b>Kalkulačka zdarma</p>
+        </header>
+        <div class="calc-panel">
+          <div>
+            <h2 id="h-kalk">Spočítejte si to sami. Hned a&nbsp;zdarma.</h2>
+            <p class="lead">Vložte kusovník nebo seznam nákupů z&nbsp;Excelu. Kalkulačka spočítá podíl komponent mimo EU podle metod (a) i&nbsp;(b) pro SAFE, EDIP, půjčku pro Ukrajinu i&nbsp;dohodu EU–Kanada a&nbsp;řekne, které doklady chybějí.</p>
+            <div class="actions">
+              <a class="btn btn--mark" href="kalkulacka/index.html?lang=cs">Otevřít kalkulačku <span class="btn__arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="pod35-kalkulacka-offline.html" download>Offline verze (1 soubor)</a>
+            </div>
+          </div>
+          <ul class="checklist">
+            <li>Běží ve vašem prohlížeči, data se nikam neodesílají</li>
+            <li>Offline verze v&nbsp;jednom souboru funguje bez internetu</li>
+            <li>Nejhorší, očekávaný a&nbsp;nejlepší scénář, rezerva do 35&nbsp;%</li>
+            <li>Minimální sada dokladů a&nbsp;seznam dodavatelů k&nbsp;oslovení</li>
+            <li>Rozpad po pěti kategoriích pro „Procurement strategy“</li>
+            <li>Vzor prohlášení dodavatele česky, slovensky a&nbsp;anglicky</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 offer -->
+    <section class="sec" id="nabidka" aria-labelledby="h-nabidka">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>04</b>Nabídka a ceny</p>
+          <h2 id="h-nabidka">Pevné ceny, jasný rozsah</h2>
+          <p class="sec__intro">Začít můžete zdarma v&nbsp;kalkulačce, nebo Rychlou kontrolou. Každý další krok staví na předchozím.</p>
+        </header>
+
+        <ol class="tariff">
+          <li class="tariff__row tariff__row--free">
+            <span class="tariff__no" aria-hidden="true">01</span>
+            <div class="tariff__main">
+              <h3>Kalkulačka</h3>
+              <p>Běží v&nbsp;prohlížeči, data nikam neodcházejí. Existuje i&nbsp;offline verze v&nbsp;jednom souboru.</p>
+            </div>
+            <div class="tariff__price"><span class="price">zdarma</span></div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">02</span>
+            <div class="tariff__main">
+              <h3>Rychlá kontrola</h3>
+              <p>Do 10 pracovních dnů, do 500 řádků. Víte, kde jste, a&nbsp;co je potřeba doložit.</p>
+              <ul class="checklist">
+                <li>výsledek podle obou metod, rozpětí nejlepší / očekávaný / nejhorší případ</li>
+                <li>rezerva do 35&nbsp;% a&nbsp;řádky, které rozhodují</li>
+                <li>minimální sada dokladů a&nbsp;seznam dodavatelů k&nbsp;oslovení</li>
+                <li>rozpad po pěti kategoriích komponent a&nbsp;popis postupu</li>
+              </ul>
+              <div class="launch">
+                <span class="stamp">Zaváděcí nabídka</span>
+                <p>Prvním dvěma zákazníkům Rychlou kontrolu za poloviční cenu, výměnou za referenci.</p>
+              </div>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_QUICK}}</span>
+              <small>Pro žadatele EDIP s&nbsp;návrhem přílohy o&nbsp;původu do „Procurement strategy“: <span class="mono nowrap">{{PRICE_QUICK_EDIP}}</span></small>
+              <small>Cenu odečteme ze Sady dokladů, pokud ji objednáte do 60 dnů.</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">03</span>
+            <div class="tariff__main">
+              <h3>Sada dokladů</h3>
+              <p>4–6 týdnů. Z&nbsp;odhadu se stane doložený výpočet.</p>
+              <ul class="checklist">
+                <li>kampaň za prohlášeními dodavatelů česky, slovensky a&nbsp;anglicky, s&nbsp;připomínkami</li>
+                <li>původ dovezených dílů z&nbsp;celních dokladů</li>
+                <li>konečný výpočet a&nbsp;scénáře „co když“</li>
+                <li>přehled dokladů připravený na audit</li>
+              </ul>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap"><span class="price__pre">od</span>{{PRICE_PACK}}</span>
+              <small>do 500 řádků a&nbsp;80 dodavatelů, <span class="mono nowrap">{{PRICE_PACK_EXTRA}}</span> za každých dalších 250 řádků</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">04</span>
+            <div class="tariff__main">
+              <h3>Hlídání</h3>
+              <p>Podmínka musí platit dlouhodobě. Hlídáme ji za vás.</p>
+              <ul class="checklist">
+                <li>obnova prohlášení dodavatelů a&nbsp;přepočet při změnách</li>
+                <li>upozornění na tenčící se rezervu</li>
+                <li>podklady k&nbsp;žádostem o&nbsp;platbu SAFE (v&nbsp;Česku duben a&nbsp;říjen) nebo k&nbsp;průběžným zprávám EDIP</li>
+              </ul>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_MONITOR}}</span>
+              <small>měsíčně za výrobek</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">05</span>
+            <div class="tariff__main">
+              <h3>Pro dodavatele</h3>
+              <p>Dostali jste od hlavního dodavatele dotazník o&nbsp;původu? Určíme nepreferenční původ vašich dílů, připravíme prohlášení a&nbsp;nastavíme jeho obnovu.</p>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_SUPPLIER}}</span>
+              <small>podle počtu a&nbsp;složitosti dílů</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">06</span>
+            <div class="tariff__main">
+              <h3>Posila u vás</h3>
+              <p>Práce přímo u&nbsp;vás pod NDA, na vašich zařízeních. Data neopouštějí vaši firmu.</p>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_DAY}}</span>
+              <small>za den</small>
+            </div>
+          </li>
+        </ol>
+        <div class="price-foot">
+          <p><strong>Ceny jsou bez DPH.</strong> Rozsah a&nbsp;termín potvrdíme písemně před začátkem práce.</p>
+          <div class="actions">
+            <a class="btn btn--ghost btn--sm" href="nabidka.html">Nabídka k&nbsp;tisku (PDF)</a>
+            <a class="btn btn--sm" href="#kontakt">Objednat Rychlou kontrolu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 data -->
+    <section class="sec" id="data" aria-labelledby="h-data">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>05</b>Ochrana dat</p>
+          <h2 id="h-data">Bereme jen obchodní data. Technickou dokumentaci ne.</h2>
+          <p class="sec__intro">Pro výpočet stačí vědět, co kupujete, od koho, za kolik a&nbsp;odkud to pochází.</p>
+        </header>
+        <div class="datagrid">
+          <div>
+            <h3>Pracujeme jen s</h3>
+            <ul class="checklist">
+              <li>číslem nebo kategorií dílu (číslo může být pseudonym)</li>
+              <li>dodavatelem</li>
+              <li>cenou</li>
+              <li>zemí původu</li>
+              <li>dokladem o&nbsp;původu</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Nikdy nebereme</h3>
+            <ul class="crosslist">
+              <li>výkresy</li>
+              <li>specifikace a&nbsp;technickou dokumentaci</li>
+              <li>utajované informace</li>
+              <li>data podléhající ITAR</li>
+            </ul>
+          </div>
+        </div>
+        <ul class="pledges">
+          <li><b>Kalkulačka běží u&nbsp;vás</b><span>Data se nikam neodesílají. Offline verze funguje bez internetu.</span></li>
+          <li><b>Data v&nbsp;EU, nebo u&nbsp;vás</b><span>Data držíme v&nbsp;EU nebo pracujeme přímo u&nbsp;vás. Ven z&nbsp;výpočtu jdou jen souhrny po kategoriích, stejně jako je chce Komise.</span></li>
+          <li><b>AI jen s&nbsp;vaším souhlasem</b><span>AI nástroje nad vašimi daty nepoužíváme bez vašeho písemného souhlasu.</span></li>
+          <li><b>NDA a&nbsp;vlastnictví</b><span>Podepíšeme vaši NDA. Jsme česká firma, bez vlastníků mimo EU.</span></li>
+          <li><b>Smazání po skončení</b><span>Po skončení spolupráce data smažeme a&nbsp;smazání potvrdíme.</span></li>
+          <li><b>Podrobně</b><span><a href="ochrana-dat.html">Jak zacházíme s&nbsp;daty</a></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 06 methodology teaser -->
+    <section class="sec" id="metodika" aria-labelledby="h-metodika">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>06</b>Metodika</p>
+          <h2 id="h-metodika">Počítáme podle postupu Komise a&nbsp;každý krok zdokumentujeme</h2>
+        </header>
+        <div class="cols2">
+          <ul class="points">
+            <li><strong>Komponenta</strong> jsou látky, materiály, díly, sestavy nebo software zabudované do výrobku. Suroviny se nepočítají.</li>
+            <li><strong>Jen tier-1:</strong> počítají se díly nakoupené přímo výrobcem, bez ohledu na jejich důležitost.</li>
+            <li><strong>Původ</strong> dovezeného dílu podle celních dokladů nebo kupních smluv. U&nbsp;dílu koupeného v&nbsp;EU rozhoduje země poslední podstatné přeměny (nepreferenční původ, čl. 60 celního kodexu Unie).</li>
+            <li><strong>Cena</strong> podle faktur, smluv nebo celních dokladů, bez dopravy, cla a&nbsp;daní.</li>
+            <li><strong>SAFE</strong> zatím oficiální metodiku nemá. Používáme postup EDIP a&nbsp;volbu zdokumentujeme.</li>
+          </ul>
+          <div>
+            <div class="formula">
+              <span class="formula__name">Metoda (a)</span>
+              <span class="formula__row"><span class="frac"><span>tier-1 díly mimo EU</span><span>všechny tier-1 díly</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
+            </div>
+            <div class="formula">
+              <span class="formula__name">Metoda (b)</span>
+              <span class="formula__row"><span class="frac"><span>tier-1 díly mimo EU</span><span>tier-1 díly + vlastní výroba podsestav</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
+            </div>
+            <p class="facts-foot">Stačí splnit jednu z&nbsp;metod. Výsledek uvádíme jako rozpětí od nejhoršího (auditního) po nejlepší případ.</p>
+            <div class="actions" style="margin-top: var(--s4)">
+              <a class="btn btn--ghost" href="metodika.html">Celá metodika <span class="btn__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 FAQ -->
+    <section class="sec" id="otazky" aria-labelledby="h-faq">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>07</b>Otázky</p>
+          <h2 id="h-faq">Časté otázky</h2>
+        </header>
+        <div class="faq">
+          <details>
+            <summary>Má SAFE oficiální metodiku výpočtu?</summary>
+            <div class="faq__a">
+              <p>Zatím ne. Recitál 19 nařízení SAFE říká, že Komise „could establish guidance“, tedy může vydat pokyny k&nbsp;výpočtu. K&nbsp;18. 10. 2026 veřejné nejsou.</p>
+              <p>Podrobný postup Komise zveřejnila pro EDIP. Ten používáme i&nbsp;pro SAFE: počítáme obě metody, volbu zdokumentujeme, a&nbsp;až pokyny pro SAFE vyjdou, výpočet podle nich přepočítáme.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Co se počítá jako komponenta?</summary>
+            <div class="faq__a">
+              <p>Podle metodiky EDIP látky, materiály, díly, sestavy nebo software zabudované do výrobku. Suroviny komponentou nejsou (recitál 27 EDIP).</p>
+              <p>Počítají se jen díly, které nakupujete přímo vy (tier-1), bez ohledu na jejich důležitost. Díly, které nakupují vaši dodavatelé, se nepočítají zvlášť; promítají se do původu dílu, který kupujete od nich.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Co když dodavatel neodpoví?</summary>
+            <div class="faq__a">
+              <p>V&nbsp;nejhorším (auditním) scénáři se jeho díly počítají jako díly mimo EU. Odpověď ale nepotřebujete od každého. Minimální sada dokladů ukáže, které řádky stačí doložit, aby výsledek vyhověl i&nbsp;v&nbsp;nejhorším případě. Oslovujete tak jen dodavatele, na kterých to záleží.</p>
+              <p>U&nbsp;dovezených dílů pomohou celní doklady. Když ani to nestačí, spočítáme, kolik dílů by bylo potřeba nahradit domácím zdrojem. Dodavatelům, kteří si s&nbsp;určením původu nevědí rady, nabízíme službu Pro dodavatele.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Potřebujete naše výkresy nebo technickou dokumentaci?</summary>
+            <div class="faq__a">
+              <p>Ne. Pracujeme jen s&nbsp;obchodními daty: číslo nebo kategorie dílu, dodavatel, cena, země původu a&nbsp;doklad. Výkresy, specifikace, technickou dokumentaci, utajované informace ani data podléhající ITAR nebereme. Čísla dílů můžete nahradit pseudonymy.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Je to právní poradenství?</summary>
+            <div class="faq__a">
+              <p>Ne. {{BRAND}} nedává právní stanoviska. Výstupem je výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů a&nbsp;popis postupu, který jsme použili. Sporná určení původu konzultujeme s&nbsp;celním specialistou.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Kdo podepisuje určení původu?</summary>
+            <div class="faq__a">
+              <p>Původ dílu prohlašuje ten, kdo ho zná: dodavatel. Podepisuje prohlášení o&nbsp;nepreferenčním původu ve smyslu čl. 60 celního kodexu Unie, v&nbsp;našem vzoru s&nbsp;platností nejvýš 24 měsíců a&nbsp;se závazkem oznámit změnu. U&nbsp;dovezených dílů vychází původ z&nbsp;celních dokladů nebo kupních smluv.</p>
+              <p>My doklady sbíráme, kontrolujeme jejich úplnost a&nbsp;platnost a&nbsp;počítáme z&nbsp;nich. Za údaje, které předkládáte zadavateli nebo Komisi, odpovídá vaše firma.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Jak je to se Švýcarskem, Spojeným královstvím, Norskem, Ukrajinou a&nbsp;Kanadou?</summary>
+            <div class="faq__a">
+              <ul>
+                <li><strong>Švýcarsko a&nbsp;Spojené království</strong> nejsou domácí země podle žádného z&nbsp;pravidel. Jejich díly se počítají do 35&nbsp;%.</li>
+                <li><strong>Norsko</strong> je domácí u&nbsp;SAFE (jako stát EHP-ESVO) i&nbsp;u&nbsp;EDIP. Island a&nbsp;Lichtenštejnsko jsou domácí u&nbsp;SAFE.</li>
+                <li><strong>Ukrajina</strong> je domácí u&nbsp;SAFE, půjčky pro Ukrajinu a&nbsp;nástroje EDIP pro Ukrajinu, ne však u&nbsp;samotného programu EDIP.</li>
+                <li><strong>Kanada:</strong> dohoda EU–Kanada o&nbsp;účasti v&nbsp;SAFE (platí od 1. 8. 2026) má vlastní pravidlo. Kanadské komponenty smí přesáhnout 35&nbsp;%, komponenty z&nbsp;EU, EHP-ESVO a&nbsp;Ukrajiny musí tvořit aspoň 20&nbsp;% a&nbsp;komponenty z&nbsp;ostatních třetích zemí nejvýš 35&nbsp;% a&nbsp;ne víc než podíl EU.</li>
+              </ul>
+              <p>Kalkulačka má pro každý z&nbsp;těchto případů vlastní sadu pravidel. Přehled je v&nbsp;<a href="metodika.html#pravidla">metodice</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Stačí splnit jednu metodu?</summary>
+            <div class="faq__a">
+              <p>Podle metodiky EDIP ano: stačí, aby vyhověla metoda (a), nebo metoda (b). Podmínka ale musí platit po celou dobu projektu („during the entire duration of the action“), takže výpočet je potřeba udržovat aktuální.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Co přesně znamená „doloženo“?</summary>
+            <div class="faq__a">
+              <p>Řádek je doložený, když má vyplněnou zemi původu a&nbsp;doklad (celní doklad, prohlášení dodavatele nebo smlouvu) a&nbsp;prohlášení ještě platí. Nejhorší (auditní) scénář počítá jako domácí jen doložené řádky, vše ostatní jako díly mimo EU.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Jak dlouho to trvá?</summary>
+            <div class="faq__a">
+              <p>Kalkulačka dá výsledek hned. Rychlá kontrola trvá do 10 pracovních dnů (do 500 řádků), Sada dokladů 4–6 týdnů. Nejdéle se čeká na odpovědi dodavatelů, proto oslovujeme nejdřív ty, na kterých výsledek závisí.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 contact -->
+    <section class="sec" id="kontakt" aria-labelledby="h-kontakt">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>08</b>Kontakt</p>
+          <h2 id="h-kontakt">Napište nám</h2>
+          <p class="sec__intro">Pár řádků o&nbsp;výrobku a&nbsp;programu stačí. Ozveme se s&nbsp;návrhem rozsahu a&nbsp;termínu.</p>
+        </header>
+        <div class="contact">
+          <dl class="cardlist">
+            <div>
+              <dt>E-mail</dt>
+              <dd><span class="selectable">{{EMAIL}}</span><br><a href="mailto:{{EMAIL}}">Napsat e-mail</a></dd>
+            </div>
+            <div>
+              <dt>Telefon</dt>
+              <dd><a class="mono" href="tel:{{PHONE}}">{{PHONE}}</a></dd>
+            </div>
+            <div>
+              <dt>LinkedIn</dt>
+              <dd><a href="{{LINKEDIN}}" rel="noopener">{{BRAND}} na LinkedInu</a></dd>
+            </div>
+            <div>
+              <dt>Nabídka k přeposlání</dt>
+              <dd><a href="nabidka.html">Nabídka a ceník na 1–2 strany A4</a></dd>
+            </div>
+          </dl>
+
+          <form class="form" id="contact-form" data-to="{{EMAIL}}" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" novalidate>
+            <div class="form__pair">
+              <div class="field">
+                <label for="cf-name">Jméno</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="cf-company">Firma</label>
+                <input id="cf-company" name="company" type="text" autocomplete="organization" required>
+              </div>
+            </div>
+            <div class="form__pair">
+              <div class="field">
+                <label for="cf-email">E-mail</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="cf-phone">Telefon <span class="opt">(nepovinné)</span></label>
+                <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form__pair">
+              <div class="field">
+                <label for="cf-topic">Co vás zajímá</label>
+                <select id="cf-topic" name="topic">
+                  <option>Rychlá kontrola</option>
+                  <option>Rychlá kontrola pro žadatele EDIP</option>
+                  <option>Sada dokladů</option>
+                  <option>Hlídání</option>
+                  <option>Pro dodavatele</option>
+                  <option>Posila u vás</option>
+                  <option>Jiný dotaz</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cf-program">Program</label>
+                <select id="cf-program" name="program">
+                  <option>SAFE</option>
+                  <option>EDIP</option>
+                  <option>EDIP – nástroj pro Ukrajinu</option>
+                  <option>Půjčka pro Ukrajinu</option>
+                  <option>SAFE – dohoda EU–Kanada</option>
+                  <option>Zatím nevím</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cf-msg">Zpráva</label>
+              <textarea id="cf-msg" name="message" rows="5" placeholder="Výrobek, přibližný počet řádků kusovníku a dodavatelů, termín." required></textarea>
+            </div>
+            <p class="form__note">Formulář nic neodesílá na server. Připraví e-mail ve vašem poštovním programu na adresu <span class="selectable">{{EMAIL}}</span>. Do zprávy nepište technické ani utajované údaje.</p>
+            <div class="actions">
+              <button class="btn" type="submit">Připravit e-mail</button>
+            </div>
+            <p class="form__status" id="cf-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <div>
+        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span></a>
+        <p class="muted" style="margin-top: var(--s3)">Výpočet a&nbsp;doložení původu komponent pro pravidlo 35&nbsp;% (SAFE, EDIP). Nejde o&nbsp;právní poradenství. Výstup je výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů.</p>
+      </div>
+      <nav aria-label="Odkazy v patičce">
+        <h2>Web</h2>
+        <ul>
+          <li><a href="kalkulacka/index.html?lang=cs">Kalkulačka</a></li>
+          <li><a href="metodika.html">Metodika výpočtu</a></li>
+          <li><a href="ochrana-dat.html">Ochrana dat</a></li>
+          <li><a href="nabidka.html">Nabídka k&nbsp;tisku</a></li>
+          <li><a href="en/index.html" hreflang="en" lang="en">English</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Provozovatel</h2>
+        <address>
+          <span>{{COMPANY}}</span>
+          <span>IČO <span class="mono">{{ICO}}</span></span>
+          <span>{{ADDRESS}}</span>
+          <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+          <a href="tel:{{PHONE}}">{{PHONE}}</a>
+        </address>
+      </div>
+      <p class="foot__legal"><span>© {{YEAR}} {{COMPANY}}</span><span>Ceny jsou bez DPH. Nejde o&nbsp;právní poradenství.</span></p>
+    </div>
+  </footer>
+
+  <script type="module">
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('cf-status');
+    if (form && status) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const data = new FormData(form);
+        const v = (key) => String(data.get(key) || '').trim();
+        const to = form.dataset.to || '';
+        const brand = document.documentElement.dataset.brand || '';
+        const subject = [brand, v('topic'), v('company')].filter(Boolean).join(' – ');
+        const lines = [v('message'), '', '--', `Jméno: ${v('name')}`, `Firma: ${v('company')}`, `E-mail: ${v('email')}`];
+        if (v('phone')) lines.push(`Telefon: ${v('phone')}`);
+        lines.push(`Zájem: ${v('topic')}`, `Program: ${v('program')}`);
+        const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\r\n'))}`;
+        status.textContent = `Otevíráme váš poštovní program s připravenou zprávou. Pokud se neotevřel, napište nám přímo na ${to} nebo `;
+        const again = document.createElement('a');
+        again.href = href;
+        again.textContent = 'zkuste to znovu';
+        status.append(again, '.');
+        window.location.href = href;
+      });
+    }
+  </script>
+</body>
+</html>

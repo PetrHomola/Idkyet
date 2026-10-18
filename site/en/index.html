@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en" data-brand="{{BRAND}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{BRAND}} – proving component origin (35 % rule)</title>
+  <meta name="description" content="We calculate and document that components originating outside the EU make up no more than 35 % of the component cost of your end product (SAFE, EDIP). Free calculator, Quick check, supplier evidence pack.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://{{WEB}}/en/">
+  <link rel="alternate" hreflang="cs" href="https://{{WEB}}/">
+  <link rel="alternate" hreflang="en" href="https://{{WEB}}/en/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:title" content="{{BRAND}} – proving component origin (35 % rule)">
+  <meta property="og:description" content="Components originating outside the EU may make up no more than 35 % of component cost (SAFE, EDIP). We calculate your share using the Commission's method and collect the evidence to back it up.">
+  <meta property="og:url" content="https://{{WEB}}/en/">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="cs_CZ">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__in">
+      <a class="brand" href="index.html" aria-label="{{BRAND}} – home">
+        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+      </a>
+      <nav class="topnav" aria-label="Main navigation">
+        <a href="#how">How it works</a>
+        <a href="../kalkulacka/index.html?lang=en">Calculator</a>
+        <a href="#offer">Pricing</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--sm topbar__cta" href="../kalkulacka/index.html?lang=en">Calculate for free</a>
+      <a class="lang" href="../index.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- hero -->
+    <section class="hero" aria-labelledby="h-hero">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="formstrip"><span>SAFE 2025/1106</span><span>EDIP 2025/2643</span><span>35&nbsp;% rule</span></p>
+          <h1 id="h-hero">Prove you are <span class="hl">under&nbsp;35&nbsp;%</span>.</h1>
+          <p class="lead">EU defence money comes with a condition: components originating outside the EU may make up no more than 35&nbsp;% of the component cost of the end product. <strong>We calculate your share using the Commission's method and collect the evidence to back it up</strong>: supplier declarations and customs documents.</p>
+          <div class="actions">
+            <a class="btn" href="../kalkulacka/index.html?lang=en">Calculate for free <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#offer">Offer and prices</a>
+          </div>
+          <p class="local-note"><span class="seal" aria-hidden="true"></span><span>The calculator runs in your browser. Your data is not sent anywhere.</span></p>
+        </div>
+
+        <figure class="exhibit" aria-labelledby="ex-cap">
+          <div class="exhibit__head"><span>Commission example</span><span>“Origin of Components”, 5/2026</span></div>
+          <div class="exhibit__body">
+            <div class="xrow xrow--fail">
+              <div class="xrow__top">
+                <p class="xrow__label"><b>Method (a)</b><small>non-EU tier-1 parts / all tier-1 parts</small></p>
+                <p class="xrow__val"><span class="xrow__calc">92 / 214</span><span class="xrow__pct">43.0&nbsp;%</span></p>
+              </div>
+              <svg class="xbar" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <rect class="xbar__track" x="0" y="0" width="100" height="10" vector-effect="non-scaling-stroke"/>
+                <rect class="xbar__fill" x="0" y="0" width="86" height="10"/>
+                <line class="xbar__thr" x1="70" y1="-3" x2="70" y2="13" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <p><span class="tag tag--bad">fails</span></p>
+            </div>
+            <div class="xrow xrow--pass">
+              <div class="xrow__top">
+                <p class="xrow__label"><b>Method (b)</b><small>non-EU tier-1 parts / component cost</small></p>
+                <p class="xrow__val"><span class="xrow__calc">92 / 275</span><span class="xrow__pct">33.5&nbsp;%</span></p>
+              </div>
+              <svg class="xbar" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <rect class="xbar__track" x="0" y="0" width="100" height="10" vector-effect="non-scaling-stroke"/>
+                <rect class="xbar__fill" x="0" y="0" width="66.9" height="10"/>
+                <line class="xbar__thr" x1="70" y1="-3" x2="70" y2="13" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <p><span class="tag tag--ok">passes</span></p>
+            </div>
+            <div class="xscale" style="--thr: 70%" aria-hidden="true"><span class="xscale__0">0&nbsp;%</span><span class="xscale__thr">35&nbsp;%</span><span class="xscale__max">50&nbsp;%</span></div>
+          </div>
+          <figcaption class="exhibit__cap"><span id="ex-cap">Same product, two results. Method (b) also counts the manufacturing cost of in-house sub-assemblies in the denominator. Meeting one method is enough.</span><span class="stamp exhibit__stamp" aria-hidden="true">Under 35&nbsp;%</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 01 why now -->
+    <section class="sec" id="why" aria-labelledby="h-why">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>01</b>Why now</p>
+          <h2 id="h-why">The rule applies to money that is already flowing</h2>
+          <p class="sec__intro">Both SAFE and EDIP make funding conditional on where components come from. If you cannot prove compliance, the payment is at risk.</p>
+        </header>
+
+        <div class="cols2">
+          <div>
+            <blockquote class="rule-quote" cite="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng">
+              <p>The cost of components originating outside the Union, EEA EFTA States and Ukraine shall not be higher than 35&nbsp;% of the estimated cost of the components of the end product.</p>
+              <footer>Council Regulation (EU) 2025/1106 (SAFE), Article 16(10) · <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">EUR-Lex</a></footer>
+            </blockquote>
+            <p class="facts-foot">EDIP (Regulation (EU) 2025/2643, Article 10(3) and (4)) sets the same rule for components originating outside the Union and associated countries. SAFE also requires that no component comes from a third country that is contrary to the security and defence interests of the EU.</p>
+          </div>
+          <div>
+            <blockquote class="rule-quote rule-quote--plain" cite="https://www.eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf">
+              <p>Limited information on underlying costs can also create practical challenges for verifying and confirming compliance with certain EU preference clauses.</p>
+              <footer>European Court of Auditors, Review 01/2026, paragraph 71 · <a href="https://www.eca.europa.eu/ECAPublications/RV-2026-01/RV-2026-01_EN.pdf" rel="noopener">PDF</a></footer>
+            </blockquote>
+            <p class="facts-foot"><strong>What is at stake:</strong> under SAFE, suspension of payment; under EDIP, reduction or termination of the grant. False information can lead to exclusion from EU funding.</p>
+          </div>
+        </div>
+
+        <div class="ledger" style="margin-top: var(--s6)">
+          <div class="ledger__row">
+            <p class="ledger__key">Czechia · SAFE</p>
+            <p class="ledger__val"><small>EUR</small> 2.06 <small>bn</small></p>
+            <p class="ledger__note">Including Leopard 2A8 (EUR 802&nbsp;m), Tatra T-815 (EUR 319&nbsp;m) and the D11 motorway (EUR 939&nbsp;m).<span class="src">Czech Ministry of Defence, 15 June 2026</span></p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">First payment</p>
+            <p class="ledger__val"><small>EUR</small> 309 <small>m</small></p>
+            <p class="ledger__note">Received on 6 October 2026. Payments are requested twice a year; Czechia applies in April and October.</p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">Slovakia · Poland</p>
+            <p class="ledger__val"><small>EUR</small> 2.3 <small>/</small> 43.7 <small>bn</small></p>
+            <p class="ledger__note">Slovakia about EUR 2.3&nbsp;bn from SAFE (including Tatra and CV90), Poland EUR 43.7&nbsp;bn.</p>
+          </div>
+          <div class="ledger__row ledger__row--mark">
+            <p class="ledger__key">EDIP deadline</p>
+            <p class="ledger__val">16 Feb 2027</p>
+            <p class="ledger__note">Calls including key electronic components (EUR 122.25&nbsp;m), platforms (EUR 152.75&nbsp;m) and unmanned systems for Ukraine (EUR 80&nbsp;m). The “Procurement strategy” template asks for the share broken down into five component categories.</p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">How long</p>
+            <p class="ledger__val">2030 <small>/</small> 2033</p>
+            <p class="ledger__note">SAFE funds can be drawn until 31 December 2030; EDIP projects run until 31 December 2033 at the latest. Under EDIP the condition must hold for the entire duration of the action, so supplier declarations need renewing.</p>
+          </div>
+          <div class="ledger__row">
+            <p class="ledger__key">SAFE method</p>
+            <p class="ledger__val">not yet</p>
+            <p class="ledger__note">SAFE recital 19 says the Commission “could establish guidance”. As of 18 October 2026 no public method exists. The Commission has published a detailed method for EDIP only.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 how it works -->
+    <section class="sec" id="how" aria-labelledby="h-how">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>02</b>How it works</p>
+          <h2 id="h-how">Three steps from bill of materials to evidence</h2>
+          <p class="sec__intro">We do not need drawings or access to your systems. A purchasing data extract for the product is enough.</p>
+        </header>
+        <ol class="steps">
+          <li>
+            <h3>Green extract</h3>
+            <p class="meta">You · using our template</p>
+            <p>Export the purchasing data for the product: part number or category, supplier, price and country of origin if you know it. Part numbers can be replaced with pseudonyms. <a href="../sablony/pod35-vstupni-sablona.xlsx" download>XLSX template</a></p>
+          </li>
+          <li>
+            <h3>Calculation and range</h3>
+            <p class="meta">Within 10 working days</p>
+            <p>We calculate the share under both Commission methods as a range: worst, expected and best case. You see the headroom to 35&nbsp;%, the lines that decide the result, and the smallest set of evidence that will do.</p>
+          </li>
+          <li>
+            <h3>Evidence and monitoring</h3>
+            <p class="meta">4–6 weeks, then ongoing</p>
+            <p>We ask suppliers for origin declarations (in Czech, Slovak or English), add the origin of imported parts from customs documents and hand over an audit-ready evidence register. Then we keep an eye on declaration validity and changes.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 03 calculator -->
+    <section class="sec" id="calculator" aria-labelledby="h-calc">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>03</b>Free calculator</p>
+        </header>
+        <div class="calc-panel">
+          <div>
+            <h2 id="h-calc">Do the numbers yourself. Now, for free.</h2>
+            <p class="lead">Paste a bill of materials or purchase list from Excel. The calculator works out the share of non-EU components under methods (a) and (b) for SAFE, EDIP, the Ukraine loan and the EU–Canada agreement, and tells you which evidence is missing.</p>
+            <div class="actions">
+              <a class="btn btn--mark" href="../kalkulacka/index.html?lang=en">Open the calculator <span class="btn__arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="../pod35-kalkulacka-offline.html" download>Offline version (1 file)</a>
+            </div>
+          </div>
+          <ul class="checklist">
+            <li>Runs in your browser; your data is never sent</li>
+            <li>Single-file offline version works without internet</li>
+            <li>Worst, expected and best case, headroom to 35&nbsp;%</li>
+            <li>Minimum evidence set and list of suppliers to contact</li>
+            <li>Breakdown by five categories for the “Procurement strategy”</li>
+            <li>Supplier declaration template in Czech, Slovak and English</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 offer -->
+    <section class="sec" id="offer" aria-labelledby="h-offer">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>04</b>Offer and prices</p>
+          <h2 id="h-offer">Fixed prices, clear scope</h2>
+          <p class="sec__intro">Start for free with the calculator, or with a Quick check. Each step builds on the previous one.</p>
+        </header>
+
+        <ol class="tariff">
+          <li class="tariff__row tariff__row--free">
+            <span class="tariff__no" aria-hidden="true">01</span>
+            <div class="tariff__main">
+              <h3>Calculator</h3>
+              <p>Runs in your browser; your data goes nowhere. A single-file offline version is available too.</p>
+            </div>
+            <div class="tariff__price"><span class="price">free</span></div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">02</span>
+            <div class="tariff__main">
+              <h3>Quick check</h3>
+              <p>Within 10 working days, up to 500 lines. You know where you stand and what needs evidence.</p>
+              <ul class="checklist">
+                <li>result under both methods, best / expected / worst case range</li>
+                <li>headroom to 35&nbsp;% and the lines that decide it</li>
+                <li>minimum evidence set and list of suppliers to contact</li>
+                <li>breakdown by five component categories and a description of the approach</li>
+              </ul>
+              <div class="launch">
+                <span class="stamp">Launch offer</span>
+                <p>Quick check at half price for our first two customers, in exchange for a reference.</p>
+              </div>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_QUICK}}</span>
+              <small>For EDIP applicants, including a draft origin annex for the “Procurement strategy”: <span class="mono nowrap">{{PRICE_QUICK_EDIP}}</span></small>
+              <small>Deducted from the Evidence pack if you order it within 60 days.</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">03</span>
+            <div class="tariff__main">
+              <h3>Evidence pack</h3>
+              <p>4–6 weeks. An estimate becomes a documented calculation.</p>
+              <ul class="checklist">
+                <li>supplier declaration campaign in Czech, Slovak and English, with reminders</li>
+                <li>origin of imported parts from customs documents</li>
+                <li>final calculation and what-if scenarios</li>
+                <li>audit-ready evidence register</li>
+              </ul>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap"><span class="price__pre">from</span>{{PRICE_PACK}}</span>
+              <small>up to 500 lines and 80 suppliers, <span class="mono nowrap">{{PRICE_PACK_EXTRA}}</span> per additional 250 lines</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">04</span>
+            <div class="tariff__main">
+              <h3>Monitoring</h3>
+              <p>The condition has to hold over time. We watch it for you.</p>
+              <ul class="checklist">
+                <li>renewal of supplier declarations and recalculation when things change</li>
+                <li>alerts when the headroom shrinks</li>
+                <li>supporting documents for SAFE payment requests (in Czechia, April and October) or EDIP progress reports</li>
+              </ul>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_MONITOR}}</span>
+              <small>per product per month</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">05</span>
+            <div class="tariff__main">
+              <h3>For suppliers</h3>
+              <p>Received an origin questionnaire from your prime contractor? We determine the non-preferential origin of your parts, prepare the declaration and set up its renewal.</p>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_SUPPLIER}}</span>
+              <small>depending on the number and complexity of parts</small>
+            </div>
+          </li>
+          <li class="tariff__row">
+            <span class="tariff__no" aria-hidden="true">06</span>
+            <div class="tariff__main">
+              <h3>On-site support</h3>
+              <p>We work on your premises under NDA, on your devices. Data never leaves your company.</p>
+            </div>
+            <div class="tariff__price">
+              <span class="price nowrap">{{PRICE_DAY}}</span>
+              <small>per day</small>
+            </div>
+          </li>
+        </ol>
+        <div class="price-foot">
+          <p><strong>Prices exclude VAT.</strong> We confirm scope and timing in writing before work starts.</p>
+          <div class="actions">
+            <a class="btn btn--ghost btn--sm" href="offer.html">Printable offer (PDF)</a>
+            <a class="btn btn--sm" href="#contact">Order a Quick check</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 data -->
+    <section class="sec" id="data" aria-labelledby="h-data">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>05</b>Data protection</p>
+          <h2 id="h-data">We take commercial data only. No technical documentation.</h2>
+          <p class="sec__intro">For the calculation we only need to know what you buy, from whom, at what price and where it comes from.</p>
+        </header>
+        <div class="datagrid">
+          <div>
+            <h3>We work only with</h3>
+            <ul class="checklist">
+              <li>part number or category (the number can be a pseudonym)</li>
+              <li>supplier</li>
+              <li>price</li>
+              <li>country of origin</li>
+              <li>evidence of origin</li>
+            </ul>
+          </div>
+          <div>
+            <h3>We never take</h3>
+            <ul class="crosslist">
+              <li>drawings</li>
+              <li>specifications and technical documentation</li>
+              <li>classified information</li>
+              <li>ITAR-controlled data</li>
+            </ul>
+          </div>
+        </div>
+        <ul class="pledges">
+          <li><b>The calculator runs on your side</b><span>Data is not sent anywhere. The offline version works without internet.</span></li>
+          <li><b>Data in the EU, or on your premises</b><span>We keep data in the EU or work directly on your premises. Only summaries by category leave the calculation, exactly as the Commission asks for them.</span></li>
+          <li><b>AI only with your consent</b><span>We do not use AI tools on your data without your written consent.</span></li>
+          <li><b>NDA and ownership</b><span>We sign your NDA. We are a Czech company with no owners outside the EU.</span></li>
+          <li><b>Deletion at the end</b><span>When our work together ends, we delete your data and confirm the deletion.</span></li>
+          <li><b>In detail</b><span><a href="data-protection.html">How we handle data</a></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 06 methodology teaser -->
+    <section class="sec" id="methodology" aria-labelledby="h-method">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>06</b>Methodology</p>
+          <h2 id="h-method">We follow the Commission's method and document every step</h2>
+        </header>
+        <div class="cols2">
+          <ul class="points">
+            <li><strong>A component</strong> is any substance, material, part, assembly or software incorporated into the product. Raw materials do not count.</li>
+            <li><strong>Tier-1 only:</strong> parts bought directly by the manufacturer count, regardless of their importance.</li>
+            <li><strong>Origin</strong> of an imported part comes from customs documents or purchase contracts. For a part bought in the EU, the country of the last substantial transformation decides (non-preferential origin, Article 60 of the Union Customs Code).</li>
+            <li><strong>Cost</strong> comes from invoices, contracts or customs documents, excluding transport, duties and taxes.</li>
+            <li><strong>SAFE</strong> has no official method yet. We use the EDIP approach and document that choice.</li>
+          </ul>
+          <div>
+            <div class="formula">
+              <span class="formula__name">Method (a)</span>
+              <span class="formula__row"><span class="frac"><span>non-EU tier-1 parts</span><span>all tier-1 parts</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
+            </div>
+            <div class="formula">
+              <span class="formula__name">Method (b)</span>
+              <span class="formula__row"><span class="frac"><span>non-EU tier-1 parts</span><span>tier-1 parts + in-house sub-assemblies</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
+            </div>
+            <p class="facts-foot">Meeting one method is enough. We report the result as a range from the worst (audit) case to the best case.</p>
+            <div class="actions" style="margin-top: var(--s4)">
+              <a class="btn btn--ghost" href="methodology.html">Full methodology <span class="btn__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 FAQ -->
+    <section class="sec" id="faq" aria-labelledby="h-faq">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>07</b>Questions</p>
+          <h2 id="h-faq">Frequently asked questions</h2>
+        </header>
+        <div class="faq">
+          <details>
+            <summary>Does SAFE have an official calculation method?</summary>
+            <div class="faq__a">
+              <p>Not yet. SAFE recital 19 says the Commission “could establish guidance” on the calculation. As of 18 October 2026, none has been published.</p>
+              <p>The Commission has published a detailed method for EDIP. We apply it to SAFE as well: we calculate both methods, document the choice, and recalculate once SAFE guidance is published.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What counts as a component?</summary>
+            <div class="faq__a">
+              <p>Under the EDIP method: substances, materials (excluding raw materials), parts, assemblies or software incorporated into the product. Raw materials are not components (EDIP recital 27).</p>
+              <p>Only parts you buy directly (tier-1) count, regardless of how important they are. Parts your suppliers buy are not counted separately; they are reflected in the origin of the part you buy from them.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What if a supplier does not respond?</summary>
+            <div class="faq__a">
+              <p>In the worst (audit) case, their parts count as non-EU. But you do not need an answer from everyone. The minimum evidence set shows which lines are enough to document for the result to pass even in the worst case, so you only chase the suppliers that matter.</p>
+              <p>For imported parts, customs documents help. If even that is not enough, we calculate how many parts would need to be replaced with a home source. Suppliers who are unsure how to determine origin can use our For suppliers service.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Do you need our drawings or technical documentation?</summary>
+            <div class="faq__a">
+              <p>No. We work only with commercial data: part number or category, supplier, price, country of origin and evidence. We do not take drawings, specifications, technical documentation, classified information or ITAR-controlled data. Part numbers can be replaced with pseudonyms.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is this legal advice?</summary>
+            <div class="faq__a">
+              <p>No. {{BRAND}} does not give legal opinions. The output is a calculation based on documents and supplier declarations, together with a description of the approach we used. Disputed origin determinations are reviewed with a customs specialist.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Who signs the origin determination?</summary>
+            <div class="faq__a">
+              <p>The party that knows the origin: the supplier. They sign a declaration of non-preferential origin within the meaning of Article 60 of the Union Customs Code; in our template it is valid for at most 24 months and includes a commitment to report changes. For imported parts, origin follows from customs documents or purchase contracts.</p>
+              <p>We collect the documents, check that they are complete and valid, and calculate from them. Your company remains responsible for what it submits to the contracting authority or the Commission.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What about Switzerland, the UK, Norway, Ukraine and Canada?</summary>
+            <div class="faq__a">
+              <ul>
+                <li><strong>Switzerland and the United Kingdom</strong> are not home countries under any of the rules. Their parts count towards the 35&nbsp;%.</li>
+                <li><strong>Norway</strong> is home under SAFE (as an EEA EFTA state) and under EDIP. Iceland and Liechtenstein are home under SAFE.</li>
+                <li><strong>Ukraine</strong> is home under SAFE, the Ukraine loan and the EDIP Ukraine Support Instrument, but not under the EDIP programme itself.</li>
+                <li><strong>Canada:</strong> the EU–Canada agreement on participation in SAFE (applicable from 1 August 2026) has its own rule. Canadian components may exceed 35&nbsp;%; components from the EU, EEA EFTA states and Ukraine must make up at least 20&nbsp;%; components from other third countries no more than 35&nbsp;% and no more than the EU share.</li>
+              </ul>
+              <p>The calculator has a separate rule pack for each of these cases. See the overview in the <a href="methodology.html#rules">methodology</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is meeting one method enough?</summary>
+            <div class="faq__a">
+              <p>Under the EDIP method, yes: either method (a) or method (b) has to pass. But the condition must hold “during the entire duration of the action”, so the calculation needs to be kept up to date.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What exactly does “documented” mean?</summary>
+            <div class="faq__a">
+              <p>A line is documented when it has a country of origin and evidence (a customs document, a supplier declaration or a contract) and the declaration is still valid. The worst (audit) case counts only documented lines as home and everything else as non-EU.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How long does it take?</summary>
+            <div class="faq__a">
+              <p>The calculator gives you a result immediately. A Quick check takes up to 10 working days (up to 500 lines), an Evidence pack 4–6 weeks. Supplier responses take the longest, so we contact the suppliers the result depends on first.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 contact -->
+    <section class="sec" id="contact" aria-labelledby="h-contact">
+      <div class="wrap">
+        <header class="sec__head">
+          <p class="sec__no"><b>08</b>Contact</p>
+          <h2 id="h-contact">Get in touch</h2>
+          <p class="sec__intro">A few lines about the product and the programme are enough. We will come back with a proposed scope and timeline.</p>
+        </header>
+        <div class="contact">
+          <dl class="cardlist">
+            <div>
+              <dt>Email</dt>
+              <dd><span class="selectable">{{EMAIL}}</span><br><a href="mailto:{{EMAIL}}">Send an email</a></dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd><a class="mono" href="tel:{{PHONE}}">{{PHONE}}</a></dd>
+            </div>
+            <div>
+              <dt>LinkedIn</dt>
+              <dd><a href="{{LINKEDIN}}" rel="noopener">{{BRAND}} on LinkedIn</a></dd>
+            </div>
+            <div>
+              <dt>Offer to forward</dt>
+              <dd><a href="offer.html">Offer and prices on 1–2 A4 pages</a></dd>
+            </div>
+          </dl>
+
+          <form class="form" id="contact-form" data-to="{{EMAIL}}" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" novalidate>
+            <div class="form__pair">
+              <div class="field">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" autocomplete="organization" required>
+              </div>
+            </div>
+            <div class="form__pair">
+              <div class="field">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="cf-phone">Phone <span class="opt">(optional)</span></label>
+                <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form__pair">
+              <div class="field">
+                <label for="cf-topic">Interested in</label>
+                <select id="cf-topic" name="topic">
+                  <option>Quick check</option>
+                  <option>Quick check for EDIP applicants</option>
+                  <option>Evidence pack</option>
+                  <option>Monitoring</option>
+                  <option>For suppliers</option>
+                  <option>On-site support</option>
+                  <option>Other question</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cf-program">Programme</label>
+                <select id="cf-program" name="program">
+                  <option>SAFE</option>
+                  <option>EDIP</option>
+                  <option>EDIP – Ukraine Support Instrument</option>
+                  <option>Ukraine loan</option>
+                  <option>SAFE – EU–Canada agreement</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cf-msg">Message</label>
+              <textarea id="cf-msg" name="message" rows="5" placeholder="Product, approximate number of BOM lines and suppliers, deadline." required></textarea>
+            </div>
+            <p class="form__note">The form sends nothing to a server. It prepares an email in your mail program, addressed to <span class="selectable">{{EMAIL}}</span>. Please do not include technical or classified information.</p>
+            <div class="actions">
+              <button class="btn" type="submit">Prepare email</button>
+            </div>
+            <p class="form__status" id="cf-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <div>
+        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span></a>
+        <p class="muted" style="margin-top: var(--s3)">Calculation and documentation of component origin for the 35&nbsp;% rule (SAFE, EDIP). This is not legal advice. The output is a calculation based on documents and supplier declarations.</p>
+      </div>
+      <nav aria-label="Footer links">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="../kalkulacka/index.html?lang=en">Calculator</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="data-protection.html">Data protection</a></li>
+          <li><a href="offer.html">Printable offer</a></li>
+          <li><a href="../index.html" hreflang="cs" lang="cs">Česky</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Operator</h2>
+        <address>
+          <span>{{COMPANY}}</span>
+          <span>Company ID (IČO) <span class="mono">{{ICO}}</span></span>
+          <span>{{ADDRESS}}</span>
+          <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+          <a href="tel:{{PHONE}}">{{PHONE}}</a>
+        </address>
+      </div>
+      <p class="foot__legal"><span>© {{YEAR}} {{COMPANY}}</span><span>Prices exclude VAT. This is not legal advice.</span></p>
+    </div>
+  </footer>
+
+  <script type="module">
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('cf-status');
+    if (form && status) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const data = new FormData(form);
+        const v = (key) => String(data.get(key) || '').trim();
+        const to = form.dataset.to || '';
+        const brand = document.documentElement.dataset.brand || '';
+        const subject = [brand, v('topic'), v('company')].filter(Boolean).join(' – ');
+        const lines = [v('message'), '', '--', `Name: ${v('name')}`, `Company: ${v('company')}`, `Email: ${v('email')}`];
+        if (v('phone')) lines.push(`Phone: ${v('phone')}`);
+        lines.push(`Interested in: ${v('topic')}`, `Programme: ${v('program')}`);
+        const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\r\n'))}`;
+        status.textContent = `Opening your mail program with the prepared message. If nothing opens, write to us directly at ${to} or `;
+        const again = document.createElement('a');
+        again.href = href;
+        again.textContent = 'try again';
+        status.append(again, '.');
+        window.location.href = href;
+      });
+    }
+  </script>
+</body>
+</html>

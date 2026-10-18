@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-brand="{{BRAND}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{BRAND}} – offer and prices (35 % rule)</title>
+  <meta name="description" content="{{BRAND}} offer and prices: free calculator, Quick check, Evidence pack, Monitoring, For suppliers and On-site support. Documenting the 35 % rule for SAFE and EDIP.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://{{WEB}}/en/offer.html">
+  <link rel="alternate" hreflang="cs" href="https://{{WEB}}/nabidka.html">
+  <link rel="alternate" hreflang="en" href="https://{{WEB}}/en/offer.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:title" content="{{BRAND}} – offer and prices (35 % rule)">
+  <meta property="og:description" content="Fixed prices for calculating and documenting component origin for SAFE and EDIP. Prices exclude VAT.">
+  <meta property="og:url" content="https://{{WEB}}/en/offer.html">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#offer">Skip to the offer</a>
+
+  <div class="sheet-bar no-print">
+    <div class="wrap sheet-bar__in">
+      <a class="brand" href="index.html" aria-label="{{BRAND}} – back to the website">
+        <span class="brand__mark" aria-hidden="true">35</span><span class="brand__name">{{BRAND}}</span>
+      </a>
+      <p class="hint">To save as PDF: Print → Save as PDF, A4 paper.</p>
+      <button type="button" class="btn btn--sm" id="print-btn">Print / PDF</button>
+      <a class="lang" href="../nabidka.html" hreflang="cs" lang="cs" aria-label="Česká verze">CZ</a>
+    </div>
+  </div>
+
+  <main id="offer">
+    <article class="sheet" aria-labelledby="sheet-title">
+      <header class="sheet__head">
+        <div>
+          <p class="sheet__brand"><span class="brand__mark" aria-hidden="true">35</span>{{BRAND}}</p>
+          <h1 class="sheet__title" id="sheet-title">Proving component origin: offer and prices</h1>
+          <p class="sheet__sub">The 35&nbsp;% rule for SAFE and EDIP · {{WEB}}</p>
+        </div>
+        <span class="stamp sheet__stamp">Prices excl. VAT</span>
+      </header>
+
+      <div class="sheet__two">
+        <section aria-labelledby="s-what">
+          <h2 id="s-what">What it is about</h2>
+          <p>Components originating outside the EU (for SAFE: outside the EU, EEA EFTA states and Ukraine) may make up no more than 35&nbsp;% of the component cost of the end product. This applies to SAFE (Regulation 2025/1106, Article 16(10)), EDIP (2025/2643, Article 10), the EDIP Ukraine Support Instrument and the Ukraine loan. Without evidence, the risks are suspension of payment, reduction of the grant and, for false information, exclusion from EU funding.</p>
+          <p style="margin-top: 2mm">We calculate your share using the Commission's method and collect the evidence to back it up: supplier declarations and customs documents.</p>
+        </section>
+        <section aria-labelledby="s-who">
+          <h2 id="s-who">Who it is for</h2>
+          <ul class="checklist">
+            <li>manufacturers and prime contractors on SAFE-funded contracts</li>
+            <li>EDIP applicants and beneficiaries (calls close 16 February 2027)</li>
+            <li>suppliers who have received an origin questionnaire from a prime contractor</li>
+            <li>compliance, purchasing and export control teams</li>
+          </ul>
+        </section>
+      </div>
+
+      <section aria-labelledby="s-offer">
+        <h2 id="s-offer">Offer</h2>
+        <table class="offers">
+          <thead>
+            <tr><th scope="col"><span class="sr-only">Number</span></th><th scope="col">Service and what you get</th><th scope="col" class="o-price">Price</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01</td>
+              <td><span class="o-name">Calculator</span>Runs in your browser; your data goes nowhere. A single-file offline version is available too.<span class="o-term">{{WEB}}/kalkulacka</span></td>
+              <td class="o-price">free</td>
+            </tr>
+            <tr>
+              <td>02</td>
+              <td><span class="o-name">Quick check</span>Result under both Commission methods, best / expected / worst case range, headroom to 35&nbsp;%, the lines that decide it, minimum evidence set, breakdown by 5 categories, list of suppliers to contact and a description of the approach. Deducted from the Evidence pack if you order it within 60 days.<span class="o-term">within 10 working days · up to 500 lines</span></td>
+              <td class="o-price">{{PRICE_QUICK}}<small>for EDIP applicants, with a draft origin annex for the “Procurement strategy”: {{PRICE_QUICK_EDIP}}</small></td>
+            </tr>
+            <tr>
+              <td>03</td>
+              <td><span class="o-name">Evidence pack</span>Supplier declaration campaign (Czech, Slovak, English, with reminders), origin of imported parts from customs documents, final calculation, what-if scenarios and an audit-ready evidence register.<span class="o-term">4–6 weeks · up to 500 lines and 80 suppliers</span></td>
+              <td class="o-price">from {{PRICE_PACK}}<small>+ {{PRICE_PACK_EXTRA}} per additional 250 lines</small></td>
+            </tr>
+            <tr>
+              <td>04</td>
+              <td><span class="o-name">Monitoring</span>Renewal of declarations, recalculation when things change, alerts when headroom shrinks, supporting documents for SAFE payment requests (in Czechia, April and October) or EDIP progress reports.<span class="o-term">ongoing for the duration of the project</span></td>
+              <td class="o-price">{{PRICE_MONITOR}}<small>per product per month</small></td>
+            </tr>
+            <tr>
+              <td>05</td>
+              <td><span class="o-name">For suppliers</span>For companies that have received an origin questionnaire from a prime contractor: we determine the non-preferential origin of the parts, prepare the declaration and set up its renewal.</td>
+              <td class="o-price">{{PRICE_SUPPLIER}}</td>
+            </tr>
+            <tr>
+              <td>06</td>
+              <td><span class="o-name">On-site support</span>Work on your premises under NDA, on your devices. Data never leaves your company.</td>
+              <td class="o-price">{{PRICE_DAY}}<small>per day</small></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sheet__launch">
+        <span class="stamp">Launch offer</span>
+        <p>Quick check at half price for our first two customers, in exchange for a reference.</p>
+      </div>
+
+      <div class="sheet__two">
+        <section aria-labelledby="s-start">
+          <h2 id="s-start">How to start</h2>
+          <ol class="sheet__steps">
+            <li><span>Download the template ({{WEB}}/sablony/pod35-vstupni-sablona.xlsx) and fill in a “green extract”: part number or category, supplier, quantity, price, currency and country of origin if you know it. Part numbers can be pseudonyms.</span></li>
+            <li><span>Send the extract to {{EMAIL}}. If you wish, we sign your NDA first.</span></li>
+            <li><span>We confirm scope, timing and price. A Quick check is delivered within 10 working days.</span></li>
+            <li><span>An indicative result right now, for free: the calculator at {{WEB}}/kalkulacka.</span></li>
+          </ol>
+        </section>
+        <section aria-labelledby="s-data">
+          <h2 id="s-data">Your data</h2>
+          <ul class="checklist">
+            <li>commercial data only: part or category, supplier, price, country of origin, evidence</li>
+            <li>no drawings, specifications, classified information or ITAR-controlled data</li>
+            <li>data in the EU or work on your premises; only summaries by category leave the calculation</li>
+            <li>AI tools only with your written consent</li>
+            <li>we sign your NDA; Czech company with no owners outside the EU</li>
+            <li>at the end we delete the data and confirm the deletion</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer class="sheet__contact">
+        <div><b>Contact</b><span class="selectable">{{EMAIL}}</span><br>{{PHONE}}</div>
+        <div><b>Web</b>{{WEB}}<br>{{LINKEDIN}}</div>
+        <div><b>Operator</b>{{COMPANY}}, Company ID {{ICO}}<br>{{ADDRESS}}</div>
+      </footer>
+      <p class="sheet__fine">Prices exclude VAT. This is not legal advice: the output is a calculation based on documents and supplier declarations, and disputed origin determinations are reviewed with a customs specialist. Methodology: {{WEB}}/en/methodology.html. Status as of {{UPDATED}}.</p>
+    </article>
+  </main>
+
+  <script type="module">
+    const btn = document.getElementById('print-btn');
+    if (btn) btn.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

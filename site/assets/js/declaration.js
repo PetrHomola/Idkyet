@@ -223,6 +223,7 @@ export function declarationHtml({ lang = 'cs', supplier = '', supplierCountry = 
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
 <title>${esc(t.docTitle)}${sup ? ` – ${esc(sup)}` : ''}</title>
 <style>
   @page { size: A4; margin: 16mm 14mm 18mm; }

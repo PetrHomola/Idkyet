@@ -1,0 +1,18 @@
+# build output (npm run build)
+dist/
+
+# dependencies (the project has none, but just in case)
+node_modules/
+
+# SheetJS cached by tools/build.mjs for the offline calculator; kept locally only
+tools/vendor/
+
+# Playwright / editors / OS
+test-results/
+playwright-report/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

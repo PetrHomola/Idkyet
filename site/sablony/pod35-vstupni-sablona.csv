@@ -1,0 +1,4 @@
+﻿Číslo dílu;Popis;Dodavatel;Země dodavatele;Kategorie;Množství;Jednotková cena;Měna;Země původu;Doklad;Platnost do;Odhad původu;Typ;Poznámka
+ABC-1001;Svařovaný rám;Strojírna Vzor s.r.o.;CZ;konstrukce a mechanika;1;185000;CZK;CZ;prohlášení;2027-12-31;;díl;Příklad, řádek smažte
+ABC-2040;Řídicí jednotka;Vzorový obchodník GmbH;DE;elektronika a komunikace;2;3400,50;EUR;;žádný;;JP;díl;Příklad, řádek smažte. Obchodník, výrobce zatím neznámý.
+ABC-9001;Montáž podsestavy rámu (práce a režie);vlastní výroba;CZ;konstrukce a mechanika;1;64000;CZK;CZ;;;;vlastní výroba;Příklad, řádek smažte. Bez nakoupených dílů, které už jsou v seznamu.

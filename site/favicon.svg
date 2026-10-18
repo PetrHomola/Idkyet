@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .p { fill: #ffffff; stroke: #c97a00; }
+    .t { fill: #142029; }
+    @media (prefers-color-scheme: dark) {
+      .p { fill: #16212a; stroke: #f0b03c; }
+      .t { fill: #e6ecef; }
+    }
+  </style>
+  <rect class="p" x="2.5" y="2.5" width="27" height="27" rx="4" stroke-width="3"/>
+  <text class="t" x="16" y="21" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" font-weight="700" text-anchor="middle">35</text>
+</svg>
