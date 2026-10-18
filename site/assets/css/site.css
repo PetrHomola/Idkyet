@@ -21,7 +21,9 @@
 
 /* -------------------------------------------------------------- base */
 
-html { scroll-padding-top: calc(var(--header-h) + var(--s4)); }
+html { scroll-padding-top: var(--header-h); }
+/* targets without their own top padding keep a little air under the header */
+.sources li, .faq details, .prose h3[id] { scroll-margin-top: var(--s4); }
 body { min-width: 0; overflow-wrap: break-word; }
 p, figure, blockquote, dl, dd { margin: 0; }
 ul, ol { margin: 0; padding: 0; }
@@ -248,8 +250,7 @@ code { font-size: 0.9em; }
 }
 
 .eyebrow { display: inline-flex; align-items: center; gap: var(--s3); }
-.eyebrow b { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: var(--s3); }
-.eyebrow b::after { content: ""; width: 24px; height: 1px; background: var(--line-strong); }
+.eyebrow::before { content: ""; flex: none; width: 24px; height: 1px; background: var(--mark); }
 
 /* ------------------------------------------------------ scroll reveal */
 
@@ -263,7 +264,7 @@ code { font-size: 0.9em; }
       background-color var(--dur-fast) var(--ease);
   }
   .js .reveal:not(.is-in) {
-    opacity: 0; translate: 0 14px;
+    opacity: 0; translate: 0 12px;
     /* failsafe: if site.js never runs, show everything after a moment */
     animation: reveal-failsafe 1ms 2.5s forwards;
   }
@@ -286,10 +287,12 @@ code { font-size: 0.9em; }
     linear-gradient(to bottom, var(--line) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: -1px -1px;
-  opacity: 0.6;
-  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 78% 38%, black 0%, transparent 72%);
-  mask-image: radial-gradient(ellipse 60% 70% at 78% 38%, black 0%, transparent 72%);
+  opacity: var(--grid-alpha, 0.6);
+  -webkit-mask-image: radial-gradient(ellipse min(42%, 560px) 62% at 74% 40%, black 0%, transparent 72%);
+  mask-image: radial-gradient(ellipse min(42%, 560px) 62% at 74% 40%, black 0%, transparent 72%);
 }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero { --grid-alpha: 0.35; } }
+:root[data-theme="dark"] .hero { --grid-alpha: 0.35; }
 .hero__grid {
   display: grid; grid-template-columns: minmax(0, 1fr);
   gap: var(--s7); align-items: center;
@@ -306,6 +309,7 @@ code { font-size: 0.9em; }
 .hero h1 .hl { color: var(--accent); white-space: nowrap; }
 .lead { font-size: var(--fs-lg); line-height: 1.55; color: var(--muted); max-width: 58ch; }
 .lead strong { color: var(--ink); font-weight: 500; }
+.hero .lead { color: var(--ink); }
 .hero .actions { margin-top: var(--s6); }
 .trust {
   display: flex; align-items: flex-start; gap: var(--s2);
@@ -345,8 +349,8 @@ code { font-size: 0.9em; }
 .xrow__label small { color: var(--muted); font-size: var(--fs-xs); }
 .xrow__val { display: grid; justify-items: end; text-align: right; }
 .xrow__pct {
-  font-family: var(--f-mono); font-size: var(--fs-pct); font-weight: 500;
-  letter-spacing: -0.03em; line-height: 1.05; font-variant-numeric: tabular-nums; white-space: nowrap;
+  font-family: var(--f-display); font-size: var(--fs-pct); font-weight: 600;
+  letter-spacing: var(--tracking-tight); line-height: 1.05; font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 .xrow__calc { font-family: var(--f-mono); font-size: var(--fs-xs); color: var(--muted); white-space: nowrap; }
 
@@ -372,6 +376,13 @@ code { font-size: 0.9em; }
 .xrow + .xrow { --meter-delay: 280ms; }
 @media (prefers-reduced-motion: no-preference) {
   .js [data-meters]:not(.is-in) .meter__fill { clip-path: inset(0 100% 0 0 round var(--pill)); }
+  /* the verdict pills wait for the count-up (site.js adds .is-done), so no half-way state reads as a result */
+  .js [data-meters] .xrow__name .tag { transition: opacity var(--dur) var(--ease); }
+  .js [data-meters]:not(.is-done) .xrow__name .tag {
+    opacity: 0;
+    animation: reveal-failsafe 1ms 3s forwards;
+  }
+  .js.reveal-armed [data-meters]:not(.is-done) .xrow__name .tag { animation: none; }
 }
 
 .xscale {
@@ -431,8 +442,8 @@ code { font-size: 0.9em; }
   padding: var(--card-pad);
   background: var(--surface);
   border: 1px solid var(--line); border-radius: var(--radius-lg);
-  box-shadow: inset 2px 0 0 var(--accent);
 }
+.rule-quote::before { content: ""; width: 24px; height: 1px; background: var(--mark); }
 .rule-quote p { font-size: var(--fs-lg); line-height: 1.5; letter-spacing: -0.008em; }
 .rule-quote p::before { content: "\201E"; }
 .rule-quote p::after { content: "\201C"; }
@@ -444,7 +455,7 @@ code { font-size: 0.9em; }
 }
 .rule-quote footer a { color: var(--muted); }
 .rule-quote footer a:hover { color: var(--accent); }
-.rule-quote--plain { box-shadow: inset 2px 0 0 var(--line-strong); }
+.rule-quote--plain::before { background: var(--line-strong); }
 .rule-quote--plain p { font-size: var(--fs-md); }
 .facts-foot { font-size: var(--fs-sm); color: var(--muted); max-width: 70ch; }
 .facts-foot strong { color: var(--ink); }
@@ -464,15 +475,25 @@ code { font-size: 0.9em; }
   padding: var(--card-pad); background: var(--surface); min-width: 0;
 }
 .stat__v {
-  font-family: var(--f-mono); font-size: clamp(1.5rem, 1.2rem + 0.9vw, 1.9rem); font-weight: 500;
-  letter-spacing: -0.035em; line-height: 1.15; font-variant-numeric: tabular-nums;
+  font-family: var(--f-display); font-size: clamp(1.5rem, 1.2rem + 0.9vw, 1.9rem); font-weight: 600;
+  letter-spacing: var(--tracking-tight); line-height: 1.15; font-variant-numeric: tabular-nums;
   margin-bottom: var(--s1);
 }
 .stat__v small { font-size: var(--fs-sm); font-weight: 400; letter-spacing: 0; color: var(--muted); }
-.stat__v--text { font-family: var(--f-display); font-weight: 600; letter-spacing: var(--tracking-display); }
-.stat--mark .stat__v { color: var(--accent); }
+.stat__v--text { letter-spacing: var(--tracking-display); }
+/* two figures side by side, each with its own key (no slash that could read as a fraction) */
+.stat__v--pair { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1) var(--s5); }
+.stat__v--pair > span { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+.stat__v--pair abbr,
+.stat__v--pair .stat__key {
+  font-family: var(--f-mono); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.04em;
+  color: var(--muted); text-decoration: none;
+}
+.stat__k .tag { margin-left: var(--s2); text-transform: none; letter-spacing: 0; font-family: var(--f-body); }
 .stat__n { font-size: var(--fs-sm); color: var(--muted); }
 .stat__src { display: block; margin-top: var(--s2); font-family: var(--f-mono); font-size: var(--fs-xs); color: var(--muted); }
+.stat__src a { color: var(--muted); }
+.stat__src a:hover { color: var(--accent); }
 
 /* how it works */
 .steps {
