@@ -49,7 +49,7 @@ Všechny firemní údaje a ceny jsou jen v `config.json`. Stránky v `site/` obs
 
 | placeholder | odkud | poznámka |
 |---|---|---|
-| `{{BRAND}}`, `{{COMPANY}}`, `{{ICO}}`, `{{ADDRESS}}`, `{{EMAIL}}`, `{{PHONE}}`, `{{WEB}}`, `{{LINKEDIN}}`, `{{UPDATED}}` | horní úroveň `config.json` | `UPDATED` je datum poslední aktualizace metodiky, měňte ho ručně |
+| `{{BRAND}}`, `{{COMPANY}}`, `{{ICO}}`, `{{ADDRESS}}`, `{{EMAIL}}`, `{{PHONE}}`, `{{WEB}}`, `{{FOUNDER_1}}`, `{{FOUNDER_2}}`, `{{UPDATED}}` | horní úroveň `config.json` | `UPDATED` je datum poslední aktualizace metodiky, měňte ho ručně |
 | `{{YEAR}}` | build | aktuální rok |
 | `{{PRICE_QUICK}}`, `{{PRICE_QUICK_EDIP}}`, `{{PRICE_PACK}}`, `{{PRICE_PACK_EXTRA}}`, `{{PRICE_MONITOR}}`, `{{PRICE_SUPPLIER}}`, `{{PRICE_DAY}}` | `prices` (Kč), pro soubory v `site/en/` `prices_en` (EUR) | ceny bez DPH |
 
@@ -71,7 +71,6 @@ V `config.json` jsou zatím hodnoty `[DOPLNIT: …]`. Build je vypíše na konci
 - [ ] `ADDRESS`: sídlo
 - [ ] `EMAIL`: kontaktní e-mail (odkazy `mailto:` na webu a v nabídce)
 - [ ] `PHONE`: telefon (odkazy `tel:`)
-- [ ] `LINKEDIN`: odkaz na profil firmy nebo zakladatele
 - [ ] zkontrolovat ceny v `prices` a `prices_en` a datum `UPDATED`
 - [ ] po změně `BRAND` nebo `WEB` spustit `npm run templates` (šablony mají značku a adresu kalkulačky v sobě)
 - [ ] nastavit doménu (viz Nasazení) a ověřit web na mobilu
