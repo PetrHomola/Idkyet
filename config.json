@@ -1,0 +1,29 @@
+{
+  "BRAND": "Pod35",
+  "COMPANY": "[DOPLNIT: obchodní jméno]",
+  "ICO": "[DOPLNIT: IČO]",
+  "ADDRESS": "[DOPLNIT: sídlo]",
+  "EMAIL": "[DOPLNIT: e-mail]",
+  "PHONE": "[DOPLNIT: telefon]",
+  "WEB": "pod35.cz",
+  "LINKEDIN": "[DOPLNIT: odkaz na LinkedIn]",
+  "UPDATED": "18. 10. 2026",
+  "prices": {
+    "PRICE_QUICK": "39 000 Kč",
+    "PRICE_QUICK_EDIP": "59 000 Kč",
+    "PRICE_PACK": "120 000 Kč",
+    "PRICE_PACK_EXTRA": "30 000 Kč",
+    "PRICE_MONITOR": "4 900 Kč",
+    "PRICE_SUPPLIER": "19 000–49 000 Kč",
+    "PRICE_DAY": "9 000 Kč"
+  },
+  "prices_en": {
+    "PRICE_QUICK": "EUR 1,600",
+    "PRICE_QUICK_EDIP": "EUR 2,400",
+    "PRICE_PACK": "EUR 4,900",
+    "PRICE_PACK_EXTRA": "EUR 1,200",
+    "PRICE_MONITOR": "EUR 200",
+    "PRICE_SUPPLIER": "EUR 800–2,000",
+    "PRICE_DAY": "EUR 370"
+  }
+}
