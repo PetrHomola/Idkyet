@@ -7,7 +7,7 @@ Interní sada pro prodej služeb kolem pravidla 35 % (SAFE / EDIP). Nezveřejňo
 | Soubor | K čemu |
 |---|---|
 | [oslovovani.md](oslovovani.md) | Hotové zprávy: hlavní dodavatelé (CZ/EN), tier-1 dodavatelé, partneři (CZ/EN), AOBP, dvě kola follow-upů, LinkedIn (žádosti o spojení, 3 příspěvky) |
-| [veletrh-a-schuzky.md](veletrh-a-schuzky.md) | Future Forces 21.–23. 10. 2026, scénář 20minutového úvodního hovoru, převod na placenou Rychlou kontrolu, námitky, zápis po schůzce |
+| [veletrh-a-schuzky.md](veletrh-a-schuzky.md) | Future Forces (21.–23. 10. 2026, termín ověřit), scénář 20minutového úvodního hovoru, převod na placenou Rychlou kontrolu, námitky, zápis po schůzce |
 | [webinar-aobp.md](webinar-aobp.md) | 45minutový webinář „Jak spočítat a doložit 35 % podle metodiky EDIP“: osnova, obsah slajdů, poznámky, ukázka kalkulačky, příprava na dotazy |
 | [dotazy-pro-komisi.md](dotazy-pro-komisi.md) | Dotazy na helpdesk výzvy EDIP a přes AOBP na MO k dokladům pro SAFE, jak odpovědi zveřejnit |
 | [objednavka-vzor.md](objednavka-vzor.md) | Vzor objednávky Rychlé kontroly a Sady dokladů včetně přílohy o datech (před použitím nechat projít právníkem) |
@@ -47,7 +47,7 @@ Plán počítá se startem v pondělí 19. 10. 2026 (stav podkladů k 18. 10. 20
 
 ### Týden 1 (19.–25. 10.): Future Forces
 
-- **Po 19. 10.:** kontrola webu a kalkulačky na mobilu i v tisku. Registrace na EU Export Control Forum (20. 11. 2026, online; termín registrace ověřit). E-mail na edf@aobp.cz s nabídkou webináře (oslovovani.md, část 4).
+- **Po 19. 10.:** kontrola webu a kalkulačky na mobilu i v tisku. Registrace na EU Export Control Forum (20. 11. 2026, online; datum i registraci ověřit). E-mail na edf@aobp.cz s nabídkou webináře (oslovovani.md, část 4).
 - **Út 20. 10.:** seznam stánků podle katalogu vystavovatelů (cenik-interni.md, cílové organizace), jedna otázka na každý typ stánku (veletrh-a-schuzky.md).
 - **St–Pá 21.–23. 10.: Future Forces.** Neprodávat. Ptát se, sbírat odpovědi a vizitky, po každém rozhovoru zápis. Večer téhož dne krátký e-mail s odkazem na kalkulačku (oslovovani.md, 5c) a žádost o spojení na LinkedInu.
 - **So–Ne 24.–25. 10.:** přepsat zápisy do evidence, vybrat 10 nejteplejších kontaktů a navrhnout jim 20minutový hovor.

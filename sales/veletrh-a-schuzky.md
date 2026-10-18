@@ -4,7 +4,7 @@ Jak mluvit s lidmi na Future Forces, jak vést úvodní hovor a jak z něj uděl
 
 ---
 
-## 1. Future Forces (21.–23. 10. 2026)
+## 1. Future Forces (21.–23. 10. 2026, termín ověřit)
 
 **Cíl:** neprodávat. Sbírat odpovědi, kontakty a svolení ozvat se. Úspěch je 15–25 rozhovorů a 10 lidí, kteří souhlasí s krátkým hovorem po veletrhu.
 
@@ -155,11 +155,11 @@ Nic nepřidávejte. Žádné „pracovali jsme pro…“, žádné reference, kt
 
 ### „Pro SAFE žádná oficiální metodika není.“
 
-> „Máte pravdu. V odůvodnění nařízení stojí, že Komise může vydat pokyny k výpočtu, ale veřejná metodika pro SAFE zatím není. Jediný zveřejněný postup je metodika EDIP a text pravidla je stejný. Počítáme podle ní obě metody a tři scénáře a celý postup zapíšeme, takže až pokyny k SAFE vyjdou, výpočet přepočítáte, nezačínáte znovu. Data o dílech, dodavatelích, cenách, původu a dokladech budete potřebovat v každém případě.“
+> „Máte pravdu. V odůvodnění nařízení stojí, že Komise může vydat pokyny k výpočtu, ale veřejná metodika pro SAFE zatím není. Podrobný postup Komise zveřejnila pro EDIP a text pravidla je stejný. Počítáme podle něj obě metody a tři scénáře a celý postup zapíšeme. Až pokyny k SAFE vyjdou, výpočet jen přepočítáme a nezačínáte od nuly. Data o dílech, dodavatelích, cenách, původu a dokladech budete potřebovat v každém případě.“
 
 ### „Teď na to nemáme čas / rozpočet.“
 
-> „Rozumím. Kdy je u vás nejbližší termín, ke kterému to bude potřeba? [Uzávěrka EDIP 16. 2. 2027 / dubnová žádost SAFE.] Rychlá kontrola trvá do 10 pracovních dnů od dodání dat, ale sběr prohlášení od dodavatelů trvá týdny. Do té doby vám nechám kalkulačku, a ozvu se [DATUM]?“
+> „Rozumím. Kdy je u vás nejbližší termín, ke kterému to bude potřeba? [Uzávěrka EDIP 16. 2. 2027 / dubnová žádost SAFE.] Rychlá kontrola trvá do 10 pracovních dnů od dodání dat, ale sběr prohlášení od dodavatelů trvá týdny. Do té doby vám pošlu odkaz na kalkulačku. Můžu se ozvat [DATUM]?“
 
 ### „Dodavatelé nám stejně neodpovídají.“
 

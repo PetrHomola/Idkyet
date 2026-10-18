@@ -5,7 +5,7 @@ Kde metodika mlčí, zeptáme se. Odpovědi z první ruky zveřejníme a získá
 ## Postup
 
 1. **Než pošlete:** projděte FAQ výzvy na portálu Funding & Tenders a ověřte, zda Komise mezitím nevydala pokyny k SAFE. Na co už odpověď existuje, neposílejte.
-2. **Kam:** dotazy ke Komisi přes kanál uvedený v dokumentu výzvy (Q&A nebo kontaktní adresa výzvy na portálu Funding & Tenders). Ověřte přesný identifikátor výzvy, ke které se ptáte; zdrojem metodiky je výzva EDF-EDIP-P-2026-LS-IRA v1.2 z 10. 6. 2026, str. 9–10. Pokud je kanál určen jen žadatelům, požádejte o předání AOBP (národní kontaktní místo pro EDF, edf@aobp.cz) nebo partnerské konsorcium.
+2. **Kam:** dotazy ke Komisi přes kanál uvedený v dokumentu výzvy (Q&A nebo kontaktní adresa výzvy na portálu Funding & Tenders). Ověřte přesný identifikátor výzvy, ke které se ptáte; zdrojem metodiky je výzva EDF-EDIP-P-2026-LS-IRA v1.2 z 10. 6. 2026, str. 9–10. Pokud je kanál určen jen žadatelům, požádejte o předání AOBP (edf@aobp.cz; adresu a roli kontaktního místa pro EDF ověřit) nebo partnerské konsorcium.
 3. **Jak:** anglicky, číslované otázky, každá srozumitelná sama o sobě, s odkazem na článek nebo stranu. Nejvýš 5 otázek v jedné zprávě. Žádná data zákazníků, žádné názvy firem ani programů.
 4. **Dotazy na MO:** česky, přes AOBP (oslovovani.md, část 4). Neposílat MO napřímo, dokud se AOBP nevyjádří.
 5. **Evidence:** každý dotaz zapsat do tabulky na konci.
@@ -44,7 +44,7 @@ Text v uvozovkách posílejte, jak je. Pod ním je česky, proč na tom zálež�
 
 > Which exchange rate should be used to convert component costs invoiced in currencies other than the euro, for example the ECB reference rate on the invoice date, a monthly average, or the rate used in the action budget?
 
-**Proč:** Metodika kurzy neurčuje. U dílů placených v USD nebo CHF může kurz posunout podíl přes limit.
+**Proč:** V podkladech, ze kterých vycházíme (výzva a slajdy Komise podle SPEC, oddíl 4), kurzy uvedené nejsou. U dílů placených v USD nebo CHF může kurz posunout podíl přes limit.
 
 ### A6. Díly, jejichž původ nelze zjistit
 
@@ -62,7 +62,7 @@ Text v uvozovkách posílejte, jak je. Pod ním je česky, proč na tom zálež�
 
 > Embedded software is a component. How should its origin be determined, for example by place of development or by the seat of the licensor, and how should it be valued, for example by per-unit licence fee or by development cost?
 
-**Proč:** Software je komponenta, ale zveřejněný postup neříká, jak určit jeho původ ani cenu. U elektroniky a bezpilotních systémů může jít o významnou položku.
+**Proč:** Software je komponenta, ale v podkladech, ze kterých vycházíme, není, jak určit jeho původ ani cenu. U elektroniky a bezpilotních systémů může jít o významnou položku.
 
 ### A9. Varianty výrobku
 
@@ -144,7 +144,7 @@ Text v uvozovkách posílejte, jak je. Pod ním je česky, proč na tom zálež�
 
 > Kdo bude podklady ověřovat (MO, Komise, auditní orgány) a jak dlouho je mají dodavatelé archivovat?
 
-**Proč:** Evropský účetní dvůr upozorňuje, že bez informací o nákladech je ověření preferenčních doložek obtížné (Review 01/2026, odst. 71). Dodavatelé potřebují vědět, pro koho a jak dlouho doklady drží.
+**Proč:** Evropský účetní dvůr upozorňuje, že omezené informace o nákladech mohou ztížit ověření souladu s doložkami o evropské preferenci (Review 01/2026, odst. 71). Dodavatelé potřebují vědět, pro koho a jak dlouho doklady drží.
 
 ---
 

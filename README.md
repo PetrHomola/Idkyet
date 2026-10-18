@@ -1,6 +1,6 @@
 # Pod35
 
-Pod35 pomáhá výrobcům a dodavatelům obranného průmyslu spočítat a doložit, že díly s původem mimo EU tvoří nejvýš 35 % nákladů na komponenty výrobku (pravidlo SAFE a EDIP). Repozitář obsahuje prezentační web (CZ a EN), kalkulačku, která běží celá v prohlížeči, její offline verzi v jednom souboru, šablony ke stažení a obchodní podklady.
+Pod35 (pracovní název; značka na webu je `BRAND` z `config.json`, nyní „CIRUS Origin“) pomáhá výrobcům a dodavatelům obranného průmyslu spočítat a doložit, že díly s původem mimo EU tvoří nejvýš 35 % nákladů na komponenty výrobku (pravidlo SAFE a EDIP). Repozitář obsahuje prezentační web (CZ a EN), kalkulačku, která běží celá v prohlížeči, její offline verzi v jednom souboru, šablony ke stažení a obchodní podklady.
 
 Zadání, fakta, ceny a datový model jsou v [docs/SPEC.md](docs/SPEC.md). Když se něco v tomto README a ve specifikaci rozchází, platí specifikace.
 
@@ -59,7 +59,8 @@ Pravidla:
 - Nový údaj přidáte tak, že doplníte klíč do `config.json` (velkými písmeny) a v HTML použijete `{{KLÍČ}}`.
 - Hodnoty se při vkládání escapují podle typu souboru (HTML, JavaScript, CSS), takže smí obsahovat `&` nebo uvozovky.
 - Build skončí chybou a vypíše soubor a řádek, pokud v `dist/` zůstane nenahrazený `{{…}}` (například překlep v názvu).
-- `WEB` je doména bez `https://` (`pod35.cz`). Build z ní skládá odkazy v offline kalkulačce, `sitemap.xml` a `robots.txt`.
+- `WEB` je doména bez `https://` (nyní `cirusorigin.cz`). Build z ní skládá odkazy v offline kalkulačce, `sitemap.xml` a `robots.txt`.
+- Z `BRAND` kalkulačka skládá i názvy exportovaných souborů (`cirus-origin-vysledek-2026-10-18.xlsx`, `…-radky-….csv`, `…-projekt-….json`).
 
 ### Co je potřeba doplnit před spuštěním
 
@@ -102,7 +103,7 @@ Jak vzniká:
 
 Jak ji poslat zákazníkovi:
 
-1. Spusťte `npm run build` a vezměte `dist/pod35-kalkulacka-offline.html` (asi 1,2 MB). Po nasazení je ke stažení i na `https://pod35.cz/pod35-kalkulacka-offline.html`.
+1. Spusťte `npm run build` a vezměte `dist/pod35-kalkulacka-offline.html` (asi 1,2 MB). Po nasazení je ke stažení i na `https://<WEB>/pod35-kalkulacka-offline.html` (web na ni odkazuje z úvodní stránky).
 2. Firemní poštovní brány často blokují přílohy `.html`. Spolehlivější je soubor zabalit do ZIP, případně poslat odkaz ke stažení.
 3. Do e-mailu napište, že kalkulačka běží jen v prohlížeči, nic neodesílá a funguje i na počítači bez internetu. IT oddělení zákazníka může soubor před použitím prověřit: kód rozhraní je v něm jako čitelný text, výpočetní moduly jsou vložené jako base64 `data:` URL (jejich zdroj je v `site/assets/js/`) a SheetJS je oficiální minifikovaná verze 0.18.5 s ověřeným otiskem.
 4. Potřebuje aktuální Chrome, Edge, Firefox nebo Safari.
@@ -151,6 +152,8 @@ Vygenerované soubory jsou v gitu, protože CI Python knihovny nemá. Výstup je
   - šablony existují a `calc-core.js` rozpozná všechny jejich sloupce a hodnoty,
   - ceny nejsou v `site/` natvrdo a anglické stránky mají ceny v EUR, české v Kč.
 
+  Kalkulačka má `data-testid` podle kontraktu níže, test je najde bez náhradních selektorů.
+
   Požadavky mimo `127.0.0.1` test blokuje. Google Fonts se tím pádem nenačtou, to se za chybu nepovažuje, jiný externí požadavek ano. Na konci vypíše PASS/FAIL a při selhání skončí kódem 1. `node tools/e2e.mjs --no-build` použije existující `dist/`.
 
   Playwright se hledá v `/opt/node22/lib/node_modules/playwright`, pak jako běžný balíček `playwright` (nebo cesta v `PLAYWRIGHT_MODULE`). Chromium v `PLAYWRIGHT_BROWSERS_PATH` (výchozí `/opt/pw-browsers`) nebo v `CHROMIUM_PATH`.
@@ -171,9 +174,11 @@ Web je statický, nasazuje se obsah `dist/`.
 - Output directory: `dist`
 - Proměnná prostředí `NODE_VERSION=22`
 
-### Vlastní doména pod35.cz
+### Vlastní doména
 
-- **GitHub Pages**: v Settings → Pages vyplňte *Custom domain* `pod35.cz` a zapněte *Enforce HTTPS*. U registrátora domény nastavte pro `pod35.cz` záznamy A na `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (a AAAA na `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`) a pro `www` záznam CNAME na `<uživatel nebo organizace>.github.io`. Doménu doporučujeme ověřit v nastavení účtu nebo organizace (Settings → Pages → Verified domains). Při nasazení přes GitHub Actions se soubor `CNAME` nepoužívá. Pokud ho přesto chcete mít (třeba pro jiný hosting), vytvořte `site/CNAME` s obsahem `pod35.cz`, build ho zkopíruje.
+Níže `<WEB>` = hodnota `WEB` z `config.json` (nyní `cirusorigin.cz`).
+
+- **GitHub Pages**: v Settings → Pages vyplňte *Custom domain* `<WEB>` a zapněte *Enforce HTTPS*. U registrátora domény nastavte pro `<WEB>` záznamy A na `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (a AAAA na `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`) a pro `www` záznam CNAME na `<uživatel nebo organizace>.github.io`. Doménu doporučujeme ověřit v nastavení účtu nebo organizace (Settings → Pages → Verified domains). Při nasazení přes GitHub Actions se soubor `CNAME` nepoužívá. Pokud ho přesto chcete mít (třeba pro jiný hosting), vytvořte `site/CNAME` s obsahem `<WEB>`, build ho zkopíruje.
 - **Cloudflare Pages / Netlify**: doménu přidejte v nastavení projektu (Custom domains / Domain management) a nastavte CNAME podle jejich pokynů.
 
 Hodnota `WEB` v `config.json` má odpovídat ostré doméně, jinak budou mít offline kalkulačka a sitemap špatné odkazy.

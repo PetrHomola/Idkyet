@@ -25,4 +25,9 @@ Templates (English)
 -------------------
 pod35-vstupni-sablona.xlsx / .csv  input template for the calculator
 prohlaseni-o-puvodu-en.docx        supplier's declaration of non-preferential
-                                   origin (Art. 60 Union Customs Code)
+                                   origin (Art. 60 Union Customs Code); not a
+                                   preferential origin declaration under
+                                   Implementing Regulation (EU) 2015/2447
+
+Calculator: https://{{WEB}}/kalkulacka/?lang=en
+The calculator runs in your browser; your data is not sent anywhere.

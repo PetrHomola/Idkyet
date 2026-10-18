@@ -200,10 +200,10 @@ function parseWith(s, d) {
   let field = '';
   let inQ = false;
   let quoted = false;
-  // An opening quote that is never closed is read as a plain character:
-  // parsing goes back to it instead of swallowing the rest of the text.
+  // An opening quote that is never closed would swallow the rest of the text.
+  // Parsing goes back to it once and reads quotes from there on as plain characters.
   let open = null;
-  const literal = new Set();
+  let plainFrom = Infinity;
   const n = s.length;
   for (let i = 0; i < n; i++) {
     const ch = s[i];
@@ -220,9 +220,10 @@ function parseWith(s, d) {
         field += ch;
       }
       if (inQ && i === n - 1 && open) {
-        literal.add(open.i);
+        plainFrom = open.i;
         rows.length = open.rows;
         row = open.row;
+        row.length = open.rowLen;
         field = open.field;
         quoted = false;
         inQ = false;
@@ -231,12 +232,12 @@ function parseWith(s, d) {
       }
       continue;
     }
-    if (ch === '"' && !quoted && field.trim() === '' && !literal.has(i)) {
+    if (ch === '"' && !quoted && field.trim() === '' && i < plainFrom) {
       if (i === n - 1) {
         field += ch;
         continue;
       }
-      open = { i, rows: rows.length, row: row.slice(), field };
+      open = { i, rows: rows.length, row, rowLen: row.length, field };
       inQ = true;
       quoted = true;
       field = '';
@@ -1406,8 +1407,8 @@ export function analyze(lines, options = {}) {
     substitution = { method: m, lineIds: [], count: 0, cost: 0, feasible: passes(s, D) === true };
     if (!substitution.feasible) {
       // Lines outside the home countries (expected scenario), largest first. In the EU–Canada
-      // pack Canadian lines are used too, but only once the "other" limits hold and the
-      // home minimum is still missing.
+      // pack Canadian lines can be replaced too (they raise the home share): lines from other
+      // third countries go first while the "other" limits fail, then the larger of the two.
       const pool = tier1.filter((it) => it.group.expected === 'nonHome' && it.cost > 0).sort(byCostDesc);
       const caPool = isCanada ? tier1.filter((it) => it.group.expected === 'canada' && it.cost > 0).sort(byCostDesc) : [];
       while (pool.length || caPool.length) {

@@ -71,7 +71,7 @@ Odpověď na „dáte nám slevu?“:
 - **Komu:** jen prvním dvěma zákazníkům. Ideálně středně velký dodavatel v kooperaci programu SAFE nebo žadatel EDIP, jehož jméno bude pro další zákazníky srozumitelné.
 - **Co:** Rychlá kontrola za poloviční cenu (polovina z [PRICE_QUICK], případně z [PRICE_QUICK_EDIP]).
 - **Výměnou za:** referenci, sjednanou písemně v objednávce (čl. 5.3): souhlas s uvedením názvu na webu, nebo anonymizovaný popis, a jeden referenční telefonát. Pokud firma nechce být jmenována, anonymizovaný popis s telefonátem je pořád cenný.
-- **Na webu** se uvádí jen v sekci nabídky jako „zaváděcí nabídka“. Po druhé objednávce ji z webu stáhněte (upravit `site/` a `config.json` přes správce webu).
+- **Na webu** se uvádí jen v sekci nabídky jako „zaváděcí nabídka“. Po druhé objednávce ji z webu stáhněte (správce webu upraví `site/index.html`, `site/nabidka.html`, `site/en/index.html` a `site/en/offer.html`).
 - Zápočet do Sady dokladů platí ve výši skutečně zaplacené ceny.
 
 ## 5. Partneři
@@ -118,7 +118,7 @@ Bez jmen osob: role najděte na LinkedInu nebo se zeptejte na veletrhu. Do zprá
 
 | Organizace | Proč | Komu | Kanál | Šablona | Priorita |
 |---|---|---|---|---|---|
-| AOBP, kontaktní místo pro EDF | kanál k členům, webinář, předání dotazů na MO | kontaktní místo EDF, edf@aobp.cz | e-mail | 4 | A |
+| AOBP (roli kontaktního místa pro EDF ověřit) | kanál k členům, webinář, předání dotazů na MO | edf@aobp.cz (adresu ověřit) | e-mail | 4 | A |
 | CMS | o pravidle 35 % publikují (ověřit aktuální článek) | partner pro veřejné zakázky a obranu | e-mail, LinkedIn | 3a | A |
 | Kinstellar | advokátní kancelář v regionu (ověřit tým pro obranu) | partner pro veřejné zakázky a obranu | e-mail, LinkedIn | 3a | B |
 | PROKURENT | o programu SAFE publikují (ověřit aktuální článek) | partner pro veřejné zakázky | e-mail, AOBP | 3a | A |

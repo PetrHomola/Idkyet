@@ -20,9 +20,9 @@ Obecně:
 
 > Dobrý den [OSLOVENÍ],
 >
-> u zakázek ze SAFE smí komponenty s původem mimo EU, státy EHP-ESVO a Ukrajinu tvořit nejvýš 35 % nákladů na komponenty výrobku (nařízení 2025/1106, čl. 16 odst. 10). Česko žádá o platby ze SAFE dvakrát ročně, v dubnu a v říjnu, a když podmínka není doložená, hrozí pozastavení výplaty.
+> u zakázek ze SAFE smí komponenty s původem mimo EU, státy EHP-ESVO a Ukrajinu tvořit nejvýš 35 % nákladů na komponenty výrobku (nařízení 2025/1106, čl. 16 odst. 10). Česko žádá o platby ze SAFE dvakrát ročně, v dubnu a v říjnu, a při nesplnění podmínky hrozí pozastavení výplaty.
 >
-> [BRAND] podíl spočítá podle jediného zveřejněného postupu Komise (metodika EDIP, obě metody) a najde nejmenší sadu řádků, jejichž doložení stačí, aby výpočet obstál i v nejhorším případě. Prohlášení od dodavatelů pak sháníte jen tam, kde rozhodují.
+> [BRAND] spočítá podíl oběma metodami podle postupu, který Komise zveřejnila pro EDIP (pro SAFE veřejná metodika zatím není), a najde nejmenší sadu řádků, jejichž doložení stačí, aby výpočet obstál i v nejhorším případě. Prohlášení od dodavatelů pak sháníte jen tam, kde rozhodují.
 >
 > Jak začít:
 > – kalkulačka zdarma: [WEB]/kalkulacka/ – běží ve vašem prohlížeči, data nikam neodcházejí, je i offline verze v jednom souboru,
@@ -51,13 +51,13 @@ Obecně:
 
 > Dear [NAME],
 >
-> Under SAFE, components originating outside the EU, the EEA EFTA States and Ukraine may not exceed 35 % of the cost of the components of the end product (Regulation 2025/1106, Art. 16(10)). If the condition is not documented, SAFE payments can be suspended. EDIP has the same rule, with grant reduction or termination as the sanction.
+> Under SAFE, components originating outside the EU, the EEA EFTA States and Ukraine may not exceed 35 % of the cost of the components of the end product (Regulation 2025/1106, Art. 16(10)). If the condition is not met, SAFE payments can be suspended. EDIP has the same rule, with grant reduction or termination as the sanction.
 >
-> [BRAND] calculates the share using the only method the Commission has published so far (the EDIP methodology, both methods). It then finds the smallest set of lines that needs to be documented for the result to hold even in the worst case, so you chase supplier declarations only where they make a difference.
+> [BRAND] calculates the share under both methods of the approach the Commission has published for EDIP (there is no public method for SAFE yet). It then finds the smallest set of lines that needs to be documented for the result to hold even in the worst case, so you chase supplier declarations only where they make a difference.
 >
 > Two ways to start:
 > – a free calculator at [WEB]/kalkulacka/ that runs in your browser; no data leaves your computer, and there is a single-file offline version,
-> – a Quick check at a fixed price of [PRICE_QUICK]: within 10 working days, up to 500 lines, results under both methods, the headroom to 35 % and a list of suppliers to contact.
+> – a Quick Check at a fixed price of [PRICE_QUICK]: within 10 working days, up to 500 lines, results under both methods, the headroom to 35 % and a list of suppliers to contact.
 >
 > We work with commercial data only (part, supplier, price, country of origin, evidence), never drawings or technical documentation. We are happy to sign your NDA.
 >
@@ -70,7 +70,7 @@ Obecně:
 **Swap-in lines:**
 - Slovakia: “Slovakia’s SAFE allocation is around EUR 2.3 billion, including Tatra and CV90.”
 - Poland: “Poland’s SAFE allocation is EUR 43.7 billion.”
-- EDIP applicant: “EDIP calls close on 16 February 2027, and the Commission’s Procurement strategy template asks for the non-EU share broken down into five component categories, plus a description of how origin is verified.” Offer the Quick check with a draft origin annex at [PRICE_QUICK_EDIP].
+- EDIP applicant: “EDIP calls close on 16 February 2027, and the Commission’s Procurement strategy template asks for the non-EU share broken down into five component categories, plus a description of how origin is verified.” Offer the Quick Check with a draft origin annex at [PRICE_QUICK_EDIP].
 
 ---
 
@@ -114,7 +114,7 @@ Adresát: partner pro veřejné zakázky, obranu nebo dotace (CMS, Kinstellar, P
 >
 > četl jsem váš text o pravidle 35 % [ODKAZ NA ČLÁNEK]. Vaši klienti budou kromě výkladu potřebovat i data: tier-1 díly výrobku, původ každého z nich, prohlášení dodavatelů, celní doklady a výpočet podle metodiky Komise. Komise sama v šabloně Procurement strategy popisuje postup jako „collection and verification of supplier declarations and customs documents, inclusion of origin clauses in contracts“.
 >
-> Doložky do smluv a výklad jsou vaše práce. Sběr a ověření prohlášení, výpočet podle obou metod a přehled dokladů připravený na audit je naše. Právní stanoviska nedáváme, takže si nekonkurujeme.
+> Doložky do smluv a výklad jsou vaše práce. Sběr a ověření prohlášení, výpočet podle obou metod a přehled dokladů připravený na audit jsou na nás. Právní stanoviska nedáváme, takže si nekonkurujeme.
 >
 > Můžeme pracovat jako subdodavatel pod vaším vedením, nebo vašim klientům nabídnout službu přímo, jak vám to bude vyhovovat. Metodiku máme zveřejněnou na [WEB]/metodika.html, kalkulačka je zdarma na [WEB]/kalkulacka/.
 >
@@ -220,9 +220,9 @@ Adresát: celní deklarant, bývalý celník, celní tým KPMG, PwC, EY, celní 
 
 ---
 
-## 4. AOBP, národní kontaktní místo pro EDF (česky)
+## 4. AOBP (česky)
 
-Komu: edf@aobp.cz
+Komu: edf@aobp.cz (adresu a roli AOBP jako kontaktního místa pro EDF před odesláním ověřit)
 
 **Předmět:** Nabídka webináře pro členy: Jak spočítat a doložit 35 % podle metodiky EDIP
 
@@ -281,7 +281,7 @@ Pravidla: follow-up 1 po 4 pracovních dnech bez odpovědi, follow-up 2 po dalš
 
 > Dobrý den [OSLOVENÍ],
 >
-> naposledy se připomenu. Pravidlo 35 % platí po celou dobu projektu, takže prohlášení dodavatelů bude potřeba průběžně obnovovat. Nejbližší termíny jsou [uzávěrka výzev EDIP 16. 2. 2027 / dubnová žádost o platbu SAFE].
+> naposledy se připomenu. U EDIP musí podmínka 35 % platit po celou dobu projektu, takže prohlášení dodavatelů bude potřeba průběžně obnovovat. Nejbližší termíny jsou [uzávěrka výzev EDIP 16. 2. 2027 / dubnová žádost o platbu SAFE].
 >
 > Pokud to u vás má na starosti někdo jiný, budu rád za nasměrování. A pokud to teď není téma, nevadí: ozvu se znovu, až Komise nebo MO zveřejní k výpočtu něco nového.
 >
@@ -292,7 +292,7 @@ Pravidla: follow-up 1 po 4 pracovních dnech bez odpovědi, follow-up 2 po dalš
 
 > Dear [NAME],
 >
-> A last note from me. The 35 % condition applies for the entire duration of the action, so supplier declarations will need to be renewed along the way. The next milestones are [the EDIP call deadline on 16 February 2027 / the next SAFE payment request].
+> A last note from me. Under EDIP, the 35 % condition must be met for the entire duration of the action, so supplier declarations will need to be renewed along the way. The next milestones are [the EDIP call deadline on 16 February 2027 / the next SAFE payment request].
 >
 > If someone else in your team handles this, I would be grateful for a pointer. And if it is not a priority right now, that is fine: I will get back in touch when the Commission publishes anything new on the calculation.
 >
@@ -338,7 +338,7 @@ Počty znaků jsou bez doplněných jmen. U řádků „+ jméno“ hlídejte, a
 > 2. Podrobný postup Komise zatím zveřejnila jen pro EDIP: počítají se jen díly nakoupené přímo výrobcem (tier-1), bez ohledu na jejich důležitost, za ceny bez dopravy, cla a daní, a suroviny nejsou komponenty.
 > 3. U dovezeného dílu se původ bere z celních dokladů nebo kupních smluv, u dílu koupeného v EU rozhoduje země poslední podstatné přeměny (nepreferenční původ podle čl. 60 celního kodexu Unie), i když jste ho koupili od obchodníka nebo uvnitř skupiny.
 > 4. Stačí splnit jednu ze dvou metod: (a) podíl z nákladů všech tier-1 dílů, nebo (b) podíl z nákladů na komponenty včetně výrobních nákladů podsestav z vlastní výroby.
-> 5. Podmínka musí platit po celou dobu projektu a při nedoložení hrozí u SAFE pozastavení výplaty, u EDIP krácení nebo ukončení grantu.
+> 5. U EDIP musí podmínka platit po celou dobu projektu; při nesplnění hrozí u SAFE pozastavení výplaty, u EDIP krácení nebo ukončení grantu.
 >
 > Zdroje: SAFE https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng, EDIP https://eur-lex.europa.eu/eli/reg/2025/2643/oj/eng
 > Celý postup krok za krokem: [WEB]/metodika.html
@@ -369,7 +369,7 @@ Počty znaků jsou bez doplněných jmen. U řádků „+ jméno“ hlídejte, a
 
 > Musíte kvůli pravidlu 35 % obeslat všechny dodavatele? Ne nutně.
 >
-> Při kontrole obstojí jen to, co je doložené. Proto počítáme nejhorší (auditní) scénář: každý řádek bez platného dokladu se bere jako díl s původem mimo EU. Pokud i tak vyjdete pod 35 %, máte hotovo. Pokud ne, nepotřebujete doklady od všech, ale jen od těch, kteří rozhodují.
+> Bezpečné je počítat jen s tím, co je doložené. Proto počítáme nejhorší (auditní) scénář: každý řádek bez platného dokladu se bere jako díl s původem mimo EU. Pokud i tak vyjdete pod 35 %, máte hotovo. Pokud ne, nepotřebujete doklady od všech, ale jen od těch, kteří rozhodují.
 >
 > Postup:
 > 1. Vezměte nedoložené řádky, u kterých čekáte původ v EU (jen u nich má smysl doklad shánět).

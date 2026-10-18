@@ -22,12 +22,17 @@ const TYPES = ['tier1', 'inhouse', 'raw'];
 const SCENARIOS = ['worst', 'expected', 'best'];
 const STATUSES = ['documented', 'stated', 'unknown'];
 const PREVIEW_ROWS = 6;
-const MAX_RENDER = 1500;
+// Lines table renders in pages: every row has three form controls, and a few thousand of them
+// make the page sluggish. "Show more" adds the next page; search and the filter narrow the list.
+const LINE_PAGE = 300;
 const WARN_SHOWN = 12;
 const DECL_LANGS = ['cs', 'sk', 'en'];
 const LANG_CODE = { cs: 'CZ', sk: 'SK', en: 'EN' };
 
 const BRAND = (document.documentElement.dataset.brand || '').trim();
+// File-name prefix for exports, from the brand ("CIRUS Origin" -> "cirus-origin").
+const FILE_PREFIX = BRAND.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'pod35';
 
 /* ---------------------------------------------------------------------- state */
 
@@ -49,6 +54,7 @@ const state = {
   result: null,
   calcError: null,
   filter: { onlyUndoc: false, q: '' },
+  lineLimit: LINE_PAGE,
   idIndex: new Map(),
   minSet: new Set(),
 };
@@ -139,8 +145,9 @@ function fmtDate(iso) {
   if (!isIsoDate(iso)) return iso || '';
   const [y, m, d] = iso.split('-').map(Number);
   try {
+    // non-breaking spaces keep "18. 10. 2026" on one line
     return new Intl.DateTimeFormat(LOCALES[state.lang], { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'UTC' })
-      .format(new Date(Date.UTC(y, m - 1, d)));
+      .format(new Date(Date.UTC(y, m - 1, d))).replace(/ /g, '\u00a0');
   } catch {
     return iso;
   }
@@ -293,6 +300,7 @@ function setLang(lang) {
   renderErrors();
   buildDatalist();
   renderAll(true);
+  refreshStatuses();
 }
 
 function applyStatic() {
@@ -327,10 +335,24 @@ function toast(msg) {
   toastTimer = setTimeout(() => { el.hidden = true; }, 4200);
 }
 
-function setStatus(el, html, kind = '') {
+// `content` is an HTML string or a function returning one; a function is called again after a
+// language switch, so status messages follow the selected language.
+function setStatus(el, content, kind = '') {
   if (!el) return;
   el.className = `status${kind ? ` status--${kind}` : ''}`;
-  el.innerHTML = html;
+  el.pod35Render = typeof content === 'function' ? content : null;
+  el.innerHTML = typeof content === 'function' ? content() : content;
+}
+
+function refreshStatuses() {
+  for (const el of $$('.status')) {
+    if (typeof el.pod35Render === 'function') el.innerHTML = el.pod35Render();
+  }
+}
+
+// Source names are either the file name or an i18n key ({ key }) for built-in sources.
+function srcName(name) {
+  return name && typeof name === 'object' && name.key ? t(name.key) : String(name ?? '');
 }
 
 /* ---------------------------------------------------------------- clipboard */
@@ -477,7 +499,7 @@ function cleanRows(rows) {
 function setSource(name, rawRows) {
   const rows = cleanRows(rawRows);
   if (rows.length < 2) {
-    setStatus($('#data-status'), esc(t('data.empty')), 'bad');
+    setStatus($('#data-status'), () => esc(t('data.empty')), 'bad');
     return;
   }
   const { index } = findHeader(rows);
@@ -513,6 +535,7 @@ function buildLinesFromSource() {
 
 function afterDataLoaded(msgKey, sourceName) {
   state.filter = { onlyUndoc: false, q: '' };
+  state.lineLimit = LINE_PAGE;
   $('#ln-only').checked = false;
   $('#ln-search').value = '';
   recompute();
@@ -520,10 +543,14 @@ function afterDataLoaded(msgKey, sourceName) {
   renderMapping();
   renderErrors();
   renderAll(true);
-  const parts = [esc(t(msgKey, { source: sourceName, rows: tp('rows', state.lines.length) }))];
-  if (state.source && state.source.mapping.unitCost === null) parts.push(esc(t('data.noCost')));
-  if (state.lines.length) parts.push(`<a href="#sec-results" class="status__link">${esc(t('data.toResults'))}</a>`);
-  setStatus($('#data-status'), parts.join(' '), state.lines.length ? 'ok' : 'bad');
+  const noCost = Boolean(state.source && state.source.mapping.unitCost === null && state.source.mapping.totalCost === null);
+  const n = state.lines.length;
+  setStatus($('#data-status'), () => {
+    const parts = [esc(t(msgKey, { source: srcName(sourceName), rows: tp('rows', n) }))];
+    if (noCost) parts.push(esc(t('data.noCost')));
+    if (n) parts.push(`<a href="#sec-results" class="status__link">${esc(t('data.toResults'))}</a>`);
+    return parts.join(' ');
+  }, n ? 'ok' : 'bad');
 }
 
 async function handleFile(file) {
@@ -537,12 +564,12 @@ async function handleFile(file) {
       return;
     }
     if (['xlsx', 'xls', 'xlsm', 'ods'].includes(ext)) {
-      setStatus(status, esc(t('ex.xlsxLoading')));
+      setStatus(status, () => esc(t('ex.xlsxLoading')));
       let XLSX;
       try {
         XLSX = await loadXlsx();
       } catch {
-        setStatus(status, esc(t('ex.xlsxFail')), 'bad');
+        setStatus(status, () => esc(t('ex.xlsxFail')), 'bad');
         return;
       }
       const buf = await file.arrayBuffer();
@@ -568,15 +595,15 @@ async function handleFile(file) {
       setSource(name, parseTable(text));
       return;
     }
-    setStatus(status, esc(t('data.unsupported')), 'bad');
+    setStatus(status, () => esc(t('data.unsupported')), 'bad');
   } catch (err) {
-    setStatus(status, esc(t('data.readError', { msg: err && err.message ? err.message : String(err) })), 'bad');
+    setStatus(status, () => esc(t('data.readError', { msg: err && err.message ? err.message : String(err) })), 'bad');
   }
 }
 
 async function loadSample() {
   const status = $('#data-status');
-  setStatus(status, esc(t('data.loading')));
+  setStatus(status, () => esc(t('data.loading')));
   try {
     let text;
     const inline = document.getElementById('pod35-sample');
@@ -587,9 +614,9 @@ async function loadSample() {
       if (!res.ok) throw new Error(String(res.status));
       text = decodeText(await res.arrayBuffer());
     }
-    setSource(t('data.source.sample'), parseTable(text));
+    setSource({ key: 'data.source.sample' }, parseTable(text));
   } catch {
-    setStatus(status, esc(t('data.sampleError')), 'bad');
+    setStatus(status, () => esc(t('data.sampleError')), 'bad');
   }
 }
 
@@ -599,7 +626,7 @@ function loadPasted() {
     $('#paste-area').focus();
     return;
   }
-  setSource(t('data.source.paste'), parseTable(text));
+  setSource({ key: 'data.source.paste' }, parseTable(text));
 }
 
 /* ------------------------------------------------------------ project JSON */
@@ -609,7 +636,7 @@ function projectObject() {
     format: 'pod35-project',
     version: 1,
     savedAt: new Date().toISOString(),
-    source: state.source ? state.source.name : null,
+    source: state.source ? srcName(state.source.name) : null,
     implicitCurrency: state.implicitCurrency,
     settings: { ...state.settings, fx: { ...state.settings.fx }, risk: [...state.settings.risk] },
     lines: state.lines,
@@ -625,8 +652,8 @@ async function loadProjectFile(file) {
     data = null;
   }
   if (!data || data.format !== 'pod35-project' || !Array.isArray(data.lines)) {
-    setStatus(status, esc(t('ex.badProject')), 'bad');
-    $('#export-msg') && setStatus($('#export-msg'), esc(t('ex.badProject')), 'bad');
+    setStatus(status, () => esc(t('ex.badProject')), 'bad');
+    $('#export-msg') && setStatus($('#export-msg'), () => esc(t('ex.badProject')), 'bad');
     return;
   }
   const s = data.settings || {};
@@ -795,11 +822,11 @@ function renderPackInfo() {
   const p = packOf(state.settings.pack);
   const parts = [esc(t('set.home', { list: homeList(p) }))];
   if (p.kind === 'canada') parts.push(esc(t('set.homeCanada')));
-  if (p.source) {
-    const src = String(p.source);
-    parts.push(/^https?:\/\//.test(src)
-      ? `<a href="${esc(src)}" rel="noopener noreferrer" target="_blank">${esc(t('set.source', { source: src.replace(/^https?:\/\//, '') }))}</a>`
-      : esc(t('set.source', { source: src })));
+  const src = String((state.lang === 'en' ? p.sourceEn || p.source : p.source || p.sourceEn) || '');
+  const url = typeof p.url === 'string' && /^https:\/\//.test(p.url) ? p.url : (/^https:\/\//.test(src) ? src : '');
+  if (src || url) {
+    const label = esc(t('set.source', { source: src && !/^https?:\/\//.test(src) ? src : url.replace(/^https?:\/\//, '') }));
+    parts.push(url ? `<a href="${esc(url)}" rel="noopener noreferrer" target="_blank">${label}</a>` : label);
   }
   $('#pack-info').innerHTML = parts.join(' ');
 }
@@ -1367,11 +1394,17 @@ function lineRowHtml(l, idx) {
 function renderLines() {
   renderLinesHead();
   const idxs = filteredLines();
-  const shown = idxs.slice(0, MAX_RENDER);
+  const shown = idxs.slice(0, state.lineLimit);
   $('#ln-body').innerHTML = shown.map((i) => lineRowHtml(state.lines[i], i)).join('');
   let msg = t('ln.count', { shown: fmtInt(shown.length), total: fmtInt(state.lines.length) });
-  if (idxs.length > MAX_RENDER) msg += ` ${t('ln.limited', { n: fmtInt(MAX_RENDER) })}`;
+  const rest = idxs.length - shown.length;
+  if (rest > 0) msg += ` ${t('ln.limited')}`;
   $('#ln-count').textContent = msg;
+  const more = $('#ln-more');
+  if (more) {
+    more.hidden = rest <= 0;
+    more.textContent = rest > 0 ? t('ln.more', { n: fmtInt(Math.min(rest, LINE_PAGE)) }) : '';
+  }
 }
 
 function updateLineRows() {
@@ -1473,6 +1506,7 @@ function gotoLine(idx) {
     state.filter = { onlyUndoc: false, q: '' };
     $('#ln-only').checked = false;
     $('#ln-search').value = '';
+    state.lineLimit = Math.max(LINE_PAGE, Math.ceil((idx + 1) / LINE_PAGE) * LINE_PAGE);
     renderLines();
     tr = document.getElementById(`ln-${idx}`);
   }
@@ -1500,8 +1534,8 @@ function renderPrintHead(r) {
 
 /* ------------------------------------------------------------------- export */
 
-function fileStamp() {
-  return state.settings.today || todayIso();
+function fileName(key, ext) {
+  return `${FILE_PREFIX}-${t(key)}-${state.settings.today || todayIso()}.${ext}`;
 }
 
 function linesExportRows() {
@@ -1529,9 +1563,9 @@ function exportCsv() {
       return /[";\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
     }).join(';')).join('\r\n');
   }
-  const name = `${t('ex.file.lines')}-${fileStamp()}.csv`;
+  const name = fileName('ex.file.lines', 'csv');
   download(name, `﻿${csv.replace(/^﻿/, '')}`, 'text/csv;charset=utf-8');
-  setStatus($('#export-msg'), esc(t('ex.done', { name })), 'ok');
+  setStatus($('#export-msg'), () => esc(t('ex.done', { name })), 'ok');
 }
 
 function summaryRows(r) {
@@ -1597,12 +1631,12 @@ function sheetFromRows(XLSX, rows) {
 
 async function exportXlsx() {
   const msg = $('#export-msg');
-  setStatus(msg, esc(t('ex.xlsxLoading')));
+  setStatus(msg, () => esc(t('ex.xlsxLoading')));
   let XLSX;
   try {
     XLSX = await loadXlsx();
   } catch {
-    setStatus(msg, esc(t('ex.xlsxFail')), 'bad');
+    setStatus(msg, () => esc(t('ex.xlsxFail')), 'bad');
     return;
   }
   const r = state.result;
@@ -1633,15 +1667,15 @@ async function exportXlsx() {
       return [w.code ?? '', w[state.lang] || w.cs || '', l ? lineRef(l) : ''];
     }),
   ], 'ex.sheet.warnings');
-  const name = `${t('ex.file.result')}-${fileStamp()}.xlsx`;
+  const name = fileName('ex.file.result', 'xlsx');
   XLSX.writeFile(wb, name, { compression: true });
-  setStatus(msg, esc(t('ex.done', { name })), 'ok');
+  setStatus(msg, () => esc(t('ex.done', { name })), 'ok');
 }
 
 function saveProject() {
-  const name = `${t('ex.file.project')}-${fileStamp()}.json`;
+  const name = fileName('ex.file.project', 'json');
   download(name, JSON.stringify(projectObject(), null, 2), 'application/json');
-  setStatus($('#export-msg'), esc(t('ex.done', { name })), 'ok');
+  setStatus($('#export-msg'), () => esc(t('ex.done', { name })), 'ok');
 }
 
 /* print: force the light palette and expand collapsed parts */
@@ -1649,9 +1683,14 @@ function saveProject() {
 let printState = null;
 function beforePrint() {
   const root = document.documentElement;
-  printState = { theme: root.getAttribute('data-theme'), details: $$('details:not([open])') };
+  printState = { theme: root.getAttribute('data-theme'), details: $$('details:not([open])'), lineLimit: state.lineLimit };
   root.setAttribute('data-theme', 'light');
   printState.details.forEach((d) => { d.open = true; });
+  // the printed report lists every line of the current filter, not just the first page
+  if (state.lines.length > state.lineLimit) {
+    state.lineLimit = Infinity;
+    renderLines();
+  }
 }
 function afterPrint() {
   if (!printState) return;
@@ -1659,6 +1698,10 @@ function afterPrint() {
   if (printState.theme === null) root.removeAttribute('data-theme');
   else root.setAttribute('data-theme', printState.theme);
   printState.details.forEach((d) => { d.open = false; });
+  if (state.lineLimit !== printState.lineLimit) {
+    state.lineLimit = printState.lineLimit;
+    renderLines();
+  }
   printState = null;
 }
 
@@ -1832,12 +1875,23 @@ function bindEvents() {
   });
   $('#ln-only').addEventListener('change', (e) => {
     state.filter.onlyUndoc = e.target.checked;
+    state.lineLimit = LINE_PAGE;
     renderLines();
   });
   $('#ln-search').addEventListener('input', debounce((e) => {
     state.filter.q = e.target.value;
+    state.lineLimit = LINE_PAGE;
     renderLines();
   }, 200));
+  $('#ln-more').addEventListener('click', () => {
+    const first = state.lineLimit;
+    state.lineLimit += LINE_PAGE;
+    renderLines();
+    // keep keyboard focus in the table: move it to the first newly shown row
+    const tr = $$('#ln-body tr[data-idx]')[first];
+    const input = tr && tr.querySelector('input, select');
+    if (input) input.focus();
+  });
 
   $('#warnings').addEventListener('click', (e) => {
     const a = e.target.closest('a[data-goto]');

@@ -6,7 +6,9 @@
 //
 // Checks: every page of SPEC section 1 loads without console errors, without {{PLACEHOLDERS}}
 // and without horizontal overflow at 390 and 360 px; internal links resolve; the calculator loads
-// the sample, shows a verdict and tables and switches language; the offline file works from
+// the sample, shows a verdict and tables and switches language, and survives the customer flows
+// (paste from Excel, column mapping, rule packs, inline edits, filter, exports, project round trip,
+// copy fallback, print CSS, contrast in light and dark mode); the offline file works from
 // file:// without any network request; the templates are present and readable by calc-core.
 // Exit code 1 when any check fails.
 
@@ -410,6 +412,204 @@ async function testCalculator(browser, base) {
   await ctx.close();
 }
 
+// Contrast of visible text against its effective background (WCAG formula). Returns the worst cases.
+function contrastProbe() {
+  const parse = (c) => {
+    const m = /rgba?\(([^)]+)\)/.exec(c || '');
+    if (!m) return null;
+    const p = m[1].split(/[\s,/]+/).filter(Boolean).map(Number);
+    return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 };
+  };
+  const lum = ({ r, g, b }) => {
+    const f = (v) => { const x = v / 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; };
+    return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+  };
+  const blend = (t, b) => ({ r: t.r * t.a + b.r * (1 - t.a), g: t.g * t.a + b.g * (1 - t.a), b: t.b * t.a + b.b * (1 - t.a), a: 1 });
+  const bgOf = (el) => {
+    const layers = [];
+    for (let e = el; e; e = e.parentElement) {
+      const c = parse(getComputedStyle(e).backgroundColor);
+      if (c && c.a > 0) { layers.push(c); if (c.a >= 1) break; }
+    }
+    let bg = { r: 255, g: 255, b: 255, a: 1 };
+    for (let i = layers.length - 1; i >= 0; i--) bg = blend(layers[i], bg);
+    return bg;
+  };
+  const low = [];
+  for (const el of document.querySelectorAll('body *')) {
+    if (!el.offsetParent || el.closest('.sr-only, [aria-hidden="true"]')) continue;
+    if (![...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) continue;
+    const cs = getComputedStyle(el);
+    if (cs.visibility === 'hidden' || Number(cs.opacity) < 0.6) continue;
+    const bg = bgOf(el);
+    const fg = blend(parse(cs.color), bg);
+    const a = lum(fg);
+    const b = lum(bg);
+    const ratio = (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+    if (ratio < 3) low.push(`${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]} „${el.textContent.trim().slice(0, 24)}“ ${ratio.toFixed(2)}`);
+  }
+  return low;
+}
+
+// Interactions a customer goes through: paste from Excel, rule packs, inline edits, filter,
+// exports, project round trip, copy fallback, print CSS, dark mode.
+async function testCalculatorFlows(browser, base) {
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, acceptDownloads: true });
+  await ctx.route('**/*', (route) => (/^https?:\/\/127\.0\.0\.1[:/]/.test(route.request().url()) ? route.continue() : route.abort()));
+  const page = await ctx.newPage();
+  page.setDefaultTimeout(TIMEOUT);
+  const w = watch(page);
+  const r = await page.goto(`${base}/kalkulacka/index.html`, { waitUntil: 'load' }).catch(() => null);
+  if (!r || r.status() !== 200) {
+    await ctx.close();
+    return;
+  }
+  const stamp = async () => ((await page.locator('#verdict .stamp').textContent().catch(() => '')) || '').trim();
+  const verdictTxt = async () => ((await page.locator('#verdict').innerText().catch(() => '')) || '').replace(/\s+/g, ' ');
+
+  await check('kalkulačka: vložení z Excelu (TSV s nadpisem nad záhlavím) a přiřazení sloupců', async () => {
+    const tsv = [
+      ['Kusovník – test'],
+      ['Číslo dílu', 'Dodavatel', 'Země dodavatele', 'Množství', 'Jednotková cena', 'Měna', 'Země původu', 'Doklad', 'Typ'],
+      ['T-1', 'Alfa s.r.o.', 'CZ', '1', '120 000', 'CZK', 'CZ', 'prohlášení dodavatele', 'tier-1'],
+      ['T-2', 'Beta GmbH', 'DE', '4', '1 250,50', 'CZK', 'US', 'celní doklad', 'tier-1'],
+      ['T-3', 'Gamma Inc.', 'US', '1', '2 400', 'EUR', '', '', 'tier-1'],
+      ['T-4', 'Delta a.s.', 'SK', '2', '3 500', 'CZK', 'N/A', '', 'tier-1'],
+      ['T-5', 'vlastní výroba', 'CZ', '1', '40 000', 'CZK', '', '', 'vlastní výroba'],
+    ].map((row) => row.join('\t')).join('\n');
+    await page.fill('#paste-area', tsv);
+    await page.click('#btn-paste');
+    await page.waitForFunction(() => document.querySelectorAll('#ln-body tr').length === 5);
+    assert(await page.locator('#mapping').isVisible(), 'přiřazení sloupců se nezobrazilo');
+    const originCol = page.locator('#mapping select[data-col="6"]');
+    assert((await originCol.inputValue()) === 'origin', `sloupec 7 přiřazen jako „${await originCol.inputValue()}“, čekám origin`);
+    const before = await verdictTxt();
+    await originCol.selectOption('');
+    await page.waitForTimeout(100);
+    assert((await verdictTxt()) !== before, 'změna přiřazení nepřepočítala výsledek');
+    await page.locator('#mapping select[data-col="6"]').selectOption('origin');
+    await page.waitForTimeout(100);
+    assert((await verdictTxt()) === before, 'po vrácení přiřazení se výsledek liší');
+    return `razítko: ${await stamp()}`;
+  });
+
+  const sample = await check('kalkulačka: pravidla SAFE, UASL, EDIP, EDIP_USI, EU_CANADA', async () => {
+    await page.click('#btn-sample');
+    await page.waitForFunction(() => document.querySelectorAll('#ln-body tr').length > 20);
+    const out = [];
+    for (const pack of ['EDIP', 'EDIP_USI', 'EU_CANADA', 'UASL', 'SAFE']) {
+      await page.selectOption('#set-pack', pack);
+      await page.waitForTimeout(80);
+      const st = await stamp();
+      assert(STAMP_RE.test(st), `${pack}: bez razítka`);
+      if (pack === 'EU_CANADA') assert(await page.locator('.bar--stack').count() > 0, 'EU_CANADA: chybí pruhy podílů domácí / CA / ostatní');
+      out.push(`${pack} ${(await page.locator('#minset tbody tr').count())} ř.`);
+    }
+    return `minimální sada: ${out.join(', ')}`;
+  });
+
+  if (sample) {
+    await check('kalkulačka: úprava země původu a dokladu v tabulce řádků', async () => {
+      const idx = await page.locator('#ln-body tr.st-unknown').first().getAttribute('data-idx');
+      assert(idx !== null, 'žádný řádek s neznámým původem');
+      const before = await verdictTxt();
+      const input = page.locator(`#ln-${idx} input[data-f="origin"]`);
+      await input.fill('Německo');
+      await input.press('Tab');
+      await page.waitForTimeout(150);
+      assert((await input.inputValue()) === 'DE', `normalizace: „${await input.inputValue()}“`);
+      await page.locator(`#ln-${idx} select[data-f="evidence"]`).selectOption('declaration');
+      await page.waitForTimeout(150);
+      const cls = await page.locator(`#ln-${idx}`).getAttribute('class');
+      assert(/st-documented/.test(cls), `stav řádku po úpravě: ${cls}`);
+      assert((await verdictTxt()) !== before, 'výsledek se po úpravě nepřepočítal');
+    });
+
+    await check('kalkulačka: filtr „Jen nedoložené“', async () => {
+      const all = await page.locator('#ln-body tr').count();
+      await page.check('#ln-only');
+      await page.waitForTimeout(80);
+      const n = await page.locator('#ln-body tr').count();
+      const documented = await page.locator('#ln-body tr.st-documented').count();
+      await page.uncheck('#ln-only');
+      assert(n > 0 && n < all && documented === 0, `${all} → ${n}, doložených ve filtru ${documented}`);
+      return `${all} → ${n} řádků`;
+    });
+
+    await check('kalkulačka: kopírování bez schránky ukáže náhradní okno', async () => {
+      await page.evaluate(() => {
+        Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true });
+        document.execCommand = () => false;
+      });
+      await page.click('#btn-copy-cat');
+      await page.waitForTimeout(100);
+      const open1 = await page.locator('#copy-dialog').evaluate((d) => d.open);
+      const text = await page.locator('#copy-dialog-text').inputValue();
+      await page.keyboard.press('Escape');
+      await page.locator('#requests button[data-act="mail"]').first().click();
+      await page.waitForTimeout(100);
+      const open2 = await page.locator('#copy-dialog').evaluate((d) => d.open);
+      await page.keyboard.press('Escape');
+      assert(open1 && open2 && text.includes('\t'), `okno: tabulka ${open1}, e-mail ${open2}`);
+    });
+
+    let project = null;
+    await check('kalkulačka: export CSV a uložení projektu (JSON) spustí stažení', async () => {
+      const [csv] = await Promise.all([page.waitForEvent('download'), page.click('#btn-csv')]);
+      const [json] = await Promise.all([page.waitForEvent('download'), page.click('#btn-save')]);
+      assert(/\.csv$/.test(csv.suggestedFilename()) && /\.json$/.test(json.suggestedFilename()), 'špatné přípony');
+      project = await json.path();
+      return `${csv.suggestedFilename()}, ${json.suggestedFilename()}`;
+    });
+
+    if (project) {
+      await check('kalkulačka: načtení uloženého projektu obnoví stejný výsledek', async () => {
+        const before = await verdictTxt();
+        const p2 = await ctx.newPage();
+        const w2 = watch(p2);
+        await p2.goto(`${base}/kalkulacka/index.html`, { waitUntil: 'load' });
+        await p2.setInputFiles('#project-input', project);
+        await p2.waitForSelector('#verdict .stamp');
+        const after = ((await p2.locator('#verdict').innerText()) || '').replace(/\s+/g, ' ');
+        await p2.close();
+        assert(after === before, 'výsledek po načtení projektu se liší');
+        assert(!w2.errors.length, w2.errors.slice(0, 2).join(' | '));
+      });
+    }
+
+    await check('kalkulačka: tisková verze (print CSS)', async () => {
+      await page.emulateMedia({ media: 'print' });
+      const css = await page.evaluate(() => ({
+        topbar: getComputedStyle(document.querySelector('.topbar')).display,
+        data: getComputedStyle(document.querySelector('#sec-data')).display,
+        head: getComputedStyle(document.querySelector('.print-head')).display,
+      }));
+      await page.emulateMedia({ media: null });
+      assert(css.topbar === 'none' && css.data === 'none' && css.head === 'block', JSON.stringify(css));
+    });
+  }
+
+  await check('kalkulačka: bez chyb v konzoli při práci s daty', async () => {
+    assert(!w.errors.length, w.errors.slice(0, 3).join(' | '));
+    assert(!w.external.length, `externí požadavky: ${w.external.slice(0, 3).join(', ')}`);
+  });
+  await ctx.close();
+
+  for (const scheme of ['dark', 'light']) {
+    await check(`kalkulačka: kontrast textu (${scheme === 'dark' ? 'tmavý' : 'světlý'} režim)`, async () => {
+      const c = await browser.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: scheme });
+      await c.route('**/*', (route) => (/^https?:\/\/127\.0\.0\.1[:/]/.test(route.request().url()) ? route.continue() : route.abort()));
+      const p = await c.newPage();
+      await p.goto(`${base}/kalkulacka/index.html`, { waitUntil: 'load' });
+      await p.click('#btn-sample');
+      await p.waitForSelector('#verdict .stamp');
+      const low = await p.evaluate(contrastProbe);
+      await c.close();
+      assert(!low.length, `kontrast pod 3:1: ${low.slice(0, 5).join('; ')}`);
+    });
+  }
+}
+
 async function testOffline(browser) {
   if (!existsSync(OFFLINE)) {
     record('FAIL', 'offline: soubor neexistuje', path.relative(ROOT, OFFLINE));
@@ -574,6 +774,7 @@ async function main() {
     record('PASS', 'prohlížeč', `Chromium ${browser.version()}`);
     await testPages(browser, url);
     await testCalculator(browser, url);
+    await testCalculatorFlows(browser, url);
     await testOffline(browser);
   } catch (err) {
     record('FAIL', 'běh testu', String(err && err.stack ? err.stack : err).split('\n').slice(0, 3).join(' | '));

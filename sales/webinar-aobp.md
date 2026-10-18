@@ -50,7 +50,7 @@
 - co chce šablona Procurement strategy a jak to doložit
 - kde je metodika nejasná a jak to zapsat
 
-*Poznámky:* Zdůraznit, že podrobný postup Komise zveřejnila zatím jen pro EDIP. Pro SAFE ho používáme proto, že je jediný zveřejněný a text pravidla je stejný.
+*Poznámky:* Zdůraznit, že podrobný postup Komise zveřejnila zatím jen pro EDIP. Pro SAFE ho používáme proto, že pro SAFE žádný zveřejněný není a text pravidla je stejný.
 
 ### 3. Proč teď
 
@@ -61,7 +61,7 @@
 - čerpání SAFE do 31. 12. 2030, projekty EDIP nejpozději do 31. 12. 2033
 - sankce: SAFE pozastavení výplaty; EDIP krácení nebo ukončení grantu; za nepravdivé údaje vyloučení z peněz EU
 
-*Poznámky:* Citovat Evropský účetní dvůr (Review 01/2026, odst. 71): „Limited information on underlying costs can also create practical challenges for verifying and confirming compliance with certain EU preference clauses.“ Pointa: kontrola bude stát na dokladech, ne na odhadu.
+*Poznámky:* Citovat Evropský účetní dvůr (Review 01/2026, odst. 71): „Limited information on underlying costs can also create practical challenges for verifying and confirming compliance with certain EU preference clauses.“ Pointa: bez podkladů se splnění ověřuje těžko, proto je dobré mít doklady dřív, než si o ně někdo řekne.
 
 ### 4. Jedno pravidlo, několik režimů
 
@@ -84,7 +84,7 @@
 - suroviny komponenty nejsou (EDIP, recitál 27)
 - zdroj: výzva EDF-EDIP-P-2026-LS-IRA v1.2 z 10. 6. 2026, str. 9–10, a výukové slajdy Komise „Origin of Components“ (5/2026)
 
-*Poznámky:* Hranice mezi surovinou a materiálem není v zveřejněném postupu popsaná. Vrátíme se k tomu u nejasností (slajd 13).
+*Poznámky:* Kde vede hranice mezi surovinou a materiálem, je potřeba posoudit u konkrétní položky. Vrátíme se k tomu u nejasností (slajd 13).
 
 ### 6. Které díly se počítají
 
@@ -107,7 +107,7 @@
 
 - podle faktur, smluv nebo celních dokladů
 - bez dopravy, cla a daní
-- kurzy měn metodika neurčuje: dohodněte je a zapište do popisu postupu
+- kurzy měn: dohodněte je předem a zapište do popisu postupu
 
 *Poznámky:* Kurz může u dílů v USD nebo CHF posunout výsledek. Proto ho zapisujeme a při přepočtu držíme stejný, dokud se nerozhodne jinak.
 
@@ -173,7 +173,7 @@ Slajd jen s odkazem `[WEB]/kalkulacka/` a větou „Data zůstávají ve vašem 
 7. Popis postupu včetně rozhodnutí u nejasností.
 8. Hlídat platnost prohlášení a rezervu po celou dobu projektu.
 
-*Poznámky:* Pro žadatele EDIP: body 1–5 a 7 patří do přílohy k Procurement strategy do 16. 2. 2027. Pro SAFE: připravit se na žádosti o platbu v dubnu a v říjnu.
+*Poznámky:* Pro žadatele EDIP: rozpad podílu po pěti kategoriích a popis postupu (bod 7) patří do šablony Procurement strategy, uzávěrka 16. 2. 2027. Pro SAFE: připravit se na žádosti o platbu v dubnu a v říjnu.
 
 ### 16. Dotazy
 
@@ -211,7 +211,7 @@ Slajd jen s odkazem `[WEB]/kalkulacka/` a větou „Data zůstávají ve vašem 
 Odpovídat jen z faktů v SPEC. Když odpověď nevíme: „To je dobrá otázka a jednoznačnou odpověď v metodice nemá. Zapisuji si ji do dotazů pro Komisi a odpověď pošleme přes AOBP.“
 
 **Platí metodika EDIP i pro SAFE?**
-Veřejná metodika pro SAFE zatím není. Recitál 19 SAFE říká, že Komise pokyny k výpočtu vydat může. Postup EDIP je jediný zveřejněný a text pravidla je stejný, proto podle něj počítáme a postup zapisujeme. Až pokyny k SAFE vyjdou, výpočet se přepočítá.
+Veřejná metodika pro SAFE zatím není. Recitál 19 SAFE říká, že Komise pokyny k výpočtu vydat může. Podrobný postup Komise zveřejnila pro EDIP a text pravidla je stejný, proto podle něj počítáme a postup zapisujeme. Až pokyny k SAFE vyjdou, výpočet se přepočítá.
 
 **Jsou Švýcarsko a Velká Británie „domácí“?**
 Ne, v žádném z režimů. Díl s původem v CH nebo GB se počítá jako mimo EU.
@@ -229,7 +229,7 @@ Země poslední podstatné, hospodářsky odůvodněné přeměny (nepreferenčn
 Metodika mluví o nepreferenčním původu. Preferenční a nepreferenční původ nejsou totéž. Jestli Komise přijme preferenční prohlášení jako doklad, je jeden z dotazů, které posíláme na helpdesk. Bezpečnější je prohlášení o nepreferenčním původu.
 
 **Počítá se software?**
-Ano, software zabudovaný do výrobku je komponenta. Cena podle faktury nebo smlouvy jako u ostatních dílů. Jak určit původ softwaru, zveřejněný postup podrobně neříká; dotaz posíláme Komisi.
+Ano, software zabudovaný do výrobku je komponenta. Cena podle faktury nebo smlouvy jako u ostatních dílů. Jak určit původ a cenu softwaru, je otevřená otázka; dotaz posíláme Komisi.
 
 **Doprava a clo?**
 U tier-1 dílů se nepočítají. Celkové výrobní náklady podsestav z vlastní výroby je ale podle Komise zahrnují. Rozpor metodika nevysvětluje: zvolte postup, zapište ho a pokud mění verdikt, spočítejte obě varianty.
@@ -238,7 +238,7 @@ U tier-1 dílů se nepočítají. Celkové výrobní náklady podsestav z vlastn
 Nejdřív zjistit, jestli jde o chybějící doklady (nejhorší scénář nevyhoví, očekávaný ano), nebo o skutečný původ (nevyhoví ani očekávaný). V prvním případě pomůže minimální sada dokladů. Ve druhém je potřeba část dílů nahradit dodavatelem s domácím původem; kalkulačka spočítá nejmenší počet řádků.
 
 **Jak dlouho platí prohlášení a jak často přepočítávat?**
-Podmínka platí po celou dobu projektu. Prohlášení v našem vzoru platí nejvýš 24 měsíců a obsahují závazek oznámit změnu. U SAFE se o platby žádá dvakrát ročně, v Česku v dubnu a v říjnu; před každou žádostí přepočítat.
+U EDIP musí podmínka platit po celou dobu projektu. Prohlášení v našem vzoru platí nejvýš 24 měsíců a obsahují závazek oznámit změnu. U SAFE se o platby žádá dvakrát ročně, v Česku v dubnu a v říjnu; před každou žádostí přepočítat.
 
 **Bude MO u SAFE chtít doklady v nějakém formátu?**
 Veřejný vzor zatím neznáme. Dotaz posíláme přes AOBP na MO a odpověď dáme členům k dispozici.

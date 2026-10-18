@@ -23,7 +23,7 @@
 - [ ] **Rychlá kontrola s návrhem přílohy o původu** do šablony „Procurement strategy“ (EDIP)
 - [ ] **Sada dokladů**
 
-1.2 Pravidlem se rozumí podmínka, že náklady na komponenty s původem mimo země, které pravidlo považuje za způsobilé, nesmí přesáhnout 35 % nákladů na komponenty výrobku.
+1.2 Pravidlem se rozumí podmínka, že náklady na komponenty s původem mimo země, které pravidlo počítá jako domácí, nesmí přesáhnout 35 % nákladů na komponenty výrobku; u dohody EU–Kanada platí podmínky jejího čl. 5 odst. 8.
 
 ### 2. Rozsah a výstupy
 

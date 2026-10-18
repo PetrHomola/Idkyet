@@ -25,7 +25,7 @@
         <a href="../metodika.html" data-href-cs="../metodika.html" data-href-en="../en/methodology.html" data-i18n="nav.method">Metodika</a>
         <a href="../nabidka.html" data-href-cs="../nabidka.html" data-href-en="../en/offer.html" data-i18n="nav.offer">Nabídka</a>
       </nav>
-      <div class="langsw" id="lang-switch" role="group" aria-label="Jazyk / Language">
+      <div class="langsw" id="lang-switch" data-testid="lang-toggle" role="group" aria-label="Jazyk / Language">
         <button type="button" data-setlang="cs" lang="cs" aria-pressed="true">CZ</button>
         <button type="button" data-setlang="en" lang="en" aria-pressed="false">EN</button>
       </div>
@@ -36,7 +36,7 @@
     <div class="print-head" id="print-head"></div>
 
     <section class="hero wrap" aria-labelledby="h-title">
-      <p class="kicker" data-i18n="hero.kicker">Kalkulačka · SAFE · EDIP · pravidlo 35 %</p>
+      <p class="kicker" data-i18n="hero.kicker">Kalkulačka · SAFE · EDIP · pravidlo 35&nbsp;%</p>
       <h1 id="h-title" data-i18n="hero.title">Podíl komponent s původem mimo EU</h1>
       <p class="lead" data-i18n="hero.lead">Nahrajte kusovník nebo seznam nákupů. Kalkulačka spočítá podíl dílů s původem mimo EU podle obou metod Komise, ukáže nejhorší, očekávaný i nejlepší případ a řekne, které doklady chybějí.</p>
       <p class="privacy">
@@ -58,9 +58,9 @@
           <p class="hint hint--lead" data-i18n="s1.hint">Jeden řádek = jeden nakupovaný díl (tier-1) nebo podsestava z vlastní výroby. Stačí dodavatel, cena a země původu, ostatní doplníte později.</p>
           <div class="data-grid">
             <div class="data-actions">
-              <button type="button" class="btn" id="btn-sample" data-i18n="data.sample">Načíst ukázku</button>
+              <button type="button" class="btn" id="btn-sample" data-testid="load-sample" data-i18n="data.sample">Načíst ukázku</button>
               <button type="button" class="btn btn--ghost" id="btn-upload" data-i18n="data.upload">Nahrát CSV nebo XLSX</button>
-              <input type="file" id="file-input" accept=".csv,.tsv,.txt,.xlsx,.xls,.xlsm,.ods,.json,text/csv,text/tab-separated-values" hidden>
+              <input type="file" id="file-input" data-testid="file-input" accept=".csv,.tsv,.txt,.xlsx,.xls,.xlsm,.ods,.json,text/csv,text/tab-separated-values" hidden>
               <button type="button" class="btn btn--ghost" id="btn-project" data-i18n="data.project">Načíst projekt (JSON)</button>
               <input type="file" id="project-input" accept=".json,application/json" hidden>
               <p class="tmpl">
@@ -74,7 +74,7 @@
             <div class="paste">
               <label for="paste-area" class="label" data-i18n="data.pasteLabel">Vložit z Excelu</label>
               <p class="hint" id="paste-hint" data-i18n="data.pasteHint">Označte v Excelu buňky včetně řádku se záhlavím, zkopírujte a vložte sem.</p>
-              <textarea id="paste-area" rows="5" spellcheck="false" autocomplete="off" aria-describedby="paste-hint" data-i18n-attr="placeholder:data.pastePlaceholder"></textarea>
+              <textarea id="paste-area" rows="5" wrap="off" spellcheck="false" autocomplete="off" aria-describedby="paste-hint" data-i18n-attr="placeholder:data.pastePlaceholder"></textarea>
               <button type="button" class="btn btn--ghost" id="btn-paste" data-i18n="data.pasteBtn">Načíst vložená data</button>
             </div>
           </div>
@@ -145,7 +145,7 @@
 
             <section class="panel panel--verdict" aria-labelledby="h-verdict">
               <h3 id="h-verdict" class="panel__title" data-i18n="verdict.title">Verdikt</h3>
-              <div id="verdict"></div>
+              <div id="verdict" data-testid="verdict"></div>
             </section>
 
             <section class="panel" aria-labelledby="h-headroom">
@@ -155,7 +155,7 @@
 
             <section class="panel" aria-labelledby="h-minset">
               <h3 id="h-minset" class="panel__title" data-i18n="ms.title">Minimální sada dokladů</h3>
-              <div id="minset"></div>
+              <div id="minset" data-testid="min-set-table"></div>
             </section>
 
             <section class="panel" aria-labelledby="h-cat">
@@ -164,7 +164,7 @@
                 <button type="button" class="btn btn--ghost btn--sm no-print" id="btn-copy-cat" data-i18n="cat.copy">Kopírovat jako tabulku</button>
               </div>
               <p class="hint" id="cat-hint"></p>
-              <div id="categories"></div>
+              <div id="categories" data-testid="category-table"></div>
             </section>
 
             <section class="panel" aria-labelledby="h-ev">
@@ -185,7 +185,7 @@
                   <input type="date" id="rq-deadline">
                 </div>
               </div>
-              <div id="requests"></div>
+              <div id="requests" data-testid="supplier-requests"></div>
             </section>
 
             <section class="panel panel--lines" aria-labelledby="h-lines">
@@ -203,6 +203,7 @@
                   <tbody id="ln-body"></tbody>
                 </table>
               </div>
+              <button type="button" class="btn btn--ghost btn--sm no-print ln-more" id="ln-more" hidden></button>
               <datalist id="dl-cc"></datalist>
             </section>
 
@@ -223,7 +224,7 @@
         <div class="box__body">
           <div class="toolbar">
             <button type="button" class="btn btn--ghost" id="btn-csv" data-needs-data disabled data-i18n="ex.csv">CSV řádků</button>
-            <button type="button" class="btn btn--ghost" id="btn-xlsx" data-needs-data disabled data-i18n="ex.xlsx">XLSX (všechny tabulky)</button>
+            <button type="button" class="btn btn--ghost" id="btn-xlsx" data-testid="export-xlsx" data-needs-data disabled data-i18n="ex.xlsx">XLSX (všechny tabulky)</button>
             <button type="button" class="btn btn--ghost" id="btn-save" data-needs-data disabled data-i18n="ex.save">Uložit projekt (JSON)</button>
             <button type="button" class="btn btn--ghost" id="btn-load" data-i18n="ex.load">Načíst projekt</button>
             <button type="button" class="btn" id="btn-print" data-needs-data disabled data-i18n="ex.print">Tisk zprávy</button>
