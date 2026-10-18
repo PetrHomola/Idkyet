@@ -8,7 +8,7 @@ Jak mluvit s lidmi na Future Forces, jak vést úvodní hovor a jak z něj uděl
 
 **Cíl:** neprodávat. Sbírat odpovědi, kontakty a svolení ozvat se. Úspěch je 15–25 rozhovorů a 10 lidí, kteří souhlasí s krátkým hovorem po veletrhu.
 
-**Koho navštívit** (ověřte v katalogu vystavovatelů): Tatra, CSG, KNDS, BAE Systems Hägglunds, Ray Service, Meopta, Colt CZ a další stánky z [cílového seznamu](cenik-interni.md#cílové-organizace). Na stánku se ptejte po lidech z compliance, exportní kontroly, nákupu nebo řízení programu. Obchodníci na stánku vás k nim mohou poslat.
+**Koho navštívit** (ověřte v katalogu vystavovatelů): Tatra, CSG, KNDS, BAE Systems Hägglunds, Ray Service, Meopta, Colt CZ a další stánky z [cílového seznamu](cenik-interni.md#6-cílové-organizace). Na stánku se ptejte po lidech z compliance, exportní kontroly, nákupu nebo řízení programu. Obchodníci na stánku vás k nim mohou poslat.
 
 ### Jedna otázka na začátek
 
@@ -124,7 +124,7 @@ Domluvte konkrétní datum, kdy přijdou data, a kdo je pošle.
 3. **Data nesmí z firmy:** nabídněte stejný rozsah prací u nich, na jejich zařízení, s offline kalkulačkou (Posila u vás, [PRICE_DAY] za den; jak nacenit viz [cenik-interni.md](cenik-interni.md)).
 4. **Váhají:** menší první krok zdarma. Ať si kalkulačku vyzkouší na jednom výrobku a pošlou jen souhrn (bez řádků). Projdete ho spolu za 30 minut a ukážete, co v něm chybí.
 5. **Vhodný kandidát na referenci** (středně velký dodavatel v kooperaci programu SAFE nebo žadatel EDIP): zaváděcí nabídka, Rychlá kontrola za poloviční cenu výměnou za referenci. Platí jen pro první dva zákazníky.
-6. **Slevy nedáváme.** Když je cena problém, zmenšete rozsah (méně řádků, jeden výrobek, jedna metoda). Viz [cenik-interni.md](cenik-interni.md#slevy-jen-za-rozsah).
+6. **Slevy nedáváme.** Když je cena problém, zmenšete rozsah (méně řádků, jeden výrobek, jedna metoda). Viz [cenik-interni.md](cenik-interni.md#3-slevy-jen-za-rozsah).
 7. Po předání Rychlé kontroly do týdne navrhněte Sadu dokladů s připomenutím zápočtu do 60 dnů.
 
 ---

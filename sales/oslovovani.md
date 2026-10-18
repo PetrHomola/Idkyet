@@ -57,7 +57,7 @@ Obecně:
 >
 > Two ways to start:
 > – a free calculator at [WEB]/kalkulacka/ that runs in your browser; no data leaves your computer, and there is a single-file offline version,
-> – a Quick Check at a fixed price of [PRICE_QUICK]: within 10 working days, up to 500 lines, results under both methods, the headroom to 35 % and a list of suppliers to contact.
+> – a Quick check at a fixed price of [PRICE_QUICK]: within 10 working days, up to 500 lines, results under both methods, the headroom to 35 % and a list of suppliers to contact.
 >
 > We work with commercial data only (part, supplier, price, country of origin, evidence), never drawings or technical documentation. We are happy to sign your NDA.
 >
@@ -70,7 +70,7 @@ Obecně:
 **Swap-in lines:**
 - Slovakia: “Slovakia’s SAFE allocation is around EUR 2.3 billion, including Tatra and CV90.”
 - Poland: “Poland’s SAFE allocation is EUR 43.7 billion.”
-- EDIP applicant: “EDIP calls close on 16 February 2027, and the Commission’s Procurement strategy template asks for the non-EU share broken down into five component categories, plus a description of how origin is verified.” Offer the Quick Check with a draft origin annex at [PRICE_QUICK_EDIP].
+- EDIP applicant: “EDIP calls close on 16 February 2027, and the Commission’s Procurement strategy template asks for the non-EU share broken down into five component categories, plus a description of how origin is verified.” Offer the Quick check with a draft origin annex at [PRICE_QUICK_EDIP].
 
 ---
 
@@ -102,7 +102,7 @@ Adresát: vedoucí obchodu, kvality nebo nákupu u menšího dodavatele hlavníc
 
 ## 3. Partneři: advokátní kanceláře, grantoví poradci, celní specialisté
 
-Cíl: partner přivede klienta nebo nás přizve do projektu. My děláme data a výpočet, oni právo, žádost nebo celní určení. Model spolupráce (doporučení s provizí nebo subdodávka pro partnera) nabízíme podle toho, co partnerovi vyhovuje; podmínky viz [cenik-interni.md](cenik-interni.md#partneři).
+Cíl: partner přivede klienta nebo nás přizve do projektu. My děláme data a výpočet, oni právo, žádost nebo celní určení. Model spolupráce (doporučení s provizí nebo subdodávka pro partnera) nabízíme podle toho, co partnerovi vyhovuje; podmínky viz [cenik-interni.md](cenik-interni.md#5-partneři).
 
 ### 3a. Advokátní kancelář (CZ)
 
