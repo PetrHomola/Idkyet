@@ -1,16 +1,16 @@
 Číslo dílu;Popis;Dodavatel;Země dodavatele;Kategorie;Množství;Jednotková cena;Měna;Země původu;Doklad;Platnost do;Odhad původu;Typ;Poznámka
-PM7-S-001;Výkovek ramene nápravy;Kovárna Dubenec s.r.o.;CZ;Konstrukce a mechanika;2;48 500;CZK;CZ;prohlášení dodavatele;2027-06-30;;nakupovaný díl;
-PM7-S-002;Odlitek skříně ložiska;Slévárna Hořenec a.s.;CZ;Konstrukce a mechanika;4;18 900;CZK;CZ;prohlášení dodavatele;2027-03-31;;nakupovaný díl;
+PM7-S-001;Výkovek ramene nápravy;Kovárna Dubenec s.r.o.;CZ;Konstrukce a mechanika;2;48 500;CZK;CZ;prohlášení dodavatele;2028-01-31;;nakupovaný díl;
+PM7-S-002;Odlitek skříně ložiska;Slévárna Hořenec a.s.;CZ;Konstrukce a mechanika;4;18 900;CZK;CZ;prohlášení dodavatele;2027-12-31;;nakupovaný díl;
 PM7-S-003;Torzní tyč;Kryvobor Pruzhyny TOV;UA;Konstrukce a mechanika;2;1 450,00;EUR;UA;celní doklad;;;nakupovaný díl;Dovoz z Ukrajiny, původ podle celního dokladu
 PM7-S-004;Kuželíkové ložisko;Weidach Wälzlager GmbH;DE;Konstrukce a mechanika;8;210,00;EUR;;;;JP;nakupovaný díl;Obchodník, výrobce neuveden
 PM7-S-005;Pryžokovové pouzdro;Pryžové díly Lomnička s.r.o.;CZ;Konstrukce a mechanika;12;640;CZK;CZ;;;;nakupovaný díl;
-PM7-S-006;Sada šroubových spojů M20;Šroubárna Bystřec s.r.o.;CZ;Konstrukce a mechanika;1;18 400;CZK;CZ;prohlášení dodavatele;2027-05-31;;nakupovaný díl;
-PM7-S-007;Pálené díly rámu (sada);Strojírny Valeč s.r.o.;CZ;Konstrukce a mechanika;1;186 000;CZK;CZ;prohlášení dodavatele;2027-09-30;;nakupovaný díl;
+PM7-S-006;Sada šroubových spojů M20;Šroubárna Bystřec s.r.o.;CZ;Konstrukce a mechanika;1;18 400;CZK;CZ;prohlášení dodavatele;2028-02-28;;nakupovaný díl;
+PM7-S-007;Pálené díly rámu (sada);Strojírny Valeč s.r.o.;CZ;Konstrukce a mechanika;1;186 000;CZK;CZ;prohlášení dodavatele;2028-03-31;;nakupovaný díl;
 PM7-S-008;Nosník vahadla;Kováčňa Lúčnica s.r.o.;SK;Konstrukce a mechanika;2;3 100,00;EUR;SK;odhad;;;nakupovaný díl;Původ uveden v nabídce, prohlášení chybí
-PM7-S-009;Kluzné pouzdro;Alpentor Präzision GmbH;AT;Konstrukce a mechanika;16;95,00;EUR;AT;prohlášení dodavatele;2027-06-30;;nakupovaný díl;
+PM7-S-009;Kluzné pouzdro;Alpentor Präzision GmbH;AT;Konstrukce a mechanika;16;95,00;EUR;AT;prohlášení dodavatele;2028-01-31;;nakupovaný díl;
 PM7-S-010;Pojistné kroužky;Šroubárna Bystřec s.r.o.;CZ;Konstrukce a mechanika;40;18;CZK;;;;CZ;nakupovaný díl;
-PM7-S-011;Kryt nápravy;Strojírny Valeč s.r.o.;CZ;Konstrukce a mechanika;2;12 800;CZK;CZ;prohlášení dodavatele;2027-09-30;;nakupovaný díl;
-PM7-S-012;Sada těsnicích kroužků;Elbfeld Dichtungstechnik GmbH;DE;Konstrukce a mechanika;1;340,00;EUR;DE;prohlášení dodavatele;2027-01-31;;nakupovaný díl;
+PM7-S-011;Kryt nápravy;Strojírny Valeč s.r.o.;CZ;Konstrukce a mechanika;2;12 800;CZK;CZ;prohlášení dodavatele;2028-03-31;;nakupovaný díl;
+PM7-S-012;Sada těsnicích kroužků;Elbfeld Dichtungstechnik GmbH;DE;Konstrukce a mechanika;1;340,00;EUR;DE;prohlášení dodavatele;2028-01-31;;nakupovaný díl;
 PM7-S-013;Vahadlo kola, odlitek;Officine Valtorre S.r.l.;IT;Konstrukce a mechanika;2;2 400,00;EUR;IT;;;;nakupovaný díl;
 PM7-S-014;Čep vahadla;Norrbro Mekanik AB;SE;Konstrukce a mechanika;4;260,00;EUR;SE;kupní smlouva;;;nakupovaný díl;Původ uveden v kupní smlouvě
 PM7-S-015;Hřídel kola;Fjordvern Teknikk AS;NO;Konstrukce a mechanika;2;1 150,00;EUR;NO;celní doklad;;;nakupovaný díl;
@@ -18,46 +18,46 @@ PM7-S-016;Silentbloky;Brzozowiec Technika Sp. z o.o.;PL;Konstrukce a mechanika;8
 PM7-S-017;Lineární vedení;Seorin Precision Co., Ltd.;KR;Konstrukce a mechanika;2;1 800,00;USD;KR;celní doklad;;;nakupovaný díl;
 PM7-S-018;Kuličkový šroub;Hoshizora Seimitsu K.K.;JP;Konstrukce a mechanika;1;2 900,00;USD;JP;celní doklad;;;nakupovaný díl;
 PM7-P-001;Hydraulický válec odpružení;Caldera Ridge Hydraulics Inc.;US;Pohon a energie;2;5 600,00;USD;US;celní doklad;;;nakupovaný díl;
-PM7-P-002;Hydraulický akumulátor;Kesselbrunn Hydraulik GmbH;DE;Pohon a energie;2;1 650,00;EUR;DE;prohlášení dodavatele;2026-12-15;;nakupovaný díl;Prohlášení brzy vyprší
+PM7-P-002;Hydraulický akumulátor;Kesselbrunn Hydraulik GmbH;DE;Pohon a energie;2;1 650,00;EUR;DE;prohlášení dodavatele;2028-05-31;;nakupovaný díl;
 PM7-P-003;Hydraulické hadice a koncovky (sada);Hydraulika Doubravice s.r.o.;CZ;Pohon a energie;1;24 300;CZK;;;;IT;nakupovaný díl;Obchodník
 PM7-P-004;Ventilový blok;Larkmoor Controls Ltd;GB;Pohon a energie;1;3 100,00;EUR;GB;celní doklad;;;nakupovaný díl;
 PM7-P-005;Elektrohydraulické čerpadlo 24 V;Hallwinkel Antriebstechnik GmbH;DE;Pohon a energie;1;4 400,00;EUR;;;;US;nakupovaný díl;Obchodník, pravděpodobně americký výrobce
 PM7-P-006;Planetová převodovka;Ateliers de la Vionne SAS;FR;Pohon a energie;1;3 300,00;EUR;FR;prohlášení dodavatele;2026-08-31;;nakupovaný díl;Prohlášení vypršelo, vyžádat obnovu
 PM7-P-007;Akumulátorová baterie 24 V;Součástky Vrbatka s.r.o.;CZ;Pohon a energie;2;9 800;CZK;;;;KR;nakupovaný díl;Obchodník
-PM7-P-008;Hydraulický filtr;Kesselbrunn Hydraulik GmbH;DE;Pohon a energie;2;85,00;EUR;DE;prohlášení dodavatele;2027-04-30;;nakupovaný díl;
+PM7-P-008;Hydraulický filtr;Kesselbrunn Hydraulik GmbH;DE;Pohon a energie;2;85,00;EUR;DE;prohlášení dodavatele;2027-06-30;;nakupovaný díl;
 PM7-P-009;Alternátor 28 V;Pacific Arc Power Inc.;US;Pohon a energie;1;1 900,00;USD;US;odhad;;;nakupovaný díl;
 PM7-P-010;Hydraulické šroubení (sada);Hydraulika Doubravice s.r.o.;CZ;Pohon a energie;1;6 900;CZK;DE;odhad;;;nakupovaný díl;
-PM7-P-011;Tlumič odpružení;Brzozowiec Technika Sp. z o.o.;PL;Pohon a energie;2;860,00;EUR;PL;prohlášení dodavatele;2027-02-28;;nakupovaný díl;
+PM7-P-011;Tlumič odpružení;Brzozowiec Technika Sp. z o.o.;PL;Pohon a energie;2;860,00;EUR;PL;prohlášení dodavatele;2028-02-28;;nakupovaný díl;
 PM7-P-012;Hydraulický olej, první náplň;Hydraulika Doubravice s.r.o.;CZ;Pohon a energie;1;5 600;CZK;;;;CZ;nakupovaný díl;
 PM7-P-013;Servoventil odpružení;Caldera Ridge Hydraulics Inc.;US;Pohon a energie;2;2 800,00;USD;US;celní doklad;;;nakupovaný díl;
 PM7-I-001;Snímač tlaku hydrauliky;Lindenhof Sensorik AG;CH;Přístroje a monitorování;4;310,00;EUR;CH;celní doklad;;;nakupovaný díl;Švýcarsko není domácí země
-PM7-I-002;Snímač polohy vahadla;Rheinwiesen Messtechnik GmbH;DE;Přístroje a monitorování;4;420,00;EUR;DE;prohlášení dodavatele;2027-08-31;;nakupovaný díl;
+PM7-I-002;Snímač polohy vahadla;Rheinwiesen Messtechnik GmbH;DE;Přístroje a monitorování;4;420,00;EUR;DE;prohlášení dodavatele;2028-02-28;;nakupovaný díl;
 PM7-I-003;Teplotní čidlo oleje;Součástky Vrbatka s.r.o.;CZ;Přístroje a monitorování;2;1 150;CZK;;;;CN;nakupovaný díl;Obchodník
 PM7-I-004;Inerciální měřicí jednotka;Larkmoor Controls Ltd;GB;Přístroje a monitorování;1;2 900,00;EUR;GB;;;;nakupovaný díl;
 PM7-I-005;Snímač otáček kola;Hanmaru Sensor Co., Ltd.;KR;Přístroje a monitorování;2;240,00;USD;KR;celní doklad;;;nakupovaný díl;
-PM7-I-006;Manometr;Měřidla Želivka s.r.o.;CZ;Přístroje a monitorování;2;1 850;CZK;CZ;prohlášení dodavatele;2027-06-30;;nakupovaný díl;
-PM7-I-007;Snímač zdvihu tlumiče;Alpentor Präzision GmbH;AT;Přístroje a monitorování;2;690,00;EUR;AT;prohlášení dodavatele;2027-10-31;;nakupovaný díl;
+PM7-I-006;Manometr;Měřidla Želivka s.r.o.;CZ;Přístroje a monitorování;2;1 850;CZK;CZ;prohlášení dodavatele;2027-01-15;;nakupovaný díl;Prohlášení brzy vyprší
+PM7-I-007;Snímač zdvihu tlumiče;Alpentor Präzision GmbH;AT;Přístroje a monitorování;2;690,00;EUR;AT;prohlášení dodavatele;2028-04-30;;nakupovaný díl;
 PM7-I-008;Tenzometrický snímač zatížení;Wisłoprzem Sp. z o.o.;PL;Přístroje a monitorování;2;9 400;CZK;;;;PL;nakupovaný díl;
 PM7-I-009;Monitorovací jednotka stavu podvozku;Rheinwiesen Messtechnik GmbH;DE;Přístroje a monitorování;1;4 000,00;EUR;;;;DE;nakupovaný díl;Původ neuveden
 PM7-B-001;Balistický kryt nápravy;Pancéřové systémy Kamenec s.r.o.;CZ;Bezpečnost a ochrana;2;64 000;CZK;CZ;prohlášení dodavatele;2027-12-31;;nakupovaný díl;
 PM7-B-002;Brzdový třmen;Ateliers de la Vionne SAS;FR;Bezpečnost a ochrana;4;1 350,00;EUR;FR;kupní smlouva;;;nakupovaný díl;
 PM7-B-003;Brzdový kotouč;Kovárna Dubenec s.r.o.;CZ;Bezpečnost a ochrana;4;6 200;CZK;CZ;;;;nakupovaný díl;
 PM7-B-004;Hasicí systém prostoru nápravy;Brandhof Löschtechnik GmbH;DE;Bezpečnost a ochrana;1;2 600,00;EUR;GB;;;;nakupovaný díl;Obchodník, původ podle katalogu
-PM7-B-005;Pružinová parkovací brzda;Officine Valtorre S.r.l.;IT;Bezpečnost a ochrana;2;980,00;EUR;IT;prohlášení dodavatele;2027-03-31;;nakupovaný díl;
+PM7-B-005;Pružinová parkovací brzda;Officine Valtorre S.r.l.;IT;Bezpečnost a ochrana;2;980,00;EUR;IT;prohlášení dodavatele;2027-12-31;;nakupovaný díl;
 PM7-B-006;Ochranná mřížka (sada);Strojírny Valeč s.r.o.;CZ;Bezpečnost a ochrana;1;9 800;CZK;CZ;;;;nakupovaný díl;
 PM7-B-007;Pojistný přetlakový ventil;Hoshizora Seimitsu K.K.;JP;Bezpečnost a ochrana;2;380,00;USD;JP;celní doklad;;;nakupovaný díl;
 PM7-B-008;Výstražné štítky (sada);Štítkárna Bělečko s.r.o.;CZ;Bezpečnost a ochrana;1;1 450;CZK;;;;CZ;nakupovaný díl;
 PM7-E-001;Řídicí jednotka odpružení;Řídicí systémy Kostelec s.r.o.;CZ;Elektronika a komunikace;1;125 000;CZK;;;;CZ;nakupovaný díl;Původ desek plošných spojů neověřen
-PM7-E-002;Kabelový svazek podvozku;Kabelovna Lomnička s.r.o.;CZ;Elektronika a komunikace;1;62 000;CZK;CZ;prohlášení dodavatele;2027-07-31;;nakupovaný díl;
+PM7-E-002;Kabelový svazek podvozku;Kabelovna Lomnička s.r.o.;CZ;Elektronika a komunikace;1;62 000;CZK;CZ;prohlášení dodavatele;2028-04-30;;nakupovaný díl;
 PM7-E-003;Konektory MIL-DTL-38999 (sada);Shuiyue Connector Co., Ltd.;CN;Elektronika a komunikace;1;1 400,00;USD;CN;celní doklad;;;nakupovaný díl;
 PM7-E-004;Modul sběrnice CAN;Lunhai Electronics Co., Ltd.;TW;Elektronika a komunikace;2;520,00;USD;TW;celní doklad;;;nakupovaný díl;
 PM7-E-005;Deska mikrokontroléru;Součástky Vrbatka s.r.o.;CZ;Elektronika a komunikace;1;8 900;CZK;;;;TW;nakupovaný díl;Obchodník
-PM7-E-006;Měnič DC/DC 24/12 V;Wisłoprzem Sp. z o.o.;PL;Elektronika a komunikace;2;380,00;EUR;PL;prohlášení dodavatele;2027-05-31;;nakupovaný díl;
+PM7-E-006;Měnič DC/DC 24/12 V;Wisłoprzem Sp. z o.o.;PL;Elektronika a komunikace;2;380,00;EUR;PL;prohlášení dodavatele;2028-05-31;;nakupovaný díl;
 PM7-E-007;Software řídicí jednotky (licence);Řídicí systémy Kostelec s.r.o.;CZ;Elektronika a komunikace;1;45 000;CZK;CZ;kupní smlouva;;;nakupovaný díl;
 PM7-E-008;Rádiový modul diagnostiky;Caldera Ridge Electronics Inc.;US;Elektronika a komunikace;1;2 100,00;USD;US;celní doklad;;;nakupovaný díl;
 PM7-E-009;Kabelové průchodky a pojistky (sada);Součástky Vrbatka s.r.o.;CZ;Elektronika a komunikace;1;3 900;CZK;;;;DE;nakupovaný díl;
 PM7-E-010;Displej servisního panelu;Lunhai Electronics Co., Ltd.;TW;Elektronika a komunikace;1;640,00;USD;TW;odhad;;;nakupovaný díl;
-PM7-E-011;Pojistková skříň s relé;Elektropanel Hořenec s.r.o.;CZ;Elektronika a komunikace;1;16 500;CZK;CZ;prohlášení dodavatele;2027-04-30;;nakupovaný díl;
+PM7-E-011;Pojistková skříň s relé;Elektropanel Hořenec s.r.o.;CZ;Elektronika a komunikace;1;16 500;CZK;CZ;prohlášení dodavatele;2028-01-31;;nakupovaný díl;
 PM7-V-001;Svařování a obrábění rámu;;;Konstrukce a mechanika;1;330 000;CZK;CZ;;;;vlastní výroba;Práce a režie, bez nakoupených dílů
 PM7-V-002;Montáž a zkoušky hydraulické podsestavy;;;Pohon a energie;1;220 000;CZK;CZ;;;;vlastní výroba;Práce a režie, bez nakoupených dílů
 PM7-V-003;Povrchová úprava (KTL a vrchní lak);;;Konstrukce a mechanika;1;150 000;CZK;CZ;;;;vlastní výroba;Práce a režie, bez nakoupených dílů

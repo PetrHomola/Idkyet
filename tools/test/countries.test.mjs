@@ -125,3 +125,24 @@ test('isCountryCode accepts ISO2, XK and EU only', () => {
   assert.ok(!isCountryCode('de'));
   assert.ok(!isCountryCode(null));
 });
+
+test('normalizeCountry: two different countries in one cell are ambiguous', () => {
+  for (const v of ['DE/US', 'CZ/SK', 'CZ, SK', 'DE - US', 'DE+AT', 'DE & AT', 'Germany (US)', 'Německo [USA]']) {
+    assert.equal(normalizeCountry(v), null, v);
+  }
+  assert.equal(normalizeCountry('DE - Německo'), 'DE');
+  assert.equal(normalizeCountry('CZE: Česko'), 'CZ');
+  assert.equal(normalizeCountry('EU - Německo'), 'DE');
+  assert.equal(normalizeCountry('Německo (EU)'), 'DE');
+  assert.equal(normalizeCountry('USA - Kalifornie'), 'US');
+  assert.equal(normalizeCountry('UK - England'), 'GB');
+});
+
+test('normalizeCountry: more Czech and Slovak spellings', () => {
+  const cases = {
+    'Slovak Rep.': 'SK', 'Slovenská rep.': 'SK', 'Velká Británie a Severní Irsko': 'GB',
+    'Spojené království Velké Británie a Severního Irska': 'GB', 'Řecko': 'GR', 'řecko': 'GR', 'Ελλάδα': null,
+  };
+  for (const [input, code] of Object.entries(cases)) assert.equal(normalizeCountry(input), code, input);
+  assert.equal(normalizeCountry('SR'), 'SR', 'SR stays Suriname (ISO); calc-core adds a note');
+});

@@ -161,6 +161,35 @@ function str(v) {
   return v == null ? '' : String(v).trim();
 }
 
+// Values that mean "origin not known" ('-', '?', 'N/A', 'neznámá', 'TBD' ...).
+// They give an empty country (status 'unknown'), not a country outside the EU.
+const NO_COUNTRY = new Set([
+  'n a', 'n d', 'nevim', 'nevime', 'nezname', 'neznamy', 'neznama', 'nezn', 'nezjisteno', 'nezjistena',
+  'nezjisteny', 'neuvedeno', 'neuveden', 'neuvedena', 'neurceno', 'neurcena', 'nedoplneno', 'chybi',
+  'zjistit', 'zjistuje se', 'overit', 'k overeni', 'ceka se', 'bez udaje', 'zadna', 'zadny', 'nic',
+  'unknown', 'unk', 'not known', 'not available', 'missing', 'none', 'null', 'nan', 'tbd', 'tba', 'tbc',
+  'to be confirmed', 'to be defined', 'x', 'xx', 'xxx',
+]);
+
+/** True when a country cell is empty or only says that the country is not known. */
+function noCountry(v) {
+  if (isBlank(v)) return true;
+  const n = norm(v);
+  return n === '' || NO_COUNTRY.has(n);
+}
+
+// ISO codes that are often meant as something else in Czech and Slovak data.
+const AMBIGUOUS_CODES = {
+  SR: {
+    cs: 'kód SR je Surinam. Pokud jde o Slovensko (Slovenská republika), použijte SK.',
+    en: 'SR is the code for Suriname. For Slovakia use SK.',
+  },
+  NA: {
+    cs: 'kód NA je Namibie. Pokud původ neznáte, nechte pole prázdné.',
+    en: 'NA is the code for Namibia. If the origin is not known, leave the field empty.',
+  },
+};
+
 /* ------------------------------------------------------------------------ */
 /* CSV / TSV parsing                                                        */
 /* ------------------------------------------------------------------------ */
@@ -776,7 +805,7 @@ function newId() {
 export function makeLine(partial = {}, options = {}) {
   const p = partial || {};
   const country = (v) => {
-    if (isBlank(v)) return null;
+    if (noCountry(v)) return null;
     return normalizeCountry(v) || String(v).trim().toUpperCase();
   };
   const qty = isBlank(p.qty) ? 1 : parseNumber(p.qty);
@@ -880,7 +909,7 @@ export function rowsToLines(rows, mapping, options = {}) {
 
     const country = (field) => {
       const v = cell(r, field);
-      if (isBlank(v)) return null;
+      if (noCountry(v)) return null;
       const c = normalizeCountry(v);
       if (c) return c;
       err(field, v, 'unknown-country', `Neznámá země „${str(v)}“.`, `Unknown country "${str(v)}".`);
@@ -1001,8 +1030,8 @@ function rateOf(cur, fx, projectCurrency) {
 /**
  * Cost of a line in the project currency: qty * unitCost * fx[currency].
  * A missing or unreadable quantity counts as 1; a missing unit cost or an
- * unknown exchange rate gives 0. Negative values are returned as they are
- * (analyze() excludes them and warns).
+ * unknown exchange rate gives 0. A negative quantity or unit cost gives a
+ * negative cost, even when both are negative (analyze() excludes such lines and warns).
  *
  * @param {object} line
  * @param {Record<string, number>} fx Rates into the project currency (project currency = 1).
@@ -1019,8 +1048,11 @@ export function lineCost(line, fx = {}, projectCurrency) {
   if (!isBlank(line.currency) && !cur) return 0;
   const rate = rateOf(cur, fx, normalizeCurrency(projectCurrency));
   if (!Number.isFinite(rate)) return 0;
-  const cost = q * u * rate;
-  return Number.isFinite(cost) ? cost : 0;
+  let cost = q * u * rate;
+  if (!Number.isFinite(cost)) return 0;
+  // A negative quantity or price stays negative (-2 x -50 is not +100), so analyze() excludes it.
+  if (q < 0 || u < 0) cost = -Math.abs(cost);
+  return cost;
 }
 
 /**
@@ -1125,9 +1157,18 @@ export function analyze(lines, options = {}) {
     const type = normalizeType(line.type) || 'tier1';
     const countryOf = (field) => {
       const v = line[field];
-      if (isBlank(v)) return null;
+      if (noCountry(v)) return null;
       const c = normalizeCountry(v);
-      if (c) return c;
+      if (c) {
+        if (AMBIGUOUS_CODES[c] && type !== 'raw') {
+          warnings.push({
+            severity: 'info', code: 'ambiguous-country', lineId: id, field, country: c,
+            cs: `${capital(FIELD_LABELS[field].cs)}: ${AMBIGUOUS_CODES[c].cs}`,
+            en: `${capital(FIELD_LABELS[field].en)}: ${AMBIGUOUS_CODES[c].en}`,
+          });
+        }
+        return c;
+      }
       const text = String(v).trim();
       if (type !== 'raw') {
         warn({
@@ -1144,6 +1185,13 @@ export function analyze(lines, options = {}) {
     const evidence = normalizeEvidence(line.evidence) || 'none';
     const validUntil = parseDate(line.validUntil);
     const status = lineStatus({ origin, evidence, validUntil: isBlank(line.validUntil) ? null : (validUntil || line.validUntil) }, today);
+    if (type === 'tier1' && !validUntil && !isBlank(line.validUntil) && DOC_SET.has(evidence)) {
+      warn({
+        code: 'invalid-date', lineId: id, field: 'validUntil',
+        cs: `Platnost dokladu „${str(line.validUntil)}“ nejde přečíst. Řádek se počítá jako nedoložený.`,
+        en: `The validity date "${str(line.validUntil)}" cannot be read. The line counts as not documented.`,
+      });
+    }
     const category = normalizeCategory(line.category);
 
     let cost = lineCost(line, fx, currency);
@@ -1307,6 +1355,7 @@ export function analyze(lines, options = {}) {
       (it.group.expected === 'home' || (isCanada && it.group.expected === 'canada')))
     .sort(byCostDesc);
 
+  const otherOk = (s, D) => s.nonHome / D <= thr + EPS && s.nonHome <= s.home + EPS * D;
   const minimumSetFor = (m) => {
     const D = denominators[m];
     const s = stateFor('worst', m);
@@ -1318,6 +1367,8 @@ export function analyze(lines, options = {}) {
       return out;
     }
     for (const it of minCandidates) {
+      // EU–Canada: a Canadian line only lowers the "other" share; skip it once just the home minimum is missing.
+      if (isCanada && it.group.expected === 'canada' && otherOk(s, D)) continue;
       s.nonHome -= it.cost;
       s[it.group.expected] += it.cost;
       out.lineIds.push(it.id);
@@ -1354,9 +1405,18 @@ export function analyze(lines, options = {}) {
     const s = stateFor('expected', m);
     substitution = { method: m, lineIds: [], count: 0, cost: 0, feasible: passes(s, D) === true };
     if (!substitution.feasible) {
-      const cands = tier1.filter((it) => it.group.expected === 'nonHome' && it.cost > 0).sort(byCostDesc);
-      for (const it of cands) {
-        s.nonHome -= it.cost;
+      // Lines outside the home countries (expected scenario), largest first. In the EU–Canada
+      // pack Canadian lines are used too, but only once the "other" limits hold and the
+      // home minimum is still missing.
+      const pool = tier1.filter((it) => it.group.expected === 'nonHome' && it.cost > 0).sort(byCostDesc);
+      const caPool = isCanada ? tier1.filter((it) => it.group.expected === 'canada' && it.cost > 0).sort(byCostDesc) : [];
+      while (pool.length || caPool.length) {
+        let it;
+        if (!caPool.length || (pool.length && !otherOk(s, D))) it = pool.shift();
+        else if (!pool.length) it = caPool.shift();
+        else it = pool[0].cost >= caPool[0].cost ? pool.shift() : caPool.shift();
+        if (it.group.expected === 'canada') s.canada -= it.cost;
+        else s.nonHome -= it.cost;
         s.home += it.cost;
         substitution.lineIds.push(it.id);
         substitution.cost += it.cost;
