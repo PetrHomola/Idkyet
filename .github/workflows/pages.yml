@@ -33,7 +33,7 @@ jobs:
         run: npm run build
         env:
           # offline kalkulačka se musí sestavit i se SheetJS (import a export XLSX)
-          POD35_REQUIRE_SHEETJS: "1"
+          CIRUS_REQUIRE_SHEETJS: "1"
 
       - name: Upload dist/
         uses: actions/upload-pages-artifact@v3

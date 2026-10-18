@@ -29,7 +29,7 @@ Hranaté závorky doplňte před odesláním. Firemní údaje a ceny berte vždy
 | `[PRICE_QUICK]`, `[PRICE_QUICK_EDIP]`, `[PRICE_PACK]`, `[PRICE_PACK_EXTRA]`, `[PRICE_MONITOR]`, `[PRICE_SUPPLIER]`, `[PRICE_DAY]` | `config.json`: `prices` (Kč) pro české texty, `prices_en` (EUR) pro anglické texty a zahraniční zákazníky |
 | `[OSLOVENÍ]`, `[NAME]`, `[FIRMA]`, `[PROGRAM]`, `[MOJE JMÉNO]`, `[FUNKCE]`, `[TERMÍN]` | doplníte podle adresáta |
 
-Odkazy na web: kalkulačka `[WEB]/kalkulacka/`, offline verze `[WEB]/pod35-kalkulacka-offline.html`, metodika `[WEB]/metodika.html`, nabídka `[WEB]/nabidka.html` (EN `[WEB]/en/offer.html`), ochrana dat `[WEB]/ochrana-dat.html`, šablony `[WEB]/sablony/`.
+Odkazy na web: kalkulačka `[WEB]/kalkulacka/`, offline verze `[WEB]/cirus-origin-kalkulacka-offline.html`, metodika `[WEB]/metodika.html`, nabídka `[WEB]/nabidka.html` (EN `[WEB]/en/offer.html`), ochrana dat `[WEB]/ochrana-dat.html`, šablony `[WEB]/sablony/`.
 
 ## Než pošlete první zprávu
 

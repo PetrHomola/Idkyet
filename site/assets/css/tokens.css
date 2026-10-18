@@ -1,39 +1,46 @@
-/* Pod35 design tokens. Concept: a customs document made calm and modern —
-   paper, ink, a border line at 35 %, and an amber "stamp" mark. */
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+/* CIRUS Origin design tokens. Concept: restrained, precise, enterprise-grade —
+   white and cool greys, one deep navy accent, a thin 35 % threshold line, numbers in mono.
+   Token names are a contract shared by site.css and app.css. */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap");
 
 :root {
   /* color */
-  --paper: #f3f4ef;
-  --surface: #ffffff;
-  --sunk: #e7e9e3;
-  --ink: #142029;
-  --muted: #56636d;
-  --line: #d3d8d5;
-  --accent: #1f4e8c;
+  --paper: #ffffff;          /* page background */
+  --surface: #ffffff;        /* cards, panels */
+  --sunk: #f4f5f7;           /* alternate sections, table heads, inputs */
+  --subtle: #f9fafb;         /* very light fills */
+  --ink: #0b1220;
+  --muted: #5b6472;
+  --faint: #8a93a0;
+  --line: #e4e7eb;
+  --line-strong: #cfd4da;
+  --accent: #0f3d73;         /* deep navy */
+  --accent-hover: #0b2f5a;
   --accent-ink: #ffffff;
-  --accent-soft: #e3ebf5;
-  --mark: #c97a00;
-  --mark-soft: #fbefd9;
-  --ok: #1d7748;
-  --ok-soft: #e1f1e7;
+  --accent-soft: #eaf0f7;
+  --mark: #0b1220;           /* the 35 % threshold line */
+  --mark-soft: #eef0f3;
+  --ok: #157347;
+  --ok-soft: #e7f4ec;
   --bad: #b42318;
-  --bad-soft: #fbe4e1;
-  --warn: #8f5b00;
-  --warn-soft: #fbefd6;
+  --bad-soft: #fdecea;
+  --warn: #9a5b06;
+  --warn-soft: #fdf3e2;
 
   /* type */
-  --f-display: "Barlow Semi Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
-  --f-body: "Public Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --f-display: "Geist", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Geist", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --fs-xs: 0.78rem;
   --fs-sm: 0.9rem;
   --fs-md: 1rem;
-  --fs-lg: 1.2rem;
-  --fs-xl: 1.6rem;
-  --fs-2xl: 2.2rem;
-  --fs-3xl: clamp(2.3rem, 5.5vw, 3.6rem);
-  --lh: 1.55;
+  --fs-lg: 1.15rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2.1rem;
+  --fs-3xl: clamp(2.4rem, 5.2vw, 3.9rem);
+  --lh: 1.6;
+  --tracking-tight: -0.022em;
+  --tracking-caps: 0.08em;
 
   /* space & shape */
   --s1: 4px;
@@ -43,64 +50,86 @@
   --s5: 24px;
   --s6: 32px;
   --s7: 48px;
-  --s8: 72px;
-  --radius: 6px;
-  --radius-lg: 10px;
-  --maxw: 1120px;
+  --s8: 80px;
+  --s9: 120px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --maxw: 1140px;
   --gutter-l: max(16px, env(safe-area-inset-left, 0px));
   --gutter-r: max(16px, env(safe-area-inset-right, 0px));
-  --shadow: 0 1px 0 var(--line), 0 10px 28px -18px rgba(10, 20, 30, 0.35);
+  --shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.06);
+  --shadow: 0 1px 2px rgba(11, 18, 32, 0.05), 0 8px 24px -12px rgba(11, 18, 32, 0.18);
+  --shadow-lg: 0 2px 4px rgba(11, 18, 32, 0.04), 0 24px 48px -24px rgba(11, 18, 32, 0.28);
+
+  /* motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 700ms;
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0f161c;
-    --surface: #16212a;
-    --sunk: #0b1116;
-    --ink: #e6ecef;
-    --muted: #98a7b2;
-    --line: #2a3843;
-    --accent: #84b3ef;
-    --accent-ink: #0b1622;
-    --accent-soft: #1b2b3e;
-    --mark: #f0b03c;
-    --mark-soft: #3a2b12;
-    --ok: #63d39b;
-    --ok-soft: #153325;
+    --paper: #0a0e13;
+    --surface: #10161d;
+    --sunk: #0d1218;
+    --subtle: #0e141a;
+    --ink: #e8edf2;
+    --muted: #9aa5b1;
+    --faint: #6f7b88;
+    --line: #212a34;
+    --line-strong: #2e3945;
+    --accent: #8fb6ef;
+    --accent-hover: #a9c7f3;
+    --accent-ink: #08111d;
+    --accent-soft: #14233a;
+    --mark: #e8edf2;
+    --mark-soft: #18202a;
+    --ok: #5fd39a;
+    --ok-soft: #12301f;
     --bad: #f28b80;
-    --bad-soft: #3c1d1a;
+    --bad-soft: #3a1c19;
     --warn: #f0b75a;
-    --warn-soft: #3a2c12;
-    --shadow: 0 1px 0 var(--line), 0 10px 28px -18px rgba(0, 0, 0, 0.7);
+    --warn-soft: #362812;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 48px -24px rgba(0, 0, 0, 0.7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0f161c;
-  --surface: #16212a;
-  --sunk: #0b1116;
-  --ink: #e6ecef;
-  --muted: #98a7b2;
-  --line: #2a3843;
-  --accent: #84b3ef;
-  --accent-ink: #0b1622;
-  --accent-soft: #1b2b3e;
-  --mark: #f0b03c;
-  --mark-soft: #3a2b12;
-  --ok: #63d39b;
-  --ok-soft: #153325;
+  --paper: #0a0e13;
+  --surface: #10161d;
+  --sunk: #0d1218;
+  --subtle: #0e141a;
+  --ink: #e8edf2;
+  --muted: #9aa5b1;
+  --faint: #6f7b88;
+  --line: #212a34;
+  --line-strong: #2e3945;
+  --accent: #8fb6ef;
+  --accent-hover: #a9c7f3;
+  --accent-ink: #08111d;
+  --accent-soft: #14233a;
+  --mark: #e8edf2;
+  --mark-soft: #18202a;
+  --ok: #5fd39a;
+  --ok-soft: #12301f;
   --bad: #f28b80;
-  --bad-soft: #3c1d1a;
+  --bad-soft: #3a1c19;
   --warn: #f0b75a;
-  --warn-soft: #3a2c12;
-  --shadow: 0 1px 0 var(--line), 0 10px 28px -18px rgba(0, 0, 0, 0.7);
+  --warn-soft: #362812;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 48px -24px rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--paper);
@@ -108,14 +137,27 @@ body {
   font-family: var(--f-body);
   font-size: var(--fs-md);
   line-height: var(--lh);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-h1, h2, h3, h4 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1, h2, h3, h4 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.12;
+  text-wrap: balance;
+  margin: 0;
+}
 img, svg { max-width: 100%; }
-a { color: var(--accent); text-underline-offset: 2px; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color var(--dur-fast) var(--ease); }
+a:hover { color: var(--accent-hover); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+::selection { background: var(--accent-soft); color: var(--ink); }
 .mono, code, kbd { font-family: var(--f-mono); }
 .num { font-variant-numeric: tabular-nums; }
 [hidden] { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

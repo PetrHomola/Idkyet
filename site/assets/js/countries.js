@@ -1,5 +1,5 @@
 /**
- * Pod35: countries.
+ * CIRUS Origin: countries.
  *
  * ISO 3166-1 alpha-2 list, EU27 and normalization of country codes and names
  * (ISO2, ISO3, names in Czech, Slovak, English, German and Polish, common aliases).

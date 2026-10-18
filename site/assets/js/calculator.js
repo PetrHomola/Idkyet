@@ -1,4 +1,4 @@
-// Pod35 calculator UI. Runs entirely in the browser. The only network request it can make is the
+// CIRUS Origin calculator UI. Runs entirely in the browser. The only network request it can make is the
 // lazy load of SheetJS from cdnjs when the user uploads or exports an XLSX file.
 import {
   CATEGORIES, RULE_PACKS, DEFAULT_RISK, parseTable, detectColumns, rowsToLines,
@@ -13,7 +13,7 @@ import { LANGS, LOCALES, translate, plural } from './i18n.js';
 const SAMPLE_URL = '../assets/sample/ukazka-kusovnik.csv';
 const XLSX_SRC = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
 const XLSX_SRI = 'sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==';
-const LANG_KEY = 'pod35.lang';
+const LANG_KEY = 'cirus-origin.lang';
 const DEFAULT_CURRENCY = 'CZK';
 const DEFAULT_FX = { CZK: 1, EUR: 25, USD: 23, GBP: 29.5, CHF: 26.5, PLN: 5.9 };
 const FIELDS = ['partNo', 'description', 'supplier', 'supplierCountry', 'category', 'type', 'qty', 'unitCost', 'totalCost', 'currency', 'origin', 'evidence', 'validUntil', 'expectedOrigin', 'note', 'id'];
@@ -32,7 +32,7 @@ const LANG_CODE = { cs: 'CZ', sk: 'SK', en: 'EN' };
 const BRAND = (document.documentElement.dataset.brand || '').trim();
 // File-name prefix for exports, from the brand ("CIRUS Origin" -> "cirus-origin").
 const FILE_PREFIX = BRAND.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
-  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'pod35';
+  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'cirus-origin';
 
 /* ---------------------------------------------------------------------- state */
 
@@ -340,13 +340,13 @@ function toast(msg) {
 function setStatus(el, content, kind = '') {
   if (!el) return;
   el.className = `status${kind ? ` status--${kind}` : ''}`;
-  el.pod35Render = typeof content === 'function' ? content : null;
+  el.cirusRender = typeof content === 'function' ? content : null;
   el.innerHTML = typeof content === 'function' ? content() : content;
 }
 
 function refreshStatuses() {
   for (const el of $$('.status')) {
-    if (typeof el.pod35Render === 'function') el.innerHTML = el.pod35Render();
+    if (typeof el.cirusRender === 'function') el.innerHTML = el.cirusRender();
   }
 }
 
@@ -606,7 +606,7 @@ async function loadSample() {
   setStatus(status, () => esc(t('data.loading')));
   try {
     let text;
-    const inline = document.getElementById('pod35-sample');
+    const inline = document.getElementById('cirus-origin-sample');
     if (inline && inline.textContent.trim()) {
       text = inline.textContent;
     } else {
@@ -633,7 +633,7 @@ function loadPasted() {
 
 function projectObject() {
   return {
-    format: 'pod35-project',
+    format: 'cirus-origin-project',
     version: 1,
     savedAt: new Date().toISOString(),
     source: state.source ? srcName(state.source.name) : null,
@@ -651,7 +651,7 @@ async function loadProjectFile(file) {
   } catch {
     data = null;
   }
-  if (!data || data.format !== 'pod35-project' || !Array.isArray(data.lines)) {
+  if (!data || data.format !== 'cirus-origin-project' || !Array.isArray(data.lines)) {
     setStatus(status, () => esc(t('ex.badProject')), 'bad');
     $('#export-msg') && setStatus($('#export-msg'), () => esc(t('ex.badProject')), 'bad');
     return;

@@ -7,7 +7,7 @@
 **Týden předem**
 - [ ] S AOBP potvrdit termín, platformu, moderátora, délku dotazů a zda smíme webinář nahrávat.
 - [ ] Slajdy podle osnovy níže (design: barvy a fonty z `site/assets/css/tokens.css`, čáru 35 % v barvě `--mark`). Logo AOBP jen s jejich souhlasem.
-- [ ] Ověřit, že platí odkazy: `[WEB]/kalkulacka/`, `[WEB]/pod35-kalkulacka-offline.html`, `[WEB]/metodika.html`, `[WEB]/sablony/`.
+- [ ] Ověřit, že platí odkazy: `[WEB]/kalkulacka/`, `[WEB]/cirus-origin-kalkulacka-offline.html`, `[WEB]/metodika.html`, `[WEB]/sablony/`.
 - [ ] Projít ukázku v kalkulačce a přepsat čísla v části „Živá ukázka“, pokud se ukázkový kusovník změnil.
 - [ ] Požádat AOBP o předem sebrané dotazy účastníků.
 
@@ -177,7 +177,7 @@ Slajd jen s odkazem `[WEB]/kalkulacka/` a větou „Data zůstávají ve vašem 
 
 ### 16. Dotazy
 
-- kalkulačka zdarma: `[WEB]/kalkulacka/` (offline verze: `[WEB]/pod35-kalkulacka-offline.html`)
+- kalkulačka zdarma: `[WEB]/kalkulacka/` (offline verze: `[WEB]/cirus-origin-kalkulacka-offline.html`)
 - metodika krok za krokem: `[WEB]/metodika.html`
 - vzory prohlášení CZ, SK, EN: `[WEB]/sablony/`
 - kontakt: [EMAIL], [PHONE]

@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-// Pod35 build: site/ -> dist/
+// CIRUS Origin build: site/ -> dist/
 //
 // 1. copies site/ to dist/ (a clean copy every time),
 // 2. replaces {{KEY}} placeholders from config.json in .html/.css/.js/.txt/.svg files
 //    (top-level keys + prices; files under site/en/ get prices_en; YEAR = current year),
 // 3. fails (exit 1) when any {{KEY}} is left in dist/,
-// 4. writes dist/pod35-kalkulacka-offline.html: the calculator in one self-contained file
+// 4. writes dist/cirus-origin-kalkulacka-offline.html: the calculator in one self-contained file
 //    (CSS, ES modules, sample data and SheetJS inlined; no fonts or requests from the internet),
 // 5. writes dist/.nojekyll and, when the site has none, robots.txt and sitemap.xml.
 //
 // Node 22, no dependencies. Usage: node tools/build.mjs
 // Options:     --serve [port]  after the build, serve dist/ (default port 8080)
-// Environment: POD35_NO_DOWNLOAD=1 skips downloading SheetJS (uses tools/vendor/ cache only);
-//              POD35_REQUIRE_SHEETJS=1 fails the build when SheetJS cannot be inlined (used in CI).
+// Environment: CIRUS_NO_DOWNLOAD=1 skips downloading SheetJS (uses tools/vendor/ cache only);
+//              CIRUS_REQUIRE_SHEETJS=1 fails the build when SheetJS cannot be inlined (used in CI).
 
 import { promises as fs, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -27,10 +27,10 @@ const DIST = path.join(ROOT, 'dist');
 const CONFIG = path.join(ROOT, 'config.json');
 const VENDOR = path.join(ROOT, 'tools', 'vendor');
 
-const OFFLINE_NAME = 'pod35-kalkulacka-offline.html';
+const OFFLINE_NAME = 'cirus-origin-kalkulacka-offline.html';
 const CALC_PAGE = path.join('kalkulacka', 'index.html');
 const SAMPLE_FILE = path.join('assets', 'sample', 'ukazka-kusovnik.csv');
-const SAMPLE_ID = 'pod35-sample';
+const SAMPLE_ID = 'cirus-origin-sample';
 
 const XLSX_URL = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
 const XLSX_SRI = 'sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==';
@@ -214,8 +214,8 @@ async function getSheetJs() {
     if (sri(buf) === XLSX_SRI) return buf.toString('utf8');
     warn(`${rel(XLSX_CACHE)} nemá očekávaný otisk SHA-512, stahuji znovu.`);
   }
-  if (process.env.POD35_NO_DOWNLOAD === '1') {
-    warn('SheetJS se nestahuje (POD35_NO_DOWNLOAD=1). Offline kalkulačka bude bez importu a exportu XLSX.');
+  if (process.env.CIRUS_NO_DOWNLOAD === '1') {
+    warn('SheetJS se nestahuje (CIRUS_NO_DOWNLOAD=1). Offline kalkulačka bude bez importu a exportu XLSX.');
     return null;
   }
   let buf;
@@ -503,8 +503,8 @@ async function buildOffline(values) {
       throw new BuildError(`offline: SheetJS po úpravě pro vložení není platný JavaScript (${err.message}).`);
     }
     sheetBlock = `<script>/*! SheetJS Community Edition 0.18.5, Apache-2.0, https://sheetjs.com */\n${guarded}\n</script>\n`;
-  } else if (process.env.POD35_REQUIRE_SHEETJS === '1') {
-    throw new BuildError('offline: SheetJS se nepodařilo vložit a POD35_REQUIRE_SHEETJS=1 vyžaduje offline verzi s XLSX.');
+  } else if (process.env.CIRUS_REQUIRE_SHEETJS === '1') {
+    throw new BuildError('offline: SheetJS se nepodařilo vložit a CIRUS_REQUIRE_SHEETJS=1 vyžaduje offline verzi s XLSX.');
   } else if (sheetJsWanted) {
     warn('offline: SheetJS chybí.');
   }
@@ -513,7 +513,7 @@ async function buildOffline(values) {
   html = html.replace(/<\/body\s*>/i, () => `${sampleBlock}${sheetBlock}</body>`);
   html = html.replace(/<html\b[^>]*>/i, (t) => setAttr(t, 'data-offline', '1'));
   const stamp = new Date().toISOString().slice(0, 10);
-  const note = `<!-- ${values.cs.BRAND || 'Pod35'}: offline kalkulačka v jednom souboru, sestaveno ${stamp}. Běží bez internetu, data se nikam neodesílají. -->`;
+  const note = `<!-- ${values.cs.BRAND || 'CIRUS Origin'}: offline kalkulačka v jednom souboru, sestaveno ${stamp}. Běží bez internetu, data se nikam neodesílají. -->`;
   html = /^\s*<!doctype[^>]*>/i.test(html) ? html.replace(/^\s*(<!doctype[^>]*>)/i, `$1\n${note}`) : `<!doctype html>\n${note}\n${html}`;
 
   // sanity checks

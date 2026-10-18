@@ -1,12 +1,12 @@
 {{BRAND}}: šablony ke stažení
 ================================
 
-pod35-vstupni-sablona.xlsx
+cirus-origin-vstupni-sablona.xlsx
   Vstupní šablona pro kalkulačku. List „Data“ má sloupce, které kalkulačka
   rozpozná sama, a nabídky hodnot pro kategorii, doklad a typ řádku.
   List „Návod“ popisuje, co do kterého sloupce patří.
 
-pod35-vstupni-sablona.csv
+cirus-origin-vstupni-sablona.csv
   Stejné sloupce jako CSV (oddělovač středník, UTF-8). Pro systémy, které
   exportují jen CSV.
 
@@ -23,11 +23,6 @@ Kalkulačka běží ve vašem prohlížeči, data se nikam neodesílají.
 
 Templates (English)
 -------------------
-pod35-vstupni-sablona.xlsx / .csv  input template for the calculator
+cirus-origin-vstupni-sablona.xlsx / .csv  input template for the calculator
 prohlaseni-o-puvodu-en.docx        supplier's declaration of non-preferential
-                                   origin (Art. 60 Union Customs Code); not a
-                                   preferential origin declaration under
-                                   Implementing Regulation (EU) 2015/2447
-
-Calculator: https://{{WEB}}/kalkulacka/?lang=en
-The calculator runs in your browser; your data is not sent anywhere.
+                                   origin (Art. 60 Union Customs Code)

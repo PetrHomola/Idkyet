@@ -305,7 +305,7 @@ Pravidla: follow-up 1 po 4 pracovních dnech bez odpovědi, follow-up 2 po dalš
 
 > Dobrý den [OSLOVENÍ],
 >
-> děkuji za dnešní rozhovor u vašeho stánku. Jak jsem slíbil, posílám odkaz na kalkulačku pravidla 35 %: [WEB]/kalkulacka/. Běží ve vašem prohlížeči a data nikam neodcházejí. Pokud nesmíte nic spouštět online, offline verze je jeden soubor: [WEB]/pod35-kalkulacka-offline.html.
+> děkuji za dnešní rozhovor u vašeho stánku. Jak jsem slíbil, posílám odkaz na kalkulačku pravidla 35 %: [WEB]/kalkulacka/. Běží ve vašem prohlížeči a data nikam neodcházejí. Pokud nesmíte nic spouštět online, offline verze je jeden soubor: [WEB]/cirus-origin-kalkulacka-offline.html.
 >
 > Zmínil jste [POZNÁMKA Z ROZHOVORU]. Pokud chcete, projdeme to spolu za 20 minut. Navrhuji [TERMÍN 1] nebo [TERMÍN 2].
 >

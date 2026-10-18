@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Pod35: generates the downloadable templates in site/sablony/.
+"""CIRUS Origin: generates the downloadable templates in site/sablony/.
 
-  pod35-vstupni-sablona.xlsx   input template (sheet "Data" + sheet "Návod")
-  pod35-vstupni-sablona.csv    the same columns as CSV (semicolon, UTF-8 with BOM)
+  cirus-origin-vstupni-sablona.xlsx   input template (sheet "Data" + sheet "Návod")
+  cirus-origin-vstupni-sablona.csv    the same columns as CSV (semicolon, UTF-8 with BOM)
   prohlaseni-o-puvodu-cs.docx  supplier's declaration of non-preferential origin, Czech
   prohlaseni-o-puvodu-sk.docx  the same, Slovak
   prohlaseni-o-puvodu-en.docx  the same, English
@@ -66,7 +66,7 @@ def load_config() -> dict:
 
 
 CFG = load_config()
-BRAND = str(CFG.get("BRAND") or "Pod35")
+BRAND = str(CFG.get("BRAND") or "CIRUS Origin")
 WEB = str(CFG.get("WEB") or "").strip().removeprefix("https://").removeprefix("http://").rstrip("/")
 WEB_OK = bool(WEB) and "[" not in WEB and " " not in WEB and "." in WEB
 CALC_URL = f"https://{WEB}/kalkulacka/" if WEB_OK else "kalkulacka/index.html"
@@ -746,12 +746,12 @@ def write_normalized_zip(path: Path, data: bytes) -> None:
 README = """{{BRAND}}: šablony ke stažení
 ================================
 
-pod35-vstupni-sablona.xlsx
+cirus-origin-vstupni-sablona.xlsx
   Vstupní šablona pro kalkulačku. List „Data“ má sloupce, které kalkulačka
   rozpozná sama, a nabídky hodnot pro kategorii, doklad a typ řádku.
   List „Návod“ popisuje, co do kterého sloupce patří.
 
-pod35-vstupni-sablona.csv
+cirus-origin-vstupni-sablona.csv
   Stejné sloupce jako CSV (oddělovač středník, UTF-8). Pro systémy, které
   exportují jen CSV.
 
@@ -768,7 +768,7 @@ Kalkulačka běží ve vašem prohlížeči, data se nikam neodesílají.
 
 Templates (English)
 -------------------
-pod35-vstupni-sablona.xlsx / .csv  input template for the calculator
+cirus-origin-vstupni-sablona.xlsx / .csv  input template for the calculator
 prohlaseni-o-puvodu-en.docx        supplier's declaration of non-preferential
                                    origin (Art. 60 Union Customs Code)
 """
@@ -776,8 +776,8 @@ prohlaseni-o-puvodu-en.docx        supplier's declaration of non-preferential
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    build_xlsx(OUT / "pod35-vstupni-sablona.xlsx")
-    build_csv(OUT / "pod35-vstupni-sablona.csv")
+    build_xlsx(OUT / "cirus-origin-vstupni-sablona.xlsx")
+    build_csv(OUT / "cirus-origin-vstupni-sablona.csv")
     for lang, t in DECL.items():
         build_docx(lang, OUT / t["file"])
     (OUT / "README.txt").write_bytes(README.replace("\n", "\r\n").encode("utf-8"))

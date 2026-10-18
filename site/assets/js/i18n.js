@@ -1,4 +1,4 @@
-// Pod35 calculator: all UI strings, Czech and English.
+// CIRUS Origin calculator: all UI strings, Czech and English.
 // translate(lang, key, vars) replaces {name} placeholders. plural(lang, key, n) picks the right form.
 
 export const LANGS = ['cs', 'en'];

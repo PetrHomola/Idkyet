@@ -56,7 +56,7 @@ f) seznam dodavatelů, kteří prohlášení nedodali.
 
 ### 3. Součinnost objednatele
 
-3.1 Objednatel předá do [DATUM] výpis tier-1 dílů výrobku v rozsahu: číslo nebo kategorie dílu (může být pseudonym), dodavatel, množství na výrobek, jednotková cena bez dopravy, cla a DPH, měna, země původu, pokud je známa, a doklad o původu. Pro metodu (b) také seznam podsestav z vlastní výroby s jejich výrobními náklady. Vzor: `[WEB]/sablony/pod35-vstupni-sablona.xlsx`.
+3.1 Objednatel předá do [DATUM] výpis tier-1 dílů výrobku v rozsahu: číslo nebo kategorie dílu (může být pseudonym), dodavatel, množství na výrobek, jednotková cena bez dopravy, cla a DPH, měna, země původu, pokud je známa, a doklad o původu. Pro metodu (b) také seznam podsestav z vlastní výroby s jejich výrobními náklady. Vzor: `[WEB]/sablony/cirus-origin-vstupni-sablona.xlsx`.
 
 3.2 U Sady dokladů navíc kontaktní údaje dodavatelů a celní doklady k dovezeným dílům.
 

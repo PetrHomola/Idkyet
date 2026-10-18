@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Pod35 end-to-end test in a real browser (Playwright + Chromium).
+// CIRUS Origin end-to-end test in a real browser (Playwright + Chromium).
 //
 //   node tools/e2e.mjs            build, serve dist/ on a free port, run all checks
 //   node tools/e2e.mjs --no-build use the existing dist/
@@ -20,7 +20,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
-const OFFLINE = path.join(DIST, 'pod35-kalkulacka-offline.html');
+const OFFLINE = path.join(DIST, 'cirus-origin-kalkulacka-offline.html');
 const ARGS = new Set(process.argv.slice(2));
 const TIMEOUT = 15000;
 
@@ -48,7 +48,7 @@ const TESTIDS = {
 };
 
 const TEMPLATE_FILES = [
-  'pod35-vstupni-sablona.xlsx', 'pod35-vstupni-sablona.csv', 'prohlaseni-o-puvodu-cs.docx',
+  'cirus-origin-vstupni-sablona.xlsx', 'cirus-origin-vstupni-sablona.csv', 'prohlaseni-o-puvodu-cs.docx',
   'prohlaseni-o-puvodu-sk.docx', 'prohlaseni-o-puvodu-en.docx', 'README.txt',
 ];
 const TEMPLATE_FIELDS = ['partNo', 'description', 'supplier', 'supplierCountry', 'category', 'qty', 'unitCost',
@@ -658,7 +658,7 @@ async function testOffline(browser) {
       const input = page.locator('[data-testid="file-input"], #file-input').first();
       if (!(await input.count())) throw new Warn('pole pro nahrání souboru nenalezeno, přeskočeno');
       const before = await verdictText(page);
-      await input.setInputFiles(path.join(DIST, 'sablony', 'pod35-vstupni-sablona.xlsx'));
+      await input.setInputFiles(path.join(DIST, 'sablony', 'cirus-origin-vstupni-sablona.xlsx'));
       const body = page.locator('#ln-body');
       if (await body.count()) {
         await page.waitForFunction(() => document.querySelectorAll('#ln-body tr').length === 3, null, { timeout: TIMEOUT });
@@ -693,7 +693,7 @@ async function testTemplates() {
 
   await check('šablony: calc-core rozpozná sloupce a hodnoty CSV šablony', async () => {
     const core = await import(pathToFileURL(path.join(DIST, 'assets', 'js', 'calc-core.js')).href);
-    const csvPath = path.join(DIST, 'sablony', 'pod35-vstupni-sablona.csv');
+    const csvPath = path.join(DIST, 'sablony', 'cirus-origin-vstupni-sablona.csv');
     const raw = readFileSync(csvPath);
     assert(raw[0] === 0xef && raw[1] === 0xbb && raw[2] === 0xbf, 'CSV nemá BOM');
     const rows = core.parseTable(raw.toString('utf8'));
@@ -750,7 +750,7 @@ async function testSources() {
 /* ------------------------------------------------------------------- main */
 
 async function main() {
-  console.log('Pod35 e2e\n');
+  console.log('CIRUS Origin e2e\n');
   if (!ARGS.has('--no-build')) {
     const b = spawnSync(process.execPath, [path.join(ROOT, 'tools', 'build.mjs')], { cwd: ROOT, encoding: 'utf8' });
     if (b.status !== 0) {

@@ -1,6 +1,6 @@
-# Pod35
+# CIRUS Origin
 
-Pod35 (pracovní název; značka na webu je `BRAND` z `config.json`, nyní „CIRUS Origin“) pomáhá výrobcům a dodavatelům obranného průmyslu spočítat a doložit, že díly s původem mimo EU tvoří nejvýš 35 % nákladů na komponenty výrobku (pravidlo SAFE a EDIP). Repozitář obsahuje prezentační web (CZ a EN), kalkulačku, která běží celá v prohlížeči, její offline verzi v jednom souboru, šablony ke stažení a obchodní podklady.
+CIRUS Origin (pracovní název; značka na webu je `BRAND` z `config.json`, nyní „CIRUS Origin“) pomáhá výrobcům a dodavatelům obranného průmyslu spočítat a doložit, že díly s původem mimo EU tvoří nejvýš 35 % nákladů na komponenty výrobku (pravidlo SAFE a EDIP). Repozitář obsahuje prezentační web (CZ a EN), kalkulačku, která běží celá v prohlížeči, její offline verzi v jednom souboru, šablony ke stažení a obchodní podklady.
 
 Zadání, fakta, ceny a datový model jsou v [docs/SPEC.md](docs/SPEC.md). Když se něco v tomto README a ve specifikaci rozchází, platí specifikace.
 
@@ -82,28 +82,28 @@ V `config.json` jsou zatím hodnoty `[DOPLNIT: …]`. Build je vypíše na konci
 
 1. smaže `dist/` a zkopíruje do něj `site/`,
 2. v souborech `.html`, `.css`, `.js`, `.txt`, `.svg` nahradí placeholdery,
-3. vytvoří `dist/pod35-kalkulacka-offline.html` (viz níže),
+3. vytvoří `dist/cirus-origin-kalkulacka-offline.html` (viz níže),
 4. zapíše `dist/.nojekyll`, `sitemap.xml` (pokud ho web nemá vlastní) a do `robots.txt` doplní odkaz na sitemap,
 5. selže (exit 1), když v `dist/` zůstal nenahrazený placeholder.
 
-Proměnné prostředí: `POD35_NO_DOWNLOAD=1` nestahuje SheetJS (použije jen `tools/vendor/`), `POD35_REQUIRE_SHEETJS=1` ukončí build chybou, když SheetJS nejde vložit (nastaveno v CI).
+Proměnné prostředí: `CIRUS_NO_DOWNLOAD=1` nestahuje SheetJS (použije jen `tools/vendor/`), `CIRUS_REQUIRE_SHEETJS=1` ukončí build chybou, když SheetJS nejde vložit (nastaveno v CI).
 
 ## Offline kalkulačka
 
-`dist/pod35-kalkulacka-offline.html` je celá kalkulačka v jednom HTML souboru: styly, všechny ES moduly, ukázková data, obě šablony (CSV a XLSX) i SheetJS jsou vložené. Funguje otevřená z disku (`file://`) bez internetu a neposílá žádný síťový požadavek. Ověřuje to `npm run e2e`.
+`dist/cirus-origin-kalkulacka-offline.html` je celá kalkulačka v jednom HTML souboru: styly, všechny ES moduly, ukázková data, obě šablony (CSV a XLSX) i SheetJS jsou vložené. Funguje otevřená z disku (`file://`) bez internetu a neposílá žádný síťový požadavek. Ověřuje to `npm run e2e`.
 
 Jak vzniká:
 
 - `tokens.css` a `app.css` se vloží jako `<style>`, import Google Fonts se vynechá (systémová písma).
 - Moduly se nespojují do jednoho souboru. Build přepíše relativní importy (`from './calc-core.js'`) na `data:` URL závislostí, rekurzivně odspodu. Kód modulů zůstává beze změny a každý modul se v prohlížeči vytvoří jen jednou. Vstupní `calculator.js` je vložený jako inline `<script type="module">`.
-- Ukázka `assets/sample/ukazka-kusovnik.csv` se vloží jako `<script type="text/plain" id="pod35-sample">`.
+- Ukázka `assets/sample/ukazka-kusovnik.csv` se vloží jako `<script type="text/plain" id="cirus-origin-sample">`.
 - SheetJS 0.18.5 se při buildu stáhne z cdnjs, ověří proti otisku SHA-512 (stejný jako `integrity` v kalkulačce), uloží do `tools/vendor/` a vloží jako klasický `<script>` na konec stránky. Moduly se spouštějí až po něm, takže `window.XLSX` už existuje. Když stažení selže, build vypíše varování a offline verze funguje bez XLSX (CSV a vkládání z Excelu ano).
 - Odkazy zpět na web (metodika, nabídka, ochrana dat) vedou na `https://{{WEB}}/…`, šablony ke stažení jsou vložené jako `data:` URL.
 - `<html>` má atribut `data-offline="1"`.
 
 Jak ji poslat zákazníkovi:
 
-1. Spusťte `npm run build` a vezměte `dist/pod35-kalkulacka-offline.html` (asi 1,2 MB). Po nasazení je ke stažení i na `https://<WEB>/pod35-kalkulacka-offline.html` (web na ni odkazuje z úvodní stránky).
+1. Spusťte `npm run build` a vezměte `dist/cirus-origin-kalkulacka-offline.html` (asi 1,2 MB). Po nasazení je ke stažení i na `https://<WEB>/cirus-origin-kalkulacka-offline.html` (web na ni odkazuje z úvodní stránky).
 2. Firemní poštovní brány často blokují přílohy `.html`. Spolehlivější je soubor zabalit do ZIP, případně poslat odkaz ke stažení.
 3. Do e-mailu napište, že kalkulačka běží jen v prohlížeči, nic neodesílá a funguje i na počítači bez internetu. IT oddělení zákazníka může soubor před použitím prověřit: kód rozhraní je v něm jako čitelný text, výpočetní moduly jsou vložené jako base64 `data:` URL (jejich zdroj je v `site/assets/js/`) a SheetJS je oficiální minifikovaná verze 0.18.5 s ověřeným otiskem.
 4. Potřebuje aktuální Chrome, Edge, Firefox nebo Safari.
@@ -125,7 +125,7 @@ Kalkulačku (`site/assets/js/calculator.js` a `site/kalkulacka/index.html`) a bu
 
   Volitelně `export-xlsx` a `file-input` (jinak test použije `#btn-xlsx` a `#file-input`).
 - **SheetJS**: načítat líně a nejdřív zkontrolovat `window.XLSX`. Když existuje (offline verze), použít ho, jinak vložit `<script>` z `https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js`.
-- **Ukázka**: před `fetch` ukázkového CSV zkusit `document.getElementById('pod35-sample')?.textContent`.
+- **Ukázka**: před `fetch` ukázkového CSV zkusit `document.getElementById('cirus-origin-sample')?.textContent`.
 - **Moduly**: importovat jen relativně (`./x.js`), bez `import.meta.url` a bez jiných síťových požadavků. Vstupem je `<script type="module" src="…">` na stránce kalkulačky.
 - **Jazyk**: přepnutí jazyka mění `<html lang>` (test čeká na `en` a zpět `cs`).
 - Odkazy na web v kalkulačce jsou relativní (`../metodika.html`), případně s atributy `data-href-cs` a `data-href-en`. Build je v offline verzi převede na absolutní adresy.
@@ -134,8 +134,8 @@ Kalkulačku (`site/assets/js/calculator.js` a `site/kalkulacka/index.html`) a bu
 
 `npm run templates` (Python 3 s `openpyxl` a `python-docx`) vygeneruje do `site/sablony/`:
 
-- `pod35-vstupni-sablona.xlsx`: list „Data“ se záhlavím, které kalkulačka rozpozná (Číslo dílu; Popis; Dodavatel; Země dodavatele; Kategorie; Množství; Jednotková cena; Měna; Země původu; Doklad; Platnost do; Odhad původu; Typ; Poznámka), tři ukázkové řádky, nabídky hodnot pro Kategorii, Doklad a Typ a list „Návod“ česky a anglicky,
-- `pod35-vstupni-sablona.csv`: stejné sloupce, středník, UTF-8 s BOM,
+- `cirus-origin-vstupni-sablona.xlsx`: list „Data“ se záhlavím, které kalkulačka rozpozná (Číslo dílu; Popis; Dodavatel; Země dodavatele; Kategorie; Množství; Jednotková cena; Měna; Země původu; Doklad; Platnost do; Odhad původu; Typ; Poznámka), tři ukázkové řádky, nabídky hodnot pro Kategorii, Doklad a Typ a list „Návod“ česky a anglicky,
+- `cirus-origin-vstupni-sablona.csv`: stejné sloupce, středník, UTF-8 s BOM,
 - `prohlaseni-o-puvodu-cs.docx`, `-sk.docx`, `-en.docx`: vzor prohlášení dodavatele o nepreferenčním původu (čl. 60 nařízení (EU) č. 952/2013), text je shodný s dokumentem, který generuje kalkulačka (`declaration.js`),
 - `README.txt`: co ve složce je.
 

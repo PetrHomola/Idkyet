@@ -1,4 +1,4 @@
-// Pod35: supplier declaration of non-preferential origin (printable HTML) and request e-mail.
+// CIRUS Origin: supplier declaration of non-preferential origin (printable HTML) and request e-mail.
 // Pure ES module, no DOM access, no network. Languages: cs, sk, en.
 
 const T = {

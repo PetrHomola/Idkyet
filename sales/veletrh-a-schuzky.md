@@ -119,7 +119,7 @@ Domluvte konkrétní datum, kdy přijdou data, a kdo je pošle.
 
 ## 3. Jak z hovoru udělat placenou Rychlou kontrolu
 
-1. **Týž den** pošlete: shrnutí hovoru (3 věty), objednávku podle [objednavka-vzor.md](objednavka-vzor.md), odkaz na vstupní šablonu `[WEB]/sablony/pod35-vstupni-sablona.xlsx` a na `[WEB]/ochrana-dat.html`. Pokud chtějí NDA, podepište jejich.
+1. **Týž den** pošlete: shrnutí hovoru (3 věty), objednávku podle [objednavka-vzor.md](objednavka-vzor.md), odkaz na vstupní šablonu `[WEB]/sablony/cirus-origin-vstupni-sablona.xlsx` a na `[WEB]/ochrana-dat.html`. Pokud chtějí NDA, podepište jejich.
 2. **Žadatel EDIP:** nabídněte variantu s návrhem přílohy o původu do Procurement strategy za [PRICE_QUICK_EDIP].
 3. **Data nesmí z firmy:** nabídněte stejný rozsah prací u nich, na jejich zařízení, s offline kalkulačkou (Posila u vás, [PRICE_DAY] za den; jak nacenit viz [cenik-interni.md](cenik-interni.md)).
 4. **Váhají:** menší první krok zdarma. Ať si kalkulačku vyzkouší na jednom výrobku a pošlou jen souhrn (bez řádků). Projdete ho spolu za 30 minut a ukážete, co v něm chybí.

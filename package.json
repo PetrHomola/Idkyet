@@ -1,8 +1,8 @@
 {
-  "name": "pod35",
+  "name": "cirus-origin",
   "version": "1.0.0",
   "private": true,
-  "description": "Pod35: kalkulačka podílu komponent mimo EU (pravidlo 35 %, SAFE a EDIP) a prezentační web",
+  "description": "CIRUS Origin: kalkulačka podílu komponent mimo EU (pravidlo 35 %, SAFE a EDIP) a prezentační web",
   "type": "module",
   "engines": {
     "node": ">=22"

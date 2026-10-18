@@ -1,6 +1,6 @@
-# Pod35: specifikace produktu a webu
+# CIRUS Origin: specifikace produktu a webu
 
-Pod35 (pracovní název) pomáhá výrobcům a dodavatelům obranného průmyslu spočítat a doložit, že díly s původem mimo EU tvoří nejvýš 35 % nákladů na díly výrobku (pravidlo SAFE / EDIP). Tahle specifikace je společný zdroj pravdy pro všechny části: kalkulačku, prezentační web, šablony a obchodní podklady.
+CIRUS Origin (pracovní název) pomáhá výrobcům a dodavatelům obranného průmyslu spočítat a doložit, že díly s původem mimo EU tvoří nejvýš 35 % nákladů na díly výrobku (pravidlo SAFE / EDIP). Tahle specifikace je společný zdroj pravdy pro všechny části: kalkulačku, prezentační web, šablony a obchodní podklady.
 
 Jazyk: veškerý text pro zákazníky česky (s diakritikou), anglická verze webu a kalkulačky zvlášť. Tón: věcný, sebevědomý, bez přehánění. Žádné vymyšlené reference, loga zákazníků, recenze ani čísla, která nejsou ve „Faktech“ níže.
 
@@ -39,7 +39,7 @@ package.json                skripty: build, test, e2e, serve
 README.md                   jak upravit, sestavit, otestovat a nasadit
 ```
 
-Žádný framework, žádný bundler. Čisté HTML, CSS a ES moduly. Jediná externí knihovna: SheetJS (xlsx 0.18.5) z `https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js`, načítaná líně jen při importu/exportu XLSX. Fonty z Google Fonts (viz tokens.css). Offline verze kalkulačky (`dist/pod35-kalkulacka-offline.html`) je jeden soubor, vše vložené, bez fontů z internetu (systémové fallbacky) a se SheetJS vloženým přímo.
+Žádný framework, žádný bundler. Čisté HTML, CSS a ES moduly. Jediná externí knihovna: SheetJS (xlsx 0.18.5) z `https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js`, načítaná líně jen při importu/exportu XLSX. Fonty z Google Fonts (viz tokens.css). Offline verze kalkulačky (`dist/cirus-origin-kalkulacka-offline.html`) je jeden soubor, vše vložené, bez fontů z internetu (systémové fallbacky) a se SheetJS vloženým přímo.
 
 ## 2. Placeholdery (z config.json)
 
@@ -78,7 +78,7 @@ Používej jen tato tvrzení (s odkazy, kde dávají smysl). Nic dalšího nevym
 - **Slovensko**: SAFE asi 2,3 mld. EUR (mimo jiné Tatra a CV90). **Polsko**: 43,7 mld. EUR.
 - **Termíny**: výzvy EDIP s uzávěrkou 16. 2. 2027 (mimo jiné klíčové elektronické komponenty 122,25 mil. EUR, platformy 152,75 mil. EUR, bezpilotní systémy pro Ukrajinu 80 mil. EUR). Čerpání SAFE do 31. 12. 2030. Projekty EDIP nejpozději do 31. 12. 2033.
 - **Sankce**: u SAFE pozastavení výplaty, u EDIP krácení nebo ukončení grantu, za nepravdivé údaje vyloučení z peněz EU.
-- Pod35 **nedává právní stanoviska**. Výstup je výpočet z dokladů a prohlášení dodavatelů. Sporná určení původu konzultujeme s celním specialistou.
+- CIRUS Origin **nedává právní stanoviska**. Výstup je výpočet z dokladů a prohlášení dodavatelů. Sporná určení původu konzultujeme s celním specialistou.
 
 ## 5. Nabídka a ceny (texty pro web a podklady)
 

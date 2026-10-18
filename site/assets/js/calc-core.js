@@ -1,5 +1,5 @@
 /**
- * Pod35: calculation core.
+ * CIRUS Origin: calculation core.
  *
  * Pure functions without DOM; ES module for browsers and Node 22.
  * Computes the share of components originating outside the "home" countries
