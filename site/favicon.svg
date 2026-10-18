@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    .bg { fill: #0f3d73; }
-    .c { fill: none; stroke: #ffffff; }
-    @media (prefers-color-scheme: dark) {
-      .bg { fill: #8fb6ef; }
-      .c { stroke: #08111d; }
-    }
-  </style>
-  <rect class="bg" width="32" height="32" rx="8"/>
-  <path class="c" d="M21.5 11.05A7.4 7.4 0 1 0 21.5 20.95" stroke-width="3" stroke-linecap="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><style>g{fill:#0F3D73}@media (prefers-color-scheme:dark){g{fill:#ffffff}}</style><g transform="scale(0.16666666666666666)"><path d="M4.0000 25.0000L25.0000 4.0000L36.7500 4.0000L4.0000 36.7500Z"/><path d="M45.2500 4.0000L92.0000 4.0000L92.0000 27.0000L43.0000 27.0000L34.0000 36.0000L34.0000 60.0000L33.8750 59.8750L13.3750 80.3750L4.0000 71.0000L4.0000 45.2500Z"/><path d="M38.1250 64.1250L43.0000 69.0000L92.0000 69.0000L92.0000 92.0000L25.0000 92.0000L17.6250 84.6250Z"/></g></svg>

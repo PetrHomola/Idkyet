@@ -896,3 +896,8 @@ button.fx-item__rm:focus-visible { outline-offset: -2px; border-radius: var(--ra
   .foot { border: 0; background: transparent; }
   .foot__in { padding: 4mm 0 0; }
 }
+
+/* CIRUS logo (outlined SVG lockup, colour from --logo) */
+.brand__logo { display: block; flex: none; height: 38px; width: auto; color: var(--logo); }
+.brand:hover .brand__logo { color: var(--logo); }
+@media (max-width: 640px) { .brand__logo { height: 32px; } }

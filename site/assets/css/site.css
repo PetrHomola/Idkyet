@@ -1083,7 +1083,7 @@ td.no { color: var(--bad); font-weight: 500; }
   padding-bottom: 5mm; border-bottom: 1px solid var(--ink);
 }
 .sheet__brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: var(--fs-md); }
-.sheet__brand .brand__mark { width: 22px; height: 22px; }
+.sheet__brand .brand__logo { height: 34px; }
 .sheet__title { font-size: clamp(1.6rem, 1.2rem + 1.4vw, var(--fs-2xl)); letter-spacing: var(--tracking-display); line-height: 1.1; margin-top: var(--s4); }
 .sheet__sub { color: var(--muted); margin-top: var(--s2); }
 .sheet__meta { display: grid; gap: 4px; justify-items: end; text-align: right; font-family: var(--f-mono); font-size: var(--fs-xs); color: var(--muted); }
@@ -1193,3 +1193,8 @@ td.no { color: var(--bad); font-weight: 500; }
   .sheet__contact { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sheet__fine { font-size: 7.4pt !important; }
 }
+
+/* CIRUS logo (outlined SVG lockup, colour from --logo) */
+.brand__logo { display: block; flex: none; height: 38px; width: auto; color: var(--logo); }
+.brand:hover .brand__logo { color: var(--logo); }
+@media (max-width: 640px) { .brand__logo { height: 32px; } }

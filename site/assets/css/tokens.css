@@ -39,6 +39,7 @@
   --accent-hover: #0b2f5a;
   --accent-ink: #ffffff;
   --accent-soft: #eaf0f7;
+  --logo: #0f3d73;
   --mark: #0b1220;           /* the 35 % threshold line */
   --mark-soft: #eef0f3;
   --ok: #157347;
@@ -107,6 +108,8 @@
     --accent-hover: #a9c7f3;
     --accent-ink: #08111d;
     --accent-soft: #14233a;
+  --logo: #ffffff;
+    --logo: #ffffff;
     --mark: #e8edf2;
     --mark-soft: #18202a;
     --ok: #5fd39a;
