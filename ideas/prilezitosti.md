@@ -6,7 +6,7 @@
 
 AI zlevnila programování všem, takže „umíme postavit cokoli“ výhoda není. Výhodu máte tam, kde rozumíte **českým systémům a pravidlům** (Shoptet, Pohoda, EET) a zahraniční freelanceři nebo velké agentury tam nejsou.
 
-**Zaměstnání:** pokud je váš zaměstnavatel softwarová firma, vedlejší programování je skoro jistě „ve stejném oboru“. Podle § 304 zákoníku práce na něj potřebujete jeho **předchozí písemný souhlas**. Bez něj vám hrozí výpověď. Vyřešte to jako první.
+**Zaměstnání:** souhlas zaměstnavatele podle § 304 zákoníku práce je potřeba jen pro činnost v jeho předmětu podnikání. Když je jiný, souhlas nepotřebujete. Ve smlouvě stačí mrknout na případná ujednání o duševním vlastnictví.
 
 ## Nejsilnější příležitosti
 
