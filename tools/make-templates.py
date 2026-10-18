@@ -48,14 +48,14 @@ OUT = ROOT / "site" / "sablony"
 FIXED_TIME = dt.datetime(2026, 10, 18, 12, 0, 0)
 
 # design tokens (site/assets/css/tokens.css, light mode)
-INK = "142029"
-MUTED = "56636D"
-LINE = "D3D8D5"
-SUNK = "E7E9E3"
-ACCENT = "1F4E8C"
-ACCENT_SOFT = "E3EBF5"
-MARK = "C97A00"
-MARK_SOFT = "FBEFD9"
+INK = "0B1220"
+MUTED = "5B6472"
+LINE = "E4E7EB"
+SUNK = "F4F5F7"
+ACCENT = "0F3D73"
+ACCENT_SOFT = "EAF0F7"
+MARK = "0F3D73"
+MARK_SOFT = "EEF0F3"
 
 
 def load_config() -> dict:

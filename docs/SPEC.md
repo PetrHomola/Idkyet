@@ -39,7 +39,7 @@ package.json                skripty: build, test, e2e, serve
 README.md                   jak upravit, sestavit, otestovat a nasadit
 ```
 
-Žádný framework, žádný bundler. Čisté HTML, CSS a ES moduly. Jediná externí knihovna: SheetJS (xlsx 0.18.5) z `https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js`, načítaná líně jen při importu/exportu XLSX. Fonty z Google Fonts (viz tokens.css). Offline verze kalkulačky (`dist/cirus-origin-kalkulacka-offline.html`) je jeden soubor, vše vložené, bez fontů z internetu (systémové fallbacky) a se SheetJS vloženým přímo.
+Žádný framework, žádný bundler. Čisté HTML, CSS a ES moduly. Jediná externí knihovna: SheetJS (xlsx 0.18.5) z `https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js`, načítaná líně jen při importu/exportu XLSX. Fonty Geist a Geist Mono jsou uložené na webu (`site/assets/fonts/`, licence OFL), žádné požadavky na Google. Offline verze kalkulačky (`dist/cirus-origin-kalkulacka-offline.html`) je jeden soubor, vše vložené, s vloženými fonty a se SheetJS vloženým přímo.
 
 ## 2. Placeholdery (z config.json)
 
@@ -89,7 +89,7 @@ Používej jen tato tvrzení (s odkazy, kde dávají smysl). Nic dalšího nevym
 5. **Pro dodavatele** – `{{PRICE_SUPPLIER}}`. Pro firmy, které dostaly dotazník o původu od hlavního dodavatele: určíme nepreferenční původ dílů, připravíme prohlášení, nastavíme obnovu.
 6. **Posila u vás** – `{{PRICE_DAY}}` za den. Práce u zákazníka pod NDA, na jeho zařízeních.
 
-Ceny jsou bez DPH. Prvním dvěma zákazníkům Rychlá kontrola za poloviční cenu výměnou za referenci (uvádět jen na webu v sekci nabídky jako „zaváděcí nabídka“).
+Ceny jsou bez DPH. Prvním dvěma zákazníkům Rychlá kontrola za poloviční cenu výměnou za referenci (jen v osobním rozhovoru, na webu ne).
 
 ## 6. Jak zacházíme s daty (texty pro web)
 

@@ -41,7 +41,7 @@ docs/SPEC.md                  specifikace produktu a webu
 .github/workflows/pages.yml   nasazení na GitHub Pages
 ```
 
-Bez frameworku a bez bundleru: čisté HTML, CSS a ES moduly. Jediná externí knihovna je SheetJS 0.18.5 z cdnjs, kterou kalkulačka načte až ve chvíli, kdy uživatel nahraje nebo exportuje XLSX. Fonty jsou z Google Fonts, offline verze používá systémová písma.
+Bez frameworku a bez bundleru: čisté HTML, CSS a ES moduly. Jediná externí knihovna je SheetJS 0.18.5 z cdnjs, kterou kalkulačka načte až ve chvíli, kdy uživatel nahraje nebo exportuje XLSX. Fonty Geist a Geist Mono (licence SIL OFL) jsou uložené přímo na webu v `site/assets/fonts/`, takže nic nejde k Googlu ani jiné třetí straně. Offline verze je má vložené.
 
 ## config.json: firemní údaje a ceny
 
@@ -94,7 +94,7 @@ Proměnné prostředí: `CIRUS_NO_DOWNLOAD=1` nestahuje SheetJS (použije jen `t
 
 Jak vzniká:
 
-- `tokens.css` a `app.css` se vloží jako `<style>`, import Google Fonts se vynechá (systémová písma).
+- `tokens.css` a `app.css` se vloží jako `<style>`, fonty se vloží také.
 - Moduly se nespojují do jednoho souboru. Build přepíše relativní importy (`from './calc-core.js'`) na `data:` URL závislostí, rekurzivně odspodu. Kód modulů zůstává beze změny a každý modul se v prohlížeči vytvoří jen jednou. Vstupní `calculator.js` je vložený jako inline `<script type="module">`.
 - Ukázka `assets/sample/ukazka-kusovnik.csv` se vloží jako `<script type="text/plain" id="cirus-origin-sample">`.
 - SheetJS 0.18.5 se při buildu stáhne z cdnjs, ověří proti otisku SHA-512 (stejný jako `integrity` v kalkulačce), uloží do `tools/vendor/` a vloží jako klasický `<script>` na konec stránky. Moduly se spouštějí až po něm, takže `window.XLSX` už existuje. Když stažení selže, build vypíše varování a offline verze funguje bez XLSX (CSV a vkládání z Excelu ano).
@@ -103,7 +103,7 @@ Jak vzniká:
 
 Jak ji poslat zákazníkovi:
 
-1. Spusťte `npm run build` a vezměte `dist/cirus-origin-kalkulacka-offline.html` (asi 1,2 MB). Po nasazení je ke stažení i na `https://<WEB>/cirus-origin-kalkulacka-offline.html` (web na ni odkazuje z úvodní stránky).
+1. Spusťte `npm run build` a vezměte `dist/cirus-origin-kalkulacka-offline.html` (asi 1,4 MB). Po nasazení je ke stažení i na `https://<WEB>/cirus-origin-kalkulacka-offline.html` (web na ni odkazuje z úvodní stránky).
 2. Firemní poštovní brány často blokují přílohy `.html`. Spolehlivější je soubor zabalit do ZIP, případně poslat odkaz ke stažení.
 3. Do e-mailu napište, že kalkulačka běží jen v prohlížeči, nic neodesílá a funguje i na počítači bez internetu. IT oddělení zákazníka může soubor před použitím prověřit: kód rozhraní je v něm jako čitelný text, výpočetní moduly jsou vložené jako base64 `data:` URL (jejich zdroj je v `site/assets/js/`) a SheetJS je oficiální minifikovaná verze 0.18.5 s ověřeným otiskem.
 4. Potřebuje aktuální Chrome, Edge, Firefox nebo Safari.
@@ -154,7 +154,7 @@ Vygenerované soubory jsou v gitu, protože CI Python knihovny nemá. Výstup je
 
   Kalkulačka má `data-testid` podle kontraktu níže, test je najde bez náhradních selektorů.
 
-  Požadavky mimo `127.0.0.1` test blokuje. Google Fonts se tím pádem nenačtou, to se za chybu nepovažuje, jiný externí požadavek ano. Na konci vypíše PASS/FAIL a při selhání skončí kódem 1. `node tools/e2e.mjs --no-build` použije existující `dist/`.
+  Požadavky mimo `127.0.0.1` test blokuje. Jakýkoli externí požadavek se považuje za chybu. Na konci vypíše PASS/FAIL a při selhání skončí kódem 1. `node tools/e2e.mjs --no-build` použije existující `dist/`.
 
   Playwright se hledá v `/opt/node22/lib/node_modules/playwright`, pak jako běžný balíček `playwright` (nebo cesta v `PLAYWRIGHT_MODULE`). Chromium v `PLAYWRIGHT_BROWSERS_PATH` (výchozí `/opt/pw-browsers`) nebo v `CHROMIUM_PATH`.
 
