@@ -1,5 +1,7 @@
 # Software nejdřív: jak vydělat první peníze v obraně
 
+> **Další kroky:** plán na první zakázku je v [prvni-zakazka.md](prvni-zakazka.md), náčrt produktu v [produkt-evida.md](produkt-evida.md).
+
 *Navazuje na [obrana-3d-tisk.md](obrana-3d-tisk.md). Stav k 18. 10. 2026. Vychází z průzkumu pěti výzkumníků, tří nezávislých hodnotitelů a jednoho kritika.*
 
 ## Shrnutí
