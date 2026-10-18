@@ -1,5 +1,7 @@
 # Evida (pracovní název): produktová skica MVP, verze 2
 
+> **Stav 18. 10. 2026: odloženo.** Petr správně namítl, že je to v jádru běžná evidenční aplikace (formuláře, databáze, reporty) a že zatím neumíme říct, proč by ji někdo kupoval právě od nás. Zbytek skici berte jako hypotézu k ověření v rozhovorech, ne jako plán. Prioritou jsou zakázky (viz [prvni-zakazka.md](prvni-zakazka.md)). O produktu rozhodneme až po 2–3 zakázkách, a jen pokud aspoň tři firmy nezávisle popíšou stejný problém a zaplatí za jeho řešení pilot.
+
 *Evidence výroby pro malé výrobce dronů a obranné dodavatele. Z dat, která firma už má, poskládá dodací spis a dohledá, kterých kusů se problém týká. Stav k neděli 18. 10. 2026, připraveno na veletrh Future Forces (PVA EXPO Praha, 21.–23. 10. 2026). Skica řeší jen obchod a výrobu, žádné zbraně, munici ani navádění. „Neověřeno“ znamená, že tvrzení má jediný sekundární zdroj nebo je to odhad.*
 
 *Verze 2 zapracovává dvě kritiky: vedoucího výroby z firmy s certifikací AQAP, který používá Odoo, a investora z obranného fondu. Co jsme podle nich změnili, shrnuje oddíl 13.*
