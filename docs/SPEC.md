@@ -93,12 +93,12 @@ Ceny jsou bez DPH. Prvním dvěma zákazníkům Rychlá kontrola za poloviční 
 
 ## 6. Jak zacházíme s daty (texty pro web)
 
-- Kalkulačka běží ve vašem prohlížeči, data se nikam neodesílají. Offline verze funguje bez internetu.
-- U služeb pracujeme jen s obchodními daty: číslo nebo kategorie dílu, dodavatel, cena, země původu, doklad. Nebereme výkresy, specifikace, technickou dokumentaci, utajované informace ani data podléhající ITAR.
-- Data držíme v EU nebo pracujeme přímo u vás. Ven z výpočtu jdou jen souhrny po kategoriích, stejně jako je chce Komise.
-- AI nástroje nad daty zákazníka nepoužíváme bez jeho písemného souhlasu.
-- Podepíšeme vaši NDA. Česká firma, bez vlastníků mimo EU.
-- Po skončení spolupráce data smažeme a smazání potvrdíme.
+- Kalkulačka běží jen ve vašem prohlížeči, data se nikam neodesílají. Offline verze je jeden soubor a funguje bez internetu.
+- U služeb pracujeme jen s obchodními údaji: označení dílu (může být vlastní, bez skutečných čísel), dodavatel, cena, země původu, doklad o původu. Nebereme výkresy, technickou dokumentaci, utajované informace ani data podléhající ITAR.
+- Předání: zašifrovaný archiv (heslo telefonem), složka v úložišti zákazníka, nebo práce u zákazníka (Posila u vás).
+- Uložení: jen na šifrovaných discích našich pracovních počítačů. Data nenahráváme do cloudových úložišť ani do AI služeb. Přístup mají jen zakladatelé ({{FOUNDER_1}}, {{FOUNDER_2}}).
+- Do 30 dnů od předání výsledku data smažeme (na žádost dříve) a smazání potvrdíme e-mailem.
+- Podepíšeme NDA zákazníka.
 
 ## 7. Datový model kalkulačky
 

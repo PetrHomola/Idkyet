@@ -19,7 +19,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = path.join(ROOT, 'dist', 'origin');
 const OFFLINE = path.join(DIST, 'cirus-origin-kalkulacka-offline.html');
 const ARGS = new Set(process.argv.slice(2));
 const TIMEOUT = 15000;

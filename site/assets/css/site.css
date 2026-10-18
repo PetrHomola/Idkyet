@@ -986,6 +986,17 @@ code { font-size: 0.9em; }
 .callout__t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
 .callout__t .tag { text-transform: none; letter-spacing: 0; font-family: var(--f-body); }
 
+/* commands to copy (data protection page, "for your IT") */
+.prose .cmds { display: grid; gap: var(--s2); max-width: 68ch; }
+.prose .cmd {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s1) var(--s3);
+  padding: 8px var(--s3); background: var(--subtle); border: 1px solid var(--line); border-radius: 6px;
+  font-size: var(--fs-xs); color: var(--ink); overflow-wrap: anywhere; word-break: break-all;
+}
+.prose .cmd small { font-family: var(--f-body); color: var(--muted); white-space: nowrap; word-break: normal; }
+.prose .hash { max-width: 68ch; }
+.prose .hash__v { background: none; border: 0; padding: 0; }
+
 .table-scroll {
   overflow-x: auto; max-width: 100%;
   border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface);

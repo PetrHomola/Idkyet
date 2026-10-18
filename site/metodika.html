@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Metodika výpočtu pravidla 35 % | {{BRAND}}</title>
-  <meta name="description" content="Jak počítáme podíl komponent s původem mimo EU podle SAFE a EDIP: texty pravidel, metody (a) a (b) Komise, domácí země, scénáře, minimální sada dokladů, pět kategorií a otevřené otázky.">
+  <meta name="description" content="Jak počítáme podíl dílů s původem mimo EU podle SAFE a EDIP: znění pravidel, metody (a) a (b) Komise, domácí země, scénáře, minimální sada dokladů, pět kategorií a otevřené otázky.">
   <meta name="color-scheme" content="light dark">
-  <link rel="canonical" href="https://{{WEB}}/metodika.html">
-  <link rel="alternate" hreflang="cs" href="https://{{WEB}}/metodika.html">
-  <link rel="alternate" hreflang="en" href="https://{{WEB}}/en/methodology.html">
+  <link rel="canonical" href="https://{{WEB}}/origin/metodika.html">
+  <link rel="alternate" hreflang="cs" href="https://{{WEB}}/origin/metodika.html">
+  <link rel="alternate" hreflang="en" href="https://{{WEB}}/origin/en/methodology.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="{{BRAND}}">
   <meta property="og:title" content="Metodika výpočtu pravidla 35 % | {{BRAND}}">
-  <meta property="og:description" content="Texty pravidel SAFE a EDIP, metody (a) a (b) Komise, domácí země, scénáře a minimální sada dokladů. Aktualizováno {{UPDATED}}.">
-  <meta property="og:url" content="https://{{WEB}}/metodika.html">
+  <meta property="og:description" content="Znění pravidel SAFE a EDIP, metody (a) a (b) Komise, domácí země, scénáře a minimální sada dokladů. Aktualizováno {{UPDATED}}.">
+  <meta property="og:url" content="https://{{WEB}}/origin/metodika.html">
   <meta property="og:locale" content="cs_CZ">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -36,7 +36,7 @@
       <nav class="topnav" id="topnav" aria-label="Hlavní navigace">
         <a href="index.html">Úvod</a>
         <a href="kalkulacka/index.html?lang=cs">Kalkulačka</a>
-        <a href="index.html#nabidka">Ceník</a>
+        <a href="index.html#nabidka">Ceny</a>
         <a href="metodika.html" aria-current="page">Metodika</a>
         <a href="index.html#o-nas">O nás</a>
         <a href="index.html#kontakt">Kontakt</a>
@@ -54,9 +54,9 @@
     <header class="doc-hero">
       <div class="wrap">
         <p class="crumbs"><a href="index.html">{{BRAND}}</a><span aria-hidden="true">/</span>Metodika</p>
-        <h1>Metodika výpočtu podílu komponent mimo EU</h1>
-        <p class="lead">Jak počítáme pravidlo 35&nbsp;% pro SAFE, EDIP a&nbsp;související nástroje. Vycházíme z&nbsp;textu nařízení a&nbsp;z&nbsp;postupu, který Komise zveřejnila pro EDIP. Kde předpisy mlčí, říkáme to otevřeně a&nbsp;popisujeme, jak postupujeme.</p>
-        <p class="docmeta"><span>Poslední aktualizace <b><span class="nowrap">{{UPDATED}}</span></b></span><span>Pravidla: SAFE · EDIP · USI · půjčka pro Ukrajinu · EU–Kanada</span><span>Nejde o&nbsp;právní stanovisko</span></p>
+        <h1>Jak počítáme podíl dílů mimo EU</h1>
+        <p class="lead">Metodika pro pravidlo 35&nbsp;% v&nbsp;programech SAFE, EDIP a&nbsp;příbuzných předpisech. Vycházíme ze znění předpisů a&nbsp;z&nbsp;postupu, který Evropská komise zveřejnila pro EDIP. Kde předpisy něco neřeší, říkáme to a&nbsp;popisujeme, jak postupujeme.</p>
+        <p class="docmeta"><span>Aktualizováno <b><span class="nowrap">{{UPDATED}}</span></b></span><span>SAFE · EDIP · půjčka pro Ukrajinu · EU–Kanada</span><span>Nejde o&nbsp;právní stanovisko</span></p>
       </div>
     </header>
 
@@ -64,13 +64,14 @@
       <nav class="toc" aria-labelledby="toc-h">
         <h2 id="toc-h">Obsah</h2>
         <ol>
-          <li><a href="#pravidlo">Pravidlo v&nbsp;textu předpisů</a></li>
-          <li><a href="#metoda">Metoda EDIP krok za krokem</a></li>
+          <li><a href="#strucne">Stručně</a></li>
+          <li><a href="#pravidlo">Znění pravidla</a></li>
+          <li><a href="#metoda">Jak počítáme</a></li>
           <li><a href="#priklad">Příklad Komise</a></li>
           <li><a href="#pravidla">Pravidla a&nbsp;domácí země</a></li>
-          <li><a href="#scenare">Stav doložení a&nbsp;scénáře</a></li>
+          <li><a href="#scenare">Doklady a&nbsp;scénáře</a></li>
           <li><a href="#minimalni-sada">Minimální sada dokladů</a></li>
-          <li><a href="#kategorie">Pět kategorií komponent</a></li>
+          <li><a href="#kategorie">Pět kategorií dílů</a></li>
           <li><a href="#otevrene">Otevřené otázky</a></li>
           <li><a href="#vystup">Co výstup je a&nbsp;není</a></li>
           <li><a href="#zdroje">Zdroje</a></li>
@@ -79,64 +80,78 @@
 
       <article class="prose">
         <!-- 1 -->
-        <section class="reveal" id="pravidlo" aria-labelledby="h-1">
-          <h2 id="h-1"><span class="no">01</span>Pravidlo v&nbsp;textu předpisů</h2>
+        <section class="reveal" id="strucne" aria-labelledby="h-1">
+          <h2 id="h-1"><span class="no">01</span>Stručně</h2>
+          <p>Pravidlo 35&nbsp;% říká: díly vyrobené mimo EU smějí tvořit nejvýš 35&nbsp;% nákladů na díly výrobku. Počítáme to takto:</p>
+          <ol>
+            <li>Vezmeme díly, které k&nbsp;výrobku nakupujete přímo, a&nbsp;jejich ceny.</li>
+            <li>U&nbsp;každého dílu zjistíme zemi původu a&nbsp;doklad, který ji potvrzuje.</li>
+            <li>Náklady na díly s&nbsp;původem mimo EU vydělíme náklady na všechny díly.</li>
+            <li>Výsledek porovnáme s&nbsp;limitem 35&nbsp;%. Díl bez dokladu počítáme v&nbsp;nejhorším případě jako díl mimo EU.</li>
+          </ol>
+          <p>„Mimo EU“ je zjednodušení. Každý program má vlastní seznam zemí, které se počítají jako domácí. U&nbsp;SAFE k&nbsp;nim patří i&nbsp;Norsko, Island, Lichtenštejnsko a&nbsp;Ukrajina. Přehled najdete v&nbsp;části <a href="#pravidla">Pravidla a&nbsp;domácí země</a>.</p>
+        </section>
+
+        <!-- 2 -->
+        <section class="reveal" id="pravidlo" aria-labelledby="h-2">
+          <h2 id="h-2"><span class="no">02</span>Znění pravidla</h2>
           <blockquote class="rule-quote" lang="en" cite="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng">
             <p>The cost of components originating outside the Union, EEA EFTA States and Ukraine shall not be higher than 35&nbsp;% of the estimated cost of the components of the end product.</p>
             <footer lang="cs">Nařízení Rady (EU) 2025/1106 (SAFE), čl. 16 odst. 10 <a href="#src-1">[1]</a></footer>
           </blockquote>
-          <p>Navíc u&nbsp;SAFE platí, že žádný díl nesmí pocházet ze třetí země, která je v&nbsp;rozporu s&nbsp;bezpečnostními a&nbsp;obrannými zájmy EU. To je samostatná podmínka, nezávislá na 35&nbsp;%.</p>
-          <p>Recitál 19 SAFE uvádí, že Komise k&nbsp;výpočtu „could establish guidance“. <strong>Veřejná metodika pro SAFE k&nbsp;18.&nbsp;10.&nbsp;2026 neexistuje.</strong></p>
+          <p>U&nbsp;SAFE navíc platí samostatná podmínka: žádný díl nesmí pocházet ze třetí země, která je v&nbsp;rozporu s&nbsp;bezpečnostními a&nbsp;obrannými zájmy EU.</p>
+          <p>Podle recitálu 19 SAFE může Komise k&nbsp;výpočtu vydat pokyny (<span lang="en">„could establish guidance“</span>). <strong>K&nbsp;18.&nbsp;10.&nbsp;2026 je pro SAFE nevydala.</strong></p>
           <h3>Stejné pravidlo v&nbsp;dalších předpisech</h3>
           <ul>
-            <li><strong>EDIP</strong>, nařízení (EU) 2025/2643, čl. 10 odst. 3 a&nbsp;4: komponenty s&nbsp;původem <span lang="en">„outside the Union and associated countries“</span>, stejný práh 35&nbsp;%. Recitál 27: suroviny nejsou komponenty. <a href="#src-2">[2]</a></li>
-            <li><strong>EDIP – nástroj pro Ukrajinu (USI)</strong>, čl. 27: <span lang="en">„outside the Union and Ukraine“</span>. <a href="#src-2">[2]</a></li>
-            <li><strong>Půjčka pro Ukrajinu</strong>, nařízení (EU) 2026/467, čl. 13 odst. 4 písm. g): stejně jako SAFE (EU, státy EHP-ESVO, Ukrajina). <a href="#src-3">[3]</a></li>
-            <li><strong>Dohoda EU–Kanada o&nbsp;účasti v&nbsp;SAFE</strong>, čl. 5 odst. 8, platí od 1.&nbsp;8.&nbsp;2026: kanadské komponenty smí přesáhnout 35&nbsp;%; komponenty z&nbsp;EU, EHP-ESVO a&nbsp;Ukrajiny musí tvořit aspoň 20&nbsp;%; komponenty z&nbsp;ostatních třetích zemí nejvýš 35&nbsp;% a&nbsp;ne víc než podíl EU. <a href="#src-4">[4]</a></li>
+            <li><strong>EDIP</strong>, nařízení (EU) 2025/2643, čl. 10 odst. 3 a&nbsp;4: díly s&nbsp;původem mimo EU a&nbsp;přidružené země (<span lang="en">„outside the Union and associated countries“</span>), stejný limit 35&nbsp;%. Suroviny se podle recitálu 27 za díly nepovažují. <a href="#src-2">[2]</a></li>
+            <li><strong>EDIP – nástroj pro Ukrajinu (USI)</strong>, čl. 27: díly s&nbsp;původem mimo EU a&nbsp;Ukrajinu (<span lang="en">„outside the Union and Ukraine“</span>). <a href="#src-2">[2]</a></li>
+            <li><strong>Půjčka pro Ukrajinu</strong>, nařízení (EU) 2026/467, čl. 13 odst. 4 písm. g): stejně jako SAFE. <a href="#src-3">[3]</a></li>
+            <li><strong>Dohoda EU–Kanada o&nbsp;účasti v&nbsp;SAFE</strong>, čl. 5 odst. 8, platí od 1.&nbsp;8.&nbsp;2026. Díly z&nbsp;Kanady smějí přesáhnout 35&nbsp;%. Díly z&nbsp;EU, států EHP-ESVO (Norsko, Island, Lichtenštejnsko) a&nbsp;Ukrajiny musí tvořit aspoň 20&nbsp;%. Díly z&nbsp;ostatních třetích zemí nejvýš 35&nbsp;% a&nbsp;ne víc než podíl EU. <a href="#src-4">[4]</a></li>
           </ul>
           <div class="callout">
             <p class="callout__t">Co hrozí <span class="tag tag--bad">při nesplnění</span></p>
-            <p>U&nbsp;SAFE pozastavení výplaty, u&nbsp;EDIP krácení nebo ukončení grantu. Za nepravdivé údaje vyloučení z&nbsp;peněz EU.</p>
+            <p>U&nbsp;SAFE pozastavení výplaty, u&nbsp;EDIP krácení nebo ukončení grantu. Za nepravdivé údaje hrozí vyloučení z&nbsp;peněz EU.</p>
           </div>
-        </section>
-
-        <!-- 2 -->
-        <section class="reveal" id="metoda" aria-labelledby="h-2">
-          <h2 id="h-2"><span class="no">02</span>Metoda EDIP krok za krokem</h2>
-          <p>Podrobný postup Komise zveřejnila ve výzvě EDF-EDIP-P-2026-LS-IRA (verze 1.2 z&nbsp;10.&nbsp;6.&nbsp;2026, str. 9–10) a&nbsp;ve výukových slajdech „Origin of Components“ (5/2026) <a href="#src-5">[5]</a> <a href="#src-6">[6]</a>. Podle něj počítáme EDIP a&nbsp;také SAFE, dokud Komise nevydá pokyny k&nbsp;SAFE.</p>
-
-          <h3>1. Co je komponenta</h3>
-          <p>Látky, materiály (bez surovin), díly, sestavy nebo software zabudované do výrobku.</p>
-
-          <h3>2. Které díly se počítají</h3>
-          <p>Jen díly nakoupené přímo výrobcem, tedy od dodavatelů první úrovně (tier-1), a&nbsp;to bez ohledu na jejich důležitost. Díly, které nakupují vaši dodavatelé, se nepočítají zvlášť.</p>
-
-          <h3>3. Jak se určí původ</h3>
-          <ul>
-            <li><strong>Dovezený díl:</strong> podle celních dokladů nebo kupních smluv.</li>
-            <li><strong>Díl koupený v&nbsp;EU</strong> (i&nbsp;přes obchodníka nebo uvnitř skupiny): země poslední podstatné, hospodářsky odůvodněné přeměny podle celního kodexu Unie, tedy nepreferenční původ podle čl. 60 nařízení (EU) č.&nbsp;952/2013 <a href="#src-7">[7]</a>. Tuto informaci má dodavatel, proto ji dokládá svým prohlášením.</li>
-          </ul>
-
-          <h3>4. Z&nbsp;jaké ceny</h3>
-          <p>Cena podle faktur, smluv nebo celních dokladů, <strong>bez dopravy, cla a&nbsp;daní</strong>. Náklad řádku je množství na jeden výrobek × jednotková cena × kurz do měny projektu.</p>
-
-          <h3>5. Dvě metody</h3>
-          <div class="formula">
-            <span class="formula__name">Metoda (a)</span>
-            <span class="formula__row"><span class="frac"><span>náklady tier-1 dílů mimo EU</span><span>náklady všech tier-1 dílů</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
-          </div>
-          <div class="formula">
-            <span class="formula__name">Metoda (b)</span>
-            <span class="formula__row"><span class="frac"><span>náklady tier-1 dílů mimo EU</span><span>náklady na komponenty výrobku</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
-          </div>
-          <p>„Náklady na komponenty výrobku“ jsou náklady všech tier-1 dílů plus celkové výrobní náklady podsestav vyrobených ve vlastní režii, bez konečné montáže. Ve výpočtu jde o&nbsp;řádky typu <code>inhouse</code>: práce a&nbsp;režie na podsestavy, bez nakoupených dílů, které už jsou v&nbsp;seznamu jako tier-1. Když takové řádky nejsou, metoda (b) se nepoužije.</p>
-          <p><strong>Stačí splnit jednu z&nbsp;metod.</strong> Podmínka ale musí platit po celou dobu projektu: <span lang="en">„The condition must be complied with during the entire duration of the action.“</span></p>
         </section>
 
         <!-- 3 -->
-        <section class="reveal" id="priklad" aria-labelledby="h-3">
-          <h2 id="h-3"><span class="no">03</span>Příklad Komise</h2>
-          <p>Slajdy Komise ukazují stejný výrobek spočítaný oběma metodami: 92&nbsp;/&nbsp;214&nbsp;=&nbsp;43&nbsp;% (metoda (a) nevyhoví) a&nbsp;92&nbsp;/&nbsp;275&nbsp;=&nbsp;34&nbsp;% (metoda (b) vyhoví). Přesně vychází 42,99&nbsp;% a&nbsp;33,45&nbsp;%. Rozdíl jmenovatelů, 275&nbsp;−&nbsp;214&nbsp;=&nbsp;61, jsou výrobní náklady podsestav z&nbsp;vlastní výroby.</p>
+        <section class="reveal" id="metoda" aria-labelledby="h-3">
+          <h2 id="h-3"><span class="no">03</span>Jak počítáme</h2>
+          <p>Podrobný postup zveřejnila Komise pro EDIP ve výzvě EDF-EDIP-P-2026-LS-IRA (verze 1.2 z&nbsp;10.&nbsp;6.&nbsp;2026, str. 9–10) a&nbsp;ve výukových slajdech „Origin of Components“ (5/2026) <a href="#src-5">[5]</a> <a href="#src-6">[6]</a>. Podle něj počítáme EDIP a&nbsp;také SAFE, dokud Komise nevydá pokyny k&nbsp;SAFE.</p>
+
+          <h3>1. Co je díl</h3>
+          <p>Předpisy mluví o&nbsp;komponentách. Komise jimi rozumí látky, materiály, díly, sestavy a&nbsp;software zabudované do výrobku. Suroviny mezi ně nepatří. Na našem webu pro to používáme jednodušší slovo díl.</p>
+
+          <h3>2. Které díly se počítají</h3>
+          <p>Jen díly nakupované přímo, tedy od vašich dodavatelů. Komise jim říká tier-1. Nezáleží na tom, jak je díl důležitý. Díly, které nakupují vaši dodavatelé, se zvlášť nepočítají. Promítnou se do původu dílu, který od nich kupujete.</p>
+
+          <h3>3. Jak se určí původ</h3>
+          <ul>
+            <li><strong>Dovezený díl:</strong> podle celních dokladů nebo kupní smlouvy.</li>
+            <li><strong>Díl koupený v&nbsp;EU</strong> (i&nbsp;přes obchodníka nebo v&nbsp;rámci skupiny): rozhoduje země, kde díl prošel poslední podstatnou, hospodářsky odůvodněnou přeměnou. Jde o&nbsp;takzvaný nepreferenční původ podle čl. 60 celního kodexu Unie <a href="#src-7">[7]</a>. Tuto informaci zná dodavatel, proto ji potvrzuje svým prohlášením.</li>
+          </ul>
+
+          <h3>4. Z&nbsp;jaké ceny</h3>
+          <p>Z&nbsp;ceny podle faktur, smluv nebo celních dokladů, <strong>bez dopravy, cla a&nbsp;daní</strong>. Náklad položky je množství na jeden výrobek × jednotková cena × kurz do měny projektu.</p>
+
+          <h3>5. Dvě metody výpočtu</h3>
+          <p>Obě metody mají stejný čitatel: náklady na nakupované díly mimo EU. Liší se jmenovatelem.</p>
+          <div class="formula">
+            <span class="formula__name">Metoda (a)</span>
+            <span class="formula__row"><span class="frac"><span>nakupované díly mimo EU</span><span>všechny nakupované díly</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
+          </div>
+          <div class="formula">
+            <span class="formula__name">Metoda (b)</span>
+            <span class="formula__row"><span class="frac"><span>nakupované díly mimo EU</span><span>nakupované díly + vlastní výroba podsestav</span></span><span class="formula__le">≤ 35&nbsp;%</span></span>
+          </div>
+          <p>U&nbsp;metody (b) se do jmenovatele přičtou celkové výrobní náklady podsestav, které vyrábíte sami. Patří sem práce a&nbsp;režie. Nakoupené díly, které už v&nbsp;seznamu jsou, se nepočítají podruhé, a&nbsp;konečná montáž se nepočítá vůbec. Když vlastní výrobu podsestav nemáte, metoda (b) se nepoužije.</p>
+          <p><strong>Stačí splnit jednu z&nbsp;metod.</strong> Podmínka ale musí platit po celou dobu projektu: <span lang="en">„The condition must be complied with during the entire duration of the action.“</span></p>
+        </section>
+
+        <!-- 4 -->
+        <section class="reveal" id="priklad" aria-labelledby="h-4">
+          <h2 id="h-4"><span class="no">04</span>Příklad Komise</h2>
+          <p>Slajdy Komise počítají jeden výrobek oběma metodami <a href="#src-6">[6]</a>. Nakupované díly mimo EU stojí 92, všechny nakupované díly 214 a&nbsp;vlastní výroba podsestav 61. Metoda (a) dá 92&nbsp;/&nbsp;214&nbsp;=&nbsp;43&nbsp;% a&nbsp;nevyhoví. Metoda (b) dá 92&nbsp;/&nbsp;275&nbsp;=&nbsp;34&nbsp;% a&nbsp;vyhoví. Slajdy zaokrouhlují, přesně vychází 42,99&nbsp;% a&nbsp;33,45&nbsp;%.</p>
           <figure class="figure" aria-labelledby="fig-cap">
             <div class="xrow xrow--fail">
               <div class="xrow__top">
@@ -164,19 +179,19 @@
               </svg>
             </div>
             <ul class="legend" aria-label="Legenda">
-              <li><span class="sw sw--non"></span>tier-1 díly mimo EU (92)</li>
-              <li><span class="sw sw--home"></span>ostatní tier-1 díly (122)</li>
+              <li><span class="sw sw--non"></span>nakupované díly mimo EU (92)</li>
+              <li><span class="sw sw--home"></span>ostatní nakupované díly (122)</li>
               <li><span class="sw sw--inhouse"></span>vlastní výroba podsestav (61)</li>
               <li><span class="sw sw--thr"></span>hranice 35&nbsp;% jmenovatele</li>
             </ul>
-            <figcaption id="fig-cap">Čitatel je v&nbsp;obou metodách stejný. Metoda (b) zvětší jmenovatel o&nbsp;vlastní výrobu podsestav a&nbsp;hranice 35&nbsp;% se tím posune za díly mimo EU.</figcaption>
+            <figcaption id="fig-cap">Čitatel je v&nbsp;obou metodách stejný. Metoda (b) přičte do jmenovatele vlastní výrobu podsestav, a&nbsp;hranice 35&nbsp;% se tím posune za díly mimo EU.</figcaption>
           </figure>
         </section>
 
-        <!-- 4 -->
-        <section class="reveal" id="pravidla" aria-labelledby="h-4">
-          <h2 id="h-4"><span class="no">04</span>Pravidla a&nbsp;domácí země</h2>
-          <p>„Domácí“ jsou země, jejichž komponenty se do 35&nbsp;% nepočítají. Každý nástroj je vymezuje jinak, proto má kalkulačka pro každý vlastní sadu pravidel.</p>
+        <!-- 5 -->
+        <section class="reveal" id="pravidla" aria-labelledby="h-5">
+          <h2 id="h-5"><span class="no">05</span>Pravidla a&nbsp;domácí země</h2>
+          <p>Domácí země jsou ty, jejichž díly se do limitu 35&nbsp;% nepočítají. Každý program je vymezuje trochu jinak. Kalkulačka proto má pro každý program vlastní pravidlo.</p>
           <div class="table-scroll">
             <table class="tbl tbl--packs">
               <thead>
@@ -187,16 +202,16 @@
                 <tr><th scope="row">Půjčka pro Ukrajinu</th><td>2026/467, čl. 13 odst. 4 písm. g)</td><td class="mono">EU27 + IS, LI, NO + UA</td><td>mimo domácí ≤ 35&nbsp;%</td></tr>
                 <tr><th scope="row">EDIP – program</th><td>2025/2643, čl. 10 odst. 3 a&nbsp;4</td><td class="mono">EU27 + NO</td><td>mimo domácí ≤ 35&nbsp;%</td></tr>
                 <tr><th scope="row">EDIP – nástroj pro Ukrajinu (USI)</th><td>2025/2643, čl. 27</td><td class="mono">EU27 + UA</td><td>mimo domácí ≤ 35&nbsp;%</td></tr>
-                <tr><th scope="row">SAFE – dohoda EU–Kanada</th><td>čl. 5 odst. 8</td><td class="mono">EU27 + IS, LI, NO + UA; CA zvlášť</td><td>domácí ≥ 20&nbsp;%; ostatní ≤ 35&nbsp;% a&nbsp;≤ domácí; CA smí přesáhnout 35&nbsp;%</td></tr>
+                <tr><th scope="row">SAFE – dohoda EU–Kanada</th><td>čl. 5 odst. 8</td><td class="mono">EU27 + IS, LI, NO + UA; CA zvlášť</td><td>domácí ≥ 20&nbsp;%; ostatní ≤ 35&nbsp;% a&nbsp;≤ domácí; Kanada smí přesáhnout 35&nbsp;%</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Za „přidružené země“ EDIP počítáme Norsko. Podíly u&nbsp;dohody EU–Kanada počítáme stejně jako ostatní pravidla, z&nbsp;nákladů tier-1 (metoda a) i&nbsp;z&nbsp;nákladů na komponenty (metoda b).</p>
+          <p>Za přidružené země EDIP počítáme Norsko. U&nbsp;dohody EU–Kanada počítáme podíly oběma metodami stejně jako u&nbsp;ostatních pravidel.</p>
 
           <h3>Země, u&nbsp;kterých se pravidla liší</h3>
           <div class="table-scroll">
             <table class="tbl tbl--packs">
-              <caption>Ano = domácí země, díly se do 35&nbsp;% nepočítají.</caption>
+              <caption>Ano = domácí země, její díly se do limitu 35&nbsp;% nepočítají.</caption>
               <thead>
                 <tr><th scope="col">Země</th><th scope="col">SAFE</th><th scope="col">Půjčka UA</th><th scope="col">EDIP</th><th scope="col">EDIP USI</th><th scope="col">EU–Kanada</th></tr>
               </thead>
@@ -210,108 +225,109 @@
               </tbody>
             </table>
           </div>
-          <p><strong>EU27:</strong> <span class="mono">AT, BE, BG, HR, CY, CZ, DK, EE, FI, FR, DE, GR, HU, IE, IT, LV, LT, LU, MT, NL, PL, PT, RO, SK, SI, ES, SE</span>. Řecko přijímáme jako <span class="mono">GR</span> i&nbsp;<span class="mono">EL</span>.</p>
-          <p><strong>Rizikové země.</strong> Kalkulačka ve výchozím nastavení varuje u&nbsp;dílů z&nbsp;Ruska, Běloruska, Íránu a&nbsp;Severní Koreje (<span class="mono">RU, BY, IR, KP</span>), u&nbsp;Číny (<span class="mono">CN</span>) doporučí ověřit individuálně. Je to upozornění na podmínku o&nbsp;bezpečnostních a&nbsp;obranných zájmech EU, ne právní závěr. Seznam si můžete upravit.</p>
-        </section>
-
-        <!-- 5 -->
-        <section class="reveal" id="scenare" aria-labelledby="h-5">
-          <h2 id="h-5"><span class="no">05</span>Stav doložení a&nbsp;scénáře</h2>
-          <p>Každý řádek má jeden ze tří stavů. Z&nbsp;nich se skládají tři scénáře, takže výsledek nevidíte jako jedno číslo, ale jako rozpětí.</p>
-          <dl class="scen">
-            <div><dt>Doloženo</dt><dd>Země původu je vyplněná, doklad je celní doklad, prohlášení dodavatele nebo smlouva, a&nbsp;pokud má prohlášení platnost, ještě nevypršela.</dd></div>
-            <div><dt>Uvedeno, nedoloženo</dt><dd>Země původu je vyplněná, ale doklad chybí, je jen předpoklad, nebo prohlášení vypršelo.</dd></div>
-            <div><dt>Neznámé</dt><dd>Země původu chybí.</dd></div>
-          </dl>
-          <dl class="scen">
-            <div><dt>Nejhorší<small>auditní</small></dt><dd>Jako domácí se počítají jen řádky „doloženo“ s&nbsp;domácím původem. Vše ostatní, tedy uvedené, nedoložené i&nbsp;neznámé, se počítá jako mimo EU. Tak vypadá výsledek, když se uznávají jen doklady.</dd></div>
-            <div><dt>Očekávaný</dt><dd>Použije se uvedený původ, jinak odhad původu, jinak země sídla dodavatele. Řádky bez jakékoli informace se počítají jako mimo EU.</dd></div>
-            <div><dt>Nejlepší</dt><dd>Použije se uvedený původ, neznámé řádky se počítají jako domácí. Ukazuje strop: lépe to s&nbsp;danými díly dopadnout nemůže.</dd></div>
-          </dl>
-          <p>Pro každý scénář a&nbsp;každou metodu počítáme čitatel (náklady mimo domácí země), jmenovatel, podíl a&nbsp;zda vyhovuje. Z&nbsp;toho plyne verdikt:</p>
-          <ul>
-            <li><span class="tag tag--ok">Vyhovuje</span> nejhorší (auditní) scénář vyhoví aspoň podle jedné metody.</li>
-            <li><span class="tag tag--mark">Záleží na dokladech</span> vyhoví očekávaný nebo nejlepší scénář, nejhorší ne. Rozhodnou doklady.</li>
-            <li><span class="tag tag--bad">Nevyhovuje</span> nevyhoví ani nejlepší scénář. Doklady nepomohou, část dílů mimo EU je potřeba nahradit.</li>
-          </ul>
-          <p><strong>Rezerva</strong> říká, kolik nákladů mimo EU lze ještě přidat: 0,35&nbsp;×&nbsp;jmenovatel&nbsp;−&nbsp;čitatel, pro příznivější metodu v&nbsp;nejhorším i&nbsp;očekávaném scénáři. Záporná rezerva je částka, která chybí.</p>
-          <div class="callout">
-            <p class="callout__t">Co „doloženo“ neznamená</p>
-            <p>Doloženo znamená, že k&nbsp;řádku existuje platný doklad o&nbsp;původu. Neznamená to právní potvrzení původu. Za obsah prohlášení odpovídá dodavatel, který ho podepsal, za podání vůči zadavateli nebo Komisi vaše firma.</p>
-          </div>
+          <p><strong>EU27:</strong> <span class="mono">AT, BE, BG, HR, CY, CZ, DK, EE, FI, FR, DE, GR, HU, IE, IT, LV, LT, LU, MT, NL, PL, PT, RO, SK, SI, ES, SE</span>. Řecko můžete zadat jako <span class="mono">GR</span> i&nbsp;<span class="mono">EL</span>.</p>
+          <p><strong>Rizikové země.</strong> Kalkulačka ve výchozím nastavení upozorní na díly z&nbsp;Ruska, Běloruska, Íránu a&nbsp;Severní Koreje (<span class="mono">RU, BY, IR, KP</span>). U&nbsp;Číny (<span class="mono">CN</span>) doporučí ověřit každý případ zvlášť. Jde o&nbsp;upozornění na podmínku SAFE o&nbsp;bezpečnostních a&nbsp;obranných zájmech EU, ne o&nbsp;právní závěr. Seznam si můžete upravit.</p>
         </section>
 
         <!-- 6 -->
-        <section class="reveal" id="minimalni-sada" aria-labelledby="h-6">
-          <h2 id="h-6"><span class="no">06</span>Minimální sada dokladů</h2>
-          <p>Nemusíte obesílat všechny dodavatele. Hledáme nejmenší počet řádků, jejichž doložení stačí, aby vyhověl i&nbsp;nejhorší (auditní) scénář.</p>
-          <ol>
-            <li>Sadu spočítáme pro obě metody a&nbsp;použijeme tu, kde vyjde menší.</li>
-            <li>Vybereme nedoložené řádky (uvedené i&nbsp;neznámé), jejichž očekávaný původ je domácí. Jen u&nbsp;nich má smysl doklad shánět.</li>
-            <li>Seřadíme je podle nákladu od největšího a&nbsp;přidáváme, dokud neplatí: čitatel&nbsp;−&nbsp;doložené náklady&nbsp;≤&nbsp;0,35&nbsp;×&nbsp;jmenovatel. Pořadí od největšího dává nejmenší možný počet řádků.</li>
-            <li>Výsledkem je seznam řádků, jejich počet a&nbsp;pokrytý náklad. Řádky seskupíme podle dodavatelů a&nbsp;dodavatele z&nbsp;minimální sady označíme jako prioritní.</li>
-          </ol>
-          <p><strong>Když nestačí ani všechny takové řádky,</strong> doklady samy nepomohou. Spočítáme náhradu: nejmenší počet řádků s&nbsp;původem mimo EU (podle očekávaného scénáře, od největšího nákladu), které je třeba nahradit domácím zdrojem, aby vyhověl očekávaný scénář.</p>
+        <section class="reveal" id="scenare" aria-labelledby="h-6">
+          <h2 id="h-6"><span class="no">06</span>Doklady a&nbsp;scénáře</h2>
+          <p>Bez podkladů se podmínka těžko ověřuje. Upozorňuje na to i&nbsp;Evropský účetní dvůr <a href="#src-8">[8]</a>. U&nbsp;každé položky proto rozlišujeme tři stavy:</p>
+          <dl class="scen">
+            <div><dt>Doloženo</dt><dd>Země původu je vyplněná a&nbsp;doklad je celní doklad, prohlášení dodavatele nebo kupní smlouva. Platnost prohlášení ještě neskončila.</dd></div>
+            <div><dt>Uvedeno, nedoloženo</dt><dd>Země původu je vyplněná, ale doklad chybí, je jen předpoklad, nebo prohlášení už neplatí.</dd></div>
+            <div><dt>Neznámé</dt><dd>Země původu chybí.</dd></div>
+          </dl>
+          <p>Ze stavů počítáme tři scénáře. Výsledek tak vidíte jako rozpětí, ne jako jedno číslo.</p>
+          <dl class="scen">
+            <div><dt>Nejhorší<small>auditní</small></dt><dd>Jako domácí se počítají jen doložené položky s&nbsp;domácím původem. Všechno ostatní se počítá jako díly mimo EU. Tak výsledek vypadá při kontrole, která uznává jen doklady.</dd></div>
+            <div><dt>Očekávaný</dt><dd>Použije se uvedený původ, jinak odhad původu, jinak země sídla dodavatele. Položky bez jakékoli informace se počítají jako díly mimo EU.</dd></div>
+            <div><dt>Nejlepší</dt><dd>Použije se uvedený původ a&nbsp;položky s&nbsp;neznámým původem se počítají jako domácí. Ukazuje strop: lépe to se současnými díly dopadnout nemůže.</dd></div>
+          </dl>
+          <p>Každý scénář počítáme oběma metodami. Z&nbsp;výsledků plyne verdikt:</p>
+          <ul>
+            <li><span class="tag tag--ok">Vyhovuje</span> nejhorší scénář vyhoví aspoň podle jedné metody.</li>
+            <li><span class="tag tag--mark">Záleží na dokladech</span> nejhorší scénář nevyhoví, očekávaný nebo nejlepší ano. Rozhodnou doklady.</li>
+            <li><span class="tag tag--bad">Nevyhovuje</span> nevyhoví ani nejlepší scénář. Doklady nepomohou, část dílů mimo EU je potřeba nahradit.</li>
+          </ul>
+          <p><strong>Rezerva</strong> říká, kolik nákladů na díly mimo EU můžete ještě přidat: 0,35&nbsp;×&nbsp;jmenovatel&nbsp;−&nbsp;čitatel. Počítáme ji pro příznivější metodu v&nbsp;nejhorším i&nbsp;očekávaném scénáři. Záporná rezerva je částka, která chybí.</p>
+          <div class="callout">
+            <p class="callout__t">Co znamená „doloženo“</p>
+            <p>K&nbsp;položce existuje platný doklad o&nbsp;původu. Není to právní potvrzení původu. Za obsah prohlášení odpovídá dodavatel, který ho podepsal. Za údaje předané zadavateli nebo Komisi odpovídá vaše firma.</p>
+          </div>
         </section>
 
         <!-- 7 -->
-        <section class="reveal" id="kategorie" aria-labelledby="h-7">
-          <h2 id="h-7"><span class="no">07</span>Pět kategorií komponent</h2>
-          <p>Komise v&nbsp;šabloně „Procurement strategy“ chce rozpad podílu po pěti kategoriích komponent. Výstup proto třídíme stejně, řádky bez kategorie zvlášť.</p>
-          <div class="table-scroll">
-            <table class="tbl">
-              <thead><tr><th scope="col">Kategorie</th><th scope="col">Šablona Komise</th><th scope="col">Kód v&nbsp;kalkulačce</th></tr></thead>
-              <tbody>
-                <tr><td>Konstrukce a&nbsp;mechanika</td><td lang="en">Structural and mechanical</td><td class="mono">structural</td></tr>
-                <tr><td>Pohon a&nbsp;energie</td><td lang="en">Power and energy</td><td class="mono">power</td></tr>
-                <tr><td>Přístroje a&nbsp;monitorování</td><td lang="en">Instrumentation and monitoring</td><td class="mono">instrumentation</td></tr>
-                <tr><td>Bezpečnost a&nbsp;ochrana</td><td lang="en">Safety and protection</td><td class="mono">safety</td></tr>
-                <tr><td>Elektronika a&nbsp;komunikace</td><td lang="en">Electronics and comms</td><td class="mono">electronics</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p>Pro každou kategorii uvádíme náklady celkem, náklady mimo EU (očekávaný scénář), nedoložené náklady, podíl mimo EU v&nbsp;kategorii a&nbsp;příspěvek k&nbsp;celkovému podílu. Do přílohy jde jen tento souhrn, ne jednotlivé řádky.</p>
-          <p>Šablona chce také popis postupu. Komise sama uvádí <span lang="en">„collection and verification of supplier declarations and customs documents, inclusion of origin clauses in contracts“</span>, tedy sběr a&nbsp;ověření prohlášení dodavatelů a&nbsp;celních dokladů a&nbsp;doložky o&nbsp;původu ve smlouvách. Přesně tak postupujeme.</p>
+        <section class="reveal" id="minimalni-sada" aria-labelledby="h-7">
+          <h2 id="h-7"><span class="no">07</span>Minimální sada dokladů</h2>
+          <p>Nemusíte obíhat všechny dodavatele. Hledáme nejmenší počet položek, jejichž doložení stačí, aby vyhověl i&nbsp;nejhorší scénář.</p>
+          <ol>
+            <li>Vezmeme nedoložené položky, u&nbsp;kterých očekáváme domácí původ. Jen u&nbsp;nich má smysl doklad shánět.</li>
+            <li>Seřadíme je od nejdražší a&nbsp;přidáváme, dokud nejhorší scénář nevyhoví: čitatel&nbsp;−&nbsp;doložené náklady&nbsp;≤&nbsp;0,35&nbsp;×&nbsp;jmenovatel. Díky pořadí od nejdražší vyjde nejmenší možný počet položek.</li>
+            <li>Spočítáme to pro obě metody a&nbsp;vybereme tu, kde vyjde sada menší.</li>
+            <li>Položky seskupíme podle dodavatelů. Dodavatele ze sady oslovíme jako první.</li>
+          </ol>
+          <p><strong>Když nestačí ani všechny takové položky,</strong> samotné doklady nepomohou. Spočítáme pak náhradu: nejmenší počet položek s&nbsp;původem mimo EU, které je potřeba nahradit díly s&nbsp;domácím původem, aby vyhověl aspoň očekávaný scénář. Začínáme od nejdražších.</p>
         </section>
 
         <!-- 8 -->
-        <section class="reveal" id="otevrene" aria-labelledby="h-8">
-          <h2 id="h-8"><span class="no">08</span>Otevřené otázky a&nbsp;jak je řešíme</h2>
-          <p>Některé věci předpisy ani zveřejněná metodika výslovně neřeší, nebo je třeba je posoudit u&nbsp;konkrétního výrobku. Tady je náš postup. Každou volbu zapíšeme do popisu postupu, aby byla dohledatelná.</p>
+        <section class="reveal" id="kategorie" aria-labelledby="h-8">
+          <h2 id="h-8"><span class="no">08</span>Pět kategorií dílů</h2>
+          <p>Šablona Komise „Procurement strategy“, která je součástí žádosti EDIP, chce podíl rozepsaný do pěti kategorií. Výstup proto třídíme stejně. Položky bez kategorie uvádíme zvlášť.</p>
+          <div class="table-scroll">
+            <table class="tbl">
+              <thead><tr><th scope="col">Kategorie</th><th scope="col">V&nbsp;šabloně Komise</th></tr></thead>
+              <tbody>
+                <tr><td>Konstrukce a&nbsp;mechanika</td><td lang="en">Structural and mechanical</td></tr>
+                <tr><td>Pohon a&nbsp;energie</td><td lang="en">Power and energy</td></tr>
+                <tr><td>Přístroje a&nbsp;monitorování</td><td lang="en">Instrumentation and monitoring</td></tr>
+                <tr><td>Bezpečnost a&nbsp;ochrana</td><td lang="en">Safety and protection</td></tr>
+                <tr><td>Elektronika a&nbsp;komunikace</td><td lang="en">Electronics and comms</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>U&nbsp;každé kategorie uvádíme náklady celkem, náklady na díly mimo EU (očekávaný scénář), nedoložené náklady, podíl mimo EU v&nbsp;kategorii a&nbsp;příspěvek k&nbsp;celkovému podílu. Do žádosti jde jen tento souhrn, ne jednotlivé položky.</p>
+          <p>Šablona chce také popis postupu. Komise sama uvádí <span lang="en">„collection and verification of supplier declarations and customs documents, inclusion of origin clauses in contracts“</span>, tedy sběr a&nbsp;ověření prohlášení dodavatelů a&nbsp;celních dokladů a&nbsp;doložky o&nbsp;původu ve smlouvách. Přesně tak postupujeme.</p>
+        </section>
 
-          <h3>SAFE zatím nemá oficiální metodiku</h3>
-          <p>Používáme postup EDIP, protože pro SAFE žádný zveřejněný není a&nbsp;text pravidla je stejný. Počítáme obě metody a&nbsp;uvádíme, která vyhovuje. Až Komise pokyny k&nbsp;SAFE vydá, výpočet podle nich přepočítáme.</p>
+        <!-- 9 -->
+        <section class="reveal" id="otevrene" aria-labelledby="h-9">
+          <h2 id="h-9"><span class="no">09</span>Otevřené otázky</h2>
+          <p>Některé věci předpisy ani metodika Komise výslovně neřeší. Tady je náš postup. Každou volbu zapíšeme do popisu postupu, aby se dala dohledat.</p>
 
-          <h3>Doprava a&nbsp;clo v&nbsp;nákladech vlastní výroby</h3>
-          <p>Náklady tier-1 dílů se počítají bez dopravy, cla a&nbsp;daní. Celkové výrobní náklady (TMC) podsestav z&nbsp;vlastní výroby ale podle Komise dopravu na vstupu a&nbsp;nevratné clo zahrnují. Metodika tento rozpor nevysvětluje. Tier-1 díly proto počítáme bez dopravy a&nbsp;cla, výrobní náklady podsestav tak, jak je Komise definuje, a&nbsp;dopravu a&nbsp;clo v&nbsp;nich uvedeme zvlášť. Kdyby jejich vynechání změnilo verdikt, ukážeme výsledek v&nbsp;obou variantách.</p>
+          <h3>SAFE zatím nemá vlastní metodiku</h3>
+          <p>Počítáme podle postupu EDIP, protože text pravidla je stejný. Uvádíme výsledek obou metod. Až Komise pokyny k&nbsp;SAFE vydá, přepočítáme výsledek ze stejných dat.</p>
 
-          <h3>Hranice mezi surovinou a&nbsp;materiálem</h3>
-          <p>Suroviny nejsou komponenty (recitál 27 EDIP), materiály ano. Kde přesně hranice vede, například u&nbsp;polotovarů, je třeba posoudit u&nbsp;konkrétní položky. Každou položku vyřazenou jako surovina označíme a&nbsp;zdůvodníme. U&nbsp;sporných položek spočítáme obě varianty a&nbsp;do závěru bereme tu méně příznivou, dokud pro příznivější nemáme oporu.</p>
+          <h3>Doprava a&nbsp;clo u&nbsp;vlastní výroby</h3>
+          <p>Nakupované díly se počítají bez dopravy, cla a&nbsp;daní. Celkové výrobní náklady podsestav z&nbsp;vlastní výroby ale podle Komise dopravu na vstupu a&nbsp;nevratné clo zahrnují. Metodika tento rozdíl nevysvětluje. Vlastní výrobu proto počítáme tak, jak ji Komise definuje, a&nbsp;dopravu a&nbsp;clo v&nbsp;ní uvádíme zvlášť. Kdyby to změnilo verdikt, ukážeme výsledek v&nbsp;obou variantách.</p>
 
-          <h3>Smlouvy na více variant výrobku</h3>
+          <h3>Surovina, nebo materiál</h3>
+          <p>Suroviny se nepočítají (recitál 27 EDIP), materiály ano. Kde přesně vede hranice, například u&nbsp;polotovarů, je potřeba posoudit u&nbsp;konkrétní položky. Každou položku vyřazenou jako surovinu označíme a&nbsp;zdůvodníme. U&nbsp;sporných položek spočítáme obě varianty. Dokud pro příznivější nemáme oporu, platí ta méně příznivá.</p>
+
+          <h3>Smlouva na více variant výrobku</h3>
           <p>Pravidlo mluví o&nbsp;výrobku. Když smlouva pokrývá několik variant nebo konfigurací, počítáme každou zvlášť a&nbsp;upozorníme na tu, která vychází nejhůř. Varianty nesčítáme ani neprůměrujeme, dokud to nepotvrdí zadavatel.</p>
 
           <h3>Platnost po celou dobu projektu</h3>
-          <p>Prohlášení dodavatelů v&nbsp;našem vzoru platí nejvýš 24 měsíců a&nbsp;obsahují závazek oznámit změnu. Prošlá prohlášení se ve výpočtu počítají jako nedoložená, prohlášení, která vyprší do 90 dnů, hlásíme předem.</p>
+          <p>Prohlášení podle našeho vzoru platí nejvýš 24 měsíců a&nbsp;dodavatel se v&nbsp;něm zavazuje oznámit každou změnu. Prošlá prohlášení počítáme jako nedoložená. Na prohlášení, která vyprší do 90 dnů, upozorníme předem.</p>
 
           <h3>Kurzy měn</h3>
           <p>Kurzy, ze kterých počítáme, s&nbsp;vámi předem dohodneme a&nbsp;zapíšeme je do popisu postupu.</p>
         </section>
 
-        <!-- 9 -->
-        <section class="reveal" id="vystup" aria-labelledby="h-9">
-          <h2 id="h-9"><span class="no">09</span>Co výstup je a&nbsp;není</h2>
+        <!-- 10 -->
+        <section class="reveal" id="vystup" aria-labelledby="h-10">
+          <h2 id="h-10"><span class="no">10</span>Co výstup je a&nbsp;není</h2>
           <ul>
-            <li>Výstup je <strong>výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů</strong> a&nbsp;popis postupu. {{BRAND}} nedává právní stanoviska.</li>
-            <li>Sporná určení původu konzultujeme s&nbsp;celním specialistou.</li>
-            <li>Prohlášení o&nbsp;nepreferenčním původu podle našeho vzoru není preferenční prohlášení podle prováděcího nařízení (EU) 2015/2447.</li>
-            <li>Výpočet si můžete kdykoli zopakovat v&nbsp;<a href="kalkulacka/index.html?lang=cs">kalkulačce</a>. Počítá podle pravidel popsaných zde.</li>
+            <li>Výstup je <strong>výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů</strong> spolu s&nbsp;popisem postupu. Právní stanoviska nedáváme.</li>
+            <li>Sporné případy určení původu řešíme s&nbsp;celním specialistou.</li>
+            <li>Prohlášení podle našeho vzoru je prohlášení o&nbsp;nepreferenčním původu. Nejde o&nbsp;preferenční prohlášení podle prováděcího nařízení (EU) 2015/2447.</li>
+            <li>Výpočet si můžete kdykoli zopakovat v&nbsp;<a href="kalkulacka/index.html?lang=cs">kalkulačce</a>. Počítá podle pravidel popsaných na této stránce.</li>
           </ul>
         </section>
 
-        <!-- 10 -->
-        <section class="reveal" id="zdroje" aria-labelledby="h-10">
-          <h2 id="h-10"><span class="no">10</span>Zdroje</h2>
+        <!-- 11 -->
+        <section class="reveal" id="zdroje" aria-labelledby="h-11">
+          <h2 id="h-11"><span class="no">11</span>Zdroje</h2>
           <ol class="sources">
             <li id="src-1"><span>Nařízení Rady (EU) 2025/1106 (SAFE), čl. 16 odst. 10 a&nbsp;recitál 19. <a href="https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/1106/oj/eng</a></span></li>
             <li id="src-2"><span>Nařízení (EU) 2025/2643 (EDIP), čl. 10 odst. 3 a&nbsp;4, čl. 27 a&nbsp;recitál 27. <a href="https://eur-lex.europa.eu/eli/reg/2025/2643/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/2643/oj/eng</a></span></li>
@@ -332,7 +348,7 @@
     <div class="wrap foot__in">
       <div class="foot__about">
         <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="bm-bg" width="24" height="24" rx="6"/><path class="bm-c" d="M16.16 8.25A5.6 5.6 0 1 0 16.16 15.75" stroke-width="2.2" stroke-linecap="round"/></svg><span class="brand__name">{{BRAND}}</span></a>
-        <p>Výpočet a&nbsp;doložení původu komponent pro pravidlo 35&nbsp;% (SAFE, EDIP). Nejde o&nbsp;právní poradenství. Výstup je výpočet z&nbsp;dokladů a&nbsp;prohlášení dodavatelů.</p>
+        <p>Výpočet a&nbsp;doložení původu dílů pro pravidlo 35&nbsp;% (SAFE, EDIP). Nejde o&nbsp;právní poradenství.</p>
       </div>
       <nav aria-label="Odkazy v patičce">
         <h2>Web</h2>

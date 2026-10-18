@@ -25,7 +25,7 @@ Obecně:
 > [BRAND] spočítá podíl oběma metodami podle postupu, který Komise zveřejnila pro EDIP (pro SAFE veřejná metodika zatím není), a najde nejmenší sadu řádků, jejichž doložení stačí, aby výpočet obstál i v nejhorším případě. Prohlášení od dodavatelů pak sháníte jen tam, kde rozhodují.
 >
 > Jak začít:
-> – kalkulačka zdarma: [WEB]/kalkulacka/ – běží ve vašem prohlížeči, data nikam neodcházejí, je i offline verze v jednom souboru,
+> – kalkulačka zdarma: [WEB]/origin/kalkulacka/ – běží ve vašem prohlížeči, data nikam neodcházejí, je i offline verze v jednom souboru,
 > – Rychlá kontrola za pevnou cenu [PRICE_QUICK]: do 10 pracovních dnů, do 500 řádků, výsledek podle obou metod, rezerva do 35 % a seznam dodavatelů k oslovení.
 >
 > Pracujeme jen s obchodními daty (díl, dodavatel, cena, země původu, doklad), bez výkresů a technické dokumentace. Podepíšeme vaši NDA.
@@ -56,7 +56,7 @@ Obecně:
 > [BRAND] calculates the share under both methods of the approach the Commission has published for EDIP (there is no public method for SAFE yet). It then finds the smallest set of lines that needs to be documented for the result to hold even in the worst case, so you chase supplier declarations only where they make a difference.
 >
 > Two ways to start:
-> – a free calculator at [WEB]/kalkulacka/ that runs in your browser; no data leaves your computer, and there is a single-file offline version,
+> – a free calculator at [WEB]/origin/kalkulacka/ that runs in your browser; no data leaves your computer, and there is a single-file offline version,
 > – a Quick Check at a fixed price of [PRICE_QUICK]: within 10 working days, up to 500 lines, results under both methods, the headroom to 35 % and a list of suppliers to contact.
 >
 > We work with commercial data only (part, supplier, price, country of origin, evidence), never drawings or technical documentation. We are happy to sign your NDA.
@@ -89,7 +89,7 @@ Adresát: vedoucí obchodu, kvality nebo nákupu u menšího dodavatele hlavníc
 > Rozhoduje nepreferenční původ podle celního kodexu Unie (čl. 60): u dílu, na jehož výrobě se podílelo víc zemí, je to země poslední podstatné, hospodářsky odůvodněné přeměny. Není to totéž co sídlo dodavatele ani preferenční původ, který uvádíte kvůli clům. U dílů z dovezeného materiálu nebo sestav z dovezených dílů je potřeba to posoudit položku po položce.
 >
 > Co nabízíme:
-> – vzor prohlášení zdarma v češtině, slovenštině a angličtině: [WEB]/sablony/
+> – vzor prohlášení zdarma v češtině, slovenštině a angličtině: [WEB]/origin/sablony/
 > – službu Pro dodavatele za [PRICE_SUPPLIER]: určíme nepreferenční původ vašich dílů, připravíme prohlášení a nastavíme jeho obnovu.
 >
 > Pošlete mi dotazník, který jste dostali (bez výkresů, stačí seznam dílů), a do dvou pracovních dnů vám řeknu, co přesně odběratel potřebuje a kolik práce to bude.
@@ -116,7 +116,7 @@ Adresát: partner pro veřejné zakázky, obranu nebo dotace (CMS, Kinstellar, P
 >
 > Doložky do smluv a výklad jsou vaše práce. Sběr a ověření prohlášení, výpočet podle obou metod a přehled dokladů připravený na audit jsou na nás. Právní stanoviska nedáváme, takže si nekonkurujeme.
 >
-> Můžeme pracovat jako subdodavatel pod vaším vedením, nebo vašim klientům nabídnout službu přímo, jak vám to bude vyhovovat. Metodiku máme zveřejněnou na [WEB]/metodika.html, kalkulačka je zdarma na [WEB]/kalkulacka/.
+> Můžeme pracovat jako subdodavatel pod vaším vedením, nebo vašim klientům nabídnout službu přímo, jak vám to bude vyhovovat. Metodiku máme zveřejněnou na [WEB]/origin/metodika.html, kalkulačka je zdarma na [WEB]/origin/kalkulacka/.
 >
 > Máte příští týden 30 minut na krátké seznámení?
 >
@@ -134,7 +134,7 @@ Adresát: partner pro veřejné zakázky, obranu nebo dotace (CMS, Kinstellar, P
 >
 > Contract clauses and interpretation are your work. Collecting and verifying declarations, calculating under both methods and an audit-ready evidence file are ours. We do not give legal opinions, so we do not compete with you.
 >
-> We can work as a subcontractor under your lead or offer the service to your clients directly, whichever suits you. Our methodology is public at [WEB]/en/methodology.html and the calculator is free at [WEB]/kalkulacka/.
+> We can work as a subcontractor under your lead or offer the service to your clients directly, whichever suits you. Our methodology is public at [WEB]/origin/en/methodology.html and the calculator is free at [WEB]/origin/kalkulacka/.
 >
 > Would you have 30 minutes next week for a short introduction?
 >
@@ -152,7 +152,7 @@ Adresát: partner pro veřejné zakázky, obranu nebo dotace (CMS, Kinstellar, P
 >
 > Připravíme výpočet podle obou metod Komise a návrh přílohy o původu za pevnou cenu [PRICE_QUICK_EDIP], do 10 pracovních dnů od dodání dat. Vy se dál věnujete žádosti, my dodáme čísla a zdokumentovaný postup.
 >
-> Rádi s vámi nastavíme spolupráci: doporučení klienta, nebo subdodávka pro vás. Ukázku výpočtu uvidíte v kalkulačce na [WEB]/kalkulacka/ (tlačítko „Načíst ukázku“).
+> Rádi s vámi nastavíme spolupráci: doporučení klienta, nebo subdodávka pro vás. Ukázku výpočtu uvidíte v kalkulačce na [WEB]/origin/kalkulacka/ (tlačítko „Načíst ukázku“).
 >
 > Hodí se vám krátký hovor tento nebo příští týden?
 >
@@ -170,7 +170,7 @@ Adresát: partner pro veřejné zakázky, obranu nebo dotace (CMS, Kinstellar, P
 >
 > We prepare the calculation under both Commission methods and a draft origin annex at a fixed price of [PRICE_QUICK_EDIP], within 10 working days of receiving the data. You stay focused on the proposal; we provide the figures and a documented approach.
 >
-> We would be glad to set up a referral or subcontracting arrangement, whichever works for you. You can see a sample calculation in the calculator at [WEB]/kalkulacka/ (“Load sample”).
+> We would be glad to set up a referral or subcontracting arrangement, whichever works for you. You can see a sample calculation in the calculator at [WEB]/origin/kalkulacka/ (“Load sample”).
 >
 > Could we have a short call this week or next?
 >
@@ -261,7 +261,7 @@ Pravidla: follow-up 1 po 4 pracovních dnech bez odpovědi, follow-up 2 po dalš
 >
 > navážu jedním příkladem, který ukazuje, proč se vyplatí počítat obě metody. Ve výukových slajdech Komise k EDIP vychází stejný výrobek podle metody (a) 92 / 214 = 43 % a nevyhoví, podle metody (b), která zahrnuje i výrobní náklady podsestav z vlastní výroby, 92 / 275 = 34 % a vyhoví. Stačí splnit jednu z metod.
 >
-> Kalkulačka na [WEB]/kalkulacka/ počítá obě metody a tři scénáře (nejhorší, očekávaný, nejlepší). Mám vám poslat jednostránkovou nabídku, nebo raději 20 minut hovoru?
+> Kalkulačka na [WEB]/origin/kalkulacka/ počítá obě metody a tři scénáře (nejhorší, očekávaný, nejlepší). Mám vám poslat jednostránkovou nabídku, nebo raději 20 minut hovoru?
 >
 > S pozdravem
 > [MOJE JMÉNO]
@@ -272,7 +272,7 @@ Pravidla: follow-up 1 po 4 pracovních dnech bez odpovědi, follow-up 2 po dalš
 >
 > One example of why it pays to run both methods. In the Commission’s EDIP training slides, the same product comes out at 92 / 214 = 43 % under method (a) and fails, but at 92 / 275 = 34 % under method (b), which also counts the manufacturing cost of in-house sub-assemblies, and passes. Meeting one method is enough.
 >
-> The calculator at [WEB]/kalkulacka/ runs both methods and three scenarios (worst, expected, best). Shall I send a one-page offer, or would a 20-minute call be better?
+> The calculator at [WEB]/origin/kalkulacka/ runs both methods and three scenarios (worst, expected, best). Shall I send a one-page offer, or would a 20-minute call be better?
 >
 > Kind regards,
 > [MY NAME]
@@ -305,7 +305,7 @@ Pravidla: follow-up 1 po 4 pracovních dnech bez odpovědi, follow-up 2 po dalš
 
 > Dobrý den [OSLOVENÍ],
 >
-> děkuji za dnešní rozhovor u vašeho stánku. Jak jsem slíbil, posílám odkaz na kalkulačku pravidla 35 %: [WEB]/kalkulacka/. Běží ve vašem prohlížeči a data nikam neodcházejí. Pokud nesmíte nic spouštět online, offline verze je jeden soubor: [WEB]/cirus-origin-kalkulacka-offline.html.
+> děkuji za dnešní rozhovor u vašeho stánku. Jak jsem slíbil, posílám odkaz na kalkulačku pravidla 35 %: [WEB]/origin/kalkulacka/. Běží ve vašem prohlížeči a data nikam neodcházejí. Pokud nesmíte nic spouštět online, offline verze je jeden soubor: [WEB]/origin/cirus-origin-kalkulacka-offline.html.
 >
 > Zmínil jste [POZNÁMKA Z ROZHOVORU]. Pokud chcete, projdeme to spolu za 20 minut. Navrhuji [TERMÍN 1] nebo [TERMÍN 2].
 >
@@ -341,7 +341,7 @@ Počty znaků jsou bez doplněných jmen. U řádků „+ jméno“ hlídejte, a
 > 5. U EDIP musí podmínka platit po celou dobu projektu; při nesplnění hrozí u SAFE pozastavení výplaty, u EDIP krácení nebo ukončení grantu.
 >
 > Zdroje: SAFE https://eur-lex.europa.eu/eli/reg/2025/1106/oj/eng, EDIP https://eur-lex.europa.eu/eli/reg/2025/2643/oj/eng
-> Celý postup krok za krokem: [WEB]/metodika.html
+> Celý postup krok za krokem: [WEB]/origin/metodika.html
 >
 > #SAFE #EDIP #obrannyprumysl
 
@@ -361,7 +361,7 @@ Počty znaků jsou bez doplněných jmen. U řádků „+ jméno“ hlídejte, a
 >
 > Jeden háček: celkové výrobní náklady podsestav zahrnují podle Komise dopravu na vstupu a nevratné clo, náklady tier-1 dílů je naopak vylučují. Metodika ten rozpor nevysvětluje. Rozhodněte se, jak s tím naložíte, a zapište to do popisu postupu. Pokud by to měnilo verdikt, spočítejte obě varianty.
 >
-> Obě metody a tři scénáře počítá zdarma naše kalkulačka. Data zůstávají ve vašem prohlížeči: [WEB]/kalkulacka/
+> Obě metody a tři scénáře počítá zdarma naše kalkulačka. Data zůstávají ve vašem prohlížeči: [WEB]/origin/kalkulacka/
 >
 > #SAFE #EDIP #obrannyprumysl
 
@@ -380,6 +380,6 @@ Počty znaků jsou bez doplněných jmen. U řádků „+ jméno“ hlídejte, a
 >
 > Když nestačí ani všechny takové řádky, doklady samy nepomohou a je potřeba část dílů nahradit dodavatelem z EU. I to se dá spočítat: nejmenší počet řádků, jejichž náhrada stačí.
 >
-> Kalkulačka minimální sadu najde sama a seskupí ji podle dodavatelů: [WEB]/kalkulacka/
+> Kalkulačka minimální sadu najde sama a seskupí ji podle dodavatelů: [WEB]/origin/kalkulacka/
 >
 > #SAFE #EDIP #obrannyprumysl

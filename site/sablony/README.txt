@@ -17,7 +17,7 @@ prohlaseni-o-puvodu-cs.docx, -sk.docx, -en.docx
   a vrátí. Platnost nejdéle 24 měsíců. Nejde o preferenční prohlášení
   podle prováděcího nařízení (EU) 2015/2447.
 
-Kalkulačka: https://{{WEB}}/kalkulacka/
+Kalkulačka: https://{{WEB}}/origin/kalkulacka/
 Kalkulačka běží ve vašem prohlížeči, data se nikam neodesílají.
 
 

@@ -40,7 +40,7 @@ Vizitku si vezměte, nebo se rovnou spojte na LinkedInu (text v [oslovovani.md, 
 
 ### Co mít s sebou a co ne
 
-- S sebou: vytištěnou nabídku z `[WEB]/nabidka.html` (A4), vizitky s QR kódem na `[WEB]/kalkulacka/`, telefon s otevřenou kalkulačkou a načtenou ukázkou, blok na poznámky.
+- S sebou: vytištěnou nabídku z `[WEB]/origin/nabidka.html` (A4), vizitky s QR kódem na `[WEB]/origin/kalkulacka/`, telefon s otevřenou kalkulačkou a načtenou ukázkou, blok na poznámky.
 - Ne: USB disky, žádné soubory od nikoho nepřebírejte. Na veletrhu si nevyžadujte kusovník ani čísla.
 
 ### Zápis hned po rozhovoru (1 minuta)
@@ -119,7 +119,7 @@ Domluvte konkrétní datum, kdy přijdou data, a kdo je pošle.
 
 ## 3. Jak z hovoru udělat placenou Rychlou kontrolu
 
-1. **Týž den** pošlete: shrnutí hovoru (3 věty), objednávku podle [objednavka-vzor.md](objednavka-vzor.md), odkaz na vstupní šablonu `[WEB]/sablony/cirus-origin-vstupni-sablona.xlsx` a na `[WEB]/ochrana-dat.html`. Pokud chtějí NDA, podepište jejich.
+1. **Týž den** pošlete: shrnutí hovoru (3 věty), objednávku podle [objednavka-vzor.md](objednavka-vzor.md), odkaz na vstupní šablonu `[WEB]/origin/sablony/cirus-origin-vstupni-sablona.xlsx` a na `[WEB]/origin/ochrana-dat.html`. Pokud chtějí NDA, podepište jejich.
 2. **Žadatel EDIP:** nabídněte variantu s návrhem přílohy o původu do Procurement strategy za [PRICE_QUICK_EDIP].
 3. **Data nesmí z firmy:** nabídněte stejný rozsah prací u nich, na jejich zařízení, s offline kalkulačkou (Posila u vás, [PRICE_DAY] za den; jak nacenit viz [cenik-interni.md](cenik-interni.md)).
 4. **Váhají:** menší první krok zdarma. Ať si kalkulačku vyzkouší na jednom výrobku a pošlou jen souhrn (bez řádků). Projdete ho spolu za 30 minut a ukážete, co v něm chybí.
@@ -196,7 +196,7 @@ Shrnutí pro zákazníka (poslat týž den):
 >
 > děkuji za dnešní hovor. Jak jsem to pochopil: [KDO] od vás chce [CO] do [KDY] a dnes to řešíte [JAK].
 >
-> Navrhuji [Rychlou kontrolu / jiný krok]. Objednávku a vstupní šablonu posílám v příloze. Čísla dílů můžou být pseudonymy, jak zacházíme s daty, najdete na [WEB]/ochrana-dat.html.
+> Navrhuji [Rychlou kontrolu / jiný krok]. Objednávku a vstupní šablonu posílám v příloze. Čísla dílů můžou být pseudonymy, jak zacházíme s daty, najdete na [WEB]/origin/ochrana-dat.html.
 >
 > Domluvili jsme se, že [DALŠÍ KROK] do [DATUM].
 >

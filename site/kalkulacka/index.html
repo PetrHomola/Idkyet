@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Kalkulačka 35 % | {{BRAND}}</title>
-  <meta name="description" content="Spočítejte podíl komponent s původem mimo EU podle pravidla 35 % (SAFE, EDIP). Běží ve vašem prohlížeči, data se nikam neodesílají.">
+  <meta name="description" content="Spočítejte, jaký podíl nákladů na díly výrobku tvoří díly s původem mimo EU (pravidlo 35 %, SAFE a EDIP). Kalkulačka běží jen ve vašem prohlížeči a data nikam neposílá.">
   <meta name="color-scheme" content="light dark">
   <meta name="referrer" content="no-referrer">
   <!-- What this page may load or contact, checked by the browser. connect-src 'self': the page can open network
@@ -45,11 +45,11 @@
     <section class="hero" aria-labelledby="h-title">
       <div class="wrap hero__in reveal">
         <p class="kicker" data-i18n="hero.kicker">Kalkulačka · SAFE · EDIP · pravidlo&nbsp;35&nbsp;%</p>
-        <h1 id="h-title" data-i18n="hero.title">Podíl komponent s&nbsp;původem mimo EU</h1>
-        <p class="lead" data-i18n="hero.lead">Nahrajte kusovník nebo seznam nákupů. Kalkulačka spočítá podíl dílů s&nbsp;původem mimo EU podle obou metod Komise, ukáže nejhorší, očekávaný i&nbsp;nejlepší případ a&nbsp;řekne, které doklady chybějí.</p>
+        <h1 id="h-title" data-i18n="hero.title">Podíl dílů s&nbsp;původem mimo EU</h1>
+        <p class="lead" data-i18n="hero.lead">Vložte seznam dílů z&nbsp;Excelu nebo nahrajte soubor. Kalkulačka spočítá podíl dílů s&nbsp;původem mimo EU podle obou metod Komise, ukáže nejhorší, očekávaný i&nbsp;nejlepší případ a&nbsp;řekne, které doklady chybějí.</p>
         <p class="privacy">
           <svg class="privacy__icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-          <strong data-i18n="privacy">Data zůstávají ve vašem prohlížeči. Nic se neodesílá.</strong>
+          <strong data-i18n="privacy">Data zůstávají ve vašem prohlížeči. Nikam neodcházejí.</strong>
           <a href="../ochrana-dat.html" data-href-cs="../ochrana-dat.html" data-href-en="../en/data-protection.html" data-i18n="privacy.link">Jak zacházíme s daty</a>
         </p>
       </div>
@@ -88,7 +88,7 @@
               <h2 id="h-data" data-i18n="s1.title">Data</h2>
             </header>
             <div class="box__body">
-              <p class="hint hint--lead" data-i18n="s1.hint">Jeden řádek = jeden nakupovaný díl (tier-1) nebo podsestava z vlastní výroby. Stačí dodavatel, cena a země původu, ostatní doplníte později.</p>
+              <p class="hint hint--lead" data-i18n="s1.hint">Jeden řádek = jeden díl nakupovaný přímo, nebo podsestava z&nbsp;vlastní výroby. Na začátek stačí dodavatel, cena a&nbsp;země původu, zbytek doplníte později.</p>
               <div class="data-grid">
                 <div class="data-actions">
                   <div class="dropzone">
@@ -111,7 +111,7 @@
                 </div>
                 <div class="paste">
                   <label for="paste-area" class="label" data-i18n="data.pasteLabel">Vložit z Excelu</label>
-                  <p class="hint" id="paste-hint" data-i18n="data.pasteHint">Označte v Excelu buňky včetně řádku se záhlavím, zkopírujte a vložte sem.</p>
+                  <p class="hint" id="paste-hint" data-i18n="data.pasteHint">V Excelu označte buňky i&nbsp;s&nbsp;řádkem záhlaví, zkopírujte je a&nbsp;vložte sem.</p>
                   <textarea id="paste-area" rows="6" wrap="off" spellcheck="false" autocomplete="off" aria-describedby="paste-hint" data-i18n-attr="placeholder:data.pastePlaceholder"></textarea>
                   <button type="button" class="btn btn--ghost" id="btn-paste" data-i18n="data.pasteBtn">Načíst vložená data</button>
                 </div>
@@ -137,12 +137,12 @@
               <div class="field">
                 <label for="set-currency" data-i18n="set.currency">Měna projektu</label>
                 <select id="set-currency" aria-describedby="currency-hint"></select>
-                <p class="hint" id="currency-hint" data-i18n="set.currencyHint">Ceny bez sloupce Měna se berou v měně projektu.</p>
+                <p class="hint" id="currency-hint" data-i18n="set.currencyHint">Ceny bez uvedené měny bereme v&nbsp;měně projektu.</p>
               </div>
               <div class="field">
                 <label for="set-today" data-i18n="set.today">Datum výpočtu</label>
                 <input type="date" id="set-today" aria-describedby="today-hint">
-                <p class="hint" id="today-hint" data-i18n="set.todayHint">Prohlášení, jejichž platnost skončila před tímto datem, se počítají jako prošlá.</p>
+                <p class="hint" id="today-hint" data-i18n="set.todayHint">Prohlášení, jejichž platnost skončila před tímto datem, počítáme jako prošlá.</p>
               </div>
               <div class="field">
                 <label for="set-risk" data-i18n="set.risk">Rizikové země</label>
@@ -212,7 +212,7 @@
 
                 <section class="panel reveal" aria-labelledby="h-rq">
                   <h3 id="h-rq" class="panel__title" data-i18n="rq.title">Žádosti dodavatelům</h3>
-                  <p class="hint" data-i18n="rq.hint">Dodavatelé, u kterých chybí doklad o původu. Prioritní jsou ti, jejichž řádky patří do minimální sady dokladů.</p>
+                  <p class="hint" data-i18n="rq.hint">Dodavatelé, od kterých chybí doklad o&nbsp;původu. Začněte prioritními: jejich díly patří do minimální sady dokladů.</p>
                   <div class="rq-settings no-print">
                     <div class="field">
                       <label for="rq-buyer" data-i18n="rq.buyer">Vaše firma (odběratel)</label>
@@ -229,7 +229,7 @@
 
                 <section class="panel panel--lines reveal" aria-labelledby="h-lines">
                   <h3 id="h-lines" class="panel__title" data-i18n="ln.title">Řádky</h3>
-                  <p class="hint no-print" data-i18n="ln.hint">Zemi původu, doklad a platnost můžete upravit přímo v tabulce.</p>
+                  <p class="hint no-print" data-i18n="ln.hint">Zemi původu, doklad a&nbsp;platnost můžete upravit přímo v&nbsp;tabulce. Výsledek se hned přepočítá. Úpravy se nikam neukládají, proto před zavřením stránky uložte projekt.</p>
                   <div class="ln-tools no-print">
                     <label class="check"><input type="checkbox" id="ln-only"> <span data-i18n="ln.onlyUndoc">Jen nedoložené</span></label>
                     <label class="sr-only" for="ln-search" data-i18n="ln.search">Hledat v řádcích</label>
@@ -276,7 +276,7 @@
           <aside class="cta no-print reveal" aria-labelledby="h-cta">
             <div class="cta__text">
               <h2 id="h-cta" data-i18n="cta.title">Chcete to doložit?</h2>
-              <p data-i18n="cta.text">Rychlá kontrola: výsledek podle obou metod, minimální sada dokladů, rozpad po pěti kategoriích a seznam dodavatelů k oslovení. Do 10 pracovních dnů.</p>
+              <p data-i18n="cta.text">Rychlá kontrola: za 10 pracovních dnů víte, kde jste a&nbsp;co je potřeba doložit. Výsledek bez dokladů i&nbsp;s&nbsp;doklady, seznam dodavatelů, od kterých potřebujete prohlášení, a&nbsp;rozpad podle kategorií dílů pro žádost EDIP.</p>
             </div>
             <a class="btn btn--mark" href="../nabidka.html" data-href-cs="../nabidka.html" data-href-en="../en/offer.html" data-i18n="cta.btn">Objednat Rychlou kontrolu</a>
           </aside>

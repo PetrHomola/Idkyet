@@ -120,7 +120,7 @@ Text v uvozovkách posílejte, jak je. Pod ním je česky, proč na tom zálež�
 
 > Bude MO u dílů koupených v EU přijímat jako doklad prohlášení dodavatele o nepreferenčním původu podle čl. 60 celního kodexu Unie? Měl by zájem o jednotný vzor v češtině, slovenštině a angličtině, který by mohl doporučit dodavatelům?
 
-**Proč:** Jednotný vzor ušetří práci celému řetězci. Náš vzor je zdarma na `[WEB]/sablony/` a rádi ho nabídneme.
+**Proč:** Jednotný vzor ušetří práci celému řetězci. Náš vzor je zdarma na `[WEB]/origin/sablony/` a rádi ho nabídneme.
 
 ### B5. Smlouvy
 
@@ -159,7 +159,7 @@ Text v uvozovkách posílejte, jak je. Pod ním je česky, proč na tom zálež�
 
 **Kam**
 1. **LinkedIn**, jeden příspěvek na jednu odpověď (šablona níže). Nejdřív odpovědi, které mění výpočet (A2, A3, A6, B1, B2).
-2. **Web:** předat správci webu k doplnění do části „Otevřené otázky“ na `[WEB]/metodika.html` a v `config.json` posunout `UPDATED`. Pokud odpověď mění výpočet, zadat úpravu kalkulačky.
+2. **Web:** předat správci webu k doplnění do části „Otevřené otázky“ na `[WEB]/origin/metodika.html` a v `config.json` posunout `UPDATED`. Pokud odpověď mění výpočet, zadat úpravu kalkulačky.
 3. **AOBP:** poslat souhrn odpovědí pro členy (oslovovani.md, část 4 to slibuje).
 4. **Obchod:** odpověď použít jako důvod k follow-upu („Komise odpověděla na otázku, kterou jste řešili…“) a do přípravy na dotazy ve [webinar-aobp.md](webinar-aobp.md).
 
@@ -174,7 +174,7 @@ Text v uvozovkách posílejte, jak je. Pod ním je česky, proč na tom zálež�
 >
 > Co to znamená v praxi (náš výklad, ne právní stanovisko): [DVĚ AŽ TŘI VĚTY].
 >
-> Kalkulačku a metodiku jsme podle toho [upravili / ponechali]: [WEB]/metodika.html
+> Kalkulačku a metodiku jsme podle toho [upravili / ponechali]: [WEB]/origin/metodika.html
 >
 > #SAFE #EDIP #obrannyprumysl
 

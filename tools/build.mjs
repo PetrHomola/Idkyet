@@ -23,7 +23,10 @@ import vm from 'node:vm';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(ROOT, 'site');
-const DIST = path.join(ROOT, 'dist');
+const OUT = path.join(ROOT, 'dist');
+// The product site lives under /origin/ (cirustech.cz/origin); the domain root redirects there.
+const SUBDIR = 'origin';
+const DIST = path.join(OUT, SUBDIR);
 const CONFIG = path.join(ROOT, 'config.json');
 const VENDOR = path.join(ROOT, 'tools', 'vendor');
 
@@ -140,7 +143,7 @@ async function walk(dir) {
 
 async function copySite() {
   if (!existsSync(SITE)) throw new BuildError('Chybí složka site/.');
-  await fs.rm(DIST, { recursive: true, force: true });
+  await fs.rm(OUT, { recursive: true, force: true });
   await fs.cp(SITE, DIST, {
     recursive: true,
     filter: (src) => !SKIP_NAMES.has(path.basename(src)),
@@ -533,7 +536,7 @@ async function buildOffline(values) {
 async function writeSeo(values) {
   const web = String(values.cs.WEB || '').trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
   if (!/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(web)) return;
-  const base = `https://${web}/`;
+  const base = `https://${web}/${SUBDIR}/`;
   if (!existsSync(path.join(DIST, 'sitemap.xml'))) {
     const pages = (await walk(DIST))
       .filter((f) => f.endsWith('.html') && path.basename(f) !== OFFLINE_NAME && path.basename(f) !== '404.html')
@@ -545,13 +548,40 @@ async function writeSeo(values) {
       ...pages.map((p) => `  <url><loc>${escHtml(new URL(p, base).href)}</loc><lastmod>${today}</lastmod></url>`), '</urlset>', ''].join('\n');
     await fs.writeFile(path.join(DIST, 'sitemap.xml'), xml);
   }
-  const robots = path.join(DIST, 'robots.txt');
+  const robots = path.join(OUT, 'robots.txt');
+  if (existsSync(path.join(DIST, 'robots.txt'))) await fs.rename(path.join(DIST, 'robots.txt'), robots);
   if (!existsSync(robots)) {
     await fs.writeFile(robots, `User-agent: *\nAllow: /\n\nSitemap: ${base}sitemap.xml\n`);
   } else {
     const text = await fs.readFile(robots, 'utf8');
     if (!/^\s*sitemap:/im.test(text)) await fs.writeFile(robots, `${text.replace(/\s*$/, '')}\n\nSitemap: ${base}sitemap.xml\n`);
   }
+}
+
+/* ------------------------------------------------ domain root (redirect) */
+
+// dist/index.html sends visitors from the domain root to /origin/; dist/CNAME sets the custom domain.
+async function writeRoot(values) {
+  const web = String(values.cs.WEB || '').trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+  const brand = escHtml(values.cs.BRAND || 'CIRUS Origin');
+  const html = `<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIRUS Technologies</title>
+<meta http-equiv="refresh" content="0; url=${SUBDIR}/">
+<link rel="canonical" href="${web ? `https://${escHtml(web)}/${SUBDIR}/` : `${SUBDIR}/`}">
+<style>body{font:16px/1.5 system-ui,sans-serif;margin:0;padding:48px 16px;color:#0b1220;background:#fff}a{color:#0f3d73}</style>
+</head>
+<body>
+<p>CIRUS Technologies · <a href="${SUBDIR}/">${brand}</a></p>
+<script>location.replace('${SUBDIR}/' + location.hash);</script>
+</body>
+</html>
+`;
+  await fs.writeFile(path.join(OUT, 'index.html'), html);
+  if (/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(web)) await fs.writeFile(path.join(OUT, 'CNAME'), `${web}\n`);
 }
 
 /* ------------------------------------------------------------------ main */
@@ -568,8 +598,9 @@ async function main() {
     log(`offline: ${rel(offline.file)} (${(offline.size / 1024).toFixed(0)} kB${offline.sheetJs ? ', se SheetJS' : ', bez SheetJS'})`);
   }
 
-  await fs.writeFile(path.join(DIST, '.nojekyll'), '');
+  await fs.writeFile(path.join(OUT, '.nojekyll'), '');
   await writeSeo(values);
+  await writeRoot(values);
 
   const leftovers = await findLeftovers();
   if (leftovers.length) {
@@ -653,7 +684,7 @@ if (isMain) {
       const i = args.indexOf('--serve');
       if (i === -1) return;
       const port = Number(args[i + 1]) || Number(process.env.PORT) || 8080;
-      const { url } = await serveDir(DIST, port, '0.0.0.0');
+      const { url } = await serveDir(OUT, port, '0.0.0.0');
       log(`\nWeb běží na ${url}/  (kalkulačka ${url}/kalkulacka/, ukončíte Ctrl+C)`);
     })
     .catch((err) => {

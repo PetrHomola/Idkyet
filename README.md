@@ -161,6 +161,10 @@ Vygenerované soubory jsou v gitu, protože CI Python knihovny nemá. Výstup je
 
 Web je statický, nasazuje se obsah `dist/`.
 
+### Struktura nasazeného webu
+
+Web produktu je na adrese `https://<WEB>/origin/` (build ho dává do `dist/origin/`). Kořen domény (`dist/index.html`) zatím jen přesměruje na `/origin/`; později tam může být web celé firmy CIRUS Technologies. Build vytvoří i `dist/CNAME` s doménou z `WEB` a `dist/robots.txt`.
+
 ### GitHub Pages (výchozí)
 
 1. V repozitáři na GitHubu: **Settings → Pages → Build and deployment → Source: GitHub Actions**.

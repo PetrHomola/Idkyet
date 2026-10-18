@@ -1,6 +1,6 @@
 # Ceník: interní logika a cílové organizace
 
-Interní. Ceny nikdy nepište natvrdo: zdrojem je `config.json` (`prices` v Kč pro české zákazníky, `prices_en` v EUR pro zahraniční). Stejné ceny ukazuje `[WEB]/nabidka.html` a `[WEB]/en/offer.html`. Všechny ceny jsou bez DPH.
+Interní. Ceny nikdy nepište natvrdo: zdrojem je `config.json` (`prices` v Kč pro české zákazníky, `prices_en` v EUR pro zahraniční). Stejné ceny ukazuje `[WEB]/origin/nabidka.html` a `[WEB]/origin/en/offer.html`. Všechny ceny jsou bez DPH.
 
 ## 1. Základní ceník
 

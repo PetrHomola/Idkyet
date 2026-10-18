@@ -7,7 +7,7 @@
 **Týden předem**
 - [ ] S AOBP potvrdit termín, platformu, moderátora, délku dotazů a zda smíme webinář nahrávat.
 - [ ] Slajdy podle osnovy níže (design: barvy a fonty z `site/assets/css/tokens.css`, čáru 35 % v barvě `--mark`). Logo AOBP jen s jejich souhlasem.
-- [ ] Ověřit, že platí odkazy: `[WEB]/kalkulacka/`, `[WEB]/cirus-origin-kalkulacka-offline.html`, `[WEB]/metodika.html`, `[WEB]/sablony/`.
+- [ ] Ověřit, že platí odkazy: `[WEB]/origin/kalkulacka/`, `[WEB]/origin/cirus-origin-kalkulacka-offline.html`, `[WEB]/origin/metodika.html`, `[WEB]/origin/sablony/`.
 - [ ] Projít ukázku v kalkulačce a přepsat čísla v části „Živá ukázka“, pokud se ukázkový kusovník změnil.
 - [ ] Požádat AOBP o předem sebrané dotazy účastníků.
 
@@ -101,7 +101,7 @@
 - sídlo dodavatele není původ
 - nepreferenční původ není totéž co preferenční
 
-*Poznámky:* Příklad bez čísel: německý distributor prodá ložisko vyrobené v Japonsku. Dodavatel je z EU, původ dílu ne. Tuto informaci má jen dodavatel, proto se sbírají jeho prohlášení. Vzor prohlášení v CZ, SK a EN je zdarma na `[WEB]/sablony/`.
+*Poznámky:* Příklad bez čísel: německý distributor prodá ložisko vyrobené v Japonsku. Dodavatel je z EU, původ dílu ne. Tuto informaci má jen dodavatel, proto se sbírají jeho prohlášení. Vzor prohlášení v CZ, SK a EN je zdarma na `[WEB]/origin/sablony/`.
 
 ### 8. Z jaké ceny
 
@@ -160,7 +160,7 @@
 
 ### 14. Živá ukázka
 
-Slajd jen s odkazem `[WEB]/kalkulacka/` a větou „Data zůstávají ve vašem prohlížeči. Nic se neodesílá.“ Postup viz níže.
+Slajd jen s odkazem `[WEB]/origin/kalkulacka/` a větou „Data zůstávají ve vašem prohlížeči. Nic se neodesílá.“ Postup viz níže.
 
 ### 15. Kontrolní seznam
 
@@ -177,12 +177,12 @@ Slajd jen s odkazem `[WEB]/kalkulacka/` a větou „Data zůstávají ve vašem 
 
 ### 16. Dotazy
 
-- kalkulačka zdarma: `[WEB]/kalkulacka/` (offline verze: `[WEB]/cirus-origin-kalkulacka-offline.html`)
-- metodika krok za krokem: `[WEB]/metodika.html`
-- vzory prohlášení CZ, SK, EN: `[WEB]/sablony/`
+- kalkulačka zdarma: `[WEB]/origin/kalkulacka/` (offline verze: `[WEB]/origin/cirus-origin-kalkulacka-offline.html`)
+- metodika krok za krokem: `[WEB]/origin/metodika.html`
+- vzory prohlášení CZ, SK, EN: `[WEB]/origin/sablony/`
 - kontakt: [EMAIL], [PHONE]
 
-*Poznámky:* Jediná obchodní věta: „Kdo chce výpočet a doklady udělat s námi, nabídka je na `[WEB]/nabidka.html`.“ Pak dotazy.
+*Poznámky:* Jediná obchodní věta: „Kdo chce výpočet a doklady udělat s námi, nabídka je na `[WEB]/origin/nabidka.html`.“ Pak dotazy.
 
 ---
 
@@ -190,7 +190,7 @@ Slajd jen s odkazem `[WEB]/kalkulacka/` a větou „Data zůstávají ve vašem 
 
 Čísla níže platí pro ukázkový kusovník ke 18. 10. 2026 (pravidlo SAFE, výchozí kurzy, datum výpočtu 18. 10. 2026). Před webinářem je ověřte.
 
-1. **Otevřít `[WEB]/kalkulacka/`.** Ukázat lištu „Data zůstávají ve vašem prohlížeči. Nic se neodesílá.“ Zmínit offline verzi pro firmy, které nesmí nic spouštět online.
+1. **Otevřít `[WEB]/origin/kalkulacka/`.** Ukázat lištu „Data zůstávají ve vašem prohlížeči. Nic se neodesílá.“ Zmínit offline verzi pro firmy, které nesmí nic spouštět online.
 2. **„Načíst ukázku“.** Smyšlený kusovník, 64 řádků: 59 nakupovaných dílů, 3 podsestavy z vlastní výroby, 2 suroviny. Ukázat automatické přiřazení sloupců a říct, že stejně funguje vložení z Excelu.
 3. **Nastavení.** Pravidlo SAFE, měna CZK, kurzy (orientační, zadejte vlastní), datum výpočtu (podle něj se počítají prošlá prohlášení), rizikové země.
 4. **Verdikt.** Razítko „Záleží na dokladech“. Metoda (a) v očekávaném scénáři asi 37 %, nevyhoví; metoda (b) asi 30 %, vyhoví. Nejhorší scénář zatím nevyhoví. Navázat na příklad Komise: tady rozhoduje metoda (b).
@@ -250,7 +250,7 @@ Pravidlo 35 % se počítá stejně. U SAFE navíc nesmí žádný díl pocházet
 Nikam. Kalkulačka běží ve vašem prohlížeči a data se nikam neodesílají. Offline verze funguje bez internetu.
 
 **Kolik stojí, když to uděláte za nás?**
-Kalkulačka je zdarma. Ceník služeb je na `[WEB]/nabidka.html`. (Na webináři ceny neříkat nahlas, jen odkázat.)
+Kalkulačka je zdarma. Ceník služeb je na `[WEB]/origin/nabidka.html`. (Na webináři ceny neříkat nahlas, jen odkázat.)
 
 ---
 

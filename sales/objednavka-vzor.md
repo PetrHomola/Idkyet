@@ -56,7 +56,7 @@ f) seznam dodavatelů, kteří prohlášení nedodali.
 
 ### 3. Součinnost objednatele
 
-3.1 Objednatel předá do [DATUM] výpis tier-1 dílů výrobku v rozsahu: číslo nebo kategorie dílu (může být pseudonym), dodavatel, množství na výrobek, jednotková cena bez dopravy, cla a DPH, měna, země původu, pokud je známa, a doklad o původu. Pro metodu (b) také seznam podsestav z vlastní výroby s jejich výrobními náklady. Vzor: `[WEB]/sablony/cirus-origin-vstupni-sablona.xlsx`.
+3.1 Objednatel předá do [DATUM] výpis tier-1 dílů výrobku v rozsahu: číslo nebo kategorie dílu (může být pseudonym), dodavatel, množství na výrobek, jednotková cena bez dopravy, cla a DPH, měna, země původu, pokud je známa, a doklad o původu. Pro metodu (b) také seznam podsestav z vlastní výroby s jejich výrobními náklady. Vzor: `[WEB]/origin/sablony/cirus-origin-vstupni-sablona.xlsx`.
 
 3.2 U Sady dokladů navíc kontaktní údaje dodavatelů a celní doklady k dovezeným dílům.
 
@@ -106,7 +106,7 @@ f) seznam dodavatelů, kteří prohlášení nedodali.
 
 ### 8. Povaha výstupů
 
-8.1 Výstupy jsou výpočtem z údajů objednatele, celních dokladů a prohlášení dodavatelů podle metodiky zveřejněné na `[WEB]/metodika.html` ve znění ke dni této objednávky.
+8.1 Výstupy jsou výpočtem z údajů objednatele, celních dokladů a prohlášení dodavatelů podle metodiky zveřejněné na `[WEB]/origin/metodika.html` ve znění ke dni této objednávky.
 
 8.2 **Výstupy nejsou právním stanoviskem** ani daňovým či celním poradenstvím. Nepotvrzují soulad s předpisy a zhotovitel nezaručuje, že výpočet přijme Evropská komise, ministerstvo nebo jiný orgán. Objednatel bere na vědomí, že veřejná metodika Komise pro SAFE ke dni objednávky není a že výpočet vychází z postupu zveřejněného pro EDIP.
 

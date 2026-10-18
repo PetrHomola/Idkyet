@@ -29,14 +29,14 @@ Hranaté závorky doplňte před odesláním. Firemní údaje a ceny berte vždy
 | `[PRICE_QUICK]`, `[PRICE_QUICK_EDIP]`, `[PRICE_PACK]`, `[PRICE_PACK_EXTRA]`, `[PRICE_MONITOR]`, `[PRICE_SUPPLIER]`, `[PRICE_DAY]` | `config.json`: `prices` (Kč) pro české texty, `prices_en` (EUR) pro anglické texty a zahraniční zákazníky |
 | `[OSLOVENÍ]`, `[NAME]`, `[FIRMA]`, `[PROGRAM]`, `[MOJE JMÉNO]`, `[FUNKCE]`, `[TERMÍN]` | doplníte podle adresáta |
 
-Odkazy na web: kalkulačka `[WEB]/kalkulacka/`, offline verze `[WEB]/cirus-origin-kalkulacka-offline.html`, metodika `[WEB]/metodika.html`, nabídka `[WEB]/nabidka.html` (EN `[WEB]/en/offer.html`), ochrana dat `[WEB]/ochrana-dat.html`, šablony `[WEB]/sablony/`.
+Odkazy na web: kalkulačka `[WEB]/origin/kalkulacka/`, offline verze `[WEB]/origin/cirus-origin-kalkulacka-offline.html`, metodika `[WEB]/origin/metodika.html`, nabídka `[WEB]/origin/nabidka.html` (EN `[WEB]/origin/en/offer.html`), ochrana dat `[WEB]/origin/ochrana-dat.html`, šablony `[WEB]/origin/sablony/`.
 
 ## Než pošlete první zprávu
 
 - [ ] V `config.json` doplněné všechny položky `[DOPLNIT: …]`, web nasazený, odkazy výše fungují.
 - [ ] Funkční e-mail na doméně `[WEB]` s podpisem (jméno, `[BRAND]`, `[WEB]`, `[PHONE]`).
 - [ ] Profil na LinkedInu: jedna věta o pravidle 35 % a odkaz na kalkulačku.
-- [ ] Vytištěná nabídka z `[WEB]/nabidka.html` (A4) a vizitky s QR kódem na kalkulačku.
+- [ ] Vytištěná nabídka z `[WEB]/origin/nabidka.html` (A4) a vizitky s QR kódem na kalkulačku.
 - [ ] `objednavka-vzor.md` prošel právník, máme připravenou verzi k podpisu.
 - [ ] Rozjednaný celní specialista pro sporná určení původu a ověřené pojištění profesní odpovědnosti.
 - [ ] Jednoduchá evidence kontaktů (tabulka): organizace, role, kanál, datum, stav, další krok.
