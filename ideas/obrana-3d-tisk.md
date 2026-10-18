@@ -1,5 +1,9 @@
 # Obrana + 3D tisk: co s tím můžeme udělat
 
+> **Aktualizace 18. 10. 2026:** Hlubší průzkum ukázal, že nápad č. 1 v této podobě neobstojí. Prusa už prodává tiskárny bez sítě
+> a zdarma nabízí vlastní offline server Prusa Connect Local a konkurence pro armády existuje. Aktuální doporučení je v
+> [software-nejdriv.md](software-nejdriv.md).
+
 *Podklad k tátově zprávě a článku Sinopsis „Jak Čína tiskne budoucnost“ (říjen 2026). Stav k 18. 10. 2026.*
 
 ## Shrnutí
